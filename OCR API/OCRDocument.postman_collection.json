@@ -1,0 +1,308 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OCR Document",
+		"_postman_id": "2ad033f0-2d86-1b32-ac1e-9fbf41402aaf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandbox_id\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"response is empty\"] = responseBody === \"\";",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"SandboxID\": \"{{sandbox_id}}\",\n        \"Users\": [\n            {\n                \"UserId\": \"645af800-8c97-4f47-b489-6b9d7b05b86d\",\n                \"Username\": \"User1\",\n                \"ProviderId\": \"NBG.gr\",\n                \"Provider\": \"NBG\",\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"MemberId\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\"\n            },\n            {\n                \"UserId\": \"4f2b0290-0f71-4ee0-82ca-578db883be5e\",\n                \"Username\": \"User2\",\n                \"ProviderId\": \"NBG.gr\",\n                \"Provider\": \"NBG\",\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"MemberId\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\"\n            }\n        ],\n        \"SocialNetworks\": [\n            {\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"SocialNetworkName\": \"NBG Social Network\",\n                \"SocialNetworkDescription\": \"NBG Social Network\",\n                \"SocialNetworkOwner\": \"Network Owner\",\n                \"Status\": \"Active\",\n                \"SocialNetworkMembers\": [\n                    {\n                        \"MemberId\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                        \"Status\": \"Active\",\n                        \"FirstName\": \"Γιώργος\",\n                        \"LastName\": \"Γεωργίου\",\n                        \"Alias\": \"Best Member\",\n                        \"Avatar\": \"\",\n                        \"IsVerified\": true,\n                        \"Identity\": \"6979876543\",\n                        \"IdentityType\": \"Mobile\",\n                        \"IdentityStatus\": \"Active\",\n                        \"SocialNetworkPosts\": [\n                            {\n                                \"PostId\": \"c58c9943-607c-435b-80dc-c59b2325b4c1\",\n                                \"Timestamp\": \"2018-03-22T10:36:05.970Z\",\n                                \"Content\": \"First post\",\n                                \"Status\": \"Posted\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-03-22T12:36:05.970Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkMessages\": [\n                            {\n                                \"MessageId\": \"28bb7ac1-6db9-4d9e-b45f-df307c1e3a34\",\n                                \"Timestamp\": \"2018-03-20T13:36:05.970Z\",\n                                \"Source\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                                \"Destination\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Content\": \"Γεια σου Αθανασία!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-03-22T11:36:05.970Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkContacts\": [\n                            {\n                                \"ContactId\": \"bd255ab5-dc94-4d80-82e7-e58a156e2e9a\",\n                                \"Identity\": \"+6912345678\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Pending\",\n                                \"ContactStatus\": \"Uploaded\",\n                                \"ContactType\": \"Friend\",\n                                \"IsVerified\": false,\n                                \"MemberId\": null\n                            },\n                            {\n                                \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Identity\": \"6123654987\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Active\",\n                                \"ContactStatus\": \"Registered\",\n                                \"ContactType\": \"Colleague\",\n                                \"IsVerified\": true,\n                                \"MemberId\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\"\n                            }\n                        ]\n                    },\n                    {\n                        \"MemberId\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\",\n                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                        \"Status\": \"Active\",\n                        \"FirstName\": \"Αθανασία\",\n                        \"LastName\": \"Παπαφλέσσα\",\n                        \"Alias\": \"VIP Member\",\n                        \"Avatar\": \"\",\n                        \"IsVerified\": true,\n                        \"Identity\": \"6123654987\",\n                        \"IdentityType\": \"Mobile\",\n                        \"IdentityStatus\": \"Active\",\n                        \"SocialNetworkPosts\": [\n                            {\n                                \"PostId\": \"4728aecf-da13-4583-b055-5effcec02ad0\",\n                                \"Timestamp\": \"2018-03-22T11:36:05.970Z\",\n                                \"Content\": \"post!!\",\n                                \"Status\": \"Posted\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-03-22T12:36:05.970Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkMessages\": [\n                            {\n                                \"MessageId\": \"93bca2da-bfc8-4f11-800a-eec1aa54784c\",\n                                \"Timestamp\": \"2018-03-22T12:36:05.970Z\",\n                                \"Source\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\",\n                                \"Destination\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                \"Content\": \"Γεια σου και εσένα Γιώργο! Συγνώμη για την αργοπορημένη απάντησή μου!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-03-22T13:36:05.970Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkContacts\": [\n                            {\n                                \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                \"Identity\": \"6979876543\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Active\",\n                                \"ContactStatus\": \"Registered\",\n                                \"ContactType\": \"Colleague\",\n                                \"IsVerified\": true,\n                                \"MemberId\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user3\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OCR Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Get info",
+					"request": {
+						"url": "{{root_url}}/OcrDocument/getInfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t  \"documentTypeId\": \"1782d81f-5ac0-4a71-ae44-97cf1b6f348d\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Upload document",
+					"request": {
+						"url": "{{root_url}}/OcrDocument/uploadDocument",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t   \"declaredDocumentType\": \"1782d81f-5ac0-4a71-ae44-97cf1b6f348d\",\n    \"initialDocumentFormat\": \"string\",\n    \"initialDocumentName\": \"string\",\n    \"isMultiPage\": true\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

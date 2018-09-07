@@ -1,0 +1,862 @@
+{
+	"variables": [],
+	"info": {
+		"name": "iOpen Api Sandbox Scenarios",
+		"_postman_id": "7e69d8b6-10ad-a47d-9b9a-ca588500ae9f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Initialize sandbox",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandbox_id\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Banks",
+					"request": {
+						"url": "{{root_url}}/banks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"url": "{{root_url}}/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Accounts",
+			"description": "",
+			"item": [
+				{
+					"name": "All Banks Private Accounts",
+					"request": {
+						"url": "{{root_url}}/my/accounts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Bank Public Accounts",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/public",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Bank Private Accounts",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/private",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Account Core",
+					"request": {
+						"url": "{{root_url}}/my/banks/{{bank_id}}/accounts/{{account_id}}/account",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Account Full",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/account",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Permitted Accounts",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Account and View",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{new_account_id}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account_routing\": [\r\n    {\r\n      \"scheme\": \"a\",\r\n      \"address\": \"b\"\r\n    }\r\n  ],\r\n  \"label\": \"Test Account\",\r\n  \"balance\": {\r\n    \"currency\": \"EUR\",\r\n    \"amount\": \"1000\"\r\n  },\r\n  \"user_id\": \"{{user_id}}\",\r\n  \"type\": \"CURRENT\",\r\n  \"branch_id\": \"{{branch_id}}\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create View",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{new_account_id}}/views",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{privateView2Account1}}\",\r\n  \"description\": \"{{privateView2Account1}}\",\r\n  \"hide_metadata_if_alias_used\": true,\r\n  \"which_alias_to_use\": \"ViewToUser2\",\r\n  \"isPublic\": false,\r\n  \"allowed_actions\": [\r\n    \"can_see_bank_account_balance\"\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Access to View",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{new_account_id}}/permissions/{{provider_id}}/{{user2_id}}/views/{{privateView2Account1}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Account Permissions",
+					"request": {
+						"url": " {{root_url}}/banks/{{bank_id}}/accounts/{{new_account_id}}/permissions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Make a payment",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Counterparty",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/counterparties",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ΛΟΓΑΡΙΑΣΜΟΣ ΜΙΣΘΟΔΟΣΙΑΣ\",\r\n  \"other_account_routing_scheme\": \"IBAN\",\r\n  \"other_account_routing_address\": \"GR1234567891234567890123456\",\r\n  \"other_bank_routing_scheme\": \"BIC\",\r\n  \"other_bank_routing_address\": \"ETHNGRAA\",\r\n  \"other_branch_routing_scheme\": \"BranchID\",\r\n  \"other_branch_routing_adress\": \"{{branch_id}}\",\r\n  \"is_beneficiary\": true\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Other Accounts Of One Account",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/other_accounts/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Counterparty",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/other_accounts/{{other_account_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction Request (SEPA)",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/transaction-request-types/sepa/transaction-requests",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"to\": {\r\n    \"iban\": \"GR1234567891234567890123456\"\r\n  },\r\n  \"charge_policy\": \"SHARED\",\r\n  \"value\": {\r\n    \"currency\": \"EUR\",\r\n    \"amount\": 1100\r\n  },\r\n  \"description\": \"ΜΕΤΑΦΟΡΑ\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Resolve Challenge",
+					"request": {
+						"url": "{{root_url}}/banks/{{bank_id}}/accounts/{{account_id}}/{{view_id}}/transaction-request-types/sepa/transaction-requests/{{transaction_request_id}}/challenge",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{challenge_id}}\",\r\n  \"answer\": 12345\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions for Account (Core)",
+					"request": {
+						"url": "{{root_url}}/my/banks/{{bank_id}}/accounts/{{account_id}}/transactions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
