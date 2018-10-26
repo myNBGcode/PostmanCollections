@@ -1865,7 +1865,7 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n\t\"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/BillPayments/dailyTransactions",
+							"raw": "{{root_url}}/Payments/dailyTransactions",
 							"host": [
 								"{{root_url}}"
 							],
