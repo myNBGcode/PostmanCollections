@@ -549,12 +549,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{user2Fullname}}\",\r\n      \"ibUserId\": \"{{user_id2}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{user2AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{user2Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/pay",
+									"raw": "{{root_url}}/Payments/pay",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"pay"
 									]
 								}
@@ -618,12 +618,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"cancelPaymentIdentification\": {\r\n      \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/cancelPayment",
+									"raw": "{{root_url}}/Payments/cancelPayment",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"cancelPayment"
 									]
 								}
@@ -687,12 +687,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"PaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/status",
+									"raw": "{{root_url}}/Payments/status",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"status"
 									]
 								}
@@ -767,12 +767,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdEydap}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeEydap}}\",\r\n      \t\"CUSTOMER_NAME\" : \"{{user2Fullname}}\",\r\n      \t\"EXPIRATION_DATE\" : \"20180120\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 31.12,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{user2Fullname}}\",\r\n      \"ibUserId\": \"{{user_id2}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{user2AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{user2Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/pay",
+									"raw": "{{root_url}}/Payments/pay",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"pay"
 									]
 								}
@@ -836,12 +836,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"cancelPaymentIdentification\": {\r\n      \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/cancelPayment",
+									"raw": "{{root_url}}/Payments/cancelPayment",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"cancelPayment"
 									]
 								}
@@ -905,12 +905,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"PaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/status",
+									"raw": "{{root_url}}/Payments/status",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"status"
 									]
 								}
@@ -987,12 +987,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdCarTax}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{CAR_TAX_RETRIEVE_PAYMENT_CODE}}\",\r\n      \"input\": { \r\n\t\t\t\"taxId\" : \"139181071\",\r\n\t\t\t\"licensePlate\" : \"IMN9013\",\r\n\t\t\t\"year\" : \"2018\",\r\n\t\t\t\"isCaravan\": \"0\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/executePreprocessStep",
+									"raw": "{{root_url}}/Payments/executePreprocessStep",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"executePreprocessStep"
 									]
 								}
@@ -1061,12 +1061,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdCarTax}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\": \"{{PAYMENT_CODE}}\",\r\n      \t\"AUX_PAYMENT_CODE\": \"{{AUX_PAYMENT_CODE}}\",\r\n      \t\"AUX2_PAYMENT_CODE\": \"123456\",\r\n      \t\"DEBTOR_TAX_ID\": \"{{DEBTOR_TAX_ID}}\",\r\n      \t\"AR_ENTYPOY\": \"IMN9013\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": \"{{CAR_TAX_AMOUNT}}\",\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{user2Fullname}}\",\r\n      \"ibUserId\": \"{{user_id2}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{user2AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{user2Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/pay",
+									"raw": "{{root_url}}/Payments/pay",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"pay"
 									]
 								}
@@ -1130,12 +1130,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"PaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/status",
+									"raw": "{{root_url}}/Payments/status",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"status"
 									]
 								}
@@ -1205,12 +1205,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_RETRIEVE_ALL_TYPES}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\" : \"el\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/executePreprocessStep",
+									"raw": "{{root_url}}/Payments/executePreprocessStep",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"executePreprocessStep"
 									]
 								}
@@ -1278,12 +1278,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_GET_USER}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\" : \"el\",\r\n\t\t\t\"taxId\": \"139181071\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/executePreprocessStep",
+									"raw": "{{root_url}}/Payments/executePreprocessStep",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"executePreprocessStep"
 									]
 								}
@@ -1352,12 +1352,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_CREATE_SHORT}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\": \"el\",\r\n\t\t\t\"taxId\": \"139181071\",\r\n\t\t\t\"typeCode\": \"7432\",\r\n\t\t\t\"amount\": 9,\r\n\t\t\t\"firstName\": \"{{EPARAVOLO_GET_USER_FIRSTNAME}}\",\r\n\t\t\t\"lastName\": \"{{EPARAVOLO_GET_USER_LASTNAME}}\",\r\n\t\t\t\"fatherName\": \"{{EPARAVOLO_GET_USER_FATHERNAME}}\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/executePreprocessStep",
+									"raw": "{{root_url}}/Payments/executePreprocessStep",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"executePreprocessStep"
 									]
 								}
@@ -1426,12 +1426,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n\t\t\"PAYMENT_CODE\":\"{{PAYMENT_CODE}}\",\r\n\t\t\"DEBTOR_TAX_ID\" : \"{{DEBTOR_TAX_ID}}\",\r\n\t\t\"AUX_PAYMENT_CODE\" : \"{{AUX_PAYMENT_CODE}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": \"{{EPARAVOLO_AMOUNT}}\",\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{user2Fullname}}\",\r\n      \"ibUserId\": \"{{user_id2}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{user2AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{user2Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/pay",
+									"raw": "{{root_url}}/Payments/pay",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"pay"
 									]
 								}
@@ -1495,12 +1495,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"PaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/status",
+									"raw": "{{root_url}}/Payments/status",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"status"
 									]
 								}
@@ -1575,12 +1575,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDoy}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDoy}}\",\r\n      \t\"DEBTOR_TAX_ID\": \"{{DEBTOR_TAX_ID}}\",\r\n      \t\"AUX_PAYMENT_CODE\": \"{{AUX_PAYMENT_CODE}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{user2Fullname}}\",\r\n      \"ibUserId\": \"{{user_id2}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{user2AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{user2Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/pay",
+									"raw": "{{root_url}}/Payments/pay",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"pay"
 									]
 								}
@@ -1644,12 +1644,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"cancelPaymentIdentification\": {\r\n      \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/cancelPayment",
+									"raw": "{{root_url}}/Payments/cancelPayment",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"cancelPayment"
 									]
 								}
@@ -1713,12 +1713,12 @@
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"PaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
 								},
 								"url": {
-									"raw": "{{root_url}}/BillPayments/status",
+									"raw": "{{root_url}}/Payments/status",
 									"host": [
 										"{{root_url}}"
 									],
 									"path": [
-										"BillPayments",
+										"Payments",
 										"status"
 									]
 								}
@@ -1785,12 +1785,12 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id2}}\",\r\n    \"requestMachineId\": \"DemoSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/BillPayments/paymentsList",
+							"raw": "{{root_url}}/Payments/paymentsList",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"BillPayments",
+								"Payments",
 								"paymentsList"
 							]
 						}
@@ -1934,12 +1934,12 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n  \t\"paymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n      \"endtoendId\": \"{{endtoendId}}\",\r\n      \"txId\": \"{{txId}}\",\r\n      \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"requestMachineId\": \"{{requestMachineId}}\",\r\n\t\"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/BillPayments/lastPaymentTransactionDetails",
+							"raw": "{{root_url}}/Payments/lastPaymentTransactionDetails",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"BillPayments",
+								"Payments",
 								"lastPaymentTransactionDetails"
 							]
 						}
