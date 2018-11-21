@@ -3,6 +3,7 @@ See bellow the complete list of the Postman collection & environment JSON files 
 ```
 
 - Bill Payments API 
+- Crowdfunding API
 - Hackathon Postman files
 - ibank Pay API
 - OCR API
