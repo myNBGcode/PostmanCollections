@@ -1,0 +1,1131 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Crowdfunding API",
+		"_postman_id": "09e37330-0d32-e85d-daac-99208787a297",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"nottobeused\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"SandboxID\": \"test\",\n        \"Users\": [\n            {\n                \"name\": \"Λάμπης\",\n                \"surname\": \"Λαμπερός\",\n                \"phone\": \"2101234567\",\n                \"job\": \"Ιδ. Υπάλληλος\",\n                \"activity\": \"\",\n                \"afm\": \"075323700\",\n                \"doy\": \"ΠΑΛΛΗΝΗΣ\",\n                \"address\": \"Μαραθώνος 120\",\n                \"area\": \"ΠΑΛΛΗΝΗ\",\n                \"postal\": \"12345\",\n                \"state\": \"ΑΤΤΙΚΗΣ\",\n                \"phone_nomikou\": \"\",\n                \"email_nomikou\": \"\",\n                \"url\": \"\",\n                \"country\": \"ΕΛΛΑΔΑ\",\n                \"legal_status\": \"personal\",\n                \"userRole\": \"Backoffice\",\n                \"status\": \"Active\",\n                \"userId\": \"4735c448-bf3c-4d54-a81b-f5a95f116165\",\n                \"userName\": \"user1\",\n                \"email\": \"user1@test.gr\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\"\n            },\n            {\n                \"name\": \"ΟΜΙΛΟΣ ΤΥΧΑΙΟΣ\",\n                \"surname\": \"ΟΜΙΛΟΣ ΤΥΧΑΙΟΣ\",\n                \"phone\": \"2107654321\",\n                \"job\": \"\",\n                \"activity\": \"Εταιρεία εισαγωγών εξαγωγών\",\n                \"afm\": \"075323788\",\n                \"doy\": \"ΠΑΛΛΗΝΗΣ\",\n                \"address\": \"Τυχαίου 10-12\",\n                \"area\": \"ΠΑΛΛΗΝΗ\",\n                \"postal\": \"12345\",\n                \"state\": \"ΑΤΤΙΚΗΣ\",\n                \"phone_nomikou\": \"2108508934\",\n                \"email_nomikou\": \"info@info.info\",\n                \"url\": \"www.tixaios.info\",\n                \"country\": \"ΕΛΛΑΔΑ\",\n                \"legal_status\": \"business\",\n                \"userRole\": \"User\",\n                \"status\": \"Active\",\n                \"userId\": \"394b7853-d947-490e-b3fb-9ddda38abd57\",\n                \"userName\": \"user2\",\n                \"email\": \"user2@test.gr\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\"\n            },\n            {\n                \"name\": \"Τέλης\",\n                \"surname\": \"Παστέλης\",\n                \"phone\": \"2101234567\",\n                \"job\": \"Επιχειρηματιίας\",\n                \"activity\": \"\",\n                \"afm\": \"075345600\",\n                \"doy\": \"ΠΑΛΛΗΝΗΣ\",\n                \"address\": \"Μαραθώνος 123\",\n                \"area\": \"ΠΑΛΛΗΝΗ\",\n                \"postal\": \"12345\",\n                \"state\": \"ΑΤΤΙΚΗΣ\",\n                \"phone_nomikou\": \"\",\n                \"email_nomikou\": \"\",\n                \"url\": \"\",\n                \"country\": \"ΕΛΛΑΔΑ\",\n                \"legal_status\": \"personal\",\n                \"userRole\": \"Backoffice\",\n                \"status\": \"Active\",\n                \"userId\": \"86fd4e2e-4a5e-42b3-a5b1-e548ce110e10\",\n                \"userName\": \"MigrationUser\",\n                \"email\": \"MigrationUser@test.gr\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\"\n            }\n        ],\n        \"Accounts\": [\n            {\n                \"availableBalance\": 1500,\n                \"ledgerBalance\": 1500,\n                \"transactions\": [\n                    {\n                        \"amount\": -1500,\n                        \"ledgerBalance\": 3000,\n                        \"transactionDatetime\": \"2018-11-16T14:29:04.3130826Z\",\n                        \"timeStamp\": null,\n                        \"reasonCode\": 0,\n                        \"reasonDescription\": \"ΜΕΤΑΦΟΡΑ ΠΟΣΟΥ\",\n                        \"origin\": null,\n                        \"valeur\": \"2018-11-15T22:00:00Z\",\n                        \"currencyISO\": \"EUR\",\n                        \"reference\": \"ΠΡΟΣ ΛΟΓ. 123456789\",\n                        \"branch\": null,\n                        \"relatedAccount\": null\n                    },\n                    {\n                        \"amount\": -500,\n                        \"ledgerBalance\": 2500,\n                        \"transactionDatetime\": \"2018-11-16T14:29:04.3130826Z\",\n                        \"timeStamp\": null,\n                        \"reasonCode\": 0,\n                        \"reasonDescription\": \"ΜΕΤΑΦΟΡΑ ΠΟΣΟΥ\",\n                        \"origin\": null,\n                        \"valeur\": \"2018-11-15T22:00:00Z\",\n                        \"currencyISO\": \"EUR\",\n                        \"reference\": \"ΠΡΟΣ ΛΟΓ. 123456789\",\n                        \"branch\": null,\n                        \"relatedAccount\": null\n                    }\n                ],\n                \"accountId\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"accountNumber\": \"94200122540\",\n                \"iban\": \"GR6001109420000094200122540\",\n                \"currencyISO\": \"EUR\",\n                \"description\": \"Some description\",\n                \"status\": \"Active\"\n            },\n            {\n                \"availableBalance\": 15000,\n                \"ledgerBalance\": 15000,\n                \"transactions\": [],\n                \"accountId\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"accountNumber\": \"12345678952\",\n                \"iban\": \"GR4201101230000012345678952\",\n                \"currencyISO\": \"EUR\",\n                \"description\": \"Some description\",\n                \"status\": \"Active\"\n            }\n        ],\n        \"ActionData\": [\n            {\n                \"actionDataId\": \"d4467221-b801-44db-97e7-04f3e95147fe\",\n                \"actionShortName\": \"Action_sxolikageymatastimandra\",\n                \"actionName\": \"SXOLIKA GEYMATA STI MANDRA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-04-17T00:00:00Z\",\n                \"dateEnd\": \"2018-04-17T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 100000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [\n                    {\n                        \"userId\": \"4735c448-bf3c-4d54-a81b-f5a95f116165\",\n                        \"actionDataId\": \"d4467221-b801-44db-97e7-04f3e95147fe\",\n                        \"createdDate\": \"2018-11-16T14:29:04.3130826Z\",\n                        \"active\": true,\n                        \"updatedDate\": null\n                    },\n                    {\n                        \"userId\": \"394b7853-d947-490e-b3fb-9ddda38abd57\",\n                        \"actionDataId\": \"d4467221-b801-44db-97e7-04f3e95147fe\",\n                        \"createdDate\": \"2018-11-16T14:29:04.3130826Z\",\n                        \"active\": true,\n                        \"updatedDate\": null\n                    }\n                ],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 66472\n            },\n            {\n                \"actionDataId\": \"1023ed08-cfd6-430b-96b0-0e3748942474\",\n                \"actionShortName\": \"Action_mavraprovata\",\n                \"actionName\": \"MAVRA PROVATA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-11-02T00:00:00Z\",\n                \"dateEnd\": \"2018-11-02T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 98000,\n                \"status\": \"Completed\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 1965\n            },\n            {\n                \"actionDataId\": \"64413d6f-92e7-4a83-86fc-0e508f604643\",\n                \"actionShortName\": \"Action_athlitismosgiaolousfashb\",\n                \"actionName\": \"ATHLITISMOS GIA OLOUS FASH B\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2019-01-26T00:00:00Z\",\n                \"dateEnd\": \"2019-01-26T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 25000,\n                \"status\": \"Active\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 217\n            },\n            {\n                \"actionDataId\": \"43b307ac-2a28-4aca-8f98-1379f22c78a3\",\n                \"actionShortName\": \"Action_theatrotexniskaroloykoyn\",\n                \"actionName\": \"THEATRO TEXNIS KAROLOY KOYN\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2016-05-10T00:00:00Z\",\n                \"dateEnd\": \"2016-05-10T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 108176,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 108176\n            },\n            {\n                \"actionDataId\": \"e0efc331-064e-4c2e-a626-1c7a4ffb2977\",\n                \"actionShortName\": \"Action_boithisemenapaosxoleio\",\n                \"actionName\": \"BOITHISE ME NA PAO SXOLEIO\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-09-21T00:00:00Z\",\n                \"dateEnd\": \"2018-09-21T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 79000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 22001\n            },\n            {\n                \"actionDataId\": \"23576f1a-2f8f-4c7a-95d4-2d8a0e12af73\",\n                \"actionShortName\": \"Action_epikentro\",\n                \"actionName\": \"EPIKENTRO\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-05-18T00:00:00Z\",\n                \"dateEnd\": \"2018-05-18T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 40000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 40141\n            },\n            {\n                \"actionDataId\": \"dfd6ccf4-7816-49b2-9d48-3094879924b5\",\n                \"actionShortName\": \"Action_sxolikageymatastidattiki\",\n                \"actionName\": \"SXOLIKA GEYMATA STI D ATTIKI\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-05-31T00:00:00Z\",\n                \"dateEnd\": \"2017-05-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 600000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 459287\n            },\n            {\n                \"actionDataId\": \"88023c74-8257-4d03-afc2-3ce7c55f2b68\",\n                \"actionShortName\": \"Action_psifiakiplatforma1821\",\n                \"actionName\": \"PSIFIAKI PLATFORMA 1821\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-04-30T00:00:00Z\",\n                \"dateEnd\": \"2018-04-30T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 60000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 9610\n            },\n            {\n                \"actionDataId\": \"58c23e6f-4866-475e-ae3d-4f42cb0c73d9\",\n                \"actionShortName\": \"Action_kardiesgiaolous\",\n                \"actionName\": \"KARDIES GIA OLOUS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-05-09T00:00:00Z\",\n                \"dateEnd\": \"2018-05-09T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 100000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 56037\n            },\n            {\n                \"actionDataId\": \"37562e54-b3ae-4126-9abf-55d66ea032fc\",\n                \"actionShortName\": \"Action_animasyros9\",\n                \"actionName\": \"Animasyros 9\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-04-30T00:00:00Z\",\n                \"dateEnd\": \"2017-04-30T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 40000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 11895\n            },\n            {\n                \"actionDataId\": \"a700d98e-8a0c-46db-8cad-637d2310fdbd\",\n                \"actionShortName\": \"Action_theatrodasoys\",\n                \"actionName\": \"THEATRO DASOYS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-05-31T00:00:00Z\",\n                \"dateEnd\": \"2017-05-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 105000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 10307\n            },\n            {\n                \"actionDataId\": \"af75bb14-b4d4-4e6d-8d68-6915cee9637a\",\n                \"actionShortName\": \"Action_wildfireinattica\",\n                \"actionName\": \"Wildfire In Attica\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2019-07-26T00:00:00Z\",\n                \"dateEnd\": \"2019-07-26T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 1500000,\n                \"status\": \"Active\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 1217285\n            },\n            {\n                \"actionDataId\": \"7a246614-5713-4e14-a3ec-7b3edc277b5a\",\n                \"actionShortName\": \"Action_elpidagiatinypogennitikotita\",\n                \"actionName\": \"ELPIDA GIA TIN YPOGENNITIKOTITA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-08-14T00:00:00Z\",\n                \"dateEnd\": \"2018-08-14T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 21000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 751\n            },\n            {\n                \"actionDataId\": \"16d564a2-8014-4bb0-9d25-832e414bd4af\",\n                \"actionShortName\": \"Action_daneistikesbibliothikes\",\n                \"actionName\": \"DANEISTIKES BIBLIOTHIKES\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-12-31T00:00:00Z\",\n                \"dateEnd\": \"2017-12-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 35000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 5154\n            },\n            {\n                \"actionDataId\": \"9b5e2dfa-d625-48d2-a21f-89ca85acec04\",\n                \"actionShortName\": \"Action_kentrotisgis\",\n                \"actionName\": \"KENTRO TIS GIS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2019-01-30T00:00:00Z\",\n                \"dateEnd\": \"2019-01-30T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 50000,\n                \"status\": \"Active\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 115\n            },\n            {\n                \"actionDataId\": \"601b984d-d6f8-4eb2-9716-9842fccd9016\",\n                \"actionShortName\": \"Action_therapydogs\",\n                \"actionName\": \"THERAPY DOGS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2019-05-02T00:00:00Z\",\n                \"dateEnd\": \"2019-05-02T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 8000,\n                \"status\": \"Active\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 15\n            },\n            {\n                \"actionDataId\": \"faf6caf9-48a5-438a-9115-9b5140518975\",\n                \"actionShortName\": \"Action_psifiakoarxeio1821\",\n                \"actionName\": \"PSIFIAKO ARXEIO 1821\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2016-12-31T00:00:00Z\",\n                \"dateEnd\": \"2016-12-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 125000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 64317\n            },\n            {\n                \"actionDataId\": \"c76c070e-7520-4876-81cf-9e8ff246ef0c\",\n                \"actionShortName\": \"Action_noiazomaikdro\",\n                \"actionName\": \"NOIAZOMAI K DRO\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-06-30T00:00:00Z\",\n                \"dateEnd\": \"2018-06-30T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 70000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 26722\n            },\n            {\n                \"actionDataId\": \"3f0b2168-41d8-4506-a9b0-a36a78a942d0\",\n                \"actionShortName\": \"Action_sxolikageymata2015-2016\",\n                \"actionName\": \"SXOLIKA GEYMATA 2015 - 2016\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2016-06-15T00:00:00Z\",\n                \"dateEnd\": \"2016-06-15T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 860000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 340549\n            },\n            {\n                \"actionDataId\": \"6d237389-1e79-43b3-8a17-a485f44efc0a\",\n                \"actionShortName\": \"Action_dasosdromeon\",\n                \"actionName\": \"DASOS DROMEON\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-12-20T00:00:00Z\",\n                \"dateEnd\": \"2018-12-20T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 300000,\n                \"status\": \"Active\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 1357\n            },\n            {\n                \"actionDataId\": \"ce3e050e-61f3-4c8d-a627-aa8653030e82\",\n                \"actionShortName\": \"Action_sxgeymatasetrikala-kabala\",\n                \"actionName\": \"SX GEYMATA SE TRIKALA-KABALA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-06-02T00:00:00Z\",\n                \"dateEnd\": \"2017-06-02T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 586000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 445601\n            },\n            {\n                \"actionDataId\": \"b4b2feab-3bb8-4de7-b8c5-b779d072d7fc\",\n                \"actionShortName\": \"Action_arxaiotheatrokassopis\",\n                \"actionName\": \"ARXAIO THEATRO KASSOPIS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2016-12-19T00:00:00Z\",\n                \"dateEnd\": \"2016-12-19T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 80000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 80580\n            },\n            {\n                \"actionDataId\": \"514de1cf-a70b-4085-aec4-c83c0894d55a\",\n                \"actionShortName\": \"Action_iliahtidazois\",\n                \"actionName\": \"ILIAHTIDA ZOIS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-04-12T00:00:00Z\",\n                \"dateEnd\": \"2018-04-12T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 32000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 1226\n            },\n            {\n                \"actionDataId\": \"902a2989-7aa8-4b14-8b51-ca23ef86cbb5\",\n                \"actionShortName\": \"Action_protypipaidikixara\",\n                \"actionName\": \"PROTYPI   PAIDIKI XARA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-06-30T00:00:00Z\",\n                \"dateEnd\": \"2017-06-30T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 47000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 49980\n            },\n            {\n                \"actionDataId\": \"ecf0c56d-5fae-4708-9afc-d4958b9dacd9\",\n                \"actionShortName\": \"Action_perithalpsisenisia\",\n                \"actionName\": \"PERITHALPSI SE NISIA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2016-07-31T00:00:00Z\",\n                \"dateEnd\": \"2016-07-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 136736,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 127107\n            },\n            {\n                \"actionDataId\": \"1b106f09-a4a2-44e9-9db2-effce88d1db6\",\n                \"actionShortName\": \"Action_theatroallhleggyhs\",\n                \"actionName\": \"THEATRO ALLHLEGGYHS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-08-31T00:00:00Z\",\n                \"dateEnd\": \"2017-08-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 64000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 621\n            },\n            {\n                \"actionDataId\": \"eec58b6d-0921-4d93-827a-f0b4498defa2\",\n                \"actionShortName\": \"Action_athlitismosgiaoloys\",\n                \"actionName\": \"ATHLITISMOS GIA OLOYS\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-03-31T00:00:00Z\",\n                \"dateEnd\": \"2018-03-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 25000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 25000\n            },\n            {\n                \"actionDataId\": \"81ea8071-1970-4b0c-9baa-f242cfa42650\",\n                \"actionShortName\": \"Action_stirizoymeiatrikifrontida\",\n                \"actionName\": \"STIRIZOYME IATRIKI FRONTIDA\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2017-10-31T00:00:00Z\",\n                \"dateEnd\": \"2017-10-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 24000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 10213\n            },\n            {\n                \"actionDataId\": \"8ecffa62-8e54-453f-90cb-fa0d76021ed9\",\n                \"actionShortName\": \"Action_yougoculture\",\n                \"actionName\": \"YouGoCulture\",\n                \"accountKey\": \"ece26104-ce1b-4c2d-829b-5d01dd921f48\",\n                \"cardsAccountKey\": \"e2554977-c1d1-47c0-8c9b-f493a2a88263\",\n                \"dateStart\": \"2018-03-31T00:00:00Z\",\n                \"dateEnd\": \"2018-03-31T00:00:00Z\",\n                \"offsetAmount\": 0,\n                \"targetAmount\": 65000,\n                \"status\": \"Expired\",\n                \"newsletterUsers\": [],\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"publicAmount\": 42885\n            }\n        ],\n        \"DonationPromises\": [\n            {\n                \"donationPromiseId\": \"7aa8afb2-fe45-42dc-9eb2-f26c9dd06795\",\n                \"actionKey\": \"d4467221-b801-44db-97e7-04f3e95147fe\",\n                \"categoryMoneyFound\": \"\",\n                \"donationTime\": \"2018-11-16T14:29:04.3130826Z\",\n                \"payType\": \"Card\",\n                \"publish\": true,\n                \"theChallenge\": \"52539775\",\n                \"transactionKey\": \"3400900052539775\",\n                \"transactionReceiptKey\": \"\",\n                \"userKey\": \"4735c448-bf3c-4d54-a81b-f5a95f116165\",\n                \"xpAmount\": 100,\n                \"status\": \"Paid_Matched_Datacash\",\n                \"displayName\": \"\"\n            },\n            {\n                \"donationPromiseId\": \"9bb4f5ca-ea18-451e-8674-c39a119dff8f\",\n                \"actionKey\": \"af75bb14-b4d4-4e6d-8d68-6915cee9637a\",\n                \"categoryMoneyFound\": \"\",\n                \"donationTime\": \"2018-11-16T14:37:41.2298613Z\",\n                \"payType\": \"hinpoje\",\n                \"publish\": false,\n                \"theChallenge\": \"82727931\",\n                \"transactionKey\": \"3400900074093923\",\n                \"transactionReceiptKey\": \"\",\n                \"userKey\": \"4735c448-bf3c-4d54-a81b-f5a95f116165\",\n                \"xpAmount\": 10.7732916,\n                \"status\": \"Paid_Matched_Datacash\",\n                \"displayName\": \"Rachel Welch\"\n            }\n        ],\n        \"ThematicAreas\": [\n            {\n                \"thematicAreaId\": \"f809d828-735b-4651-a22e-ca05f3af9410\",\n                \"shortName\": \"ResearchEducationAndTraining\",\n                \"name\": \"Research, Education and Training\",\n                \"description\": \"Supporting research and lifelong education and training is a foundation stone for the progress and development for our society. act4Greece supports research programs and education and lifelong training projects that open up new horizons of knowledge, make the world of information and technology more easily accessible, generate the interest of those receiving the education, ensure the sound quality of the knowledge imparted, enable the acquisition of skills, and generate opportunities for work and further professional, economic, social and personal development.\",\n                \"logoUrl\": \"https://www.act4greece.gr/wp-content/uploads/2016/08/research4.png\",\n                \"status\": \"Active\",\n                \"actions\": [\n                    {\n                        \"actionDataId\": \"d4467221-b801-44db-97e7-04f3e95147fe\",\n                        \"shortName\": \"Action_sxolikageymatastimandra\"\n                    }\n                ]\n            }\n        ],\n        \"ContactUsEntries\": [\n            {\n                \"contactUsId\": \"f5008500-69aa-4fee-b768-74ace98df755\",\n                \"surname\": \"Λαμπερός\",\n                \"firstname\": \"Λάμπης\",\n                \"email\": \"user1@test.gr\",\n                \"message\": \"Δοκιμαστικό μήνυμα για τις ανάγκες του sandbox.\",\n                \"createdDate\": \"2018-11-16T14:29:04.3130826Z\"\n            },\n            {\n                \"contactUsId\": \"81f7d264-027c-47de-a674-6eb1c8854aea\",\n                \"surname\": \"Παστέλης\",\n                \"firstname\": \"Τέλης\",\n                \"email\": \"user3@test.gr\",\n                \"message\": \"Δοκιμαστικό μήνυμα για τις ανάγκες του sandbox...\",\n                \"createdDate\": \"2018-11-16T14:29:04.3130826Z\"\n            },\n            {\n                \"contactUsId\": \"e5b0209a-0b07-4839-9e4a-71d7bb1f6027\",\n                \"surname\": \"Phoebe Thomas\",\n                \"firstname\": \"Jordan\",\n                \"email\": \"zarwakwa@fulebapo.tf\",\n                \"message\": \"41\",\n                \"createdDate\": \"2018-11-16T14:42:42.6627965Z\"\n            }\n        ],\n        \"Merchants\": [\n            {\n                \"merchantDataId\": \"943ec6ba-a14a-408a-8e83-b93a7ba8888c\",\n                \"merchantId\": \"7003749\",\n                \"merchantName\": \"Merchant Gia Test.\",\n                \"username\": \"88121114\",\n                \"password\": \"vtaI/fGundodNrkUt7CdQw==\",\n                \"status\": \"Active\",\n                \"merchantUrl\": \"www.nbg.gr\",\n                \"required3DSecure\": false\n            }\n        ],\n        \"Alerts\": [\n            {\n                \"alertId\": \"1e0c3854-1a5a-42fd-99d2-237ef700b43d\",\n                \"name\": \"Alert name\",\n                \"type\": \"Red\",\n                \"description\": \"Alert description\",\n                \"tags\": \"tags\",\n                \"sourceType\": \"UI\",\n                \"sourceClient\": \"7d58d41b-c2cc-4152-aab7-144f795a5d92\",\n                \"sourceDescription\": \"515157cc-bec3-4e5c-84f5-4b333027e465\",\n                \"insertDate\": \"2018-11-16T14:29:04.3130826Z\",\n                \"insertedByUserId\": \"4735c448-bf3c-4d54-a81b-f5a95f116165\"\n            }\n        ]\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserId\": \"sandboxUser42\",\r\n    \"UserName\": \"user4\",\r\n    \"Email\": \"user3@nbg.gr\",\r\n    \"ProviderId\": \"NBG.gr\",\r\n    \"Provider\": \"NBG\",\r\n    \"name\": \"Φώτης\",\r\n    \"surname\": \"Φωτεινός\",\r\n    \"phone\": \"2114567898\",\r\n    \"job\": \"Υπάλληλος\",\r\n    \"activity\": \"\",\r\n    \"afm\": \"5345435434\",\r\n    \"doy\": \"ΑΘΗΝΩΝ\",\r\n    \"address\": \"Ακαδημίας 22\",\r\n    \"area\": \"ΑΘΗΝΑ\",\r\n    \"postal\": \"43345\",\r\n    \"state\": \"Αττικής\",\r\n    \"phone_nomikou\": \"\",\r\n    \"email_nomikou\": \"\",\r\n    \"url\": \"\",\r\n    \"country\": \"Ελλάδα\",\r\n    \"legal_status\": \"personal\",\r\n    \"isBlocked\": false,\r\n    \"userRole\": \"User\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create transfer",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/account/transfer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 5.5,\r\n  \"WithCompleteDepositDonation\": \"5162dc4e-3856-4c1e-bb44-17b20649473e\",\r\n  \"WithAction\": \"af75bb14-b4d4-4e6d-8d68-6915cee9637a\",\r\n  \"fromAccountIBAN\": \"GR4201101230000012345678952\",\r\n  \"toAccountIBAN\": \"GR6001109420000094200122540\",\r\n  \"description\": \"ΠΛΗΡΩΜΗ\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Get account details",
+					"request": {
+						"url": "{{root_url}}/accounts/ece26104-ce1b-4c2d-829b-5d01dd921f48",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CMS Content",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Content",
+					"description": "",
+					"item": [
+						{
+							"name": "Get drupal content (Greek)",
+							"request": {
+								"url": "{{root_url}}/cmscontent/content/el/926",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get drupal content (English)",
+							"request": {
+								"url": "{{root_url}}/cmscontent/content/en/926",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get All Tags",
+					"request": {
+						"url": "{{root_url}}/cmscontent/tags",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nodes for a tag",
+					"request": {
+						"url": "{{root_url}}/cmscontent/tags/el/Action_wildfireinattica",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "External Data",
+			"description": "",
+			"item": [
+				{
+					"name": "Thematic Areas",
+					"description": "",
+					"item": [
+						{
+							"name": "Get all thematic areas",
+							"request": {
+								"url": "{{root_url}}/externaldata/thematicareas",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get thematic area",
+							"request": {
+								"url": "{{root_url}}/externaldata/thematicareas/f809d828-735b-4651-a22e-ca05f3af9410",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Donation promises",
+					"description": "",
+					"item": [
+						{
+							"name": "Get donation promises for an action",
+							"request": {
+								"url": "{{root_url}}/externaldata/actiondata/af75bb14-b4d4-4e6d-8d68-6915cee9637a/donations",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get donation promises for user",
+							"request": {
+								"url": "{{root_url}}/externaldata/donations",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get donation promises for wall",
+							"request": {
+								"url": "{{root_url}}/externaldata/donations/wall",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "from_date",
+										"value": "01.01.2018",
+										"description": ""
+									},
+									{
+										"key": "to_date",
+										"value": "31.12.2018",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get donation promise",
+							"request": {
+								"url": "{{root_url}}/externaldata/actiondata/d4467221-b801-44db-97e7-04f3e95147fe/donations/7aa8afb2-fe45-42dc-9eb2-f26c9dd06795",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get donation promise Receipt",
+							"request": {
+								"url": "{{root_url}}/externaldata/actiondata/d4467221-b801-44db-97e7-04f3e95147fe/donations/7aa8afb2-fe45-42dc-9eb2-f26c9dd06795/receipt/el",
+								"method": "GET",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Post donation promise",
+							"request": {
+								"url": "{{root_url}}/externaldata/actiondata/af75bb14-b4d4-4e6d-8d68-6915cee9637a/donations",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username1}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "x-ibm-client-id",
+										"value": "{{x-ibm-client-id}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"payType\": \"Deposit\",\r\n  \"publish\": true,\r\n  \"xpAmount\": 5.5,\r\n  \"displayName\": \"Δοκιμή απο Postman 3\"\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get logged in user details",
+					"request": {
+						"url": "{{root_url}}/externaldata/users/info",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update newsletter user status",
+					"request": {
+						"url": "{{root_url}}/externaldata/actiondata/d4467221-b801-44db-97e7-04f3e95147fe/newsletterusers",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all actions",
+					"request": {
+						"url": "{{root_url}}/externaldata/actiondata",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get data for an action",
+					"request": {
+						"url": "{{root_url}}/externaldata/actiondata/af75bb14-b4d4-4e6d-8d68-6915cee9637a",
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register newsletter user",
+					"request": {
+						"url": "{{root_url}}/externaldata/actiondata/d4467221-b801-44db-97e7-04f3e95147fe/newsletterusers",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Contact us",
+					"request": {
+						"url": "{{root_url}}/externaldata/contactus",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"surname\": \"Φωτεινός\",\n    \"firstname\": \"Φώτης\",\n    \"email\": \"user5@test.gr\",\n    \"message\": \"Δοκιμαστικό μήνυμα απο postman\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Datacash",
+					"request": {
+						"url": "{{root_url}}/externaldata/actiondata/af75bb14-b4d4-4e6d-8d68-6915cee9637a/donations/7aa8afb2-fe45-42dc-9eb2-f26c9dd06795/datacash",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 100,\r\n    \"cardProduct\": {\r\n        \"type\": \"card\",\r\n        \"number\": \"5278900020308586\",\r\n        \"details\": {\r\n            \"cvv\": \"843\",\r\n            \"cardHolder\": \"Επωνυμία Επιχ.\",\r\n            \"expiryDate\": \"01/20\"\r\n        }\r\n    }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
