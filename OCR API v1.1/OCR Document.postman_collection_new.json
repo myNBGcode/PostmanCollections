@@ -14,7 +14,7 @@
 				{
 					"name": "Create Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox",
+						"url": "{{root_url}}/sandbox",
 						"method": "POST",
 						"header": [
 							{
@@ -45,7 +45,7 @@
 				{
 					"name": "Import Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
 						"method": "PUT",
 						"header": [
 							{
@@ -76,7 +76,7 @@
 				{
 					"name": "Export Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
 						"method": "GET",
 						"header": [
 							{
@@ -102,7 +102,7 @@
 				{
 					"name": "Delete Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -128,7 +128,7 @@
 				{
 					"name": "Create Sandbox User",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}/users",
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
 						"method": "POST",
 						"header": [
 							{
@@ -165,7 +165,7 @@
 				{
 					"name": "Get info",
 					"request": {
-						"url": "{{root_url}}/getInfo",
+						"url": "{{root_url}}/OcrDocument/getInfo",
 						"method": "POST",
 						"header": [
 							{
@@ -201,6 +201,12 @@
 							{
 								"key": "x-ibm-client-id",
 								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -215,7 +221,7 @@
 				{
 					"name": "Get info (total)",
 					"request": {
-						"url": "{{root_url}}/getInfo",
+						"url": "{{root_url}}/OcrDocument/getInfo",
 						"method": "POST",
 						"header": [
 							{
@@ -251,6 +257,12 @@
 							{
 								"key": "x-ibm-client-id",
 								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -265,7 +277,7 @@
 				{
 					"name": "Upload document",
 					"request": {
-						"url": "{{root_url}}/uploadDocument ",
+						"url": "{{root_url}}/OcrDocument/uploadDocument ",
 						"method": "POST",
 						"header": [
 							{
@@ -301,6 +313,12 @@
 							{
 								"key": "x-ibm-client-id",
 								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
