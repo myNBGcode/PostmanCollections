@@ -30,7 +30,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"sandbox_id\": \"24392478040711168\"\r\n}\r\n"
+							"raw": "{\r\n  \"sandbox_id\": \"{{sandbox_id}}\"\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -39,7 +39,7 @@
 				{
 					"name": "Import Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/2439278040711168",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
 						"method": "PUT",
 						"header": [
 							{
@@ -64,7 +64,7 @@
 				{
 					"name": "Export Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/2439278040711168",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
 						"method": "GET",
 						"header": [
 							{
