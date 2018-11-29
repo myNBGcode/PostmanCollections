@@ -23,6 +23,12 @@
 								"description": ""
 							},
 							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -30,7 +36,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"sandbox_id\": \"2439278040711168\"\r\n}\r\n"
+							"raw": "{\r\n  \"sandbox_id\": \"{{sandbox_id}}\"\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -39,13 +45,19 @@
 				{
 					"name": "Import Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/2439278040711168",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
 							},
 							{
 								"key": "Client-Id",
@@ -64,9 +76,15 @@
 				{
 					"name": "Export Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/2439278040711168",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
 						"method": "GET",
 						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
 							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
@@ -84,9 +102,15 @@
 				{
 					"name": "Delete Sandbox",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox/2439278040711168",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}",
 						"method": "DELETE",
 						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
 							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
@@ -104,13 +128,19 @@
 				{
 					"name": "Create Sandbox User",
 					"request": {
-						"url": "{{root_Sandboxurl}}/sandbox",
+						"url": "{{root_Sandboxurl}}/sandbox/{{sandbox_id}}/users",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
 							},
 							{
 								"key": "Client-Id",
@@ -120,7 +150,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{body.header.ID}}\",\r\n    \"application\": \"{{body.header.application}}\",\r\n     \"channel\":\"{{body.header.channel}}\"\r\n    },\r\n  \"payload\": {\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"username\": \"24392478040711168\"\r\n}\r\n"
 						},
 						"description": ""
 					},
@@ -150,7 +180,7 @@
 							},
 							{
 								"key": "user_id",
-								"value": "{{user_id}}",
+								"value": "{{user_id1}}",
 								"description": ""
 							},
 							{
@@ -160,7 +190,7 @@
 							},
 							{
 								"key": "username",
-								"value": "{{username}}",
+								"value": "{{username1}}",
 								"description": ""
 							},
 							{
@@ -169,8 +199,8 @@
 								"description": ""
 							},
 							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
 								"description": ""
 							}
 						],
@@ -219,8 +249,8 @@
 								"description": ""
 							},
 							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
 								"description": ""
 							}
 						],
@@ -269,8 +299,8 @@
 								"description": ""
 							},
 							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
 								"description": ""
 							}
 						],
