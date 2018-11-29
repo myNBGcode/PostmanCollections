@@ -28,7 +28,7 @@ Each action has one or more contents to display. For example the description of 
 > Visit https://developer.nbg.gr/documentation/crowdfunding-v1 for the full API documentation
 
 ### Real life Use Case Scenario
-Let's say that we want to create an application in which end users will make donations to two actions. The first action named 'Therapy dogs' has the purpose to raise €8000 in order to provide animal assisted therapy. The second action is the 'Help me go to school' and has the purpose to raise €30000 in order to purchase of a specialy modeified school bus for people with cerebral palcy.
+Let's say that we want to create an application in which end users will make donations to two actions. The first action named 'Therapy dogs' has the purpose to raise €8000 in order to provide animal assisted therapy. The second action is the 'Help me go to school' and has the purpose to raise €30000 in order to purchase a specialy modified school bus for people with cerebral palcy.
 
 Before starting developing our application, we should create our sandbox.
 > POST https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/sandbox
