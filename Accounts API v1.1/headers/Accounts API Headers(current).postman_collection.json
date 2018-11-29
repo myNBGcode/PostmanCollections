@@ -1,0 +1,1226 @@
+{
+	"info": {
+		"_postman_id": "a6afe77a-7a19-4f8c-9c30-e78302e3e715",
+		"name": "Accounts API Headers",
+		"description": "## **Introduction**\n\nWelcome to the NBG Accounts sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-accounts-api-v1**\n\n The Accounts API allows you to access the list of user accounts and account information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Accounts API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of the private or public accounts at all banks or at a specific bank \n - The account information by accountID (response optionally moderated by the viewID) \n2.\tUpdate the label of an account \n3.\tCreate an account at a bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Account sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "obp",
+			"item": [
+				{
+					"name": "Get Accounts at all Banks (Private)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "3bd3cd468abcb9da7272933d3be7cde5312a08970c96c5b78908c1888292550e",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "DF52EF05-F1F1-45A8-8245-DB8115FACF5B"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/my/accounts",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"my",
+								"accounts"
+							]
+						},
+						"description": "Get the private accounts at all banks (authenticated access). \r\nReturns the list of accounts containing private views for the authenticated user at all banks. For each account the API returns the ID and the available views.\r\nAuthentication is Mandatory."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Public Accounts at all Banks",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "3bd3cd468abcb9da7272933d3be7cde5312a08970c96c5b78908c1888292550e",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/accounts/public",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"accounts",
+								"public"
+							]
+						},
+						"description": "Get the public accounts at all banks (anonymous access). Returns the accounts that contain at least one public view (a view where is_public is true). \r\nFor each account the API returns the ID and the available views. Authentication is optional."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts at one Bank (Public and Private)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "22cc566220f3e6e140d4b1ccd1681918d98403401054307235d4e5dd0b0ed277",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer"
+							},
+							{
+								"key": "bank_id",
+								"value": "{{bank_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								}
+							]
+						},
+						"description": "Get the accounts at one bank that the user has access to (Authenticated or Anonymous access). Returns the list of accounts at BANK_ID that the user has access to. \r\nFor each account the API returns the account ID and the available views. If the user is not authenticated, the list will contain only the accounts providing public views.\r\nAuthentication is optional."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts at Bank (Public)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "3b62c486d7d9e1d01ae8a727cbe48bce2d1db8979fa738f1678d5d133aff9ed6",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "bank_id",
+								"value": "{{bank_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/public",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								"public"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								}
+							]
+						},
+						"description": "Returns the list of the public accounts (anonymous access) at BANK_ID. For each account the API returns the ID and the available views. Authentication via OAuth is not required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get private accounts at one bank",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "f0f0f22acbb4a31b2042343e2bc49580c731244449fc9055e42fba4f95aa142c",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "bank_id",
+								"value": "{{bank_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/private",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								"private"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								}
+							]
+						},
+						"description": "Returns the list of private (non-public) accounts at BANK_ID that the user has access to. For each account the API returns the ID and the available views. \r\nIf you want less information about the account, use the /my/accounts call.\r\nAuthentication is mandatory."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account by Id (Core)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "bd0f32180c28c5ef4c2f37cce2b0f936740bd770c9f57a07a309079908cdd8ea",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "bank_id",
+								"value": "{{bank_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/account",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"my",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								"account"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						},
+						"description": "Information returned about the account specified by ACCOUNT_ID. This call returns the owner view and requires access to that view."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Beneficiaries by Id",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "bd0f32180c28c5ef4c2f37cce2b0f936740bd770c9f57a07a309079908cdd8ea",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "bank_id",
+								"value": "{{bank_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"my",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								"beneficiaries"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						},
+						"description": "Information returned about the account specified by ACCOUNT_ID. This call returns the list of account's beneficiaries and requires access to the owner view."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account by Id (Full)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "cc3fa98f4dda8ff6732b0107d9e79ea4ac26c6a4e3ded0869a6e85d5b815a966",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{account_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"account"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Information returned about an account specified by ACCOUNT_ID as moderated by the view (VIEW_ID)."
+					},
+					"response": [
+						{
+							"name": "Get Account by Id (Full)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									},
+									{
+										"key": "view_id",
+										"value": "{{view_ id}}",
+										"type": "text"
+									},
+									{
+										"key": "account_id",
+										"value": "{{account_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost/obp.account.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/owner/account",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.account.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										"owner",
+										"account"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:13:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6440"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\",\n    \"label\": \"SandboxNBG\",\n    \"number\": \"97226400154\",\n    \"owners\": [\n        {\n            \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n            \"provider\": \"local\",\n            \"display_name\": \"sDoulfis\"\n        }\n    ],\n    \"type\": \"CURRENT\",\n    \"value\": {\n        \"currency\": \"EUR\",\n        \"amount\": \"100000\"\n    },\n    \"IBAN\": \"GR0901109720000097226400154\",\n    \"swift_bic\": \"ETHNGRAA\",\n    \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n    \"views_available\": [\n        {\n            \"is_public\": false,\n            \"id\": \"owner\",\n            \"short_name\": \"owner\",\n            \"description\": \"owner view\",\n            \"alias\": \"\",\n            \"hide_metadata_if_alias_used\": true,\n            \"can_add_comment\": true,\n            \"can_add_corporate_location\": true,\n            \"can_add_image\": true,\n            \"can_add_image_url\": true,\n            \"can_add_more_info\": true,\n            \"can_add_open_corporates_url\": true,\n            \"can_add_physical_location\": true,\n            \"can_add_private_alias\": true,\n            \"can_add_public_alias\": true,\n            \"can_add_tag\": true,\n            \"can_add_url\": true,\n            \"can_add_counterparty\": true,\n            \"can_add_where_tag\": true,\n            \"can_add_narrative\": true,\n            \"can_delete_comment\": true,\n            \"can_delete_corporate_location\": true,\n            \"can_delete_image\": true,\n            \"can_delete_physical_location\": true,\n            \"can_delete_tag\": true,\n            \"can_delete_where_tag\": true,\n            \"can_delete_narrative\": true,\n            \"can_delete_image_url\": true,\n            \"can_delete_public_alias\": true,\n            \"can_delete_private_alias\": true,\n            \"can_delete_more_info\": true,\n            \"can_delete_open_corporates_url\": true,\n            \"can_delete_url\": true,\n            \"can_edit_owner_comment\": true,\n            \"can_edit_where_tag\": true,\n            \"can_edit_narrative\": true,\n            \"can_edit_image_url\": true,\n            \"can_edit_public_alias\": true,\n            \"can_edit_private_alias\": true,\n            \"can_edit_physical_location\": true,\n            \"can_edit_corporate_location\": true,\n            \"can_edit_more_info\": true,\n            \"can_edit_open_corporates_url\": true,\n            \"can_edit_url\": true,\n            \"can_see_bank_account_balance\": true,\n            \"can_see_bank_account_bank_name\": true,\n            \"can_see_bank_account_currency\": true,\n            \"can_see_bank_account_iban\": true,\n            \"can_see_bank_account_label\": true,\n            \"can_see_bank_account_national_identifier\": true,\n            \"can_see_bank_account_number\": true,\n            \"can_see_bank_account_owners\": true,\n            \"can_see_bank_account_swift_bic\": true,\n            \"can_see_bank_account_type\": true,\n            \"can_see_comments\": true,\n            \"can_see_narrative\": true,\n            \"can_see_corporate_location\": true,\n            \"can_see_image_url\": true,\n            \"can_see_images\": true,\n            \"can_see_more_info\": true,\n            \"can_see_open_corporates_url\": true,\n            \"can_see_other_account_bank_name\": true,\n            \"can_see_other_account_iban\": true,\n            \"can_see_other_account_kind\": true,\n            \"can_see_other_account_metadata\": true,\n            \"can_see_other_account_national_identifier\": true,\n            \"can_see_other_account_number\": true,\n            \"can_see_other_account_swift_bic\": true,\n            \"can_see_owner_comment\": true,\n            \"can_see_physical_location\": true,\n            \"can_see_private_alias\": true,\n            \"can_see_public_alias\": true,\n            \"can_see_tags\": true,\n            \"can_see_transaction_amount\": true,\n            \"can_see_transaction_balance\": true,\n            \"can_see_transaction_currency\": true,\n            \"can_see_transaction_description\": true,\n            \"can_see_transaction_finish_date\": true,\n            \"can_see_transaction_metadata\": true,\n            \"can_see_transaction_other_bank_account\": true,\n            \"can_see_transaction_start_date\": true,\n            \"can_see_transaction_this_bank_account\": true,\n            \"can_see_transaction_type\": true,\n            \"can_see_url\": true,\n            \"can_see_where_tag\": true,\n            \"can_see_bank_routing_scheme\": true,\n            \"can_see_bank_routing_address\": true,\n            \"can_see_bank_account_routing_scheme\": true,\n            \"can_see_bank_account_routing_address\": true,\n            \"can_see_other_bank_routing_scheme\": true,\n            \"can_see_other_bank_routing_address\": true,\n            \"can_see_other_account_routing_scheme\": true,\n            \"can_see_other_account_routing_address\": true\n        },\n        {\n            \"is_public\": true,\n            \"id\": \"publicViewUser1\",\n            \"short_name\": \"publicView\",\n            \"description\": \"public view\",\n            \"alias\": \"\",\n            \"hide_metadata_if_alias_used\": false,\n            \"can_add_comment\": false,\n            \"can_add_corporate_location\": false,\n            \"can_add_image\": false,\n            \"can_add_image_url\": false,\n            \"can_add_more_info\": false,\n            \"can_add_open_corporates_url\": false,\n            \"can_add_physical_location\": false,\n            \"can_add_private_alias\": false,\n            \"can_add_public_alias\": false,\n            \"can_add_tag\": false,\n            \"can_add_url\": false,\n            \"can_add_counterparty\": false,\n            \"can_add_where_tag\": false,\n            \"can_add_narrative\": false,\n            \"can_delete_comment\": false,\n            \"can_delete_corporate_location\": false,\n            \"can_delete_image\": false,\n            \"can_delete_physical_location\": false,\n            \"can_delete_tag\": false,\n            \"can_delete_where_tag\": false,\n            \"can_delete_narrative\": false,\n            \"can_delete_image_url\": false,\n            \"can_delete_public_alias\": false,\n            \"can_delete_private_alias\": false,\n            \"can_delete_more_info\": false,\n            \"can_delete_open_corporates_url\": false,\n            \"can_delete_url\": false,\n            \"can_edit_owner_comment\": false,\n            \"can_edit_where_tag\": false,\n            \"can_edit_narrative\": false,\n            \"can_edit_image_url\": false,\n            \"can_edit_public_alias\": false,\n            \"can_edit_private_alias\": false,\n            \"can_edit_physical_location\": false,\n            \"can_edit_corporate_location\": false,\n            \"can_edit_more_info\": false,\n            \"can_edit_open_corporates_url\": false,\n            \"can_edit_url\": false,\n            \"can_see_bank_account_balance\": false,\n            \"can_see_bank_account_bank_name\": false,\n            \"can_see_bank_account_currency\": false,\n            \"can_see_bank_account_iban\": false,\n            \"can_see_bank_account_label\": false,\n            \"can_see_bank_account_national_identifier\": false,\n            \"can_see_bank_account_number\": false,\n            \"can_see_bank_account_owners\": false,\n            \"can_see_bank_account_swift_bic\": false,\n            \"can_see_bank_account_type\": false,\n            \"can_see_comments\": false,\n            \"can_see_narrative\": false,\n            \"can_see_corporate_location\": false,\n            \"can_see_image_url\": false,\n            \"can_see_images\": false,\n            \"can_see_more_info\": false,\n            \"can_see_open_corporates_url\": false,\n            \"can_see_other_account_bank_name\": false,\n            \"can_see_other_account_iban\": false,\n            \"can_see_other_account_kind\": false,\n            \"can_see_other_account_metadata\": false,\n            \"can_see_other_account_national_identifier\": false,\n            \"can_see_other_account_number\": false,\n            \"can_see_other_account_swift_bic\": false,\n            \"can_see_owner_comment\": false,\n            \"can_see_physical_location\": false,\n            \"can_see_private_alias\": false,\n            \"can_see_public_alias\": false,\n            \"can_see_tags\": false,\n            \"can_see_transaction_amount\": false,\n            \"can_see_transaction_balance\": false,\n            \"can_see_transaction_currency\": false,\n            \"can_see_transaction_description\": false,\n            \"can_see_transaction_finish_date\": false,\n            \"can_see_transaction_metadata\": false,\n            \"can_see_transaction_other_bank_account\": false,\n            \"can_see_transaction_start_date\": false,\n            \"can_see_transaction_this_bank_account\": false,\n            \"can_see_transaction_type\": false,\n            \"can_see_url\": false,\n            \"can_see_where_tag\": false,\n            \"can_see_bank_routing_scheme\": false,\n            \"can_see_bank_routing_address\": false,\n            \"can_see_bank_account_routing_scheme\": false,\n            \"can_see_bank_account_routing_address\": false,\n            \"can_see_other_bank_routing_scheme\": false,\n            \"can_see_other_bank_routing_address\": false,\n            \"can_see_other_account_routing_scheme\": false,\n            \"can_see_other_account_routing_address\": false\n        }\n    ],\n    \"account_routing\": [\n        {\n            \"scheme\": \"IBAN\",\n            \"address\": \"GR0901109720000097226400154\"\n        },\n        {\n            \"scheme\": \"AccountNumber\",\n            \"address\": \"97226400154\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Folder for obp"
+		},
+		{
+			"name": "sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "3bd3cd468abcb9da7272933d3be7cde5312a08970c96c5b78908c1888292550e",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"sandbox"
+							]
+						},
+						"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "f8b158510fed91703798296253f50a2ad6abf835b246ee82dcd04e770994b38b",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Export Sandbox data specified by sandbox id."
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"disabled": true
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Imports sandbox data specified by sandbox id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "1cac3dcba9e0840253813dc837352a6b1abbb78c708154d9020105b2eb621972",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "request_id",
+								"value": "79630C48-A172-4E6E-BE04-68FADE9CC520"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x_ibm_client_header}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{account_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Delete Sandbox specified by sandbox id."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for sandbox"
+		}
+	]
+}

@@ -1,0 +1,1991 @@
+{
+	"info": {
+		"_postman_id": "f62388ea-5f43-448f-9c87-ff596e920ae8",
+		"name": "Payments API Headers",
+		"description": "## **Introduction**\n\nWelcome to the NBG Payments sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-payments-api-v1**\n\n The Payments API allows you to make payments (transaction requests) and access the list of a user's account transaction requests. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Payments API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n - The list of the Transaction Request Types supported by a bank \n -  The list of a user's account transaction requests at a specific bank \n2.\tInitiate a Payment via creating a Transaction Request \n3.\tAnswer a Transaction Request Challenge \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Payments sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "obp",
+			"item": [
+				{
+					"name": "Get Transaction Requests.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "011bb31917bfe6becd4007d040288eed2f7e1f1a1b56064d72b1a96942f5db6d",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-requests"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Returns the transaction requests for the account specified by ACCOUNT_ID at the bank specified by BANK_ID.<br /><br />\r\nThe specified VIEW_ID must be 'owner' and the user must have access to this view.<br /><br />\r\nTransaction Requests serve to initiate transactions that may or may not proceed. They contain information including:\r\n- Transaction Request Id\r\n- Transaction Request Type\r\n- Status (INITIATED, CANCELLED, COMPLETED)\r\n- Challenge (in order to confirm the request)\r\n- From Bank / Account\r\n- Details including Currency, Value, Description and other initiation information specific to each transaction request type.\r\n- Related Transactions<br /><br />\r\nThe customer can proceed with the Transaction by answering the security challenge."
+					},
+					"response": [
+						{
+							"name": "Get Transaction Requests.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"type": "text"
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"type": "text"
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"type": "text"
+									},
+									{
+										"key": "provider_username",
+										"value": "{{provider_username}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-requests"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:29:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1544"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"transaction_requests_with_charges\": [\n        {\n            \"TransactionAmount\": null,\n            \"CounterpartyID\": null,\n            \"extensions\": null,\n            \"id\": \"2f2030d7-b313-483f-9321-ad2171c5a516\",\n            \"type\": \"COUNTERPARTY\",\n            \"from\": {\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"account_id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n            },\n            \"details\": {\n                \"to\": {\n                    \"card_id\": null,\n                    \"account_id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n                    \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                    \"beneficiaryName\": null\n                },\n                \"value\": {\n                    \"currency\": \"EUR\",\n                    \"amount\": 10\n                },\n                \"description\": \"Account Transfer\"\n            },\n            \"transaction_ids\": [\n                \"9c70a571-0557-4ed4-a5a5-78aa0352358d\"\n            ],\n            \"status\": \"COMPLETED\",\n            \"start_date\": \"2018-11-21T13:17:14.2702137+02:00\",\n            \"end_date\": \"2028-11-21T13:17:14.2702137+02:00\",\n            \"challenge\": null,\n            \"charge\": {\n                \"summary\": \"OUR\",\n                \"value\": {\n                    \"currency\": \"EUR\",\n                    \"amount\": 0\n                },\n                \"chargeExtensions\": null\n            }\n        },\n        {\n            \"TransactionAmount\": null,\n            \"CounterpartyID\": null,\n            \"extensions\": null,\n            \"id\": \"2a4ba86c-b06a-41f0-9cd8-ce94de769048\",\n            \"type\": \"card\",\n            \"from\": {\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"account_id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n            },\n            \"details\": {\n                \"to\": {\n                    \"card_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"account_id\": null,\n                    \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                    \"beneficiaryName\": null\n                },\n                \"value\": {\n                    \"currency\": \"EUR\",\n                    \"amount\": 10\n                },\n                \"description\": \"Card Transfer\"\n            },\n            \"transaction_ids\": [\n                \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n            ],\n            \"status\": \"COMPLETED\",\n            \"start_date\": \"2018-11-21T13:17:14.270714+02:00\",\n            \"end_date\": \"2028-11-21T13:17:14.270714+02:00\",\n            \"challenge\": null,\n            \"charge\": {\n                \"summary\": \"OUR\",\n                \"value\": {\n                    \"currency\": \"EUR\",\n                    \"amount\": 0\n                },\n                \"chargeExtensions\": null\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Transaction Request Details.",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "2b4779024eebcb3a2d1f443eb04ca39cb693e141bad6498b83d1f91a543fbe03",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "transaction_request_id",
+								"value": "{{transaction_request_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests/:transaction_request_id/details",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-requests",
+								":transaction_request_id",
+								"details"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								},
+								{
+									"key": "transaction_request_id",
+									"value": "{{transaction_request_id}}"
+								}
+							]
+						},
+						"description": "Returns the transaction request details, when it is COMPLETED, specified by transaction_request_id.<br /><br />\r\nThe specified VIEW_ID must be 'owner' and the user must have access to this view.<br /><br />"
+					},
+					"response": [
+						{
+							"name": "Get Transaction Request Details.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									},
+									{
+										"key": "transaction_request_id",
+										"value": "{{transaction_request_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests/:transaction_request_id/details",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-requests",
+										":transaction_request_id",
+										"details"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										},
+										{
+											"key": "transaction_request_id",
+											"value": "{{transaction_request_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:31:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "757"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"from\": {\n        \"accountNo\": \"97226400154\",\n        \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n        \"account_id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n    },\n    \"details\": {\n        \"to\": {\n            \"creditCardNo\": null,\n            \"card_id\": null,\n            \"account_id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n            \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n            \"beneficiaryName\": null\n        },\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 10\n        },\n        \"description\": \"Account Transfer\"\n    },\n    \"extensions\": null,\n    \"id\": \"2f2030d7-b313-483f-9321-ad2171c5a516\",\n    \"type\": \"COUNTERPARTY\",\n    \"transaction_ids\": [\n        \"9c70a571-0557-4ed4-a5a5-78aa0352358d\"\n    ],\n    \"status\": \"COMPLETED\",\n    \"start_date\": \"2018-11-21T13:17:14.2702137+02:00\",\n    \"end_date\": \"2028-11-21T13:17:14.2702137+02:00\",\n    \"challenge\": null,\n    \"charge\": {\n        \"summary\": \"OUR\",\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 0\n        },\n        \"chargeExtensions\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get the Transaction Request Types supported by the bank",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "127cc5a5792a2990a5d06b0132a615ba47d486a346c009e16e357949ca65c2cc",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/transaction-request-types",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"transaction-request-types"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								}
+							]
+						},
+						"description": "Get the list of the Transaction Request Types supported by the bank."
+					},
+					"response": [
+						{
+							"name": "Get the Transaction Request Types supported by the bank",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/transaction-request-types",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"transaction-request-types"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:32:41 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"transaction_request_types\": [\n        {\n            \"transaction_request_type\": \"SEPA\"\n        },\n        {\n            \"transaction_request_type\": \"COUNTERPARTY\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Charge Information (SEPA)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "2b4779024eebcb3a2d1f443eb04ca39cb693e141bad6498b83d1f91a543fbe03",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501457684503004564000103433467\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests/expenses",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-request-types",
+								"sepa",
+								"transaction-requests",
+								"expenses"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Calculates charges for a SEPA payment and indicates whether a transaction request creates a security challenge or not.\r\nWhen using a SEPA Transaction Request, you specify the IBAN of a Counterparty in the body of the request.\r\nThe routing details (IBAN) of the counterparty will be forwarded to the core banking system for the transfer.\r\n\r\nSample request:\r\n            \r\n    POST / Get Charge Information (SEPA)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }"
+					},
+					"response": [
+						{
+							"name": "Get Charge Information (SEPA)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501457684503004564000103433467\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests/expenses",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-request-types",
+										"sepa",
+										"transaction-requests",
+										"expenses"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:38:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"charge\": {\n        \"summary\": null,\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 1\n        },\n        \"chargeExtensions\": {\n            \"chargeDetails\": [\n                {\n                    \"amount\": {\n                        \"currency\": \"EUR\",\n                        \"amount\": 1\n                    },\n                    \"description\": null\n                }\n            ]\n        }\n    },\n    \"hasChallenge\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Charge Information (Credit Card)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "2b4779024eebcb3a2d1f443eb04ca39cb693e141bad6498b83d1f91a543fbe03",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"to\": {\r\n\t\t\"creditCardNumber\": \"4567894575124567\"\r\n\t},\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests/expenses",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-request-types",
+								"card",
+								"transaction-requests",
+								"expenses"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Calculates charges for a Credit Card payment and indicates whether a transaction request creates a security challenge or not."
+					},
+					"response": [
+						{
+							"name": "Get Charge Information (Credit Card)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"to\": {\r\n\t\t\"creditCardNumber\": \"4567894575124567\"\r\n\t},\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t}\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests/expenses",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-request-types",
+										"card",
+										"transaction-requests",
+										"expenses"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:42:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"charge\": {\n        \"summary\": null,\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 1\n        },\n        \"chargeExtensions\": {\n            \"chargeDetails\": [\n                {\n                    \"amount\": {\n                        \"currency\": \"EUR\",\n                        \"amount\": 1\n                    },\n                    \"description\": null\n                }\n            ]\n        }\n    },\n    \"hasChallenge\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Transaction Request (SEPA)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac665be1-857c-4e94-b830-ed72167dafdf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "d64a08453cbcff1c3f48ddae7f2003e694a0266a13eee0ba538aae6041738c93",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501101030000010348012377\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-request-types",
+								"sepa",
+								"transaction-requests"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Initiate a Payment via creating a Transaction Request. When using a SEPA Transaction Request, you specify the IBAN of a Counterparty in the body of the request.\r\nThe routing details (IBAN) of the counterparty will be forwarded to the core banking system for the transfer.\r\n\r\nSample request:\r\n            \r\n    POST / Create Transaction Request (SEPA)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }"
+					},
+					"response": [
+						{
+							"name": "Create Transaction Request (SEPA)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer",
+										"disabled": true
+									},
+									{
+										"key": "view_id",
+										"value": "{{view_id}}",
+										"type": "text"
+									},
+									{
+										"key": "bank_id",
+										"value": "{{bank_id}}",
+										"type": "text"
+									},
+									{
+										"key": "account_id",
+										"value": "{{account_id}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501101030000010348012377\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-request-types",
+										"sepa",
+										"transaction-requests"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 10:53:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "774"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"extensions\": null,\n    \"id\": \"6e23ef6c-a1a5-4128-93c8-1a3c7bb37e69\",\n    \"type\": \"SEPA\",\n    \"from\": {\n        \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n        \"account_id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n    },\n    \"details\": {\n        \"to\": {\n            \"card_id\": null,\n            \"account_id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n            \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n            \"beneficiaryName\": null\n        },\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 1001\n        },\n        \"description\": \"METAFORA\"\n    },\n    \"transaction_ids\": [],\n    \"status\": \"INITIATED\",\n    \"start_date\": \"2018-11-23T12:53:46.0268253+02:00\",\n    \"end_date\": null,\n    \"challenge\": {\n        \"id\": \"ed83f3f4-f64f-486a-a4de-9d3306021978\",\n        \"allowed_attempts\": 3,\n        \"expiresOn\": \"0001-01-01T00:00:00\",\n        \"confirmationCode\": null,\n        \"challenge_type\": \"SMS\"\n    },\n    \"charge\": {\n        \"summary\": \"SHARED\",\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 0\n        },\n        \"chargeExtensions\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Transaction Request (Card)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "b48459e1a385f880cb872a0b98d6abc6e8ba4d03ef7639e20caeac65470d59a2",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n\t\"to\": {\r\n\t\t\"creditCardNumber\": \"4567894575124567\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n }\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-request-types",
+								"card",
+								"transaction-requests"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "Initiate a Card Payment via creating a Transaction Request.\r\n\r\n\r\nSample request:\r\n            \r\n    POST / Create Transaction Request (Card)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Answer Transaction Request Challenge",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "127cc5a5792a2990a5d06b0132a615ba47d486a346c009e16e357949ca65c2cc",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"02a75dcc-3568-458e-9e40-fbae216e92fc\",\r\n  \"answer\": 12345\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/{{transaction_request_type}}/transaction-requests/{{transaction_request_id}}/challenge",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"obp",
+								"banks",
+								":bank_id",
+								"accounts",
+								":account_id",
+								":view_id",
+								"transaction-request-types",
+								"{{transaction_request_type}}",
+								"transaction-requests",
+								"{{transaction_request_id}}",
+								"challenge"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "{{bank_id}}"
+								},
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "view_id",
+									"value": "{{view_id}}"
+								}
+							]
+						},
+						"description": "This endpoint depends on the response body of a \"Create Transaction Request\" endpoint, i.e.:\r\n1) TRANSACTION_REQUEST_TYPE: is the same as the request URL of the \"Create Transaction Request\" endpoint's response.\r\n2) TRANSACTION_REQUEST_ID: is the same as the id field of the \"Create Transaction Request\" endpoint's response.\r\n3) id: is the challenge.id field.\r\n4) answer: In Sandbox mode, any string that can be converted to a positive integer will be accepted as an answer. In prod mode, the answer is obtained by a phone message or other channels.        \r\n\r\n\r\nSample request:\r\n            \r\n    POST / Answer Transaction Request Challenge\r\n    {\r\n        \"id\": \"eecc966c-01f2-4248-bdad-6367c561409a\",\r\n        \"answer\": 12345\r\n    }"
+					},
+					"response": [
+						{
+							"name": "Answer Transaction Request Challenge",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}"
+									},
+									{
+										"key": "request_id",
+										"value": "{{request_id}}"
+									},
+									{
+										"key": "bank_id",
+										"value": "{{bank_id}}"
+									},
+									{
+										"key": "account_id",
+										"value": "{{account_id}}",
+										"type": "text"
+									},
+									{
+										"key": "transaction_request_id",
+										"value": "6e23ef6c-a1a5-4128-93c8-1a3c7bb37e69",
+										"type": "text"
+									},
+									{
+										"key": "transaction_request_type",
+										"value": "{{transaction_request_type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n                 \"id\": \"ed83f3f4-f64f-486a-a4de-9d3306021978\",\r\n                 \"answer\": 12345\r\n             }"
+								},
+								"url": {
+									"raw": "https://localhost/obp.payment.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/:transaction_request_type/transaction-requests/6e23ef6c-a1a5-4128-93c8-1a3c7bb37e69/challenge",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"obp.payment.sandbox.oauth2.api",
+										"obp",
+										"banks",
+										":bank_id",
+										"accounts",
+										":account_id",
+										":view_id",
+										"transaction-request-types",
+										":transaction_request_type",
+										"transaction-requests",
+										"6e23ef6c-a1a5-4128-93c8-1a3c7bb37e69",
+										"challenge"
+									],
+									"variable": [
+										{
+											"key": "bank_id",
+											"value": "{{bank_id}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{account_id}}"
+										},
+										{
+											"key": "view_id",
+											"value": "{{view_id}}"
+										},
+										{
+											"key": "transaction_request_type",
+											"value": "{{transaction_request_type}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Nov 2018 11:30:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "816"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"TransactionAmount\": {\n        \"currency\": \"EUR\",\n        \"amount\": 1001\n    },\n    \"CounterpartyID\": null,\n    \"extensions\": null,\n    \"id\": \"6e23ef6c-a1a5-4128-93c8-1a3c7bb37e69\",\n    \"type\": \"SEPA\",\n    \"from\": {\n        \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n        \"account_id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\"\n    },\n    \"details\": {\n        \"to\": {\n            \"card_id\": null,\n            \"account_id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n            \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n            \"beneficiaryName\": null\n        },\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 1001\n        },\n        \"description\": \"METAFORA\"\n    },\n    \"transaction_ids\": [\n        \"9e43995d-ffa4-44fa-b7e3-10fe813c831f\",\n        \"6f65a629-e0d9-4b89-8e2a-ca933d21997b\"\n    ],\n    \"status\": \"COMPLETED\",\n    \"start_date\": \"2018-11-23T12:53:46.0268253+02:00\",\n    \"end_date\": \"2018-11-23T13:30:14.8259849+02:00\",\n    \"challenge\": null,\n    \"charge\": {\n        \"summary\": \"SHARED\",\n        \"value\": {\n            \"currency\": \"EUR\",\n            \"amount\": 0\n        },\n        \"chargeExtensions\": null\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Folder for obp"
+		},
+		{
+			"name": "sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "199ba40ee4a56cc0265618fb1adcbae853ffef5f2c1957643e5f13c982d84ccd",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"sandbox"
+							]
+						},
+						"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "2dd03220f826ad24890014ae318a5e8c16e2826912c97cd907198f0968564fac",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Export Sandbox data specified by sandbox id."
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Imports sandbox data specified by sandbox id."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "199ba40ee4a56cc0265618fb1adcbae853ffef5f2c1957643e5f13c982d84ccd",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "request_id",
+								"value": "{{request_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_username",
+								"value": "{{provider_username}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+							"protocol": "https",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"{{payment_api}}",
+								"sandbox",
+								":sandbox_id"
+							],
+							"variable": [
+								{
+									"key": "sandbox_id",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Delete Sandbox specified by sandbox id."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for sandbox"
+		}
+	]
+}
