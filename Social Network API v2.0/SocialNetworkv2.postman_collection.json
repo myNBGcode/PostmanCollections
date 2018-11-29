@@ -1,0 +1,1309 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SocialNetwork",
+		"_postman_id": "a5737267-3a8a-9562-b603-7bef3e3c46c3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"response is empty\"] = responseBody === \"\";",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"SandboxID\": \"{{sandbox_id}}\",\n        \"Users\": [\n            {\n                \"UserId\": \"645af800-8c97-4f47-b489-6b9d7b05b86d\",\n                \"Username\": \"User1\",\n                \"ProviderId\": \"NBG.gr\",\n                \"Provider\": \"NBG\",\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"MemberId\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                \"IsAdmin\": false\n            },\n            {\n                \"UserId\": \"4f2b0290-0f71-4ee0-82ca-578db883be5e\",\n                \"Username\": \"User2\",\n                \"ProviderId\": \"NBG.gr\",\n                \"Provider\": \"NBG\",\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"MemberId\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\",\n                \"IsAdmin\": false\n            },\n            {\n                \"UserId\": \"2c7069cb-4f15-46ed-92fc-fd729967bf67\",\n                \"Username\": \"AdminUser\",\n                \"ProviderId\": \"NBG.gr\",\n                \"Provider\": \"NBG\",\n                \"SocialNetworkId\": null,\n                \"MemberId\": null,\n                \"IsAdmin\": true\n            }\n        ],\n        \"SocialNetworks\": [\n            {\n                \"SocialNetworkId\": \"b3660585-74ca-45cf-ba32-ec3e6c0268e8\",\n                \"SocialNetworkName\": \"NBG Social Network\",\n                \"SocialNetworkDescription\": \"NBG Social Network\",\n                \"SocialNetworkOwner\": \"Network Owner\",\n                \"Status\": \"Active\",\n                \"SocialNetworkMembers\": [\n                    {\n                        \"MemberId\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                        \"Status\": \"Active\",\n                        \"FirstName\": \"Γιώργος\",\n                        \"LastName\": \"Γεωργίου\",\n                        \"Alias\": \"Best Member\",\n                        \"Avatar\": null,\n                        \"IsVerified\": true,\n                        \"Identity\": \"6979876543\",\n                        \"IdentityType\": \"Mobile\",\n                        \"IdentityStatus\": \"Active\",\n                        \"SocialNetworkPosts\": [\n                            {\n                                \"PostId\": \"c58c9943-607c-435b-80dc-c59b2325b4c1\",\n                                \"Timestamp\": \"2018-04-16T05:35:51.090Z\",\n                                \"Content\": \"First post\",\n                                \"Status\": \"Posted\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T07:35:51.090Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkMessages\": [\n                            {\n                                \"MessageId\": \"28bb7ac1-6db9-4d9e-b45f-df307c1e3a34\",\n                                \"Timestamp\": \"2018-04-14T08:35:51.089Z\",\n                                \"Source\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                                \"Destination\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Content\": \"Γεια σου Αθανασία!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T06:35:51.089Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            },\n                            {\n                                \"MessageId\": \"93bca2da-bfc8-4f11-800a-eec1aa54784c\",\n                                \"Timestamp\": \"2018-04-16T07:35:51.089Z\",\n                                \"Source\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Destination\": \"fb0475c1-de25-44c2-aa8f-9661d4c88966\",\n                                \"Content\": \"Γεια σου και εσένα Γιώργο! Συγνώμη για την αργοπορημένη απάντησή μου!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.089Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkContacts\": [\n                            {\n                                \"ContactId\": null,\n                                \"Identity\": \"+6912345678\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Pending\",\n                                \"ContactStatus\": \"Uploaded\",\n                                \"ContactType\": \"Friend\",\n                                \"IsVerified\": false\n                            },\n                            {\n                                \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Identity\": \"6123654987\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Active\",\n                                \"ContactStatus\": \"Registered\",\n                                \"ContactType\": \"Colleague\",\n                                \"IsVerified\": true\n                            }\n                        ],\n                        \"SocialNetworkDeclarations\": [\n                            {\n                                \"DeclarationId\": \"8ae414a9-065e-4a8b-beee-dd382a63634f\",\n                                \"DeclarationEl\": \"Όροι αποδοχής\",\n                                \"DeclarationEn\": \"Terms and Conditions\",\n                                \"DeclarationType\": \"Terms\",\n                                \"DeclarationStatus\": \"Active\",\n                                \"ActionStatus\": \"Accepted\",\n                                \"Timestamp\": \"2018-04-16T08:35:51.091Z\",\n                                \"Order\": 1,\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.090Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    },\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.091Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            },\n                            {\n                                \"DeclarationId\": \"2405f2e6-5e98-4663-b067-87a9b9a67c3b\",\n                                \"DeclarationEl\": \"Ανακοίνωση\",\n                                \"DeclarationEn\": \"Announcement\",\n                                \"DeclarationType\": \"Announcement\",\n                                \"DeclarationStatus\": \"Active\",\n                                \"ActionStatus\": \"Accepted\",\n                                \"Timestamp\": \"2018-04-16T08:35:51.091Z\",\n                                \"Order\": 2,\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.091Z\",\n                                        \"Type\": \"Love\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"MemberId\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\",\n                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                        \"Status\": \"Active\",\n                        \"FirstName\": \"Αθανασία\",\n                        \"LastName\": \"Παπαφλέσσα\",\n                        \"Alias\": \"VIP Member\",\n                        \"Avatar\": null,\n                        \"IsVerified\": true,\n                        \"Identity\": \"6123654987\",\n                        \"IdentityType\": \"Mobile\",\n                        \"IdentityStatus\": \"Active\",\n                        \"SocialNetworkPosts\": [\n                            {\n                                \"PostId\": \"4728aecf-da13-4583-b055-5effcec02ad0\",\n                                \"Timestamp\": \"2018-04-16T06:35:51.092Z\",\n                                \"Content\": \"post!!\",\n                                \"Status\": \"Posted\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T07:35:51.092Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkMessages\": [\n                            {\n                                \"MessageId\": \"93bca2da-bfc8-4f11-800a-eec1aa54784c\",\n                                \"Timestamp\": \"2018-04-16T07:35:51.092Z\",\n                                \"Source\": \"a22b3871-89ef-43c3-8f4f-f16cdd09fa1c\",\n                                \"Destination\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                \"Content\": \"Γεια σου και εσένα Γιώργο! Συγνώμη για την αργοπορημένη απάντησή μου!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.092Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            },\n                            {\n                                \"MessageId\": \"28bb7ac1-6db9-4d9e-b45f-df307c1e3a34\",\n                                \"Timestamp\": \"2018-04-14T08:35:51.092Z\",\n                                \"Source\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                \"Destination\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                \"Content\": \"Γεια σου Αθανασία!\",\n                                \"Status\": \"Delivered\",\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T06:35:51.092Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ],\n                        \"SocialNetworkContacts\": [\n                            {\n                                \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                \"Identity\": \"6979876543\",\n                                \"IdentityType\": \"Mobile\",\n                                \"IdentityStatus\": \"Active\",\n                                \"ContactStatus\": \"Registered\",\n                                \"ContactType\": \"Colleague\",\n                                \"IsVerified\": true\n                            }\n                        ],\n                        \"SocialNetworkDeclarations\": [\n                            {\n                                \"DeclarationId\": \"8ae414a9-065e-4a8b-beee-dd382a63634f\",\n                                \"DeclarationEl\": \"Όροι αποδοχής\",\n                                \"DeclarationEn\": \"Terms and Conditions\",\n                                \"DeclarationType\": \"Terms\",\n                                \"DeclarationStatus\": \"Active\",\n                                \"ActionStatus\": \"Accepted\",\n                                \"Timestamp\": \"2018-04-16T08:35:51.093Z\",\n                                \"Order\": 1,\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"0b9ce379-50af-4d61-879e-4fb3c940869a\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.093Z\",\n                                        \"Type\": \"Like\",\n                                        \"Status\": \"Active\"\n                                    },\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.093Z\",\n                                        \"Type\": \"Wow\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            },\n                            {\n                                \"DeclarationId\": \"2405f2e6-5e98-4663-b067-87a9b9a67c3b\",\n                                \"DeclarationEl\": \"Ανακοίνωση\",\n                                \"DeclarationEn\": \"Announcement\",\n                                \"DeclarationType\": \"Announcement\",\n                                \"DeclarationStatus\": \"Active\",\n                                \"ActionStatus\": \"Accepted\",\n                                \"Timestamp\": \"2018-04-16T08:35:51.093Z\",\n                                \"Order\": 2,\n                                \"SocialNetworkReactions\": [\n                                    {\n                                        \"ContactId\": \"e6e0227b-9749-4887-9f3e-71030b0223e0\",\n                                        \"Timestamp\": \"2018-04-16T08:35:51.093Z\",\n                                        \"Type\": \"Love\",\n                                        \"Status\": \"Active\"\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user3\",\r\n  \"isAdmin\": false\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserManagement Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox User Prerequisite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"",
+									"if (jsonData.payload !== null)",
+									"{",
+									"    postman.setEnvironmentVariable(\"newUserId\", jsonData.payload.UserId);",
+									"    postman.setEnvironmentVariable(\"newUsername\", jsonData.payload.Username);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user4\",\r\n  \"isAdmin\": false\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User Registration Step A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"",
+									"if (jsonData.payload !== null)",
+									"{",
+									"    postman.setEnvironmentVariable(\"verificationId\", jsonData.payload.verificationId);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/userRegistration",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{newUserId}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{newUsername}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"Identity\": \"+306123123456\",\n\t    \"IdentityType\": \"Mobile\",\n\t    \"firstName\": \"Παναγιώτης\",\n\t    \"lastName\": \"Παναγιώτου\",\n\t    \"alias\": \"Panos\",\n\t    \"gender\": \"Male\",\n\t    \"declarationAcceptance\": [\n\t      {\n\t        \"declarationId\": \"{{declarationIdTerms}}\",\n\t        \"action\": \"Accepted\"\n\t      }\n    \t]\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User Registration Step B Verification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"",
+									"if (jsonData.payload !== null)",
+									"{",
+									"    postman.setEnvironmentVariable(\"newMemberId\", jsonData.payload.memberId);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/userRegistrationVerification",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{newUserId}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{newUsername}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"Identity\": \"+306123123456\",\n\t    \"IdentityType\": \"Mobile\",\n\t    \"firstName\": \"Παναγιώτης\",\n\t    \"lastName\": \"Παναγιώτου\",\n\t    \"alias\": \"Panos\",\n\t    \"gender\": \"Male\",\n\t    \"verificationId\": \"{{verificationId}}\",\n\t    \"verificationCode\": \"1234\",\n\t    \"declarationAcceptance\": [\n\t      {\n\t        \"declarationId\": \"{{declarationIdTerms}}\",\n\t        \"action\": \"Accepted\"\n\t      }\n    \t]\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts Upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/contactsUpload",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"contacts\": [\n\t      {\n\t        \"identity\": \"+306999999999\",\n\t        \"identityType\": \"Mobile\",\n\t        \"contactType\" : \"Friend\"\n\t      },\n\t      {\n\t        \"Identity\": \"+301111111111\",\n            \"IdentityType\": \"Mobile\",\n            \"contactType\" : \"Family\"\n\t      }\n\t    ]\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Contacts Discovery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/contactsDiscovery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Declarations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/declarations",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Action upon Declaration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/userDeclarationAction",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"declarationAcceptance\": [\n\t        {\n\t\t    \"declarationId\": \"{{declarationId2}}\",\n\t\t    \"action\": \"Declined\"\n\t        }\n        ]\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Unregister the Created User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/UserManagement/userUnregistration",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{newUserId}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{newUsername}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{newMemberId}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SocialActivities Service",
+			"description": "",
+			"item": [
+				{
+					"name": "User Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/userPost",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"content\": \"Hello!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Posts Retrieval",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/postsRetrieval",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User Reaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/userReaction",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t\t\"reactionType\": \"Like\",\n\t    \"entity\": \"{{member2PostId1}}\",\n\t    \"entityType\": \"Post\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/userMessageSend",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"contactId\": \"{{contactIdMember2}}\",\n\t    \"content\": \"Hello there!!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/userMessages",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"contactId\": \"{{contactIdMember2}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Reactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/SocialActivities/reactionsRetrieval",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"memberId\": \"{{memberId1}}\",\n\t    \"entity\": \"{{member2PostId1}}\",\n\t    \"entityType\": \"Post\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Administration Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Declaration Creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/Administration/declarationCreation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{userIdAdmin}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{usernameAdmin}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": {\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"{{$guid}}\",\r\n\t\t\"bank\": \"{{bank}}\",\r\n\t\t\"hostSession\": null,\r\n\t\t\"channel\": \"{{channel}}\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 0,\r\n\t\t\"latitude\": 0,\r\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\r\n\t\t\"TAN\": null\r\n\t},\r\n\t\"payload\": {\r\n\t    \"socialNetworkId\": \"{{social_network1}}\",\r\n\t    \"descriptionEn\": \"Description Update\",\r\n\t    \"descriptionEl\": \"Ενημέρωση περιγραφής\",\r\n\t    \"type\": \"Announcement\"\r\n    }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Declaration Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{root_url}}/Administration/declarationUpdate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{userIdAdmin}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{usernameAdmin}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{$guid}}\",\n\t\t\"bank\": \"{{bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t    \"socialNetworkId\": \"{{social_network1}}\",\n\t    \"descriptionEn\": \"Description Update\",\n\t    \"descriptionEl\": \"Ενημέρωση περιγραφής ανανεωμένο\",\n\t    \"declarationId\": \"{{declarationId2}}\",\n\t    \"status\": \"Cancelled\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

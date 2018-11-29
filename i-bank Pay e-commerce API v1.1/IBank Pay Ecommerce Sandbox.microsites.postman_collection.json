@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "61d0a510-a95d-4d26-ba28-56abc5a6d09f",
+		"name": "IBank Pay Ecommerce Sandbox - Microsites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sandboxId\": \"{{sandbox_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						},
+						"description": "Create Sandbox providing a sandbox_id in the body of the request (Replace the value with your own at the enviroment 'iBankPay eCommerce Sandbox' settings).\nNote that Client-Id Header is your ClientId that you have retrieved from the subscription of your newly created application in the Developers Portal Site."
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Export the sandbox that you have already created with the unique sandbox_id.\nNote that Client-Id Header is your ClientId that you have retrieved from the subscription of your newly created application in the Developers Portal Site."
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "{{application/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"SandboxID\":\"{{sandbox_id}}\",\n\t\"Users\":[\n\t\t\t{\n\t\t\t\t\"Username\":\"Iva\",\n\t\t\t\t\"ProviderId\":\"3170040809521152\",\n\t\t\t\t\"Provider\":\"1480613452316672\"\n\t\t\t\t\n\t\t\t}\n\t\t],\n\t\"Payments\":[\n\t\t\t{\"amount\":\"cihiri\",\n\t\t\t\"createdOn\":\"2013-05-09T06:36:16.051Z\",\n\t\t\t\"updatedOn\":\"2013-07-30T01:16:10.635Z\",\"id\":\"00000000-0000-0000-0000-000000000000\",\n\t\t\t\"ref_id\":\"00000000-0000-0000-0000-000000000000\",\n\t\t\t\"status\":\"getop\",\n\t\t\t\"token\":\"3e5f921d0fe9d11bac73da67c1cd9cb89f11fcf371dda29be4d005c611f4f280\"\n\t\t\t\t\n\t\t\t}\n\t\t]\n\t\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Import the sandbox that already exists. Note that Client-Id Header is your ClientId."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Delete sandbox that you have already created.\nNote that Client-Id Header is your ClientId."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Authorize Payment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/AuthorizePayment",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"AuthorizePayment"
+							]
+						},
+						"description": "Authorize a Payment that has already been created. \nNote that this call will simulate the action of scanning the QR code as an i-bank Pay user and will change the status of the created Payment from Pending to Authorized. \nNext you will have to Complete the payment with the corresponding call."
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/CompletePayment?amount=Payment_Amount&source=Payment_Token&merchant_reference={{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"CompletePayment"
+							],
+							"query": [
+								{
+									"key": "amount",
+									"value": "Payment_Amount"
+								},
+								{
+									"key": "source",
+									"value": "Payment_Token"
+								},
+								{
+									"key": "merchant_reference",
+									"value": "{{sandbox_id}}"
+								}
+							]
+						},
+						"description": "Complete a Payment that has already been authorized. Note that this call will change the status of the authorized Payment from Authorized to Complete and that the Payment will be finalized."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Methods",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/PaymentMethods/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"PaymentMethods",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Get all the payment methods. Please note that there is no need to use this service for the iBankPay eCommerce Sandbox, as the i-frame that you will embed does it for you."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/PaymentStatus/{{Payment_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"PaymentStatus",
+								"{{Payment_id}}"
+							]
+						},
+						"description": "Get the Payment Status of a specific Payment. \nPlease do not forget to replace the Payment id at the Request url.\nPlease note that there is no need to use this service for the iBankPay eCommerce Sandbox, as the i-frame that you will embed does it for you."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{text/json}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "{{text/json}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\":\"777\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/CreatePayment",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"CreatePayment"
+							]
+						},
+						"description": "Create a Payment. Please note that there is no need to use this service for the iBankPay eCommerce Sandbox, as the 'Pay' button that you will embed does it for you."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

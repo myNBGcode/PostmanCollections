@@ -1,0 +1,2 @@
+client_id: 9f18396d-5526-4abb-85b4-d5b6dfa6c9de
+sandbox_id: BiometricsTest

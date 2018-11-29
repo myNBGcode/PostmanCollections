@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "a3877275-798f-4d01-908c-23427f25de18",
+		"name": "Fx Rates API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandboxId\": \"moudilos\",\n    \"users\": [\n        {\n            \"Username\": \"User1\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        },\n        {\n            \"Username\": \"User2\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        }\n    ],\n    \"fxRates\": [\n        {\n            \"DELT_LEKT\": \"USD\",\n            \"DELT_ECBREF\": \"1.13935000\",\n            \"DELT_TAS\": \"1.17695000\",\n            \"DELT_TPS\": \"1.10859000\",\n            \"DELT_NOM\": \"002\",\n            \"DELT_TAXT\": \"1.17695000\",\n            \"DELT_ETEREF\": \"1.13935000\",\n            \"DELT_TPXT\": \"1.10859000\"\n        },\n        {\n            \"DELT_LEKT\": \"CHF\",\n            \"DELT_ECBREF\": \"1.14208000\",\n            \"DELT_TAS\": \"1.17977000\",\n            \"DELT_TPS\": \"1.11124000\",\n            \"DELT_NOM\": \"008\",\n            \"DELT_TAXT\": \"1.17977000\",\n            \"DELT_ETEREF\": \"1.14208000\",\n            \"DELT_TPXT\": \"1.11124000\"\n        },\n        {\n            \"DELT_LEKT\": \"CNY\",\n            \"DELT_ECBREF\": \"7.90970000\",\n            \"DELT_TAS\": \"8.17072000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"009\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"7.90970000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"CAD\",\n            \"DELT_ECBREF\": \"1.49725000\",\n            \"DELT_TAS\": \"1.54666000\",\n            \"DELT_TPS\": \"1.45682000\",\n            \"DELT_NOM\": \"010\",\n            \"DELT_TAXT\": \"1.54666000\",\n            \"DELT_ETEREF\": \"1.49725000\",\n            \"DELT_TPXT\": \"1.45682000\"\n        },\n        {\n            \"DELT_LEKT\": \"SEK\",\n            \"DELT_ECBREF\": \"10.27530000\",\n            \"DELT_TAS\": \"10.61438000\",\n            \"DELT_TPS\": \"9.99787000\",\n            \"DELT_NOM\": \"012\",\n            \"DELT_TAXT\": \"10.61438000\",\n            \"DELT_ETEREF\": \"10.27530000\",\n            \"DELT_TPXT\": \"9.99787000\"\n        },\n        {\n            \"DELT_LEKT\": \"NOK\",\n            \"DELT_ECBREF\": \"9.62140000\",\n            \"DELT_TAS\": \"9.93891000\",\n            \"DELT_TPS\": \"9.36162000\",\n            \"DELT_NOM\": \"013\",\n            \"DELT_TAXT\": \"9.93891000\",\n            \"DELT_ETEREF\": \"9.62140000\",\n            \"DELT_TPXT\": \"9.36162000\"\n        },\n        {\n            \"DELT_LEKT\": \"DKK\",\n            \"DELT_ECBREF\": \"7.46170000\",\n            \"DELT_TAS\": \"7.70794000\",\n            \"DELT_TPS\": \"7.26023000\",\n            \"DELT_NOM\": \"014\",\n            \"DELT_TAXT\": \"7.70794000\",\n            \"DELT_ETEREF\": \"7.46170000\",\n            \"DELT_TPXT\": \"7.26023000\"\n        },\n        {\n            \"DELT_LEKT\": \"HUF\",\n            \"DELT_ECBREF\": \"321.82000000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"016\",\n            \"DELT_TAXT\": \"344.34740000\",\n            \"DELT_ETEREF\": \"321.82000000\",\n            \"DELT_TPXT\": \"305.72900000\"\n        },\n        {\n            \"DELT_LEKT\": \"BGN\",\n            \"DELT_ECBREF\": \"1.95580000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"019\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"1.95580000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"PLN\",\n            \"DELT_ECBREF\": \"4.31150000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"022\",\n            \"DELT_TAXT\": \"4.61331000\",\n            \"DELT_ETEREF\": \"4.31150000\",\n            \"DELT_TPXT\": \"4.09593000\"\n        },\n        {\n            \"DELT_LEKT\": \"EGP\",\n            \"DELT_ECBREF\": \"0.00000000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"026\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"0.00000000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"ILS\",\n            \"DELT_ECBREF\": \"4.22030000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"031\",\n            \"DELT_TAXT\": \"4.51572000\",\n            \"DELT_ETEREF\": \"4.22030000\",\n            \"DELT_TPXT\": \"4.00929000\"\n        },\n        {\n            \"DELT_LEKT\": \"ZAR\",\n            \"DELT_ECBREF\": \"16.02010000\",\n            \"DELT_TAS\": \"16.54876000\",\n            \"DELT_TPS\": \"15.58756000\",\n            \"DELT_NOM\": \"033\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"16.02010000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"JPY\",\n            \"DELT_ECBREF\": \"128.56000000\",\n            \"DELT_TAS\": \"132.80248000\",\n            \"DELT_TPS\": \"125.08888000\",\n            \"DELT_NOM\": \"043\",\n            \"DELT_TAXT\": \"132.80248000\",\n            \"DELT_ETEREF\": \"128.56000000\",\n            \"DELT_TPXT\": \"125.08888000\"\n        },\n        {\n            \"DELT_LEKT\": \"RUB\",\n            \"DELT_ECBREF\": \"75.01690000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"045\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"75.01690000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"HRK\",\n            \"DELT_ECBREF\": \"7.42750000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"047\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"7.42750000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"AUD\",\n            \"DELT_ECBREF\": \"1.55809000\",\n            \"DELT_TAS\": \"1.60951000\",\n            \"DELT_TPS\": \"1.51602000\",\n            \"DELT_NOM\": \"049\",\n            \"DELT_TAXT\": \"1.60951000\",\n            \"DELT_ETEREF\": \"1.55809000\",\n            \"DELT_TPXT\": \"1.51602000\"\n        },\n        {\n            \"DELT_LEKT\": \"GBP\",\n            \"DELT_ECBREF\": \"0.88745000\",\n            \"DELT_TAS\": \"0.91674000\",\n            \"DELT_TPS\": \"0.86349000\",\n            \"DELT_NOM\": \"050\",\n            \"DELT_TAXT\": \"0.91674000\",\n            \"DELT_ETEREF\": \"0.88745000\",\n            \"DELT_TPXT\": \"0.86349000\"\n        },\n        {\n            \"DELT_LEKT\": \"SCP\",\n            \"DELT_ECBREF\": \"0.88745000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"055\",\n            \"DELT_TAXT\": \"0.91674000\",\n            \"DELT_ETEREF\": \"0.88745000\",\n            \"DELT_TPXT\": \"0.86349000\"\n        },\n        {\n            \"DELT_LEKT\": \"SYP\",\n            \"DELT_ECBREF\": \"0.00000000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"061\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"0.00000000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"NIP\",\n            \"DELT_ECBREF\": \"0.88745000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"063\",\n            \"DELT_TAXT\": \"0.91674000\",\n            \"DELT_ETEREF\": \"0.88745000\",\n            \"DELT_TPXT\": \"0.86349000\"\n        },\n        {\n            \"DELT_LEKT\": \"HKD\",\n            \"DELT_ECBREF\": \"8.92170000\",\n            \"DELT_TAS\": \"9.21612000\",\n            \"DELT_TPS\": \"8.68081000\",\n            \"DELT_NOM\": \"064\",\n            \"DELT_TAXT\": \"9.27857000\",\n            \"DELT_ETEREF\": \"8.92170000\",\n            \"DELT_TPXT\": \"8.69866000\"\n        },\n        {\n            \"DELT_LEKT\": \"SGD\",\n            \"DELT_ECBREF\": \"1.56410000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"067\",\n            \"DELT_TAXT\": \"1.67359000\",\n            \"DELT_ETEREF\": \"1.56410000\",\n            \"DELT_TPXT\": \"1.48590000\"\n        },\n        {\n            \"DELT_LEKT\": \"RON\",\n            \"DELT_ECBREF\": \"4.66690000\",\n            \"DELT_TAS\": \"4.82091000\",\n            \"DELT_TPS\": \"4.54089000\",\n            \"DELT_NOM\": \"069\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"4.66690000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"NZD\",\n            \"DELT_ECBREF\": \"1.66170000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"071\",\n            \"DELT_TAXT\": \"0.00000000\",\n            \"DELT_ETEREF\": \"1.66170000\",\n            \"DELT_TPXT\": \"0.00000000\"\n        },\n        {\n            \"DELT_LEKT\": \"TRY\",\n            \"DELT_ECBREF\": \"6.09360000\",\n            \"DELT_TAS\": \"6.29469000\",\n            \"DELT_TPS\": \"5.92907000\",\n            \"DELT_NOM\": \"077\",\n            \"DELT_TAXT\": \"6.33734000\",\n            \"DELT_ETEREF\": \"6.09360000\",\n            \"DELT_TPXT\": \"5.94126000\"\n        },\n        {\n            \"DELT_LEKT\": \"CZK\",\n            \"DELT_ECBREF\": \"26.00700000\",\n            \"DELT_TAS\": \"0.00000000\",\n            \"DELT_TPS\": \"0.00000000\",\n            \"DELT_NOM\": \"081\",\n            \"DELT_TAXT\": \"27.82749000\",\n            \"DELT_ETEREF\": \"26.00700000\",\n            \"DELT_TPXT\": \"24.70665000\"\n        }\n    ],\n    \"currencies\": [\n        {\n            \"DELT_LEKT\": \"USD\",\n            \"DELT_NOM\": \"002\"\n        },\n        {\n            \"DELT_LEKT\": \"CHF\",\n            \"DELT_NOM\": \"008\"\n        },\n        {\n            \"DELT_LEKT\": \"CNY\",\n            \"DELT_NOM\": \"009\"\n        },\n        {\n            \"DELT_LEKT\": \"CAD\",\n            \"DELT_NOM\": \"010\"\n        },\n        {\n            \"DELT_LEKT\": \"SEK\",\n            \"DELT_NOM\": \"012\"\n        },\n        {\n            \"DELT_LEKT\": \"NOK\",\n            \"DELT_NOM\": \"013\"\n        },\n        {\n            \"DELT_LEKT\": \"DKK\",\n            \"DELT_NOM\": \"014\"\n        },\n        {\n            \"DELT_LEKT\": \"HUF\",\n            \"DELT_NOM\": \"016\"\n        },\n        {\n            \"DELT_LEKT\": \"BGN\",\n            \"DELT_NOM\": \"019\"\n        },\n        {\n            \"DELT_LEKT\": \"PLN\",\n            \"DELT_NOM\": \"022\"\n        },\n        {\n            \"DELT_LEKT\": \"EGP\",\n            \"DELT_NOM\": \"026\"\n        },\n        {\n            \"DELT_LEKT\": \"ILS\",\n            \"DELT_NOM\": \"031\"\n        },\n        {\n            \"DELT_LEKT\": \"ZAR\",\n            \"DELT_NOM\": \"033\"\n        },\n        {\n            \"DELT_LEKT\": \"JPY\",\n            \"DELT_NOM\": \"043\"\n        },\n        {\n            \"DELT_LEKT\": \"RUB\",\n            \"DELT_NOM\": \"045\"\n        },\n        {\n            \"DELT_LEKT\": \"HRK\",\n            \"DELT_NOM\": \"047\"\n        },\n        {\n            \"DELT_LEKT\": \"AUD\",\n            \"DELT_NOM\": \"049\"\n        },\n        {\n            \"DELT_LEKT\": \"GBP\",\n            \"DELT_NOM\": \"050\"\n        },\n        {\n            \"DELT_LEKT\": \"SCP\",\n            \"DELT_NOM\": \"055\"\n        },\n        {\n            \"DELT_LEKT\": \"SYP\",\n            \"DELT_NOM\": \"061\"\n        },\n        {\n            \"DELT_LEKT\": \"NIP\",\n            \"DELT_NOM\": \"063\"\n        },\n        {\n            \"DELT_LEKT\": \"HKD\",\n            \"DELT_NOM\": \"064\"\n        },\n        {\n            \"DELT_LEKT\": \"SGD\",\n            \"DELT_NOM\": \"067\"\n        },\n        {\n            \"DELT_LEKT\": \"RON\",\n            \"DELT_NOM\": \"069\"\n        },\n        {\n            \"DELT_LEKT\": \"NZD\",\n            \"DELT_NOM\": \"071\"\n        },\n        {\n            \"DELT_LEKT\": \"TRY\",\n            \"DELT_NOM\": \"077\"\n        },\n        {\n            \"DELT_LEKT\": \"CZK\",\n            \"DELT_NOM\": \"081\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fx Rates Service",
+			"item": [
+				{
+					"name": "Get All Rates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"type": "text"
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/fx/all",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"fx",
+								"all"
+							]
+						},
+						"description": "Returns all available Fx Rates."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rates of Currencies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/fx/{{currency_from}}/{{currency_to}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"fx",
+								"{{currency_from}}",
+								"{{currency_to}}"
+							]
+						},
+						"description": "Returns Fx Rates of a specific couple of currencies"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fc8050ab-dee7-443c-bc46-606117f8037e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "81398ea2-852b-49f7-9ee4-eda75834dbe2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Currencies Service",
+			"item": [
+				{
+					"name": "Get Currencies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/currencies/all",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"currencies",
+								"all"
+							]
+						},
+						"description": "Returns all available currencies."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e2580bcc-f977-492c-a53b-9e80876ae7d0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "648473f9-500e-4f26-8b76-9860603aee4b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3d937c07-9eb6-4788-8dae-13b86ff9bf67",
+			"key": "currency_from",
+			"value": "EUR",
+			"type": "string"
+		},
+		{
+			"id": "c2650cea-a87e-482a-9434-13e123a7a13a",
+			"key": "currency_to",
+			"value": "GBP",
+			"type": "string"
+		}
+	]
+}

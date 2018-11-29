@@ -1,0 +1,1965 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BillPayments.postman_collection",
+		"_postman_id": "87d8b91b-506c-02fb-6051-c0fadeb82fb2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Delete Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"response is empty\"] = responseBody === \"\";",
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"",
+									"postman.setEnvironmentVariable(\"user_id1\", jsonData.payload.users[0].userId);",
+									"postman.setEnvironmentVariable(\"username1\", jsonData.payload.users[0].userName);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sandboxID\": \"{{sandbox_id}}\",\n        \"users\": [\n            {\n                \"userId\": \"e6da8f9cee8b488c91790a566e9d8aed\",\n                \"userName\": \"User1\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"IBANK_USER\",\n                \"spotMachineID\": \"e0c3cfc6db41432a8fa5dbb230dbcfed\",\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"d3bbdc30741e4beea5cceff8ac4982f7\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR8979540708770489\"\n                    }\n                ]\n            },\n            {\n                \"userId\": \"acd77e31a63748b6a070ffc5d1d68e63\",\n                \"userName\": \"User2\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"IBANK_USER\",\n                \"spotMachineID\": null,\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"e146dde9663c47ea8322afda2c2aa907\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR7816570557954408\"\n                    }\n                ]\n            },\n            {\n                \"userId\": \"1eba60ac62d84feabd6740af173d7e1f\",\n                \"userName\": \"MEDIATOR_USER1\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"MEDIATOR\",\n                \"spotMachineID\": \"c850e76e6ea745b4af18742ef516944b\",\n                \"userAccounts\": []\n            },\n            {\n                \"userId\": \"e302d3fbd53f4f55a2cfde4d0611191c\",\n                \"userName\": \"MEDIATOR_MACHINE_USER1\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"MEDIATOR\",\n                \"spotMachineID\": \"cae44dde2e0d45aa8c4571f0a36ee3e7\",\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"a222de0fc80342e68e0ae7ca76c2c552\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR2539560718447876\"\n                    }\n                ]\n            },\n            {\n                \"userId\": \"177814defa114d8999fb3343cbe01d98\",\n                \"userName\": \"MEDIATOR_MACHINE_USER2\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"MACHINE\",\n                \"spotMachineID\": \"ed833e5affcd46cfaa0c0ad527ea1c5b\",\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"8359dd7caa7142f1a7e7df8aa18f7ebe\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR5579486657194533\"\n                    }\n                ]\n            },\n            {\n                \"userId\": \"d7fdc5579088431aa3f2e78444b90f46\",\n                \"userName\": \"MACHINE_USER1\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"MACHINE\",\n                \"spotMachineID\": \"0e9ee31ea10447aeb69f609a2391d610\",\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"1228b2d0961a462485ec960665a2e235\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR7709480620146655\"\n                    }\n                ]\n            },\n            {\n                \"userId\": \"4547cfbdbffd4e1e83ecd50dd16d7792\",\n                \"userName\": \"MACHINE_USER2\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"userType\": \"MACHINE\",\n                \"spotMachineID\": \"8e18d9e33f5f4957a689708b58d4ffcd\",\n                \"userAccounts\": [\n                    {\n                        \"accountId\": \"48897307224745148ace1e2fbd2e17b3\",\n                        \"balance\": 100000,\n                        \"accountType\": \"IBAN\",\n                        \"accountTypeValue\": \"GR775496558894651\"\n                    }\n                ]\n            }\n        ],\n        \"networks\": [\n            {\n                \"id\": \"13f1a6dc61dd4856bbc878c935c4e577\",\n                \"name\": \"TPP4USERS_NETWORK\",\n                \"commercialName\": \"TPP4USERS_NETWORK\",\n                \"paymentChannel\": \"ed5622df908f424c9e4bcaef32e48cf1\",\n                \"ownerIBUserId\": \"e6da8f9cee8b488c91790a566e9d8aed\",\n                \"startDate\": \"20180111T11:47:55.321Z\",\n                \"endDate\": \"20190111T11:47:55.321Z\",\n                \"networkMetadata\": [\n                    {\n                        \"id\": \"ab593dbe01ac4d9a8eedab7eb9fc20c7\",\n                        \"fieldKey\": \"IS_CANCEL_ADMIN_ALLOWED\",\n                        \"fieldValue\": \"FALSE\"\n                    },\n                    {\n                        \"id\": \"de1cecc779364739a476b13c2a6c6920\",\n                        \"fieldKey\": \"CANCELLATION_WITH_REPAY\",\n                        \"fieldValue\": \"FALSE\"\n                    },\n                    {\n                        \"id\": \"fec2eb8aca044c1b9330946a9959b2d9\",\n                        \"fieldKey\": \"MODE\",\n                        \"fieldValue\": \"TPP4USERS\"\n                    },\n                    {\n                        \"id\": \"bb41c9681c4b4083a3f782913dbb9c51\",\n                        \"fieldKey\": \"MAX_CANCELLATION_PERC\",\n                        \"fieldValue\": \"0\"\n                    },\n                    {\n                        \"id\": \"67affbe8026f41acb13b4b2a1d0f10cf\",\n                        \"fieldKey\": \"TRANSACTION_TERMINAL_PASSWORD_GENERATION_MODE\",\n                        \"fieldValue\": \"DEFAULT\"\n                    },\n                    {\n                        \"id\": \"9731c16637334d3aa0af35ad48d1bfc4\",\n                        \"fieldKey\": \"MIN_CANCELLATION_PERC\",\n                        \"fieldValue\": \"0\"\n                    }\n                ],\n                \"networkAccounts\": [\n                    {\n                        \"id\": \"8a82af3225df48b8b29e79d1cb37b5df\",\n                        \"IBANorBBAN\": \"GR5983850494884574\",\n                        \"PAN\": null,\n                        \"accountType\": \"ULTDEBTOR_INTERACCOUNT\"\n                    }\n                ],\n                \"networkLimits\": [],\n                \"networkMessages\": [],\n                \"spots\": [\n                    {\n                        \"id\": \"5d5264d127c5416e88b4f79f046d1d4a\",\n                        \"name\": \"DemoKiosk1\",\n                        \"comments\": null,\n                        \"address\": \"Γαργγητού 99\",\n                        \"startDate\": \"20180111T11:47:55.321Z\",\n                        \"endDate\": \"20190111T11:47:55.321Z\",\n                        \"ownerIBUserId\": \"e6da8f9cee8b488c91790a566e9d8aed\",\n                        \"ssn\": \"D16H1PKMSP\",\n                        \"status\": \"ENABLED\",\n                        \"authorizationUpdateLvl\": \"NETWORK\",\n                        \"spotMachines\": [\n                            {\n                                \"id\": \"e0c3cfc6db41432a8fa5dbb230dbcfed\",\n                                \"machineId\": \"DemoSpotMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"TransactionTerminal\",\n                                \"description\": \"DemoSpotMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [\n                                    {\n                                        \"id\": \"9cb93365b498403dae2edfe788e25b71\",\n                                        \"txId\": \"a76b579ded504d2ba053628247140593\",\n                                        \"instrId\": \"384507931d684a60bed1313538a1bb01\",\n                                        \"endToEndId\": \"90773001121420176229\",\n                                        \"paymentCode\": \"69d6ffc8cc654130a172d2fa16b6cbe8\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 17,\n                                        \"method\": \"ACCT\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"acd77e31a63748b6a070ffc5d1d68e63\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420176229\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180111T11:47:55.321Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    },\n                                    {\n                                        \"id\": \"d331191fbc9242d9be9a6f9173e7d9a3\",\n                                        \"txId\": \"e4f4b937f26640239320b4bafe1857b3\",\n                                        \"instrId\": \"cab46a91b8b94f63bc9d261b16ee7b3a\",\n                                        \"endToEndId\": \"90773001121420171285\",\n                                        \"paymentCode\": \"58f02321441c4c9587a2295092851534\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 53,\n                                        \"method\": \"CASH\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"acd77e31a63748b6a070ffc5d1d68e63\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420171285\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180111T11:47:55.321Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    }\n                                ],\n                                \"spotMachineAccounts\": [\n                                    {\n                                        \"id\": \"d3bbdc30741e4beea5cceff8ac4982f7\",\n                                        \"IBANorBBAN\": \"GR8979540708770489\",\n                                        \"PAN\": null\n                                    }\n                                ],\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"b98e0f042660463fb97f146ac93bd256\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"0386c1440c014f28b3da1a3d9bf68274\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"6c3230927540408fad6d9d9d2fafc365\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            }\n                        ],\n                        \"spotPaymentCodeExceptions\": [],\n                        \"spotNetworkLimits\": [],\n                        \"spotNetworkMessages\": []\n                    }\n                ]\n            },\n            {\n                \"id\": \"b736c46255534c5e81e4bcad5853090c\",\n                \"name\": \"DEMO_DECENTRALIZED_NETWORK\",\n                \"commercialName\": \"DEMO_DECENTRALIZED_NETWORK\",\n                \"paymentChannel\": \"475f5b9ad6074a46a8841bdc9edbfb06\",\n                \"ownerIBUserId\": \"d7fdc5579088431aa3f2e78444b90f46\",\n                \"startDate\": \"20180111T11:47:55.321Z\",\n                \"endDate\": \"20190111T11:47:55.321Z\",\n                \"networkMetadata\": [\n                    {\n                        \"id\": \"ab593dbe01ac4d9a8eedab7eb9fc20c7\",\n                        \"fieldKey\": \"IS_CANCEL_ADMIN_ALLOWED\",\n                        \"fieldValue\": \"TRUE\"\n                    },\n                    {\n                        \"id\": \"de1cecc779364739a476b13c2a6c6920\",\n                        \"fieldKey\": \"CANCELLATION_WITH_REPAY\",\n                        \"fieldValue\": \"FALSE\"\n                    },\n                    {\n                        \"id\": \"fec2eb8aca044c1b9330946a9959b2d9\",\n                        \"fieldKey\": \"MODE\",\n                        \"fieldValue\": \"DECENTRALIZED\"\n                    },\n                    {\n                        \"id\": \"bb41c9681c4b4083a3f782913dbb9c51\",\n                        \"fieldKey\": \"MAX_CANCELLATION_PERC\",\n                        \"fieldValue\": \"120\"\n                    },\n                    {\n                        \"id\": \"67affbe8026f41acb13b4b2a1d0f10cf\",\n                        \"fieldKey\": \"TRANSACTION_TERMINAL_PASSWORD_GENERATION_MODE\",\n                        \"fieldValue\": \"DEFAULT\"\n                    },\n                    {\n                        \"id\": \"9731c16637334d3aa0af35ad48d1bfc4\",\n                        \"fieldKey\": \"MIN_CANCELLATION_PERC\",\n                        \"fieldValue\": \"25\"\n                    }\n                ],\n                \"networkAccounts\": [\n                    {\n                        \"id\": \"f942e391afbc49f6ac4bc17a085b866e\",\n                        \"IBANorBBAN\": \"GR9746980283764142\",\n                        \"PAN\": null,\n                        \"accountType\": \"ULTDEBTOR_INTERACCOUNT\"\n                    }\n                ],\n                \"networkLimits\": [],\n                \"networkMessages\": [],\n                \"spots\": [\n                    {\n                        \"id\": \"e32560a4192e44209fca62cabd12007f\",\n                        \"name\": \"DemoDecentralizedSpot1\",\n                        \"comments\": null,\n                        \"address\": \"Γαργγητού 99\",\n                        \"startDate\": \"20180111T11:47:55.321Z\",\n                        \"endDate\": \"20190111T11:47:55.321Z\",\n                        \"ownerIBUserId\": \"d7fdc5579088431aa3f2e78444b90f46\",\n                        \"ssn\": \"OO4UVVYDDU\",\n                        \"status\": \"ENABLED\",\n                        \"authorizationUpdateLvl\": \"NETWORK\",\n                        \"spotMachines\": [\n                            {\n                                \"id\": \"0e9ee31ea10447aeb69f609a2391d610\",\n                                \"machineId\": \"DemoDecentralizedSpotMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"TransactionTerminal\",\n                                \"description\": \"DemoDecentralizedSpotMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [\n                                    {\n                                        \"id\": \"5838ce85919347e29e1f9befd0ade73b\",\n                                        \"txId\": \"1329aa5dce354d5b933449d6b586e7bb\",\n                                        \"instrId\": \"E93F0F84AA39470FBF7C22725271C4AF\",\n                                        \"endToEndId\": \"90773001121420176229\",\n                                        \"paymentCode\": \"69d6ffc8cc654130a172d2fa16b6cbe8\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 17,\n                                        \"method\": \"CASH\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"d7fdc5579088431aa3f2e78444b90f46\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420176229\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180110T22:00:00.000Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    },\n                                    {\n                                        \"id\": \"3676232bde2e49428ea2e9e04ba8aceb\",\n                                        \"txId\": \"3263f9792fe14c9c9dd94dd5db0ea866\",\n                                        \"instrId\": \"BBCA19FF9663495AB3B10395F7A8AA4C\",\n                                        \"endToEndId\": \"90773001121420171285\",\n                                        \"paymentCode\": \"58f02321441c4c9587a2295092851534\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 53,\n                                        \"method\": \"CASH\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"d7fdc5579088431aa3f2e78444b90f46\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420171285\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180111T11:47:55.321Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    }\n                                ],\n                                \"spotMachineAccounts\": [\n                                    {\n                                        \"id\": \"1228b2d0961a462485ec960665a2e235\",\n                                        \"IBANorBBAN\": \"GR7709480620146655\",\n                                        \"PAN\": null\n                                    }\n                                ],\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"a8f9275c2ec543349bfb01b1a41e42f3\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"f233b8806f1f461e8006346ce0a8686f\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"8d48bdc4b88145c1b0c6f583c3bc6b9f\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            },\n                            {\n                                \"id\": \"8e18d9e33f5f4957a689708b58d4ffcd\",\n                                \"machineId\": \"DemoDecentralizedSpotNetworkAdministrationMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"NetworkAdministrationTerminal\",\n                                \"description\": \"DemoDecentralizedSpotNetworkAdministrationMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [],\n                                \"spotMachineAccounts\": [\n                                    {\n                                        \"id\": \"48897307224745148ace1e2fbd2e17b3\",\n                                        \"IBANorBBAN\": \"GR775496558894651\",\n                                        \"PAN\": null\n                                    }\n                                ],\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"befd8d08cb914d65a0c99c2c5bf76b87\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"1a5b3b9ffdb94e66bb933ca8970f09c2\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"9ef22719713a45da875db3321efde76b\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            }\n                        ],\n                        \"spotPaymentCodeExceptions\": [],\n                        \"spotNetworkLimits\": [],\n                        \"spotNetworkMessages\": []\n                    }\n                ]\n            },\n            {\n                \"id\": \"8133eda9e71544979395f7721b004292\",\n                \"name\": \"DEMO_CENTRALIZED_NETWORK\",\n                \"commercialName\": \"DEMO_CENTRALIZED_NETWORK\",\n                \"paymentChannel\": \"d141ee4e6062419a84953cdfcb13b409\",\n                \"ownerIBUserId\": \"1eba60ac62d84feabd6740af173d7e1f\",\n                \"startDate\": \"20180111T11:47:55.321Z\",\n                \"endDate\": \"20190111T11:47:55.321Z\",\n                \"networkMetadata\": [\n                    {\n                        \"id\": \"97013e64ec6340748c0164dc9a1dc369\",\n                        \"fieldKey\": \"IS_CANCEL_ADMIN_ALLOWED\",\n                        \"fieldValue\": \"FALSE\"\n                    },\n                    {\n                        \"id\": \"0e35a932e2e04a0d9ae07bcd26bbb6e5\",\n                        \"fieldKey\": \"CANCELLATION_WITH_REPAY\",\n                        \"fieldValue\": \"FALSE\"\n                    },\n                    {\n                        \"id\": \"f7fe8cb0f64f448d8e1e637cb8bfa8cb\",\n                        \"fieldKey\": \"MODE\",\n                        \"fieldValue\": \"CENTRALIZED\"\n                    },\n                    {\n                        \"id\": \"825162c7590e480d9ea7bd13bcac7190\",\n                        \"fieldKey\": \"MAX_CANCELLATION_PERC\",\n                        \"fieldValue\": \"0\"\n                    },\n                    {\n                        \"id\": \"0b8fce93c20f486e80a40a4b1a4f2fba\",\n                        \"fieldKey\": \"TRANSACTION_TERMINAL_PASSWORD_GENERATION_MODE\",\n                        \"fieldValue\": \"DEFAULT\"\n                    },\n                    {\n                        \"id\": \"6aa0e60a05ba4215bf3469135d50d81e\",\n                        \"fieldKey\": \"MIN_CANCELLATION_PERC\",\n                        \"fieldValue\": \"0\"\n                    }\n                ],\n                \"networkAccounts\": [\n                    {\n                        \"id\": \"496e136b34484544bb4261aa64cc4e88\",\n                        \"IBANorBBAN\": \"GR0630590502161789\",\n                        \"PAN\": null,\n                        \"accountType\": \"ULTDEBTOR_INTERACCOUNT\"\n                    }\n                ],\n                \"networkLimits\": [],\n                \"networkMessages\": [],\n                \"spots\": [\n                    {\n                        \"id\": \"1de1fac3aa11484ebb75b59b951a93cd\",\n                        \"name\": \"DemoCentralizedSpot1\",\n                        \"comments\": null,\n                        \"address\": \"Γαργγητού 99\",\n                        \"startDate\": \"20180111T11:47:55.321Z\",\n                        \"endDate\": \"20190111T11:47:55.321Z\",\n                        \"ownerIBUserId\": \"1eba60ac62d84feabd6740af173d7e1f\",\n                        \"ssn\": \"9PAUPTQIKK\",\n                        \"status\": \"ENABLED\",\n                        \"authorizationUpdateLvl\": \"NETWORK\",\n                        \"spotMachines\": [\n                            {\n                                \"id\": \"c850e76e6ea745b4af18742ef516944b\",\n                                \"machineId\": \"DemoCentralizedMediatorSpotMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"Mediator\",\n                                \"description\": \"DemoCentralizedMediatorSpotMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [],\n                                \"spotMachineAccounts\": null,\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"16d0bb591f9b41a4b1ea9294e7927425\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"4d34b875608c4b36b2049090532ca047\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"ada8553ead9a4178913ae45c2714cc45\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            },\n                            {\n                                \"id\": \"cae44dde2e0d45aa8c4571f0a36ee3e7\",\n                                \"machineId\": \"DemoCentralizedSpotMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"TransactionTerminal\",\n                                \"description\": \"DemoCentralizedSpotMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [\n                                    {\n                                        \"id\": \"82c01e5fc2c54e8caa1583fc7ab14480\",\n                                        \"txId\": \"b41d665cef69487d93b00de978a1295a\",\n                                        \"instrId\": \"21CA8C794D2540E9AC6D90AF2D263E6A\",\n                                        \"endToEndId\": \"90773001121420176229\",\n                                        \"paymentCode\": \"69d6ffc8cc654130a172d2fa16b6cbe8\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 17,\n                                        \"method\": \"CASH\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"e302d3fbd53f4f55a2cfde4d0611191c\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420176229\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180110T22:00:00.000Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    },\n                                    {\n                                        \"id\": \"0140ca382bfb419fa7e0306dc68bffec\",\n                                        \"txId\": \"be770f97ac894ec7804e0c193bf16495\",\n                                        \"instrId\": \"399311CBC86F431895925081092D8F24\",\n                                        \"endToEndId\": \"90773001121420171285\",\n                                        \"paymentCode\": \"58f02321441c4c9587a2295092851534\",\n                                        \"ccy\": \"EUR\",\n                                        \"amount\": 53,\n                                        \"method\": \"CASH\",\n                                        \"creditorBankBIC\": \"ETHNGRAA\",\n                                        \"creditorBankName\": \"ΕΘΝΙΚΗ\",\n                                        \"creditorBankIBAN\": \"GR41498760953239760\",\n                                        \"debtorName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΙΩΡΓΟΣ\",\n                                        \"debtorTelephone\": \"2101234567\",\n                                        \"paymentType\": \"NBG\",\n                                        \"debitAccount\": \"GR7816570557954408\",\n                                        \"branch\": \"001\",\n                                        \"userId\": \"e302d3fbd53f4f55a2cfde4d0611191c\",\n                                        \"sendCutOffTime\": \"20180111T14:00:00.000Z\",\n                                        \"commNBG\": 0.2,\n                                        \"commUltimateDebtor\": 0.1,\n                                        \"commThirdParty\": 0.4,\n                                        \"commOther\": 0,\n                                        \"clearSysRef\": \"90773001121420171285\",\n                                        \"status\": \"COMPLETED\",\n                                        \"failureReason\": null,\n                                        \"timestamp\": \"20180111T11:47:55.321Z\",\n                                        \"subBranch\": \"01\",\n                                        \"impersonator\": null,\n                                        \"commSubAgent\": 0.03,\n                                        \"spotMachineTransactionDetails\": [\n                                            {\n                                                \"fieldKey\": \"PAYMENT_CODE\",\n                                                \"fieldValue\": \"90773\"\n                                            }\n                                        ]\n                                    }\n                                ],\n                                \"spotMachineAccounts\": [\n                                    {\n                                        \"id\": \"a222de0fc80342e68e0ae7ca76c2c552\",\n                                        \"IBANorBBAN\": \"GR2539560718447876\",\n                                        \"PAN\": null\n                                    }\n                                ],\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"07b1f36c74534fefa3122fde9d4e973e\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"24d8c7410e1445d880cdcd84b8cefac7\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"ada8553ead9a4178913ae45c2714cc45\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            },\n                            {\n                                \"id\": \"ed833e5affcd46cfaa0c0ad527ea1c5b\",\n                                \"machineId\": \"DemoCentralizedAdministrationSpotMachine1\",\n                                \"serialNo\": \"\",\n                                \"machineType\": \"NetworkAdministrationTerminal\",\n                                \"description\": \"DemoCentralizedAdministrationSpotMachine1\",\n                                \"installedSoftware\": \"CASH_REGISTER_SIMPLE_PAY_SPOT\",\n                                \"installedDate\": \"20180111T11:47:55.321Z\",\n                                \"startDate\": \"20180111T11:47:55.321Z\",\n                                \"endDate\": \"20190111T11:47:55.321Z\",\n                                \"status\": \"ENABLED\",\n                                \"authorizationUpdateLvl\": null,\n                                \"store\": \"\",\n                                \"spotMachineOTTs\": [],\n                                \"spotMachineTransactions\": [],\n                                \"spotMachineAccounts\": [\n                                    {\n                                        \"id\": \"8359dd7caa7142f1a7e7df8aa18f7ebe\",\n                                        \"IBANorBBAN\": \"GR5579486657194533\",\n                                        \"PAN\": null\n                                    }\n                                ],\n                                \"spotMachinePaymentCodeExceptions\": [],\n                                \"spotMachineNetworkLimits\": [\n                                    {\n                                        \"id\": \"d91a805a242e4552838518fea608d297\",\n                                        \"limitType\": \"REVERSAL\",\n                                        \"limitScope\": \"SPOT_MACHINE\",\n                                        \"interval\": 5,\n                                        \"maxCount\": 1000,\n                                        \"maxAmount\": 1000000,\n                                        \"startDate\": \"20180111T11:47:55.321Z\",\n                                        \"endDate\": \"21180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineNetworkMessage\": [\n                                    {\n                                        \"id\": \"d6f924e9ccfe413b98e889274d7d50e7\",\n                                        \"category\": \"WELCOME\",\n                                        \"content\": \"Welcome to our network!\",\n                                        \"contentType\": \"Content Type\",\n                                        \"bitmapContent\": null,\n                                        \"endDate\": \"21180111T11:47:55.321Z\",\n                                        \"startDate\": \"20180111T11:47:55.321Z\"\n                                    }\n                                ],\n                                \"spotMachineLocation\": {\n                                    \"id\": \"57d577fb196740a8aedba51c5e2329b9\",\n                                    \"latitude\": \"47.65100\",\n                                    \"longitude\": \"122.34900\",\n                                    \"coordinatesSystem\": \"DECIMAL\",\n                                    \"address\": null\n                                }\n                            }\n                        ],\n                        \"spotPaymentCodeExceptions\": [],\n                        \"spotNetworkLimits\": [],\n                        \"spotNetworkMessages\": []\n                    }\n                ]\n            }\n        ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User (IBANK_USER)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"ibank_user4\",\r\n  \"userType\": \"IBANK_USER\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/users/{{user_id}}/accounts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;",
+									"",
+									"postman.setEnvironmentVariable(\"User2TestAccountID\", jsonData.payload.accountId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/users/{{user_id}}/accounts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"balance\": 100000,\r\n  \"accountType\": \"IBAN\",\r\n  \"accountTypeValue\": \"GR7816570557954999\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account Balance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/users/{{user_id}}/accounts/{{UserTestAccountID}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"balance\": 100001\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Account",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/users/{{user_id}}/accounts/{{UserTestAccountID}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}/transactions",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "content-type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"paymentIdentification\": {\r\n            \"instrId\": \"6281d798-2c32-4c27-aa80-91a726afa587\",\r\n            \"endToEndId\": \"479177344326\",\r\n            \"txId\": \"6281d798-2c32-4c27-aa80-91a726afa587\",\r\n            \"clrSysRef\": \"90773700112820186243\",\r\n            \"paymentRef\": null\r\n\t},\r\n\t\"debtorName\": \"{{User1Fullname}}\",\r\n\t\"debtorTelephone\": \"{{User1Telephone}}\",\r\n\t\"debitAccount\": \"GR8979540708770489\",\r\n\t\"creditorBankBIC\": \"ETHNGRAA\",\r\n    \"creditorBankName\": \"NATIONAL BANK OF GREECE\",\r\n    \"creditorBankIBAN\": \"GR55426546817137133871\",\r\n\t\"branch\": \"700\",\r\n\t\"subBranch\": \"3\",\r\n\t\"sendCutOffTime\": \"2018-11-28T08:00:00.000Z\",\r\n\t\"status\": \"COMPLETED\",\r\n\t\"failureReason\": null,\r\n\t\"timestamp\": \"2018-11-28T08:47:55.804Z\",\r\n\t\"commNBG\": 0,\r\n    \"commUltimateDebtor\": 0,\r\n    \"commThirdParty\": 5,\r\n    \"commOther\": 0,\r\n\t\"commSubAgent\": 0\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request PUT\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/sandbox/REPLACE_SANDBOX_ID/transactions\n  --header 'accept: text/json'\n  --header 'content-type: text/json'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"paymentIdentification\\\":{\\\"instrId\\\":\\\"5937256181268480\\\",\\\"endtoendId\\\":\\\"4865305350242304\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"hehott\\\",\\\"paymentRef\\\":\\\"sizn\\\"},\\\"debtorName\\\":\\\"Frances Miller\\\",\\\"debtorTelephone\\\":\\\"(565) 290-7063\\\",\\\"debitAccount\\\":\\\"5488978197470260\\\",\\\"creditorBankBIC\\\":\\\"5018784888408026\\\",\\\"creditorBankName\\\":\\\"5494892152042331\\\",\\\"creditorBankIBAN\\\":\\\"3528010642135194\\\",\\\"branch\\\":\\\"wire\\\",\\\"subBranch\\\":\\\"wodi\\\",\\\"sendCutOffTime\\\":\\\"2012-03-05T12:49:19.633Z\\\",\\\"status\\\":\\\"weguhsem\\\",\\\"failureReason\\\":\\\"wesriz\\\",\\\"timestamp\\\":\\\"2018-07-22T12:55:27.356Z\\\",\\\"commNBG\\\":58.89542981,\\\"commUltimateDebtor\\\":62.7211394,\\\"commThirdParty\\\":34.73850544,\\\"commOther\\\":3.93848437,\\\"commSubAgent\\\":27.5545161}'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BillPayments Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Execute Payment DEH (ACCOUNT)",
+					"description": "",
+					"item": [
+						{
+							"name": "Pay DEH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Payment DEH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n     \"endtoendId\": \"{{endtoendId}}\",\r\n     \"txId\": \"{{txId}}\",\r\n     \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/status",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"PaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Execute Payment EYDAP (ACCOUNT)",
+					"description": "",
+					"item": [
+						{
+							"name": "Pay EYDAP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdEydap}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeEydap}}\",\r\n      \t\"CUSTOMER_NAME\" : \"{{User1Fullname}}\",\r\n      \t\"EXPIRATION_DATE\" : \"20180120\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 31.12,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Payment EYDAP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/status",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"PaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Execute Payment Car Tax (ACCOUNT)",
+					"description": "",
+					"item": [
+						{
+							"name": "Execute Preprocess Step1 (Car Tax  Retrieve Payment Code)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"DEPTOR_NAME\", jsonData.payload.output.name);",
+											"postman.setEnvironmentVariable(\"DEBTOR_TAX_ID\", jsonData.payload.output.DEBTOR_TAX_ID);",
+											"postman.setEnvironmentVariable(\"PAYMENT_CODE\", jsonData.payload.output.PAYMENT_CODE);",
+											"postman.setEnvironmentVariable(\"AUX_PAYMENT_CODE\", jsonData.payload.output.AUX_PAYMENT_CODE);",
+											"postman.setEnvironmentVariable(\"CAR_TAX_SEQUENCE_ID\", jsonData.payload.output.sequenceId);",
+											"postman.setEnvironmentVariable(\"CAR_TAX_AMOUNT\", jsonData.payload.output.amount);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/executePreprocessStep",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdCarTax}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{CAR_TAX_RETRIEVE_PAYMENT_CODE}}\",\r\n      \"input\": { \r\n\t\t\t\"taxId\" : \"139181071\",\r\n\t\t\t\"licensePlate\" : \"IMN9013\",\r\n\t\t\t\"year\" : \"2018\",\r\n\t\t\t\"isCaravan\": \"0\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Pay Car Tax (Step 2)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdCarTax}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\": \"{{PAYMENT_CODE}}\",\r\n      \t\"AUX_PAYMENT_CODE\": \"{{AUX_PAYMENT_CODE}}\",\r\n      \t\"AUX2_PAYMENT_CODE\": \"123456\",\r\n      \t\"DEBTOR_TAX_ID\": \"{{DEBTOR_TAX_ID}}\",\r\n      \t\"AR_ENTYPOY\": \"IMN9013\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": \"{{CAR_TAX_AMOUNT}}\",\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/status",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"PaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Execute Payment EParavolo (ACCOUNT)",
+					"description": "",
+					"item": [
+						{
+							"name": "Execute Preprocess Step1 (EParavolo Retrieve All Types)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/executePreprocessStep",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_RETRIEVE_ALL_TYPES}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\" : \"el\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
+								},
+								"description": null
+							},
+							"response": []
+						},
+						{
+							"name": "Execute Preprocess Step2 (EParavolo Get User)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FIRSTNAME\", jsonData.payload.output.firstName);",
+											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_LASTNAME\", jsonData.payload.output.lastName);",
+											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FATHERNAME\", jsonData.payload.output.fatherName);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/executePreprocessStep",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_GET_USER}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\" : \"el\",\r\n\t\t\t\"taxId\": \"139181071\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Execute Preprocess Step3 (EParavolo Create Short)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"DEBTOR_TAX_ID\", jsonData.payload.output.DEBTOR_TAX_ID);",
+											"postman.setEnvironmentVariable(\"PAYMENT_CODE\", jsonData.payload.output.PAYMENT_CODE);",
+											"postman.setEnvironmentVariable(\"AUX_PAYMENT_CODE\", jsonData.payload.output.AUX_PAYMENT_CODE);",
+											"postman.setEnvironmentVariable(\"EPARAVOLO_AMOUNT\", jsonData.payload.output.amount);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/executePreprocessStep",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null,\r\n    \"paymentCode\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n    \"preprocessStepDetails\": {\r\n      \"stepId\": \"{{EPARAVOLO_CREATE_SHORT}}\",\r\n      \"input\": { \r\n\t\t\t\"languageId\": \"el\",\r\n\t\t\t\"taxId\": \"139181071\",\r\n\t\t\t\"typeCode\": \"7432\",\r\n\t\t\t\"amount\": 9,\r\n\t\t\t\"firstName\": \"{{EPARAVOLO_GET_USER_FIRSTNAME}}\",\r\n\t\t\t\"lastName\": \"{{EPARAVOLO_GET_USER_LASTNAME}}\",\r\n\t\t\t\"fatherName\": \"{{EPARAVOLO_GET_USER_FATHERNAME}}\"\r\n\t\t}\r\n    }\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Pay Eparavolo Step 4.1 ( With smsotp )",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									},
+									{
+										"key": "phone_number",
+										"value": "{{phone_number}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"d0e189b3-6c90-428d-a50e-ff116de743b9\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"f90fb20d-6c87-4e90-9e4e-b1c43a29751f\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n\t\t\"PAYMENT_CODE\":\"{{PAYMENT_CODE}}\",\r\n\t\t\"DEBTOR_TAX_ID\" : \"{{DEBTOR_TAX_ID}}\",\r\n\t\t\"AUX_PAYMENT_CODE\" : \"{{AUX_PAYMENT_CODE}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": \"{{EPARAVOLO_AMOUNT}}\",\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"smsotp\"\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Pay Eparavolo Step 4.2 ( With I-CODE )",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									},
+									{
+										"key": "phone_number",
+										"value": "{{phone_number}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"d0e189b3-6c90-428d-a50e-ff116de743b9\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"f90fb20d-6c87-4e90-9e4e-b1c43a29751f\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdEParavolo}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n\t\t\"PAYMENT_CODE\":\"{{PAYMENT_CODE}}\",\r\n\t\t\"DEBTOR_TAX_ID\" : \"{{DEBTOR_TAX_ID}}\",\r\n\t\t\"AUX_PAYMENT_CODE\" : \"{{AUX_PAYMENT_CODE}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": \"{{EPARAVOLO_AMOUNT}}\",\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"584443\"\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/status",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"PaymentIdentification\": {\r\n    \t \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Execute Payment DOY (ACCOUNT)",
+					"description": "",
+					"item": [
+						{
+							"name": "Pay DOY",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;",
+											"",
+											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDoy}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDoy}}\",\r\n      \t\"DEBTOR_TAX_ID\": \"{{DEBTOR_TAX_ID}}\",\r\n      \t\"AUX_PAYMENT_CODE\": \"{{AUX_PAYMENT_CODE}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Payment DOY",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"payload not empty\"] = jsonData.payload !== null;",
+											"tests[\"exception is empty\"] = jsonData.exception === null;"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "https://{{base_url}}/{{portal}}/Payments/status",
+								"method": "POST",
+								"header": [
+									{
+										"key": "sandbox_id",
+										"value": "{{sandbox_id}}",
+										"description": ""
+									},
+									{
+										"key": "application_id",
+										"value": "{{application_id}}",
+										"description": ""
+									},
+									{
+										"key": "user_id",
+										"value": "{{user_id}}",
+										"description": ""
+									},
+									{
+										"key": "username",
+										"value": "{{username}}",
+										"description": ""
+									},
+									{
+										"key": "provider_id",
+										"value": "{{provider_id}}",
+										"description": ""
+									},
+									{
+										"key": "provider",
+										"value": "{{provider}}",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"description": ""
+									},
+									{
+										"key": "{{client-id}}",
+										"value": "{{client-id-value}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"PaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get List of Supported Payments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": \"DemoTPP4UsersSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Daily Transactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var date = (new Date()).toISOString();",
+									"",
+									"postman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/dailyTransactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"requestMachineId\": null,\r\n\t\"machineId\": null\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Last Payment Transaction Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"payload not empty\"] = jsonData.payload !== null;",
+									"tests[\"exception is empty\"] = jsonData.exception === null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/lastPaymentTransactionDetails",
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n  \t\"paymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"requestMachineId\": null,\r\n\t\"machineId\": null\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

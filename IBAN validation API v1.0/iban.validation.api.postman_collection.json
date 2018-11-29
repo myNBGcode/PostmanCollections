@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "ad11cde7-1cb0-43c4-bcef-e2ede06a13ba",
+		"name": "IBAN Validation API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandboxId\": \"e6bf6280-2e1c-4128-a0be-64f228b7abe5\",\n    \"users\": [\n        {\n            \"Username\": \"User1\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        },\n        {\n            \"Username\": \"User2\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Iban Validation Service",
+			"item": [
+				{
+					"name": "Get NBG Account's Iban",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"type": "text"
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/accounts/{{test_account}}/iban",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"accounts",
+								"{{test_account}}",
+								"iban"
+							]
+						},
+						"description": "Returns the IBAN of an Account of National Bank of Greece."
+					},
+					"response": []
+				},
+				{
+					"name": "Check Iban",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"type": "text"
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"type": "text"
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"type": "text"
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/iban/{{test_iban}}/check",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"iban",
+								"{{test_iban}}",
+								"check"
+							]
+						},
+						"description": "Validates an IBAN. Also indicates whether the related account belongs to National Bank of Greece."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fc8050ab-dee7-443c-bc46-606117f8037e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "81398ea2-852b-49f7-9ee4-eda75834dbe2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e2580bcc-f977-492c-a53b-9e80876ae7d0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "648473f9-500e-4f26-8b76-9860603aee4b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6fb03929-3757-4818-9902-a0dcd3e6e488",
+			"key": "test_account",
+			"value": "14129611217",
+			"type": "string"
+		},
+		{
+			"id": "b1a77776-eba5-4c96-bc31-f0e959230810",
+			"key": "test_iban",
+			"value": "GR2701101410000014129611217",
+			"type": "string"
+		}
+	]
+}

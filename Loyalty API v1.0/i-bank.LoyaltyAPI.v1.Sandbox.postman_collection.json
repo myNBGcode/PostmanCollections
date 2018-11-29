@@ -1,0 +1,1903 @@
+{
+	"id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+	"name": "NBG.LoyaltyApp.Sandbox",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "bd127af7-85fa-992e-4574-5463ac10f862",
+			"name": "Administration",
+			"description": "",
+			"order": [
+				"322f782c-fc96-ae5b-7f40-5baad3dcaa89",
+				"c126378f-4b20-557f-55b4-8c8a9bac97e1",
+				"43a36f07-cca6-ffac-c0df-ce65193729ab"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "02aa1ca8-858c-55a8-8686-97e724aaa548",
+			"name": "Collection",
+			"description": "",
+			"order": [
+				"5cd9d8e1-d1c9-8a2f-f83f-0f43224c4e1e",
+				"402627c3-a4fb-09b8-ebe5-f840f6410b40"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "12a11ac1-df22-fb90-8ab1-46042da7a4b8",
+			"name": "Loyalty",
+			"description": "",
+			"order": [],
+			"folders_order": [
+				"84620c76-8acb-76d2-a866-1a7d7320542d",
+				"a18068e3-f6e1-3307-e51d-73e986df1adc",
+				"02aa1ca8-858c-55a8-8686-97e724aaa548",
+				"946ea763-867d-faa3-5b19-c53154ed5566",
+				"1adbc8b0-1f0e-4be8-0fc5-7ef424f0428c",
+				"bd127af7-85fa-992e-4574-5463ac10f862"
+			],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "2545c515-56a3-b95a-80ca-53c2fdf69171",
+			"name": "Loyalty Scenario",
+			"description": "",
+			"order": [
+				"10aa218a-88ff-1238-639a-a73412b7078a",
+				"734cc655-3139-55ba-a553-aa1266fb3b39",
+				"6202717d-de74-2770-1d71-1c1b05f9f46d",
+				"8e23c6ff-ea24-73e7-fdc5-2aa367ff6f1d",
+				"3e670b80-7b2a-c3cd-34dd-3c8d39096cc0",
+				"0c1fe86d-93d7-db68-ae64-548ac9402b23",
+				"f9e976f2-2ad2-e88d-0b58-cdef1cb2af84",
+				"f1d391a0-cbf6-322d-013f-d24e6309fff7",
+				"507f226c-52b2-fb68-2088-ef3b3d6dc9ab",
+				"7c642f2b-d82e-11f7-1a59-ca52f9081634",
+				"b98795c7-aeba-5298-6ea4-964f49a66608",
+				"97706dbc-0207-1aba-38cb-67ddf8c30fea",
+				"f690f18a-b97a-e4fe-7378-9f27d53a9577"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "84620c76-8acb-76d2-a866-1a7d7320542d",
+			"name": "Merchants",
+			"description": "",
+			"order": [
+				"0f5099be-37a4-a4fd-8531-8e5e35d6627d",
+				"d8c4098d-920a-70f9-4acb-ebb8347c7269",
+				"ccaff93a-6acb-b225-b361-5a0bd1463198",
+				"b9af806d-7e7c-04cd-4a01-97265dd894c9"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "946ea763-867d-faa3-5b19-c53154ed5566",
+			"name": "Redemption",
+			"description": "",
+			"order": [
+				"08d99bdd-654e-2d08-72c0-fbf44e8ab6f1",
+				"7c37e3dd-43cf-8d45-f4db-c2f794ee6ed7"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "1adbc8b0-1f0e-4be8-0fc5-7ef424f0428c",
+			"name": "Registration",
+			"description": "",
+			"order": [
+				"a5780b6b-3f22-483b-ca68-b1a14ac46476",
+				"d54f0fd7-7816-c483-d822-f095894abd48"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa",
+			"name": "Sandbox Service",
+			"description": "",
+			"order": [
+				"d04ef69f-af15-4bb5-6797-42e302d87f03",
+				"9d85bb58-6109-0b6b-4f64-1dbfbf22e5cd",
+				"dd47370e-dd01-133a-df40-74f17096a162",
+				"69cac84f-40cb-73a2-5b7c-8e3eeacb440f"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		},
+		{
+			"id": "a18068e3-f6e1-3307-e51d-73e986df1adc",
+			"name": "Wallet",
+			"description": "",
+			"order": [
+				"202fe398-cb6b-1e4d-e640-0e2f2a853640",
+				"068ac85f-aa55-7ec4-0280-b52bacc84088"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7"
+		}
+	],
+	"folders_order": [
+		"3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa",
+		"12a11ac1-df22-fb90-8ab1-46042da7a4b8",
+		"2545c515-56a3-b95a-80ca-53c2fdf69171"
+	],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "068ac85f-aa55-7ec4-0280-b52bacc84088",
+			"name": "Get Transactions",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n\t\"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/getTransactions",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "a18068e3-f6e1-3307-e51d-73e986df1adc"
+		},
+		{
+			"id": "08d99bdd-654e-2d08-72c0-fbf44e8ab6f1",
+			"name": "Issue Coupon",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant2AppId}}\",\r\n    \"accountNumber\": \"{{Customer1AccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"points\": 20,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\n\npostman.setEnvironmentVariable(\"couponCode\", jsonData.payload.couponCode);",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/issueCoupon",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "946ea763-867d-faa3-5b19-c53154ed5566"
+		},
+		{
+			"id": "0c1fe86d-93d7-db68-ae64-548ac9402b23",
+			"name": "Get Balance",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/getBalance",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "0f5099be-37a4-a4fd-8531-8e5e35d6627d",
+			"name": "GetMerchantTariffs (Merchant1)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n\t\"merchantAppId\": \"{{Merchant1AppId}}\",\r\n\t\"transactionDate\": \"{{CURRENT_DATE}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/getMerchantTariffs",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "84620c76-8acb-76d2-a866-1a7d7320542d"
+		},
+		{
+			"id": "10aa218a-88ff-1238-639a-a73412b7078a",
+			"name": "Create Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "Content-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"sandboxId\": \"{{header.sandbox_id}}\"\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\n\npostman.setEnvironmentVariable(\"header.applicationId\", \"1B01DE32-485E-4A6F-87CF-3D6A50F09FD1\");\npostman.setEnvironmentVariable(\"header.user1id\", jsonData.payload.Users[0].UserId);\npostman.setEnvironmentVariable(\"header.user1username\", jsonData.payload.Users[0].Username);\npostman.setEnvironmentVariable(\"header.providerId\", \"NBG.gr\");\npostman.setEnvironmentVariable(\"header.provider\", \"NBG\");\n\npostman.setEnvironmentVariable(\"body.header.applicationId\", \"F9953CB2-AA65-4974-9821-E9FA4474A254\");\npostman.setEnvironmentVariable(\"body.header.bank\", \"NBG\");\npostman.setEnvironmentVariable(\"body.header.channel\", \"Loyalty\");\npostman.setEnvironmentVariable(\"body.header.go4moreMember\", true);\n\npostman.setEnvironmentVariable(\"LoyaltySchemaId\", jsonData.payload.LoyaltySchemas[0].Id);\n\npostman.setEnvironmentVariable(\"Merchant1Id\", jsonData.payload.LoyaltySchemas[0].Merchants[0].Id);\npostman.setEnvironmentVariable(\"Merchant1AppId\", jsonData.payload.LoyaltySchemas[0].Merchants[0].MerchantAppId);\npostman.setEnvironmentVariable(\"Merchant2Id\", jsonData.payload.LoyaltySchemas[0].Merchants[1].Id);\npostman.setEnvironmentVariable(\"Merchant2AppId\", jsonData.payload.LoyaltySchemas[0].Merchants[1].MerchantAppId);\npostman.setEnvironmentVariable(\"Merchant3Id\", jsonData.payload.LoyaltySchemas[0].Merchants[2].Id);\npostman.setEnvironmentVariable(\"Merchant3AppId\", jsonData.payload.LoyaltySchemas[0].Merchants[2].MerchantAppId);\n\npostman.setEnvironmentVariable(\"Event1Code\", jsonData.payload.LoyaltySchemas[0].Events[0].EventCode);\npostman.setEnvironmentVariable(\"Event2Code\", jsonData.payload.LoyaltySchemas[0].Events[1].EventCode);\npostman.setEnvironmentVariable(\"Event3Code\", jsonData.payload.LoyaltySchemas[0].Events[2].EventCode);\npostman.setEnvironmentVariable(\"Event4Code\", jsonData.payload.LoyaltySchemas[0].Events[3].EventCode);\n\npostman.setEnvironmentVariable(\"Customer1AppIdentity\", jsonData.payload.LoyaltySchemas[0].Customers[0].CustomerAppIdentity);\npostman.setEnvironmentVariable(\"Customer1AccountNumber\", jsonData.payload.LoyaltySchemas[0].Customers[0].CustomerAccounts[0].AccountNumber);",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "202fe398-cb6b-1e4d-e640-0e2f2a853640",
+			"name": "Get Balance",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/getBalance",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "a18068e3-f6e1-3307-e51d-73e986df1adc"
+		},
+		{
+			"id": "322f782c-fc96-ae5b-7f40-5baad3dcaa89",
+			"name": "Manage Merchant",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"merchantCategoryCode\": \"7357CA96-D374-41FD-B714-450E07CAD7AB\",\r\n    \"merchantAppId\": \"79846537654845449631\",\r\n    \"merchantName\": \"Pappas LTD\",\r\n    \"taxId\": \"123456789\",\r\n    \"phoneNo\": \"1231231230\",\r\n    \"longtitude\": 23.725904,\r\n    \"latitude\": 37.987411,\r\n    \"county\": \"Athens\",\r\n    \"city\": \"Athens\",\r\n    \"zipcode\": \"10438\",\r\n    \"address\": \"Maizonos 3\",\r\n    \"vat\": \"24%\",\r\n    \"area\": \"Athens\",\r\n    \"dateFrom\": \"2018-01-01\",\r\n    \"dateTo\": \"2030-12-31\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/manageMerchant",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "bd127af7-85fa-992e-4574-5463ac10f862"
+		},
+		{
+			"id": "3e670b80-7b2a-c3cd-34dd-3c8d39096cc0",
+			"name": "Points Collection Event Policy POS (Transaction 3) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant1AppId}}\",\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "402627c3-a4fb-09b8-ebe5-f840f6410b40",
+			"name": "Points Collection",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{Customer1AccountNumber}}\",\r\n    \"eventCode\": \"{{Event2Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\",\r\n    \"latitude\" : 37.9837,\r\n    \"longtitude\" : 23.7293\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "02aa1ca8-858c-55a8-8686-97e724aaa548"
+		},
+		{
+			"id": "43a36f07-cca6-ffac-c0df-ce65193729ab",
+			"name": "Get Events",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{body.header.applicationId}}\",\n\t\t\"bank\": \"{{body.header.bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{body.header.channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{body.header.go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t\t\"loyaltySchemaId\": \"{{LoyaltySchemaId}}\"\n\t}\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/events",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "bd127af7-85fa-992e-4574-5463ac10f862"
+		},
+		{
+			"id": "507f226c-52b2-fb68-2088-ef3b3d6dc9ab",
+			"name": "Points Collection Event Policy Event (Transaction 3) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event4Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "5cd9d8e1-d1c9-8a2f-f83f-0f43224c4e1e",
+			"name": "Points Simulator",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{Customer1AccountNumber}}\",\r\n    \"eventCode\": \"{{Event2Code}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\",\r\n    \"latitude\" : 37.9837,\r\n    \"longtitude\" : 23.7293\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsSimulator",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "02aa1ca8-858c-55a8-8686-97e724aaa548"
+		},
+		{
+			"id": "6202717d-de74-2770-1d71-1c1b05f9f46d",
+			"name": "Points Collection Event Policy POS (Transaction 1) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant1AppId}}\",\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "69cac84f-40cb-73a2-5b7c-8e3eeacb440f",
+			"name": "Delete Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "DELETE",
+			"headers": "x-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"tests": "tests[\"response is empty\"] = responseBody === \"\";\ntests[\"Status code is 204\"] = responseCode.code === 204;\n\npostman.clearEnvironmentVariable(\"header.applicationId\");\npostman.clearEnvironmentVariable(\"header.user1id\");\npostman.clearEnvironmentVariable(\"header.user1username\");\npostman.clearEnvironmentVariable(\"header.providerId\");\npostman.clearEnvironmentVariable(\"header.provider\");\npostman.clearEnvironmentVariable(\"body.header.applicationId\");\npostman.clearEnvironmentVariable(\"body.header.bank\");\npostman.clearEnvironmentVariable(\"body.header.channel\");\npostman.clearEnvironmentVariable(\"body.header.go4moreMember\");\npostman.clearEnvironmentVariable(\"LoyaltySchemaId\");\npostman.clearEnvironmentVariable(\"Merchant1Id\");\npostman.clearEnvironmentVariable(\"Merchant1AppId\");\npostman.clearEnvironmentVariable(\"Merchant2Id\");\npostman.clearEnvironmentVariable(\"Merchant2AppId\");\npostman.clearEnvironmentVariable(\"Event1Code\");\npostman.clearEnvironmentVariable(\"Event2Code\");\npostman.clearEnvironmentVariable(\"Customer1AppIdentity\");\npostman.clearEnvironmentVariable(\"Customer1AccountNumber\");\npostman.clearEnvironmentVariable(\"couponCode\");\npostman.clearEnvironmentVariable(\"CURRENT_DATE\");\n\n",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox/{{header.sandbox_id}}",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa"
+		},
+		{
+			"id": "734cc655-3139-55ba-a553-aa1266fb3b39",
+			"name": "Register Customer",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"firstName\": \"Γεώργιος\",\r\n    \"surName\": \"Δημητρίου\",\r\n    \"birthdayYear\": 1990,\r\n    \"phoneNumber\": \"2111234567\",\r\n    \"email\": \"g.dimitriou@company.com\",\r\n    \"accounts\": [\r\n      {\r\n        \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n        \"accountType\": \"Card\",\r\n        \"expirationDate\": \"2022-02-02\",\r\n        \"holderName\": \"Γεώργιος Δημητρίου\"\r\n      }\r\n    ]\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\n\npostman.setEnvironmentVariable('header.newUserId', jsonData.payload.customerId);\npostman.setEnvironmentVariable('header.newUsername', environment[\"newCustomerAppIdentity\"]);",
+			"preRequestScript": "postman.setEnvironmentVariable('newCustomerAppIdentity', 'NewUserAppIdentity');\npostman.setEnvironmentVariable('newCustomerAccountNumber', '4700 1234 5678 9999');",
+			"url": "{{root_url}}/Loyalty/registerCustomer",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "7c37e3dd-43cf-8d45-f4db-c2f794ee6ed7",
+			"name": "Points Redemption",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{Customer1AppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant2AppId}}\",\r\n    \"accountNumber\": \"{{Customer1AccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"couponCode\": \"{{couponCode}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsRedemption",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "946ea763-867d-faa3-5b19-c53154ed5566"
+		},
+		{
+			"id": "7c642f2b-d82e-11f7-1a59-ca52f9081634",
+			"name": "Points Collection Event Policy Event (Transaction 4) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event4Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "8e23c6ff-ea24-73e7-fdc5-2aa367ff6f1d",
+			"name": "Points Collection Event Policy POS (Transaction 2) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant1AppId}}\",\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "97706dbc-0207-1aba-38cb-67ddf8c30fea",
+			"name": "Points Redemption",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant2AppId}}\",\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"couponCode\": \"{{couponCode}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsRedemption",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "9d85bb58-6109-0b6b-4f64-1dbfbf22e5cd",
+			"name": "Import Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "PUT",
+			"headers": "Content-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n        \"SandboxID\": \"{{header.sandbox_id}}\",\n        \"Users\": [\n            {\n                \"userId\": \"395ab23c-a973-4d00-965f-6d1d379522c4\",\n                \"userName\": \"User1\",\n                \"providerId\": \"NBG.gr\",\n                \"provider\": \"NBG\"\n            }\n        ],\n        \"LoyaltySchemas\": [\n            {\n                \"Id\": \"5d7d889f-4fac-4159-8096-5b05b03f8448\",\n                \"Name\": \"Demo Loyalty Schema\",\n                \"Alias\": \"Demo\",\n                \"Status\": \"Active\",\n                \"CreatedOn\": \"2018-01-22T16:25:17.900Z\",\n                \"UpdatedOn\": \"2018-01-22T16:25:17.900Z\",\n                \"Merchants\": [\n                    {\n                        \"Id\": \"fe36bb83-bf4b-4ce2-bb14-d1efc13a7505\",\n                        \"MerchantAppId\": \"9091929394959699798\",\n                        \"MerchantName\": \"Παπαδόπουλος A.E.\",\n                        \"MerchantCategoryId\": \"7357ca96-d374-41fd-b714-450e07cad7ab\",\n                        \"Longtitude\": 23.759828,\n                        \"Latitude\": 37.986832,\n                        \"Address\": \"Λεωφ. Αλεξάνδρας 200\",\n                        \"Area\": \"Αμπελόκηποι\",\n                        \"Zipcode\": \"11523\",\n                        \"MerchantData\": \"{\\\"PhoneNo\\\":\\\"2109999999\\\",\\\"TaxId\\\":\\\"222222222\\\",\\\"VAT\\\":\\\"24%\\\",\\\"City\\\":\\\"Αθήνα\\\",\\\"County\\\":\\\"Αττική\\\"}\",\n                        \"calculateToClass\": \"NBG.LoyaltyApp.Sandbox.Types.Loyalty.MerchantData, NBG.LoyaltyApp.Sandbox.Types.Loyalty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27dfa4202bdaf1e2\",\n                        \"DateFrom\": \"2017-02-01T16:25:17.900Z\",\n                        \"DateTo\": \"2117-02-01T16:25:17.900Z\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                    },\n                    {\n                        \"Id\": \"2cee71c7-3964-4db7-ad8d-30d43518f9af\",\n                        \"MerchantAppId\": \"090807060504030201\",\n                        \"MerchantName\": \"Γεωργόπουλος Ε.Π.Ε\",\n                        \"MerchantCategoryId\": \"7357ca96-d374-41fd-b714-450e07cad7ab\",\n                        \"Longtitude\": 23.718035,\n                        \"Latitude\": 38.010698,\n                        \"Address\": \"Δυρραχίου 40\",\n                        \"Area\": \"Σεπόλια\",\n                        \"Zipcode\": \"10443\",\n                        \"MerchantData\": \"{\\\"PhoneNo\\\":\\\"2108888888\\\",\\\"TaxId\\\":\\\"555555555\\\",\\\"VAT\\\":\\\"24%\\\",\\\"City\\\":\\\"Αθήνα\\\",\\\"County\\\":\\\"Αττική\\\"}\",\n                        \"calculateToClass\": \"NBG.LoyaltyApp.Sandbox.Types.Loyalty.MerchantData, NBG.LoyaltyApp.Sandbox.Types.Loyalty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27dfa4202bdaf1e2\",\n                        \"DateFrom\": \"2017-02-01T16:25:17.900Z\",\n                        \"DateTo\": \"2117-02-01T16:25:17.900Z\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                    }\n                ],\n                \"MerchantRelationships\": [\n                    {\n                        \"Id\": \"47fa3bba-2e1d-4a15-bf0f-51068637efbf\",\n                        \"FranchisorMerchantId\": \"fe36bb83-bf4b-4ce2-bb14-d1efc13a7505\",\n                        \"FranchiseeMerchantId\": \"2cee71c7-3964-4db7-ad8d-30d43518f9af\",\n                        \"Status\": \"Active\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                    }\n                ],\n                \"Events\": [\n                    {\n                        \"Id\": \"bd817d50-2cb7-4c18-8975-9b3866991462\",\n                        \"EventCode\": \"123456789\",\n                        \"EventDescription\": \"Demo Event\",\n                        \"Channel\": null,\n                        \"DateFrom\": \"2017-11-01T16:25:17.900Z\",\n                        \"DateTo\": \"2018-10-01T15:25:17.900Z\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"Policies\": [\n                            {\n                                \"Id\": \"02448c3f-66a3-4dfb-b4c4-0e64e6354a32\",\n                                \"Alias\": \"Demo Policy 2 Merchant 1\",\n                                \"MerchantAppId\": \"9091929394959699798\",\n                                \"CalculateToClass\": \"PolicyGeolocation\",\n                                \"PolicyData\": \"{\\\"rates\\\":[{\\\"rateType\\\":0,\\\"value\\\":50.0,\\\"dateFrom\\\":\\\"2017-11-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":null}],\\\"limits\\\":[{\\\"limitType\\\":0,\\\"value\\\":200.0,\\\"dateFrom\\\":\\\"2017-12-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":null}]}\",\n                                \"TimeFrom\": \"05:12\",\n                                \"TimeTo\": \"18:11\",\n                                \"DateFrom\": \"2018-02-01T16:25:17.900Z\",\n                                \"DateTo\": \"2018-05-01T15:25:17.900Z\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            },\n                            {\n                                \"Id\": \"7178e6b1-efd9-48e7-9088-f33ec11ae9ff\",\n                                \"Alias\": \"Sandbox Policy Event\",\n                                \"MerchantAppId\": \"090807060504030201\",\n                                \"CalculateToClass\": \"PolicyPOS\",\n                                \"PolicyData\": \"{\\\"rates\\\":[{\\\"rateType\\\":0,\\\"value\\\":20.0,\\\"dateFrom\\\":\\\"2017-06-01T18:25:17.9004682+03:00\\\",\\\"dateTo\\\":\\\"2019-01-01T18:25:17.9004682+02:00\\\"}],\\\"limits\\\":[{\\\"limitType\\\":0,\\\"value\\\":1000.0,\\\"dateFrom\\\":\\\"2017-11-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":\\\"2018-12-01T18:25:17.9004682+02:00\\\"}]}\",\n                                \"TimeFrom\": \"03:11\",\n                                \"TimeTo\": \"17:30\",\n                                \"DateFrom\": \"2018-02-01T16:25:17.900Z\",\n                                \"DateTo\": \"2018-04-01T15:25:17.900Z\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            }\n                        ]\n                    },\n                    {\n                        \"Id\": \"ea7c72fb-554c-4db6-8198-525ee6bca98d\",\n                        \"EventCode\": \"789123456\",\n                        \"EventDescription\": \"The Best Event\",\n                        \"Channel\": null,\n                        \"DateFrom\": \"2017-12-01T16:25:17.900Z\",\n                        \"DateTo\": \"2018-04-01T15:25:17.900Z\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"Policies\": [\n                            {\n                                \"Id\": \"c1a75e68-9a11-406e-850d-f162df0e2bea\",\n                                \"Alias\": \"Sandbox Policy\",\n                                \"MerchantAppId\": \"090807060504030201\",\n                                \"CalculateToClass\": \"PolicyPOS\",\n                                \"PolicyData\": \"{\\\"rates\\\":[{\\\"rateType\\\":0,\\\"value\\\":20.0,\\\"dateFrom\\\":\\\"2017-06-01T18:25:17.9004682+03:00\\\",\\\"dateTo\\\":\\\"2019-01-01T18:25:17.9004682+02:00\\\"}],\\\"limits\\\":[{\\\"limitType\\\":0,\\\"value\\\":1000.0,\\\"dateFrom\\\":\\\"2017-11-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":\\\"2018-12-01T18:25:17.9004682+02:00\\\"}]}\",\n                                \"TimeFrom\": \"03:11\",\n                                \"TimeTo\": \"19:30\",\n                                \"DateFrom\": \"2018-02-01T16:25:17.900Z\",\n                                \"DateTo\": \"2018-04-01T15:25:17.900Z\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            },\n                            {\n                                \"Id\": \"99fc8c4a-d1f4-45e8-be30-bba410a531b0\",\n                                \"Alias\": \"Sandbox Policy\",\n                                \"MerchantAppId\": \"090807060504030201\",\n                                \"CalculateToClass\": \"PolicyEvent\",\n                                \"PolicyData\": \"{\\\"rates\\\":[{\\\"rateType\\\":0,\\\"value\\\":700.0,\\\"dateFrom\\\":\\\"2017-08-01T18:25:17.9004682+03:00\\\",\\\"dateTo\\\":\\\"2018-03-01T18:25:17.9004682+02:00\\\"}],\\\"limits\\\":[{\\\"limitType\\\":0,\\\"value\\\":10.0,\\\"dateFrom\\\":\\\"2017-10-01T18:25:17.9004682+03:00\\\",\\\"dateTo\\\":\\\"2018-12-01T18:25:17.9004682+02:00\\\"}]}\",\n                                \"TimeFrom\": \"02:11\",\n                                \"TimeTo\": \"21:30\",\n                                \"DateFrom\": \"2018-02-01T16:25:17.900Z\",\n                                \"DateTo\": \"2018-04-01T15:25:17.900Z\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            }\n                        ]\n                    },\n                    {\n                        \"Id\": \"fb6126da-4fc9-4eb7-b913-d60638f94cb1\",\n                        \"EventCode\": \"773491258\",\n                        \"EventDescription\": \"The Event\",\n                        \"Channel\": null,\n                        \"DateFrom\": \"2018-01-01T16:25:17.900Z\",\n                        \"DateTo\": \"2018-04-01T15:25:17.900Z\",\n                        \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\",\n                        \"Policies\": [\n                            {\n                                \"Id\": \"e259f8da-048d-401f-aeb3-b9b92e7b3683\",\n                                \"Alias\": \"Demo Policy\",\n                                \"MerchantAppId\": null,\n                                \"CalculateToClass\": \"PolicyActivity\",\n                                \"PolicyData\": \"{\\\"rates\\\":[{\\\"rateType\\\":0,\\\"value\\\":5.0,\\\"dateFrom\\\":\\\"2017-12-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":null}],\\\"limits\\\":[{\\\"limitType\\\":0,\\\"value\\\":1000.0,\\\"dateFrom\\\":\\\"2018-01-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":null},{\\\"limitType\\\":1,\\\"value\\\":10.0,\\\"dateFrom\\\":\\\"2018-01-01T18:25:17.9004682+02:00\\\",\\\"dateTo\\\":\\\"2018-08-01T18:25:17.9004682+03:00\\\"}]}\",\n                                \"TimeFrom\": \"02:12\",\n                                \"TimeTo\": \"20:11\",\n                                \"DateFrom\": \"2018-02-01T16:25:17.900Z\",\n                                \"DateTo\": \"2018-05-01T15:25:17.900Z\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            }\n                        ]\n                    }\n                ],\n                \"MerchantCategories\": [\n                    {\n                        \"Id\": \"7357ca96-d374-41fd-b714-450e07cad7ab\",\n                        \"Description\": \"Υπηρεσίες Εστίασης\",\n                        \"CreatedOn\": \"2017-02-01T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2017-02-01T16:25:17.900Z\"\n                    }\n                ],\n                \"Customers\": [\n                    {\n                        \"id\": \"7b507a50-8c20-4914-8886-72d73099e635\",\n                        \"CustomerAppIdentity\": \"User1\",\n                        \"FirstName\": \"ΔΗΜΗΤΡΙΟΣ\",\n                        \"SurName\": \"ΒΛΑΧΟΔΗΜΟΣ\",\n                        \"BirthdayYear\": \"1984\",\n                        \"PhoneNumber\": \"+306999999999\",\n                        \"Email\": \"dvlahodimos@company.com\",\n                        \"Status\": \"Active\",\n                        \"CreatedOn\": \"2018-01-30T16:25:17.900Z\",\n                        \"UpdatedOn\": \"2018-01-30T16:25:17.900Z\",\n                        \"CustomerPoints\": {\n                            \"Id\": \"02c96063-b890-490e-b9f1-a59ef9e21d9f\",\n                            \"Points\": 5000,\n                            \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                            \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                        },\n                        \"CustomerAccounts\": [\n                            {\n                                \"Id\": \"ede0c6d7-6e8b-4fa7-a32f-9593b0ee6a1f\",\n                                \"AccountType\": \"Card\",\n                                \"AccountNumber\": \"4799 9999 9999 9999\",\n                                \"AccountDetails\": \"VISA\",\n                                \"calculateToClass\": null,\n                                \"Status\": \"Active\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            }\n                        ],\n                        \"Transactions\": [\n                            {\n                                \"Id\": \"38c92d7f-0ab6-4e2a-bb09-015be3e6aeaf\",\n                                \"AccountNumber\": \"4799 9999 9999 9999\",\n                                \"EventCode\": \"123456789\",\n                                \"MerchantId\": \"fe36bb83-bf4b-4ce2-bb14-d1efc13a7505\",\n                                \"TransactionDate\": \"2018-01-31T17:25:17.900Z\",\n                                \"TransactionType\": \"Collection\",\n                                \"CouponCode\": \"C12345\",\n                                \"BaselineAmount\": 130.12,\n                                \"Points\": 200,\n                                \"Status\": \"Completed\",\n                                \"TransactionData\": \"{\\\"CurrencyCode\\\":\\\"EUR\\\",\\\"ToBeCollectedPoints\\\":200,\\\"TrnFromPOSID\\\":\\\"c40cdcf8-6e05-4054-be50-446bd5bb3f3a\\\",\\\"BatchFromPOSID\\\":\\\"fba02b65-db3a-464a-b77a-5d892db5a64e\\\",\\\"TerminalFromPOSID\\\":\\\"19c00951-3564-44f5-9b69-f66a0f1e67e6\\\"}\",\n                                \"CalculateToClass\": \"NBG.LoyaltyApp.Sandbox.Types.Loyalty.CollectionTransactionData, NBG.LoyaltyApp.Sandbox.Types.Loyalty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27dfa4202bdaf1e2\",\n                                \"CreatedOn\": \"2018-01-31T17:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-01-31T17:25:17.900Z\"\n                            },\n                            {\n                                \"Id\": \"0000707f-f070-4ef7-bb70-405ad7fe13c2\",\n                                \"AccountNumber\": \"4799 9999 9999 9999\",\n                                \"EventCode\": \"789123456\",\n                                \"MerchantId\": \"2cee71c7-3964-4db7-ad8d-30d43518f9af\",\n                                \"TransactionDate\": \"2018-02-01T16:25:17.900Z\",\n                                \"TransactionType\": \"Redemption\",\n                                \"CouponCode\": \"D12345\",\n                                \"BaselineAmount\": 223.21,\n                                \"Points\": 50,\n                                \"Status\": \"Completed\",\n                                \"TransactionData\": \"{\\\"InitialTransactionAmount\\\":223.21,\\\"DiscountAmount\\\":20.0,\\\"CurrencyCode\\\":\\\"EUR\\\",\\\"TrnFromPOSID\\\":\\\"daf87e3d-ac03-4cf8-b091-3d3345432411\\\",\\\"BatchFromPOSID\\\":\\\"b3ee4ff3-6492-4d03-8a90-0a776646274e\\\",\\\"TerminalFromPOSID\\\":\\\"aef9fa0a-76b9-4d47-badf-570cca25d7db\\\"}\",\n                                \"CalculateToClass\": \"NBG.LoyaltyApp.Sandbox.Types.Loyalty.RedemptionTransactionData, NBG.LoyaltyApp.Sandbox.Types.Loyalty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27dfa4202bdaf1e2\",\n                                \"CreatedOn\": \"2018-02-01T16:25:17.900Z\",\n                                \"UpdatedOn\": \"2018-02-01T16:25:17.900Z\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox/{{header.sandbox_id}}",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa"
+		},
+		{
+			"id": "a5780b6b-3f22-483b-ca68-b1a14ac46476",
+			"name": "Register Customer",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"User3\",\r\n    \"firstName\": \"Γεώργιος\",\r\n    \"surName\": \"Δημητρίου\",\r\n    \"birthdayYear\": 1990,\r\n    \"phoneNumber\": \"2111234567\",\r\n    \"email\": \"g.dimitriou@company.com\",\r\n    \"accounts\": [\r\n      {\r\n        \"accountNumber\": \"4700 1234 5678 8888\",\r\n        \"accountType\": \"Card\",\r\n        \"expirationDate\": \"2022-02-02\",\r\n        \"holderName\": \"Γεώργιος Δημητρίου\"\r\n      }\r\n    ]\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/registerCustomer",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "1adbc8b0-1f0e-4be8-0fc5-7ef424f0428c"
+		},
+		{
+			"id": "b98795c7-aeba-5298-6ea4-964f49a66608",
+			"name": "Issue Coupon",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": \"{{Merchant2AppId}}\",\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event1Code}}\",\r\n    \"points\": 20,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\n\npostman.setEnvironmentVariable(\"couponCode\", jsonData.payload.couponCode);",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/issueCoupon",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "b9af806d-7e7c-04cd-4a01-97265dd894c9",
+			"name": "Get Merchants Categories",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/merchantCategories",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "84620c76-8acb-76d2-a866-1a7d7320542d"
+		},
+		{
+			"id": "c126378f-4b20-557f-55b4-8c8a9bac97e1",
+			"name": "Manage Event",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t\t\"application\": \"{{body.header.applicationId}}\",\n\t\t\"bank\": \"{{body.header.bank}}\",\n\t\t\"hostSession\": null,\n\t\t\"channel\": \"{{body.header.channel}}\",\n\t\t\"customer\": 0,\n\t\t\"logitude\": 0,\n\t\t\"latitude\": 0,\n\t\t\"go4moreMember\": \"{{body.header.go4moreMember}}\",\n\t\t\"TAN\": null\n\t},\n\t\"payload\": {\n\t\t\"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\n\t\t\"eventCode\": \"1231231230\",\n\t\t\"eventDescription\": \"new event\",\n\t\t\"channel\": \"Pos\",\n\t\t\"merchantAppId\": \"{{Merchant1AppId}}\",\n\t\t\"alias\": \"Event\",\n\t\t\"timeFrom\": \"03:22\",\n\t\t\"timeTo\": \"23:22\",\n\t\t\"proximity\": true,\n\t\t\"pushMessageProximity\": true,\n\t\t\"policyType\": \"Activity\",\n\t\t\"rates\": [{\n\t\t\t\"rateType\": \"Percent\",\n\t\t\t\"rateValue\": 4,\n\t\t\t\"latitude\": 0,\n\t\t\t\"longitude\": 0,\n\t\t\t\"radius\": 0,\n\t\t\t\"dateFrom\": \"2019-01-01\",\n\t\t\t\"dateTo\": \"2022-12-31\"\n\t\t}],\n\t\t\"limits\": [{\n\t\t\t\"limitType\": \"Amount\",\n\t\t\t\"direction\": \"Above\",\n\t\t\t\"limitValue\": 1000,\n\t\t\t\"dateFrom\": \"2019-01-01\",\n\t\t\t\"dateTo\": \"2022-12-31\"\n\t\t}]\n\t}\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/manageEvent",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "bd127af7-85fa-992e-4574-5463ac10f862"
+		},
+		{
+			"id": "ccaff93a-6acb-b225-b361-5a0bd1463198",
+			"name": "GetMerchants",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"dateFrom\": \"2015-01-01\",\r\n    \"dateTo\": \"2099-12-31\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/getMerchants",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "84620c76-8acb-76d2-a866-1a7d7320542d"
+		},
+		{
+			"id": "d04ef69f-af15-4bb5-6797-42e302d87f03",
+			"name": "Create Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "Content-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"sandboxId\": \"{{header.sandbox_id}}\"\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\n\npostman.setEnvironmentVariable(\"header.applicationId\", \"1B01DE32-485E-4A6F-87CF-3D6A50F09FD1\");\npostman.setEnvironmentVariable(\"header.user1id\", jsonData.payload.Users[0].UserId);\npostman.setEnvironmentVariable(\"header.user1username\", jsonData.payload.Users[0].Username);\npostman.setEnvironmentVariable(\"header.providerId\", \"NBG.gr\");\npostman.setEnvironmentVariable(\"header.provider\", \"NBG\");\n\npostman.setEnvironmentVariable(\"body.header.applicationId\", \"F9953CB2-AA65-4974-9821-E9FA4474A254\");\npostman.setEnvironmentVariable(\"body.header.bank\", \"NBG\");\npostman.setEnvironmentVariable(\"body.header.channel\", \"Loyalty\");\npostman.setEnvironmentVariable(\"body.header.go4moreMember\", true);\n\npostman.setEnvironmentVariable(\"LoyaltySchemaId\", jsonData.payload.LoyaltySchemas[0].Id);\n\npostman.setEnvironmentVariable(\"Merchant1Id\", jsonData.payload.LoyaltySchemas[0].Merchants[0].Id);\npostman.setEnvironmentVariable(\"Merchant1AppId\", jsonData.payload.LoyaltySchemas[0].Merchants[0].MerchantAppId);\npostman.setEnvironmentVariable(\"Merchant2Id\", jsonData.payload.LoyaltySchemas[0].Merchants[1].Id);\npostman.setEnvironmentVariable(\"Merchant2AppId\", jsonData.payload.LoyaltySchemas[0].Merchants[1].MerchantAppId);\n\npostman.setEnvironmentVariable(\"Event1Code\", jsonData.payload.LoyaltySchemas[0].Events[0].EventCode);\npostman.setEnvironmentVariable(\"Event2Code\", jsonData.payload.LoyaltySchemas[0].Events[1].EventCode);\n\npostman.setEnvironmentVariable(\"Customer1AppIdentity\", jsonData.payload.LoyaltySchemas[0].Customers[0].CustomerAppIdentity);\npostman.setEnvironmentVariable(\"Customer1AccountNumber\", jsonData.payload.LoyaltySchemas[0].Customers[0].CustomerAccounts[0].AccountNumber);",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa"
+		},
+		{
+			"id": "d54f0fd7-7816-c483-d822-f095894abd48",
+			"name": "Add Account",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{header.user1username}}\",\r\n    \"accountNumber\": \"4700 1234 5678 9998\",\r\n    \"accountType\": \"Card\",\r\n    \"expirationDate\": \"2021-02-02\",\r\n    \"holderName\": \"Γεώργιος Δημητρίου\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "",
+			"url": "{{root_url}}/Loyalty/addAccount",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "1adbc8b0-1f0e-4be8-0fc5-7ef424f0428c"
+		},
+		{
+			"id": "d8c4098d-920a-70f9-4acb-ebb8347c7269",
+			"name": "GetMerchantTariffs (Merchant2)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.user1id}}\nusername: {{header.user1username}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n\t\"merchantAppId\": \"{{Merchant2AppId}}\",\r\n\t\"transactionDate\": \"{{CURRENT_DATE}}\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/getMerchantTariffs",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.user1id}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.user1username}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "84620c76-8acb-76d2-a866-1a7d7320542d"
+		},
+		{
+			"id": "dd47370e-dd01-133a-df40-74f17096a162",
+			"name": "Export Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "GET",
+			"headers": "x-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;\ntests[\"valid sandbox_id\"] = jsonData.payload.SandboxID === postman.getEnvironmentVariable(\"header.sandbox_id\");",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox/{{header.sandbox_id}}",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "3ba3ee2a-3690-1332-b6d1-7f8d4c2ac6aa"
+		},
+		{
+			"id": "f1d391a0-cbf6-322d-013f-d24e6309fff7",
+			"name": "Points Collection Event Policy Event (Transaction 2) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event4Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "f690f18a-b97a-e4fe-7378-9f27d53a9577",
+			"name": "Delete Sandbox",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "DELETE",
+			"headers": "x-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"tests": "tests[\"response is empty\"] = responseBody === \"\";\ntests[\"Status code is 204\"] = responseCode.code === 204;\n\npostman.clearEnvironmentVariable(\"header.applicationId\");\npostman.clearEnvironmentVariable(\"header.user1id\");\npostman.clearEnvironmentVariable(\"header.user1username\");\npostman.clearEnvironmentVariable(\"header.providerId\");\npostman.clearEnvironmentVariable(\"header.provider\");\npostman.clearEnvironmentVariable(\"body.header.applicationId\");\npostman.clearEnvironmentVariable(\"body.header.bank\");\npostman.clearEnvironmentVariable(\"body.header.channel\");\npostman.clearEnvironmentVariable(\"body.header.go4moreMember\");\npostman.clearEnvironmentVariable(\"LoyaltySchemaId\");\npostman.clearEnvironmentVariable(\"Merchant1Id\");\npostman.clearEnvironmentVariable(\"Merchant1AppId\");\npostman.clearEnvironmentVariable(\"Merchant2Id\");\npostman.clearEnvironmentVariable(\"Merchant2AppId\");\npostman.clearEnvironmentVariable(\"Event1Code\");\npostman.clearEnvironmentVariable(\"Event2Code\");\npostman.clearEnvironmentVariable(\"Event3Code\");\npostman.clearEnvironmentVariable(\"Event4Code\");\npostman.clearEnvironmentVariable(\"Customer1AppIdentity\");\npostman.clearEnvironmentVariable(\"Customer1AccountNumber\");\npostman.clearEnvironmentVariable(\"couponCode\");\npostman.clearEnvironmentVariable(\"CURRENT_DATE\");\npostman.clearEnvironmentVariable(\"newCustomerAccountNumber\");\npostman.clearEnvironmentVariable(\"newCustomerAppIdentity\");\npostman.clearEnvironmentVariable(\"header.newUserId\");\npostman.clearEnvironmentVariable(\"header.newUsername\");",
+			"preRequestScript": "",
+			"url": "{{root_url}}/sandbox/{{header.sandbox_id}}",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		},
+		{
+			"id": "f9e976f2-2ad2-e88d-0b58-cdef1cb2af84",
+			"name": "Points Collection Event Policy Event (Transaction 1) (Success)",
+			"description": "",
+			"collectionId": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"method": "POST",
+			"headers": "sandbox_id: {{header.sandbox_id}}\napplication_id: {{header.applicationId}}\nuser_id: {{header.newUserId}}\nusername: {{header.newUsername}}\nprovider_id: {{header.providerId}}\nprovider: {{header.provider}}\nContent-Type: application/json\nx-ibm-client-id: {{x-ibm-client-id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{body.header.applicationId}}\",\r\n    \"bank\": \"{{body.header.bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{body.header.channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": \"{{body.header.go4moreMember}}\",\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"loyaltySchemaId\": \"{{LoyaltySchemaId}}\",\r\n    \"customerAppIdentity\": \"{{newCustomerAppIdentity}}\",\r\n    \"MerchantAppId\": null,\r\n    \"accountNumber\": \"{{newCustomerAccountNumber}}\",\r\n    \"eventCode\": \"{{Event4Code}}\",\r\n    \"transactionID\": \"{{$guid}}\",\r\n    \"terminalID\": \"{{$guid}}\",\r\n    \"batchID\": \"{{$guid}}\",\r\n    \"transactionAmount\": 500,\r\n    \"transactionDate\": \"{{CURRENT_DATE}}\",\r\n    \"currencyCode\": \"EUR\"\r\n  }\r\n}",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"payload not empty\"] = jsonData.payload !== null;\ntests[\"exception is empty\"] = jsonData.exception === null;",
+			"preRequestScript": "var date = (new Date()).toISOString();\n\npostman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));",
+			"url": "{{root_url}}/Loyalty/pointsCollection",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{header.sandbox_id}}",
+					"description": ""
+				},
+				{
+					"key": "application_id",
+					"value": "{{header.applicationId}}",
+					"description": ""
+				},
+				{
+					"key": "user_id",
+					"value": "{{header.newUserId}}",
+					"description": ""
+				},
+				{
+					"key": "username",
+					"value": "{{header.newUsername}}",
+					"description": ""
+				},
+				{
+					"key": "provider_id",
+					"value": "{{header.providerId}}",
+					"description": ""
+				},
+				{
+					"key": "provider",
+					"value": "{{header.provider}}",
+					"description": ""
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x-ibm-client-id}}",
+					"description": ""
+				}
+			],
+			"collection_id": "1c6178a9-cbcc-f72b-a89c-615603284bb7",
+			"folder": "2545c515-56a3-b95a-80ca-53c2fdf69171"
+		}
+	]
+}
