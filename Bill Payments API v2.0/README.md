@@ -316,10 +316,13 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 ],
                 "preprocessSteps": null,
                 "objectMappings": null
-            }
-    }  ]
-}</details>
+ }
+		]
+	}
+}           
 ```
+ </details>
+
  
 
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
