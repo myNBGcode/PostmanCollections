@@ -58,7 +58,7 @@ So we call the *Face-Match* endpoint with **HTTP POST** with request body:
 Then we call the *Liveness-Check* endpoint with **HTTP POST** and a request body with a list of frames ordered ascending by time. For example the 5th frame should not be sent first. All frames should be time-sequenced.
 
 Also note that the specification of the API demands a minimum of 10 frames per second to be sent.
-```json
+```
  {
    "frames": ["The_first_image_base64","The_second_image_base64",...,"The_nth_image_base64"]
  }
