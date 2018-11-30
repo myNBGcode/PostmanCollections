@@ -34,7 +34,8 @@ The application needs to call the API multiple times for each bank and each card
 > https://microsites.nbg.gr/api.gateway/sandbox/obpcard/oauth2/v1.2/obp/banks/{bank_id}/cards/{card_type}
 
 Every API call will return the results below:
-```
+<details><summary>response</summary>
+``` json
 {
     "cards": [
         {
@@ -160,7 +161,9 @@ Every API call will return the results below:
     ]
 }
 
+```
+</details>
 
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
