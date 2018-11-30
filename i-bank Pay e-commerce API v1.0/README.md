@@ -20,7 +20,7 @@ In order to use this API for the first time you will need to create a Sandbox by
 > https://apis.nbg.gr/public/sandbox/i-bank.ecommerce.sandbox/headers/v1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "Your_custom_id"
  }
@@ -35,7 +35,7 @@ In order to Create a Payment you will firstly implement the UI by importing into
 So, click **Pay** and the i-frame will appear. At this point a Payment is **Created** with the amount that you provided.
 
 The next step is to **Authorize** this Payment and in order to simulate the action of a user scanning the QR code of the i-frame, you will have to call with **HTTP GET** the Authorize Payment from your postman with the appropriate headers and a response is received like bellow:
-```
+```json
  {
    "OK"
  }
@@ -46,4 +46,4 @@ The last step is to create a button that will call the Complete Payment with **H
 With this procedure you have successfully completed a payment.
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
