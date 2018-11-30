@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------------------
 
 ### Introduction
-The eQueueing API provides information about branches and ATMs. It also manages tickets for a branch, which means that someone can issue a ticket for a branch remotely from his way to the Bank's branch.
+The eQueueing API provides information about branches and ATMs. It also manages tickets for a branch, which means that someone can issue a ticket for a branch remotely from his way to the branch.
 
 > The full API documentation: https://microsites.nbg.gr/developer/documentation/eQueuing-Sandbox-API-v11-4265
 
@@ -158,4 +158,4 @@ which the application must store.
 Customer can now take their time, using all the provided data, to bring their device to their closest branch and receive the fastest service, with the smallest possible waiting time.
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
