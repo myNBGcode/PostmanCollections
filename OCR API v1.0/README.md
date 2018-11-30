@@ -33,7 +33,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://apis.nbg.gr/public/sandbox/ocr.sandbox/v1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "113E4C18-FA0D-49B7-992E-F90E7CC3922B"
  }
@@ -44,6 +44,6 @@ With a request body:
 in each api call.**
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/ 
+See more at https://developer.nbg.gr/ 
 
 
