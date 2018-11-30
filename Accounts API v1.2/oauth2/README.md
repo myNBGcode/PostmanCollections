@@ -36,7 +36,7 @@ For a viewer to get their accounts in order to select the desired one, the appli
 > https://microsites.nbg.gr/api.gateway/sandbox/obpaccount/oauth2/v1.2/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/account
 
 to get the following response:
-
+```json
 {
     "id": "8d651bdb-c5a9-4349-84f0-a84913379164",
     "label": "SandboxNBG",
@@ -259,7 +259,7 @@ to get the following response:
         }
     ]
 }
-
+```
 
 
 Created by **NBG**. 
