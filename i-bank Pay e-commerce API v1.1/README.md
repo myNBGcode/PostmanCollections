@@ -46,4 +46,4 @@ The last step is to create a button that will call the Complete Payment with **H
 With this procedure you have successfully completed a payment.
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
