@@ -29,6 +29,8 @@ See bellow the complete list of the Postman collection & environment JSON files 
 - Social Network API v2.1
 - Transactions API v1.1
 - Transactions API v1.2
+- eQueuing API v1.0
+- eQueuing API v1.1
 - i-bank Pay API v1.2
 - i-bank Pay API v1.3
 - i-bank Pay e-commerce API v1.0
