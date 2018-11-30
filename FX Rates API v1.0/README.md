@@ -1,4 +1,4 @@
-# **Introduction**
+# Use case scenario
 #### Welcome to the Fx Rates Sandbox API.
 
 ------------------------------------------------------------------------------------------
