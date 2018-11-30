@@ -16,7 +16,7 @@ With this application, the company wants to allow their customers to issue ticke
 
 ##### Create Sandbox
 In order to use this API for the first time you will need to create a Sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/sandbox
+> https://microsites.nbg.gr/api.gateway/sandbox/equeueing/headers/v1/sandbox
 
 With a request body:
 ```
