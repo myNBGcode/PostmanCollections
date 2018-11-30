@@ -57,4 +57,4 @@ Finally invoke an **HTTP POST** request to the following URL to see the payment 
 >https://apis.nbg.gr/public/sandbox/ibankpaysandbox/v1.2/P2B/machinePaymentRequestInfoV2
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
