@@ -27,7 +27,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"sandboxId\": \"Vassilis-Sandbox\"\r\n}"
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/sandbox",
