@@ -25,7 +25,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 >https://microsites.nbg.gr/api.gateway/sandbox/ibankpay/headers/v1.3/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "5DE11422-D7D5-4727-82FA-0C26F195C66C"
  }
@@ -51,4 +51,4 @@ Then invoke an **HTTP POST** request to the following URL to complete the paymen
 >https://microsites.nbg.gr/api.gateway/sandbox/ibankpay/headers/v1.3/P2P/payV2
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
