@@ -67,7 +67,7 @@ will return the results below:
     "remStatus": "Pending",
     "remMsg": []
 }
-
+```
 From the response, the field "remStatus" contains the state of the transaction, "Pending" in this case.
 
 
