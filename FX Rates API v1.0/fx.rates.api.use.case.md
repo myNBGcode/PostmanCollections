@@ -13,7 +13,7 @@ This API provides a standard RESTful interface that enables a user to
 * View supported rates
 * View supported currencies
 
-> Visit https://microsites.nbg.gr/developer/documentation/87b7b6df-1290-4070-bb01-99011758f6d2 
+> Visit https://developer.nbg.gr/documentation/fx-rates-api-v1 
 > for the full API documentation
 
 ### Real life Use Case Scenario
@@ -22,7 +22,7 @@ In this scenario we will be using the API to provide data to the *Travel Abroad 
 The main functionality of the application is to convert an amount in the currency of the country the user is living in - we will refer to this currency as **home currency** - to the amount in the currency of the country they will be visiting, the **foreign currency**.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/sandbox
+> https://apis.nbg.gr/public/sandbox/fx-rates-api/v1/sandbox
 
 With a request body:
 ```
@@ -36,19 +36,19 @@ in each api call.**
 
 The available currencies can be fetched from the API by making an **HTTP GET** request to the following URL:
 
-> https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/currencies/all
+> https://apis.nbg.gr/public/sandbox/fx-rates-api/v1/currencies/all
 
 The response is a JSON object containing a list of **Currency** JSON objects, as shown below.
 ```
 [
   {
-    "currencySymbol": "USD",
+    "currencySybmol": "USD",
     "currencyCode": "002"
   }
 ]
 ```
 When user selects the *home currency* and the *foreign currency*, the application will make an **HTTP GET** request to the following URL to fetch the related rates information.
-> https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/fx/{fromCCY}/{toCCY}
+> https://apis.nbg.gr/public/sandbox/fx-rates-api/v1/fx/{fromCCY}/{toCCY}
 
 The response contains a JSON **FxRates** object as shown below.
 ```
