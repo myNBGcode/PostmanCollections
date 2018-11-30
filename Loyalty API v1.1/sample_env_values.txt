@@ -1,2 +1,0 @@
-client_id: 6e6f9e73-9d4d-48cb-9150-6543eaf2e64d
-sandbox_id: SandboxLoyalty

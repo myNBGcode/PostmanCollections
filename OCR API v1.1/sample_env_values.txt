@@ -1,2 +1,0 @@
-client_id: 95b3dfd5-dbba-4e53-b72a-73da84433c70
-sandbox_id: OcrDocumentSandbox
