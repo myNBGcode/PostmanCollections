@@ -1,3 +1,5 @@
+![Screenshot](https://avatars2.githubusercontent.com/u/42770285?s=460&v=4) 
+
 # Postman collections & environments
 See bellow the complete list of the Postman collection & environment JSON files available for the NBG APIs. In the folder you will also find a use case scenario fow each API. Enjoy!
 ```
