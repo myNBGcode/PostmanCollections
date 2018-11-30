@@ -25,7 +25,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://apis.nbg.gr/public/sandbox/iban-validation-api/v1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "26D4E02D-CCFB-4FA0-8867-0A1CD1D87B0E"
  }
@@ -42,7 +42,7 @@ The user is prompted by the application to fill in an IBAN they want to validate
 
 The response is a JSON object containing information about IBAN validity as well as whether this IBAN belongs to the National Bank of Greece, as shown below.
 
-```
+```json
 {
   "valid": true,
   "nbgIban": true
@@ -57,7 +57,7 @@ In order to get the related IBAN, the application makes an **HTTP GET** request 
 > https://apis.nbg.gr/public/sandbox/iban-validation-api/v1/account/{account}/iban
 
 The response contains a JSON object wih the result IBAN as show below.
-```
+```json
 {
   "iban": "GRXXXXXXXXXXXXXXXXXXX"
 }
@@ -65,4 +65,4 @@ The response contains a JSON object wih the result IBAN as show below.
 
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
