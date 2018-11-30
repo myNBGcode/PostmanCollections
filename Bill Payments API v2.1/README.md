@@ -1,11 +1,12 @@
-# Use case scenario
-## **Bill Payments v2.1 Sandbox API** 
+﻿## **Bill Payments v2.1 Sandbox API** 
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
 ### **Real Life Use Case Scenario**
 Everyone has bills and bills must be paid, so imagine you are somewhere that has no bank branches either places that you can pay your bills, taxes or car taxes.
-What can you do about it?  The answer is simple, you can use this api in order to create a custom payment kiosk and help people pay their bills.
+What can you do about it?  The answer is simple, you can use this api to create a custom bill payments web application in order to help users pay their bills using their bank account.
+
+**Idea**: You can use this API together with **Rewards Platform ( i-bank Loyalty API Sandbox - v1.1 )** in order to increase your customer’s loyalty by applying your own rewarding platform.
 
 ### **Create Sandbox**
 Your first job is to create a sandbox and save your **sandbox_id** in order to be able to **"play"** with the api.
@@ -71,8 +72,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Retrieves all the supported organizations and it's payment methods):
-```
- {
+<details><summary>{
   "payload": {
         "payments": [
             {
@@ -314,8 +314,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "objectMappings": null
             }
     }  
-}
-``` 
+}</summary></details>
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 
 **Step2**: Now that you know you support the requested payment, you send the **POST /Payments/commission** request in order to provide your customer with the information about the charging fees for this transaction with **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
@@ -615,7 +614,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 **Note: If you check status again you will see that the transaction was cancelled.**
 
-**Step5**: As a merchant you can see daily prefered date transactions or last payment transaction details by using\
+**Step5**: Also you have the ability to see daily transactions, prefered date transactions or last payment transaction details by using\
 **POST /Payments/dailyTransactions** or **POST /Payments/lastPaymentTransactionDetails** respectivelly.
 
 **Check Daily Transactions**
@@ -646,7 +645,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about all the transactions in a preferred date):
-```
+<details><summary>
 {
     "payload": {
         "transactions": [
@@ -833,7 +832,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "messages": null,
     "executionTime": 0
 }
-``` 
+</details></summary>
 
 **Check Last Payment Transaction Details**
 
@@ -931,5 +930,5 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 
-Created by **NBG**. 
-See more at https://www.nbg.gr/
+Created by **NBG**.\
+See more at https://microsites.nbg.gr/developer/
