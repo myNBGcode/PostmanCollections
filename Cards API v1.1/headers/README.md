@@ -1,4 +1,4 @@
-# **Introduction**
+# Use case scenario
 #### Welcome to the Cards Sandbox API.
 
 ------------------------------------------------------------------------------------------
