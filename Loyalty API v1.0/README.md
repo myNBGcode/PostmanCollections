@@ -1,4 +1,4 @@
-** Use case scenario
+# Use case scenario
 
 ****************************************************** Welcome to the i-bank Loyalty API ******************************************************
 
