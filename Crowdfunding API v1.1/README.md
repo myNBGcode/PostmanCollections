@@ -47,14 +47,14 @@ They are the same in each call so we mention them first, in postman they are sto
 
 **Request Headers**:
 ```json
- 'accept: text/json'
- 'content-type: text/json'
- 'provider: NBG'
- 'provider_id: NBG.gr'
- 'sandbox_id: your_sandbox_id' !!!payforme is the one that we used to create the use case sandbox, you can also use it to see the results!!!
- 'user_id: e6da8f9c-ee8b-488c-9179-0a566e9d8aed'
- 'username: User1'
- 'Client-Id: your_Client-Id' !!!c33f6acf-5ef1-4d00-b801-058eaa4ad0ed is the one that we got from creating a test app at the portal, you can also use it to see the results!!!
+ 'accept': 'text/json'
+ 'content-type': 'text/json'
+ 'provider':'NBG'
+ 'provider_id': 'NBG.gr'
+ 'sandbox_id': 'your_sandbox_id' !!!payforme is the one that we used to create the use case sandbox, you can also use it to see the results!!!
+ 'user_id': 'e6da8f9c-ee8b-488c-9179-0a566e9d8aed'
+ 'username': User1'
+ 'Client-Id': 'your_Client-Id' !!!c33f6acf-5ef1-4d00-b801-058eaa4ad0ed is the one that we got from creating a test app at the portal, you can also use it to see the results!!!
 ```
 
 #### **Scenario Requests**
