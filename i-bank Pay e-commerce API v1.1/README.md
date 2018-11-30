@@ -20,7 +20,7 @@ In order to use this API for the first time you will need to create a Sandbox by
 > https://microsites.nbg.gr/api.gateway/sandbox/ecommercepay/headers/v1.1/
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "Your_custom_id"
  }
@@ -35,7 +35,7 @@ In order to Create a Payment you will firstly implement the UI by importing into
 So, click **Pay** and the i-frame will appear. At this point a Payment is **Created** with the amount that you provided.
 
 The next step is to **Authorize** this Payment and in order to simulate the action of a user scanning the QR code of the i-frame, you will have to call with **HTTP GET** the Authorize Payment from your postman with the appropriate headers and a response is received like bellow:
-```
+```json
  {
    "OK"
  }
