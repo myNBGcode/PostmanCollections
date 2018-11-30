@@ -37,6 +37,7 @@ For a viewer to get their accounts in order to select the desired one, the appli
 
 to get the following response:
 
+```json
 {
     "id": "8d651bdb-c5a9-4349-84f0-a84913379164",
     "label": "SandboxNBG",
@@ -259,9 +260,9 @@ to get the following response:
         }
     ]
 }
-
+```
 
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
 
