@@ -19,6 +19,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://microsites.nbg.gr/api.gateway/sandbox/obpcard/headers/v1.2/sandbox
 
 With a request body:
+
 ```json
  {
    "sandbox_id": "2F5DEDB4-F28B-40EF-B547-378299B08D36"
