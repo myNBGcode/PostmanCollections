@@ -15,7 +15,7 @@ We will create our sandbox by making an **HTTP POST** request to the following U
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/sandbox
 
 Request Body:
-```
+```json
  {
    "sandbox_id": "payforme"
  }
@@ -50,7 +50,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/paymentsList
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -317,7 +317,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "preprocessSteps": null,
                 "objectMappings": null
             }
-    }  
+    }  ]
 }</details>
 ```
  
