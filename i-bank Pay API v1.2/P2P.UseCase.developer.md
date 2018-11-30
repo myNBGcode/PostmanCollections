@@ -16,7 +16,7 @@ This API provides a standard RESTful interface that enables a user to
 > for the full API documentation
 > 
 ### Real life Use Case Scenario
-Given that you are out with your friends at a restaurant and the waiter doesn't have change for everyone, one friend pays the whole bill. Then he suggests that you can give your share via i-bank Pay. 
+Given that you are out with your friends at a restaurant and the waiter doesn't have change for everyone, one friend pays the whole bill. Then he suggests that you can give your share via the myWallet App. 
 All you have to do is download myWallet App, make a registration, discover your friends from your contact list and pay them.
 In this scenario we will be using the API to register as a member and perform a P2P payment.
 
