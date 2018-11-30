@@ -15,7 +15,7 @@ We will create our sandbox by making an **HTTP POST** request to the following U
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/sandbox
 
 Request Body:
-```
+```json
  {
    "sandbox_id": "payforme"
  }
@@ -30,7 +30,6 @@ They are the same in each call so we mention them first, in postman they are sto
 
 **Request Headers**:
 ```
-
    'accept: text/json'
    'application_id: {{$guid}}'
    'content-type: text/json'
@@ -50,7 +49,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/paymentsList
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -61,7 +60,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -72,7 +71,10 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Retrieves all the supported organizations and it's payment methods):
-<details><summary>{
+<details><summary>Response</summary>
+ 
+ ```json
+ { 
   "payload": {
         "payments": [
             {
@@ -313,15 +315,18 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "preprocessSteps": null,
                 "objectMappings": null
             }
-    }  
-}</summary></details>
+		]
+	}
+}
+```
+</details>
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 
 **Step2**: Now that you know you support the requested payment, you send the **POST /Payments/commission** request in order to provide your customer with the information about the charging fees for this transaction with **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/commission
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -332,7 +337,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -377,7 +382,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/pay
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -388,7 +393,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -431,7 +436,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment the creditor, the creditor bank, the debtor, the settlementInfo and the commissionInfo):
-```
+```json
  {
     "payload": {
         "paymentIdentification": {
@@ -497,7 +502,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/status
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -530,7 +535,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment status):
-```
+```json
 {
     "payload": {
         "status": "COMPLETED",
@@ -553,7 +558,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/cancelPayment
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -582,7 +587,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment cancelation):
-```
+```json
 {
     "payload": {
         "cancellationLimits": [
@@ -621,7 +626,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/dailyTransactions
 
 **Request**:
-```
+```json
 {
   "header": {
     "ID": "{{$guid}}",
@@ -645,7 +650,9 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about all the transactions in a preferred date):
-<details><summary>
+<details><summary>Response</summary>
+ 
+ ```json
 {
     "payload": {
         "transactions": [
@@ -832,14 +839,15 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "messages": null,
     "executionTime": 0
 }
-</details></summary>
+```
+</details>
 
 **Check Last Payment Transaction Details**
 
 > https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/lastPaymentTransactionDetails
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -867,7 +875,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the transaction that you requested):
-```
+```json
 {
     "payload": {
         "sendCutOffTime": "2018-11-28T18:00:00.000Z",
@@ -931,4 +939,4 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 
 Created by **NBG**.\
-See more at https://microsites.nbg.gr/developer/
+See more at https://developer.nbg.gr/
