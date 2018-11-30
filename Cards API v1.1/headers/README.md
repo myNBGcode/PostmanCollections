@@ -19,7 +19,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://apis.nbg.gr/public/sandbox/obp.card.sandbox/v1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "2F5DEDB4-F28B-40EF-B547-378299B08D36"
  }
@@ -34,7 +34,7 @@ The application needs to call the API multiple times for each bank and each card
 > https://apis.nbg.gr/public/sandbox/obp.card.sandbox/v1/obp/banks/{bank_id}/cards/{card_type}
 
 Every API call will return the results below:
-```
+```json
 {
     "cards": [
         {
@@ -159,8 +159,8 @@ Every API call will return the results below:
 				...					
     ]
 }
-
+```
 
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
