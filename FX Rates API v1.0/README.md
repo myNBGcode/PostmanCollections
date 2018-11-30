@@ -1,4 +1,4 @@
-# Use case scenario
+# **Introduction**
 #### Welcome to the Fx Rates Sandbox API.
 
 ------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ The response is a JSON object containing a list of **Currency** JSON objects, as
 ]
 ```
 When user selects the *home currency* and the *foreign currency*, the application will make an **HTTP GET** request to the following URL to fetch the related rates information.
-> https://apis.nbg.gr/public/sandbox/fx-rates-api/v1/fx/{fromCCY}/{toCCY}
+> https://apis.nbg.gr/public/sandbox/fx-rates-api/v1/fx/{fromCurrency}/{toCurrency}
 
 The response contains a JSON **FxRates** object as shown below.
 ```
@@ -61,7 +61,7 @@ The response contains a JSON **FxRates** object as shown below.
   "banknotesSell": "1.10859000"
 }
 ```
-The application will store the result and use it to calculate the amount conversion by multiplying the user input with the value of **DELT_TAS** field.
+The application will store the result and use it to calculate the amount conversion by multiplying the user input with the value of **exchangeBuy** field.
 
 Created by **NBG**. 
 See more at https://www.nbg.gr/
