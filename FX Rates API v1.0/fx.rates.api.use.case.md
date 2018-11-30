@@ -42,8 +42,8 @@ The response is a JSON object containing a list of **Currency** JSON objects, as
 ```
 [
   {
-    "DELT_LEKT": "USD",
-    "DELT_NOM": "002"
+    "currencySybmol": "USD",
+    "currencyCode": "002"
   }
 ]
 ```
@@ -53,14 +53,12 @@ When user selects the *home currency* and the *foreign currency*, the applicatio
 The response contains a JSON **FxRates** object as shown below.
 ```
 {
-  "DELT_LEKT": "USD",
-  "DELT_ECBREF": "1.12810000",
-  "DELT_TAS": "1.16729000",
-  "DELT_TPS": "1.09949000",
-  "DELT_NOM": "002",
-  "DELT_TAXT": "1.16729000",
-  "DELT_ETEREF": "1.13000000",
-  "DELT_TPXT": "1.09949000"
+  "currencySymbol": "USD",
+  "exchangeBuy": "1.17695000",
+  "exchangeSell": "1.10859000",
+  "currencyCode": "002",
+  "banknotesBuy": "1.17695000",
+  "banknotesSell": "1.10859000"
 }
 ```
 The application will store the result and use it to calculate the amount conversion by multiplying the user input with the value of **DELT_TAS** field.

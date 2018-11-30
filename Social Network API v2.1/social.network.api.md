@@ -5,12 +5,26 @@
 ### Introduction
 The Social Network Platform has been developed with a main functionality in mind, to support any client when connecting people. It enables the administrator to create multiple social networks with members, that can create posts and the members can interact with each other. More specifically, the members can communicate to each other through direct messages and react on the posts and direct messages of other members. All is done through the platform and bellow you will find a full documentation to guide you in detail.
 
-> The full API documentation: https://microsites.nbg.gr/developer/documentation/Social-Network-Application-v21-3989
+### The API
+The Social Network sandbox API provides a standard RESTful interface that enables a user to:
+* Become part of a social network
+* Get information about:
+    * His/Her contacts
+    * Posts created by his/her contacts
+* Create a post
+* Send a direct message to a contact
+* React on a post/direct message
+
+> Visit https://microsites.nbg.gr/developer/documentation/93645a0f-58e6-4abf-a1eb-f1e3c8dc13ff 
+> for the full API documentation.
 
 ### Use case scenario
 
-##### - Create Sandbox
-In order to use this API for the first time you will need to create a Sandbox by making an **HTTP POST** request to the following URL
+In this scenario we will be using the API to provide data to the *Lost & Found* application.
+This application helps users to find items they have lost by asking a large community dedicated to this reason.
+
+#####  Create Sandbox
+Before start using the social network sandbox API, we will need to create a Sandbox by making an **HTTP POST** request to the following URL
 > https://microsites.nbg.gr/api.gateway/sandbox/socialnetwork/headers/v2/sandbox
 
 With a request body:
@@ -21,9 +35,9 @@ With a request body:
 ``` 
 
 *Note: Remember to store **sandbox_id** somewhere in your application, because you will need to provide it in as a header
-in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *X-IBM-client-id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/product/social-network-platform-0)*
+in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://microsites.nbg.gr/developer/apiProduct/Social-Network-Platform-v21-962)*
 
-##### - Use the Platform
+##### Use the Platform
 The response contains - among others - a social network. You should store **SocialNetworkId** in your application as we will need it later to access our Social Network. From now on, we will refere to this id as **our_network_id**.
 
 First of all, a user must register to the network in order to be able to interact with others. After asking the user to fill in their desired username, we must make an **HTTP POST** request to
@@ -79,7 +93,7 @@ providing our network id as shown below
     }
 }
 ```
-The response contains a list of declarations. We will need the id of the declaration of type **Terms**.
+The response contains a list of declarations. We will need the ids of all the declarations of type **Terms**.
 ```
 {
     "payload": {
@@ -192,7 +206,7 @@ If the registration process is successful, the reponse should contain the member
 
 **Our user is now registered!**
 
-Let's prompt them to create a new post!
+Let's prompt them to create a new post about something they have lost!
 
 Make an **HTTP POST** request to
 > https://microsites.nbg.gr/api.gateway/sandbox/socialnetwork/headers/v2/SocialActivities/userPost
@@ -219,6 +233,7 @@ The response of a successful post looks like this:
 }
 ```
 
+Other users that may know something about the lost item may respond to this post and connect with this user to provide them with additional details.
 
 
 Created by **NBG**.
