@@ -34,6 +34,7 @@ The application needs to call the API multiple times for each bank and each card
 >https://apis.nbg.gr/public/sandbox/obp.card.sandbox/oauth2/v1/obp/banks/{bank_id}/cards/{card_type}
 
 will return the results below:
+<details><summary>response</summary>
 
 ```json
 {
@@ -161,6 +162,7 @@ will return the results below:
     ]
 }
 ```
+</details>
 
 Created by **NBG**. 
 See more at https://developer.nbg.gr/

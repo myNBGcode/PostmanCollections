@@ -66,7 +66,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://apis.nbg.gr/public/sandbox/crowdfunding/v1/backoffice/actions
 
 **Body Request**:
-```
+```json
 {
   "actionName": "Help me go to school",
   "accountKey": "ece26104-ce1b-4c2d-829b-5d01dd921f48",
@@ -80,7 +80,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (Returns the created action):
-```
+```json
 {
     "payload": {
         "actionData": {
@@ -107,7 +107,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://apis.nbg.gr/public/sandbox/crowdfunding/v1/action/actions/2a76d3a7-7fb8-4642-ae52-e8c9f90cbb4e/donations
 
 **Body Request**:
-```
+```json
 {
   "payType": "Card",
   "publish": true,
@@ -116,7 +116,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (Returns the created donation promise):
-```
+```json
 {
     "payload": {
         "donationPromise": {
@@ -145,7 +145,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://apis.nbg.gr/public/sandbox/crowdfunding/v1/action/actions/2a76d3a7-7fb8-4642-ae52-e8c9f90cbb4e/donations/6990e095-77a0-4455-9671-316b8027bf33/datacash
 
 **Body Request**:
-```
+```json
 {
     "amount": 1000,
     "cardProduct": {
@@ -160,7 +160,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (If the status is '1' and the reason is 'ACCEPTED' then the payment was successful):
-```
+```json
 {
     "payload": {
         "datacashReference": "3400900031089253",
@@ -179,7 +179,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://apis.nbg.gr/public/sandbox/crowdfunding/v1/cmscontent/tags/en/Action_helpmegotoschool
 
 **Response** (Returns list of nodes that belongs to action):
-```
+```json
 {
     "payload": [
         {
@@ -198,7 +198,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://apis.nbg.gr/public/sandbox/crowdfunding/v1/sandbox/crowdfunding-app/cmscontent/article/1013
 
 **Body Request**:
-```
+```json
 {
   "title": "HELP ME GO TO SCHOOL",
   "body": "Cerebral Palsy Greece/Open Door believes in the unique values of people with cerebral palsy (CP). Over the years, the company has supported people with CP so as to enable them to develop, as fully as possible, their experiences and physical skills.  Cerebral Palsy Greece/Open Door (CPG) is a recognized non-profit charity established in 1972 with a mission to provide welfare for people suffering from CP in Greece.",
@@ -212,7 +212,7 @@ In order a user to create the second action named '**Help me go to school**' has
 ```
 
 **Response** (Returns the result of the update):
-```
+```json
 {
     "payload": {
         "result": true
@@ -243,7 +243,7 @@ Congratulations you have create a functional crowdfunding application
 
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
 
 
 

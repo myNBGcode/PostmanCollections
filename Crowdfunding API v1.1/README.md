@@ -33,7 +33,7 @@ Let's say that we want to create an application in which end users will make don
 Before starting developing our application, we should create our sandbox. Replace the **sandbox_id** with your desired value. 
 > POST https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/sandbox
 With a request body:
-```
+```json
  {
     "sandbox_id": "crowdfunding-app"
  }
@@ -66,7 +66,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/backoffice/actions
 
 **Body Request**:
-```
+```json
 {
   "actionName": "Help me go to school",
   "accountKey": "ece26104-ce1b-4c2d-829b-5d01dd921f48",
@@ -80,7 +80,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (Returns the created action):
-```
+```json
 {
     "payload": {
         "actionData": {
@@ -107,7 +107,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/action/actions/2a76d3a7-7fb8-4642-ae52-e8c9f90cbb4e/donations
 
 **Body Request**:
-```
+```json
 {
   "payType": "Card",
   "publish": true,
@@ -116,7 +116,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (Returns the created donation promise):
-```
+```json
 {
     "payload": {
         "donationPromise": {
@@ -145,7 +145,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/action/actions/2a76d3a7-7fb8-4642-ae52-e8c9f90cbb4e/donations/6990e095-77a0-4455-9671-316b8027bf33/datacash
 
 **Body Request**:
-```
+```json
 {
     "amount": 1000,
     "cardProduct": {
@@ -160,7 +160,7 @@ In order a user to create the second action named '**Help me go to school**' has
 }
 ```
 **Response** (If the status is '1' and the reason is 'ACCEPTED' then the payment was successful):
-```
+```json
 {
     "payload": {
         "datacashReference": "3400900031089253",
@@ -179,7 +179,7 @@ In order a user to create the second action named '**Help me go to school**' has
 >https://microsites.nbg.gr/api.gateway/sandbox/crowdfunding/headers/v1.1/cmscontent/tags/en/Action_helpmegotoschool
 
 **Response** (Returns list of nodes that belongs to action):
-```
+```json
 {
     "payload": [
         {
@@ -212,7 +212,7 @@ In order a user to create the second action named '**Help me go to school**' has
 ```
 
 **Response** (Returns the result of the update):
-```
+```json
 {
     "payload": {
         "result": true
@@ -243,7 +243,7 @@ Congratulations you have create a functional crowdfunding application
 
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
 
 
 
