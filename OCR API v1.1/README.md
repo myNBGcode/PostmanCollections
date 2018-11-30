@@ -1,3 +1,4 @@
+# Use case scenario
 # Welcome to OCR (Optical Character Recognition) Sandbox
 
 ### What can I do?
