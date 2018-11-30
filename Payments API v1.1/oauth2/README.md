@@ -1,4 +1,4 @@
-# Use case scenario
+# **Introduction**
 #### Welcome to the Payments Sandbox API.
 
 ------------------------------------------------------------------------------------------

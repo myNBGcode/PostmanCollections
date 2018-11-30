@@ -36,7 +36,7 @@ To make such a donation, a viewer can create a transaction request by providing 
 > https://microsites.nbg.gr/api.gateway/sandbox/obppayment/headers/v1.2.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
 
 along with a request body:
-
+```
 {
 	"to": {
 		"iban": "GR4501101030000010348012377"
