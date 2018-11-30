@@ -1,9 +1,9 @@
 # **Introduction**
-#### Welcome to ibankPay Sandbox
+#### Welcome to Digital Payments Wallet Sandbox
 ------------------------------------------------------------------------------------------
 
-### A few words about i-bank Pay
-i-bank Pay is the multi-award winning wallet by National Bank of Greece that is used to:
+### A few words about Digital Payments Wallet 
+Digital Payments Wallet is the multi-award winning wallet by National Bank of Greece that is used to:
 - send money to your friends and make payments and purchases with your phone
 - make money transfers between your friends
 - pay businesses and professionals
@@ -16,8 +16,8 @@ This API provides a standard RESTful interface that enables a user to
 > for the full API documentation
 > 
 ### Real life Use Case Scenario
-Given that you want to buy something from a store, but you don't carry enough money. 
-All you have to do is download i-bank pay App, make a registration and accept the request for payment that the merchant has started via POS.
+Given that you want to buy something from a store, but you don't carry your wallet. 
+All you have to do is download myWallet App, make a registration and accept the request for payment that the merchant has started via POS.
 In this scenario we will be using the API to register as a member and perform a P2B payment.
 
 #### How do I make a registration?
