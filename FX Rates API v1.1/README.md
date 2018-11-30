@@ -25,7 +25,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "113E4C18-FA0D-49B7-992E-F90E7CC3922B"
  }
@@ -39,7 +39,7 @@ The available currencies can be fetched from the API by making an **HTTP GET** r
 > https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/currencies/all
 
 The response is a JSON object containing a list of **Currency** JSON objects, as shown below.
-```
+```json
 [
   {
     "currencySymbol": "USD",
@@ -51,7 +51,7 @@ When user selects the *home currency* and the *foreign currency*, the applicatio
 > https://microsites.nbg.gr/api.gateway/sandbox/fxrates/headers/v1.1/fx/{fromCurrency}/{toCurrency}
 
 The response contains a JSON **FxRates** object as shown below.
-```
+```json
 {
   "currencySymbol": "USD",
   "exchangeBuy": "1.17695000",
@@ -64,4 +64,4 @@ The response contains a JSON **FxRates** object as shown below.
 The application will store the result and use it to calculate the amount conversion by multiplying the user input with the value of **exchangeBuy** field.
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
