@@ -73,7 +73,10 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 **Response** (Retrieves all the supported organizations and it's payment methods):
 
-<details><summary>{
+<details><summary>Response</summary>
+ 
+ ```json
+ {
   "payload": {
         "payments": [
             {
@@ -315,7 +318,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "objectMappings": null
             }
     }  
-}</summary></details>
+}</details>
+```
  
 
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
@@ -324,7 +328,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/commission
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -359,7 +363,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains comission such as total, nbg, merchant's(who provides the app), thirdParty(creator of the app), subAgent(Accountant services) ):
-```
+```json
  {
  "payload": {
         "commissionInfo": {
@@ -379,7 +383,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/pay
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -433,7 +437,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment the creditor, the creditor bank, the debtor, the settlementInfo and the commissionInfo):
-```
+```json
  {
     "payload": {
         "paymentIdentification": {
@@ -499,7 +503,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/status
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -532,7 +536,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment status):
-```
+```json
 {
     "payload": {
         "status": "COMPLETED",
@@ -556,7 +560,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/cancelPayment
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -585,7 +589,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the payment cancelation):
-```
+```json
 {
     "payload": {
         "cancellationLimits": [
@@ -624,7 +628,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/dailyTransactions
 
 **Request**:
-```
+```json
 {
   "header": {
     "ID": "{{$guid}}",
@@ -648,7 +652,9 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about all the transactions in a preferred date):
-<details><summary>
+<details><summary>Response</summary>
+ 
+ ``` json
 {
     "payload": {
         "transactions": [
@@ -835,14 +841,14 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "messages": null,
     "executionTime": 0
 }
-</details></summary>
+</details>
 
 **Check Last Payment Transaction Details**
 
 > https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/lastPaymentTransactionDetails
 
 **Request**:
-```
+```json
  {
   "header": {
     "ID": "{{$guid}}",
@@ -870,7 +876,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Response** (Contains information about the transaction that you requested):
-```
+```json
 {
     "payload": {
         "sendCutOffTime": "2018-11-28T18:00:00.000Z",
@@ -934,4 +940,4 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 
 Created by **NBG**.\
-See more at https://developer.nbg.gr
+See more at https://developer.nbg.gr/
