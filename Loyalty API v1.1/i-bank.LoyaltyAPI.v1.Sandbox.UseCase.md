@@ -1,4 +1,4 @@
-****************************************************** Welcome to the i-bank Loyalty API ******************************************************
+**Welcome to the i-bank Loyalty API **
 
 i-bank Loyalty API is a multi tenant rewards platform. 
 It can be easily integrated to your APP, to ensure that your existing customers, won't leave you!
