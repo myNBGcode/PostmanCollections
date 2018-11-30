@@ -28,7 +28,7 @@ Before start using the social network sandbox API, we will need to create a Sand
 > https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "Your_sandbox_id"
  }
@@ -46,7 +46,7 @@ First of all, a user must register to the network in order to be able to interac
 
 with request body:
 
-```
+```json
 {
   "username": "[input_username]",
   "isAdmin": false
@@ -54,7 +54,7 @@ with request body:
 ```
 
 with a response as shown below.
-```
+```json
 {
     "payload": {
         "UserId": "aa75cd60-ef6e-48be-a4ca-881096c83d3c",
@@ -86,7 +86,7 @@ After storing the user input, user must accept the terms and conditions of our n
 > https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/declarations
 
 providing our network id as shown below
-```
+```json
 {
 	"payload": {
 	    "socialNetworkId": "[our_network_id]"
@@ -94,7 +94,7 @@ providing our network id as shown below
 }
 ```
 The response contains a list of declarations. We will need the ids of all the declarations of type **Terms**.
-```
+```json
 {
     "payload": {
         "declarations": [
@@ -125,7 +125,7 @@ In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634
 > https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/userRegistration
 
 with request body
-```
+```json
 {
 	"payload": {
 	    "socialNetworkId": "[our_network_id]",
@@ -151,7 +151,7 @@ username: [input_username]
 ```
 
 The response of this request contains a verificationId as shown below.
-```
+```json
 {
     "payload": {
         "verificationId": "5c1248e6-9f13-4c7e-84b7-e6a2a30c7c9b"
@@ -170,7 +170,7 @@ When they do fill in a code, we will make an **HTTP POST** request to
 > https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/userRegistrationVerification
 
 with a request body
-```
+```json
 {
 	"payload": {
 	    "socialNetworkId": "[our_network_id]",
@@ -193,7 +193,7 @@ with a request body
 ```
 
 If the registration process is successful, the reponse should contain the memberId of your newly registered user.
-```
+```json
 {
     "payload": {
         "memberId": "701d5132-caba-485d-af9f-c675134a6112"
@@ -213,7 +213,7 @@ Make an **HTTP POST** request to
 
 with request body:
 
-```
+```json
 {
     "socialNetworkId": "[our_network]",
     "memberId": "[member_id]",
@@ -222,7 +222,7 @@ with request body:
 ``` 
 
 The response of a successful post looks like this:
-```
+```json
 {
     "payload": {
         "success": true
@@ -237,4 +237,4 @@ Other users that may know something about the lost item may respond to this post
 
 
 Created by **NBG**.
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
