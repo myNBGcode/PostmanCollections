@@ -1,16 +1,30 @@
- 
+﻿ 
 # Social Network Platform
 ------------------------------------------------------------------------------------------
 
 ### Introduction
 The Social Network Platform has been developed with a main functionality in mind, to support any client when connecting people. It enables the administrator to create multiple social networks with members, that can create posts and the members can interact with each other. More specifically, the members can communicate to each other through direct messages and react on the posts and direct messages of other members. All is done through the platform and bellow you will find a full documentation to guide you in detail.
 
-> The full API documentation: https://developer.nbg.gr/documentation/social-network-application-v2-0
+### The API
+The Social Network sandbox API provides a standard RESTful interface that enables a user to:
+* Become part of a social network
+* Get information about:
+    * His/Her contacts
+    * Posts created by his/her contacts
+* Create a post
+* Send a direct message to a contact
+* React on a post/direct message
+
+> Visit https://developer.nbg.gr/documentation/social-network-application-v2-0 
+> for the full API documentation.
 
 ### Use case scenario
 
-##### - Create Sandbox
-In order to use this API for the first time you will need to create a Sandbox by making an **HTTP POST** request to the following URL
+In this scenario we will be using the API to provide data to the *Lost & Found* application.
+This application helps users to find items they have lost by asking a large community dedicated to this reason.
+
+#####  Create Sandbox
+Before start using the social network sandbox API, we will need to create a Sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/sandbox
 
 With a request body:
@@ -23,7 +37,7 @@ With a request body:
 *Note: Remember to store **sandbox_id** somewhere in your application, because you will need to provide it in as a header
 in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *X-IBM-client-id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/product/social-network-platform-0)*
 
-##### - Use the Platform
+##### Use the Platform
 The response contains - among others - a social network. You should store **SocialNetworkId** in your application as we will need it later to access our Social Network. From now on, we will refere to this id as **our_network_id**.
 
 First of all, a user must register to the network in order to be able to interact with others. After asking the user to fill in their desired username, we must make an **HTTP POST** request to
@@ -69,7 +83,7 @@ The registration proccess continues by asking the user to fill in their personal
 
 After storing the user input, user must accept the terms and conditions of our network. In order to show the terms, we will make an **HTTP POST** request to 
 
-> {{root_url}}/UserManagement/declarations
+> https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/declarations
 
 providing our network id as shown below
 ```
@@ -79,7 +93,7 @@ providing our network id as shown below
     }
 }
 ```
-The response contains a list of declarations. We will need the id of the declaration of type **Terms**.
+The response contains a list of declarations. We will need the ids of all the declarations of type **Terms**.
 ```
 {
     "payload": {
@@ -108,7 +122,7 @@ The response contains a list of declarations. We will need the id of the declara
 
 In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634f** and the description which must be show to the user is **Όροι αποδοχής**. When the user accepts terms, we are ready to initiate the registration procces by making an **HTTP POST** request to
 
-> {{root_url}}/UserManagement/userRegistration
+> https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/userRegistration
 
 with request body
 ```
@@ -153,7 +167,7 @@ This is a sandbox API, thus, no sms is sent to the user containing a code. Howev
 
 When they do fill in a code, we will make an **HTTP POST** request to 
 
-> {{root_url}}/UserManagement/userRegistrationVerification
+> https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/UserManagement/userRegistrationVerification
 
 with a request body
 ```
@@ -192,10 +206,10 @@ If the registration process is successful, the reponse should contain the member
 
 **Our user is now registered!**
 
-Let's prompt them to create a new post!
+Let's prompt them to create a new post about something they have lost!
 
 Make an **HTTP POST** request to
-> {{root_url}}/SocialActivities/userPost
+> https://apis.nbg.gr/public/sandbox/socialnetwork.sandbox/v2/SocialActivities/userPost
 
 with request body:
 
@@ -219,6 +233,7 @@ The response of a successful post looks like this:
 }
 ```
 
+Other users that may know something about the lost item may respond to this post and connect with this user to provide them with additional details.
 
 
 Created by **NBG**.
