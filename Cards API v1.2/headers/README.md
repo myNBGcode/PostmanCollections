@@ -36,7 +36,7 @@ The application needs to call the API multiple times for each bank and each card
 
 Every API call will return the results below:
 <details><summary>response</summary>
-```json
+```
 {
     "cards": [
         {
