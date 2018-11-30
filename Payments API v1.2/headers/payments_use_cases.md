@@ -9,15 +9,15 @@ This API provides a standard RESTful interface that enables a user to
 * Place a transaction request
 * Get the details of a requested transaction
 
-> Visit https://developer.nbg.gr/documentation/payments-api-oauth2-v1-0
+> Visit https://microsites.nbg.gr/developer/documentation/Payments-API-v121-4214
 > for the full API documentation
 
 ### Real life Use Case Scenario
 
-The main functionality of the application is to aggregate financial data for the cards of a user.
+The main functionality of the application is to execute payment requests from a user's account.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/sandbox
+> https://microsites.nbg.gr/api.gateway/sandbox/obppayment/headers/v1.2.1/sandbox
 
 With a request body:
 ```
@@ -29,9 +29,11 @@ With a request body:
 **Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header
 in each api call.**
 
+There exists an application, "Switch", that users can stream online content and accept donations from their viewers. The application needs to give the viewer the ability to 
+execute such donations using any of their accounts. For the receiver of the donation, only their iban needs to be known by the application.
 
-The user can create a transaction request by providing the bank id, account and view and executing a **HHTP POST** request to the following endpoint:
->https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
+To make such a donation, a viewer can create a transaction request by providing the bank id, account and view and executing a **HHTP POST** request to the following endpoint:
+> https://microsites.nbg.gr/api.gateway/sandbox/obppayment/headers/v1.2.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
 
 along with a request body:
 
@@ -93,6 +95,8 @@ getting the following response:
         "chargeExtensions": null
     }
 }
+
+For the transaction to be completed, a user need only answer a challenge to verify the transaction request.
 
 Created by **NBG**. 
 See more at https://www.nbg.gr/

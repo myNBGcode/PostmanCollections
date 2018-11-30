@@ -13,7 +13,7 @@ This API provides a standard RESTful interface that enables a user to
 
 ### Real life Use Case Scenario
 
-The main functionality of the application is to aggregate financial data for the cards of a user.
+The main functionality of the application is to review transactions issued by a user.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/public/sandbox/obp.transaction.sandbox/v1.1/sandbox
@@ -28,19 +28,23 @@ With a request body:
 **Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header
 in each api call.**
 
-When the user selects the bank to get their transactions from,the account and the view, a **HTTP POST** request to the following endpoint:
->https://apis.nbg.gr/public/sandbox/obp.transaction.sandbox/v1.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transactions/details
+
+There exists an application, "MyAccountant", that offers the functionality of reviewing the details of a specific transaction that the user has issued. A user of the application wants to know if a requested transaction has been completed 
+or it is still pending execution.
+
+To do so, the user selects the bank to get their transactions from,the account and the view, and the application calls the api a **HTTP POST** request to the following endpoint:
+> https://apis.nbg.gr/public/sandbox/obp.transaction.sandbox/v1.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transactions/details
 
 along with a request body:
-
+```
 {
   "tranId": "0b30f879-cd0b-49bc-b474-39e2bbb89395",
   "remTpe":"SEPA"
 }
-
+```
 will return the results below:
 
-
+```
 {
     "transactionId": "0b30f879-cd0b-49bc-b474-39e2bbb89395",
     "ordererBankBic": "ETHNGRAA",
@@ -63,6 +67,9 @@ will return the results below:
     "remStatus": "Pending",
     "remMsg": []
 }
+
+From the response, the field "remStatus" contains the state of the transaction, "Pending" in this case.
+
 
 Created by **NBG**. 
 See more at https://www.nbg.gr/

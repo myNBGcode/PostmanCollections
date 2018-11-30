@@ -1,4 +1,4 @@
-## **Bill Payments v2 Sandbox API** 
+## **Bill Payments v2.1 Sandbox API** 
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
@@ -10,7 +10,7 @@ What can you do about it?  The answer is simple, you can use this api in order t
 Your first job is to create a sandbox and save your **sandbox_id** in order to be able to **"play"** with the api.
 
 We will create our sandbox by making an **HTTP POST** request to the following URL:
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/sandbox
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/sandbox
 
 Request Body:
 ```
@@ -45,7 +45,7 @@ They are the same in each call so we mention them first, in postman they are sto
 
 **Step1**: You send **POST /Payments/paymentsList** request to see if you support the payment that the customer wants to make.
 So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/paymentsList
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/paymentsList
 
 **Request**:
 ```
@@ -318,7 +318,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 
 **Step2**: Now that you know you support the requested payment, you send the **POST /Payments/commission** request in order to provide your customer with the information about the charging fees for this transaction with **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/commission
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/commission
 
 **Request**:
 ```
@@ -373,7 +373,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Step3**: After accomplishing the first two steps, you can execute the payment by using **POST /Payments/pay** request.
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/pay
+
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/pay
 
 **Request**:
 ```
@@ -493,7 +494,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **Note: Remember to use the same payment identification data that pay request gave you as a response.**
 
 **Check Payment Status**
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/status
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/status
 
 **Request**:
 ```
@@ -548,9 +549,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "executionTime": 0
 }
 ``` 
-
 **Cancel Payment**
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/cancelPayment
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/cancelPayment
 
 **Request**:
 ```
@@ -618,7 +618,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **POST /Payments/dailyTransactions** or **POST /Payments/lastPaymentTransactionDetails** respectivelly.
 
 **Check Daily Transactions**
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/dailyTransactions
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/dailyTransactions
 
 **Request**:
 ```
@@ -836,7 +836,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 
 **Check Last Payment Transaction Details**
 
-> https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/lastPaymentTransactionDetails
+> https://microsites.nbg.gr/api.gateway/sandbox/billpayments/headers/v2.1/Payments/lastPaymentTransactionDetails
 
 **Request**:
 ```

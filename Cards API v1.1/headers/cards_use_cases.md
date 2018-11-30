@@ -25,15 +25,16 @@ With a request body:
  }
 ``` 
 
-**Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header
-in each api call.**
+**Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header in each api call.**
 
-Now the application needs to ask the API if the user has issued a card of a specific type in a specific bank, in order to display the cards along with their details. 
+There exists an application, "TidyWallet", that offers the functionality of displaying information about a user's cards.
+To do so, the application needs to ask the API if the user has issued a card of a specific type in a specific bank, in order to display the cards along with their details. 
 
-To do this the application needs to call multiple times the API for each bank and each card type, with a **HTTP GET** request to the following endpoint
->https://apis.nbg.gr/public/sandbox/obp.card.sandbox/v1/obp/banks/{bank_id}/cards/{card_type}
+The application needs to call the API multiple times for each bank and each card type, with a **HTTP GET** request to the following endpoint:
+> https://apis.nbg.gr/public/sandbox/obp.card.sandbox/v1/obp/banks/{bank_id}/cards/{card_type}
 
 Every API call will return the results below:
+```
 {
     "cards": [
         {
@@ -158,6 +159,7 @@ Every API call will return the results below:
 				...					
     ]
 }
+
 
 
 Created by **NBG**. 

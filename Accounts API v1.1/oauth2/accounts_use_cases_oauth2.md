@@ -14,7 +14,7 @@ This API provides a standard RESTful interface that enables a user to
 
 ### Real life Use Case Scenario
 
-The main functionality of the application is to aggregate financial data for the cards of a user.
+The main functionality of the application is to aggregate financial data for the accounts of a user.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/public/sandbox/obp.account.sandbox/oauth2/v1/sandbox
@@ -30,9 +30,11 @@ With a request body:
 in each api call.**
 
 
-To get the full details about a specific account that the user has access to, make a **HTTP GET** request to the following endpoint:
+There exists an application, "Switch", that users can stream online content and accept donations from their viewers. The application needs to give the viewer the ability to 
+execute such donations using any of their accounts.
 
->https://apis.nbg.gr/public/sandbox/obp.account.sandbox/oauth2/v1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/account
+For a viewer to get their accounts in order to select the desired one, the application will make a **HTTP GET** request to the following endpoint:
+> https://apis.nbg.gr/public/sandbox/obp.account.sandbox/oauth2/v1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/account
 
 to get the following response:
 

@@ -9,15 +9,15 @@ This API provides a standard RESTful interface that enables a user to
 * Place a transaction request
 * Get the details of a requested transaction
 
-> Visit https://developer.nbg.gr/documentation/payments-api-v11-1
+> Visit https://developer.nbg.gr/documentation/payments-api-oauth2-v1-0
 > for the full API documentation
 
 ### Real life Use Case Scenario
 
-The main functionality of the application is to aggregate financial data for the cards of a user.
+The main functionality of the application is to execute payment requests from a user's account.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/v1.1/sandbox
+> https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/sandbox
 
 With a request body:
 ```
@@ -30,8 +30,11 @@ With a request body:
 in each api call.**
 
 
-The user can create a transaction request by providing the bank id, account and view and executing a **HHTP POST** request to the following endpoint:
->https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/v1.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
+There exists an application, "Switch", that users can stream online content and accept donations from their viewers. The application needs to give the viewer the ability to 
+execute such donations using any of their accounts. For the receiver of the donation, only their iban needs to be known by the application.
+
+To make such a donation, a viewer can create a transaction request by providing the bank id, account and view and executing a **HHTP POST** request to the following endpoint:
+> https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
 
 along with a request body:
 
@@ -93,6 +96,8 @@ getting the following response:
         "chargeExtensions": null
     }
 }
+
+For the transaction to be completed, a user need only answer a challenge to verify the transaction request.
 
 Created by **NBG**. 
 See more at https://www.nbg.gr/

@@ -6,15 +6,17 @@
 ### The API
 This API provides a standard RESTful interface that enables a user to
 * Get all the cards of the current user
-* Get the cards f the current user in the specified bank
+* Get the cards οf the current user in the specified bank
 
+> Visit https://microsites.nbg.gr/developer/documentation/Cards-API-OAuth2-v12-3956
+> for the full API documentation
 
 ### Real life Use Case Scenario
 
 The main functionality of the application is to aggregate financial data for the cards of a user.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/public/sandbox/obp.card.sandbox/oauth2/v1/sandbox
+> https://microsites.nbg.gr/api.gateway/sandbox/obpcard/oauth2/v1.2/sandbox
 
 With a request body:
 ```
@@ -23,19 +25,16 @@ With a request body:
  }
 ``` 
 
-**Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header
-in each api call.**
-
+**Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header in each api call.**
 
 There exists an application, "TidyWallet", that offers the functionality of displaying information about a user's cards.
 To do so, the application needs to ask the API if the user has issued a card of a specific type in a specific bank, in order to display the cards along with their details. 
 
 The application needs to call the API multiple times for each bank and each card type, with a **HTTP GET** request to the following endpoint:
->https://apis.nbg.gr/public/sandbox/obp.card.sandbox/oauth2/v1/obp/banks/{bank_id}/cards/{card_type}
+> https://microsites.nbg.gr/api.gateway/sandbox/obpcard/oauth2/v1.2/obp/banks/{bank_id}/cards/{card_type}
 
-will return the results below:
-
-
+Every API call will return the results below:
+```
 {
     "cards": [
         {
@@ -160,6 +159,7 @@ will return the results below:
 				...					
     ]
 }
+
 
 
 Created by **NBG**. 

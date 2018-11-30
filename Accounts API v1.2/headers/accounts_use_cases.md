@@ -9,7 +9,7 @@ This API provides a standard RESTful interface that enables a user to
 * Get all their private accounts
 * Get the full details of a specific account
 
-> Visit https://developer.nbg.gr/documentation/accounts-api-v11-0
+> Visit https://microsites.nbg.gr/developer/documentation/Accounts-API-v121-4211
 > for the full API documentation
 
 ### Real life Use Case Scenario
@@ -17,7 +17,7 @@ This API provides a standard RESTful interface that enables a user to
 The main functionality of the application is to aggregate financial data for the accounts of a user.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/public/sandbox/obp.account.sandbox/v1.1/sandbox
+> https://microsites.nbg.gr/api.gateway/sandbox/obpaccount/headers/v1.2.1/sandbox
 
 With a request body:
 ```
@@ -33,7 +33,7 @@ There exists an application, "Switch", that users can stream online content and 
 execute such donations using any of their accounts.
 
 For a viewer to get their accounts in order to select the desired one, the application will make a **HTTP GET** request to the following endpoint:
-> https://apis.nbg.gr/public/sandbox/obp.account.sandbox/v1.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/account
+> https://microsites.nbg.gr/api.gateway/sandbox/obpaccount/headers/v1.2.1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/account
 
 to get the following response:
 
