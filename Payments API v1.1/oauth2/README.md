@@ -20,7 +20,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "DE2A6935-9162-4076-B160-B5D3069DAE45"
  }
@@ -37,7 +37,7 @@ To make such a donation, a viewer can create a transaction request by providing 
 > https://apis.nbg.gr/public/sandbox/obp.payment.sandbox/oauth2/v1/obp/banks/{bank_id}/accounts/{account_id}/{view_id}/transaction-request-types/sepa/transaction-requests
 
 along with a request body:
-
+```json
 {
 	"to": {
 		"iban": "GR4501101030000010348012377"
@@ -49,12 +49,11 @@ along with a request body:
 	},
 	"description": "METAFORA"
 }
-
+```
 
 getting the following response:
 
-
-
+```json
 {
     "extensions": null,
     "id": "fb753997-5873-4080-9ee3-4f48749cd6cc",
@@ -96,8 +95,9 @@ getting the following response:
         "chargeExtensions": null
     }
 }
+```
 
 For the transaction to be completed, a user need only answer a challenge to verify the transaction request.
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
