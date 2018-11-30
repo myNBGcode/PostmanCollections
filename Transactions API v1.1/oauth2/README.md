@@ -19,7 +19,7 @@ First of all, we will create our sandbox by making an **HTTP POST** request to t
 > https://apis.nbg.gr/public/sandbox/obp.transaction.sandbox.oauth2.api/sandbox
 
 With a request body:
-```
+```json
  {
    "sandbox_id": "DE2A6935-9162-4076-B160-B5D3069DAE45"
  }
@@ -36,14 +36,16 @@ To do so, the user selects the bank to get their transactions from,the account a
 
 along with a request body:
 
+```json
 {
   "tranId": "0b30f879-cd0b-49bc-b474-39e2bbb89395",
   "remTpe":"SEPA"
 }
+```
 
 will return the results below:
 
-
+```json
 {
     "transactionId": "0b30f879-cd0b-49bc-b474-39e2bbb89395",
     "ordererBankBic": "ETHNGRAA",
@@ -66,9 +68,10 @@ will return the results below:
     "remStatus": "Pending",
     "remMsg": []
 }
+```
 
 From the response, the field "remStatus" contains the state of the transaction, "Pending" in this case.
 
 
 Created by **NBG**. 
-See more at https://www.nbg.gr/
+See more at https://developer.nbg.gr/
