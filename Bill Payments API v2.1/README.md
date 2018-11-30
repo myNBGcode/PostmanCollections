@@ -513,7 +513,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -569,7 +569,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -637,7 +637,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
@@ -858,7 +858,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "customer": 1,
     "logitude": 1,
     "latitude": 1,
-    "go4moreMember": {{go4moreMember}},
+    "go4moreMember": "{{go4moreMember}}",
     "TAN": null
   },
   "payload": {
