@@ -33,7 +33,7 @@ To do so, the application needs to ask the API if the user has issued a card of 
 The application needs to call the API multiple times for each bank and each card type, with a **HTTP GET** request to the following endpoint:
 >https://apis.nbg.gr/public/sandbox/obp.card.sandbox/oauth2/v1/obp/banks/{bank_id}/cards/{card_type}
 
-will return the results below:
+<details><summary>will return the results below:</summary>
 
 ```json
 {
@@ -161,6 +161,7 @@ will return the results below:
     ]
 }
 ```
+</details>
 
 Created by **NBG**. 
 See more at https://developer.nbg.gr/
