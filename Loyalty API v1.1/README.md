@@ -1,5 +1,5 @@
 # Use case scenario
-#### Welcome to the i-bank Loyalty API
+#### Welcome to the Loyalty API
 
 ------------------------------------------------------------------------------------------
 i-bank Loyalty API is a multi tenant rewards platform. 
