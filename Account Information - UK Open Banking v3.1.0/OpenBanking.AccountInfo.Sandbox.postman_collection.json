@@ -1,0 +1,2873 @@
+{
+	"info": {
+		"_postman_id": "79183436-84eb-4767-a3aa-aecd1993265e",
+		"name": "OpenBanking.AccountInfo.Sandbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox CRUD",
+			"item": [
+				{
+					"name": "Create Sandbox Data Model",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "804f4e030393954547d99a4eabe08c7b11a01c36bba41f0164d8c906007c43c3",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandboxId\": \"{{sandboxId}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						},
+						"description": "Creates a sandbox data model for AccountInfo with mock data.\nIt requires a sandboxId to be provided"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sandbox Data Model",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "b686719b84a89dffe148c490769eea02fa859de84836ffb2272c693ac70b7644",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandboxId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandboxId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox Data Model",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "804f4e030393954547d99a4eabe08c7b11a01c36bba41f0164d8c906007c43c3",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandboxId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandboxId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sandbox  Data Model",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "804f4e030393954547d99a4eabe08c7b11a01c36bba41f0164d8c906007c43c3",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandboxId\": \"uk-opb-sandbox\",\r\n    \"users\": [\r\n        {\r\n            \"userId\": \"fotisdres\",\r\n            \"consents\": [\r\n                {\r\n                    \"id\": \"CONSENT_ID\",\r\n                    \"creationDateTime\": \"2019-03-05T15:51:32.5603715+02:00\",\r\n                    \"status\": \"Authorised\",\r\n                    \"statusUpdateDateTime\": \"2019-03-05T15:51:32.5607004+02:00\",\r\n                    \"permissions\": [\r\n                        \"ReadAccountsBasic\",\r\n                        \"ReadAccountsDetail\",\r\n                        \"ReadBalances\",\r\n                        \"ReadBeneficiariesBasic\",\r\n                        \"ReadBeneficiariesDetail\",\r\n                        \"ReadParty\",\r\n                        \"ReadScheduledPaymentsBasic\",\r\n                        \"ReadScheduledPaymentsDetail\",\r\n                        \"ReadStandingOrdersBasic\",\r\n                        \"ReadStandingOrdersDetail\",\r\n                        \"ReadStatementsBasic\",\r\n                        \"ReadStatementsDetail\",\r\n                        \"ReadTransactionsBasic\",\r\n                        \"ReadTransactionsDetail\"\r\n                    ],\r\n                    \"expirationDateTime\": \"9999-12-31T23:59:59.9999999\"\r\n                }\r\n            ],\r\n            \"accounts\": [\r\n                {\r\n                    \"info\": {\r\n                        \"accountId\": \"ACCOUNT_ID\",\r\n                        \"currency\": \"EUR\",\r\n                        \"iban\": \"GR32011XXXXXXXXXXXXXXXXXXXX\",\r\n                        \"accountType\": \"Personal\",\r\n                        \"accountSubType\": \"Savings\",\r\n                        \"description\": \"This is a personal savings account\",\r\n                        \"nickName\": \"A Savings Account\"\r\n                    },\r\n                    \"party\": {\r\n                        \"id\": \"fotisdres\",\r\n                        \"number\": \"123456\",\r\n                        \"type\": \"Delegate\",\r\n                        \"name\": \"A delegate party\",\r\n                        \"email\": \"someone@test.com\",\r\n                        \"phone\": \"555-XXXXX\",\r\n                        \"mobile\": \"697-XXXXXXX\",\r\n                        \"address\": {\r\n                            \"type\": \"Business\",\r\n                            \"streetName\": \"A Street\",\r\n                            \"buildingNumber\": \"62\",\r\n                            \"postCode\": \"12345\",\r\n                            \"townName\": \"Athens\",\r\n                            \"country\": \"Greece\"\r\n                        }\r\n                    },\r\n                    \"beneficiaries\": [\r\n                        {\r\n                            \"name\": \"Harrison Abigail\"\r\n                        },\r\n                        {\r\n                            \"name\": \"Schuster Thomas\"\r\n                        },\r\n                        {\r\n                            \"name\": \"Salter James\"\r\n                        }\r\n                    ],\r\n                    \"balances\": [\r\n                        {\r\n                            \"type\": \"ClosingBooked\",\r\n                            \"amount\": 13500\r\n                        },\r\n                        {\r\n                            \"type\": \"ClosingAvailable\",\r\n                            \"amount\": 13200\r\n                        }\r\n                    ],\r\n                    \"standingOrders\": [\r\n                        {\r\n                            \"id\": \"STANDING_ORDER_ID_2\",\r\n                            \"frequency\": \"IntrvlMnthDay:1:-1\",\r\n                            \"firstCollectionDate\": \"2019-01-01T00:00:00\",\r\n                            \"finalCollectionDate\": \"2019-12-31T00:00:00\",\r\n                            \"status\": \"Active\"\r\n                        },\r\n                        {\r\n                            \"id\": \"STANDING_ORDER_ID_1\",\r\n                            \"frequency\": \"IntrvlMnthDay:1:-1\",\r\n                            \"firstCollectionDate\": \"2018-01-01T00:00:00\",\r\n                            \"finalCollectionDate\": \"2018-12-31T00:00:00\",\r\n                            \"status\": \"Inactive\"\r\n                        }\r\n                    ],\r\n                    \"scheduledPayments\": [\r\n                        {\r\n                            \"executionDate\": \"2019-04-05T15:51:32.5669731+03:00\",\r\n                            \"type\": \"Execution\",\r\n                            \"amount\": 100\r\n                        },\r\n                        {\r\n                            \"executionDate\": \"2019-05-05T15:51:32.5670476+03:00\",\r\n                            \"type\": \"Execution\",\r\n                            \"amount\": 70\r\n                        }\r\n                    ],\r\n                    \"statements\": [\r\n                        {\r\n                            \"id\": \"STATEMENT_ID_2\",\r\n                            \"type\": \"RegularPeriodic\",\r\n                            \"startDateTime\": \"2019-02-01T00:00:00\",\r\n                            \"endDateTime\": \"2019-02-28T00:00:00\",\r\n                            \"title\": \"2019 February Statement\"\r\n                        },\r\n                        {\r\n                            \"id\": \"STATEMENT_ID_1\",\r\n                            \"type\": \"RegularPeriodic\",\r\n                            \"startDateTime\": \"2019-01-01T00:00:00\",\r\n                            \"endDateTime\": \"2019-01-31T00:00:00\",\r\n                            \"title\": \"2019 January Statement\"\r\n                        }\r\n                    ],\r\n                    \"transactions\": [\r\n                        {\r\n                            \"id\": \"TRANSACTION_ID_3\",\r\n                            \"amount\": 100,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"status\": \"Booked\",\r\n                            \"valeur\": \"2019-03-05T15:51:32.5681108+02:00\",\r\n                            \"bookingDateTime\": \"2019-03-05T15:51:32.5681826+02:00\",\r\n                            \"description\": \"Transfer to account\",\r\n                            \"accountingBalance\": 4230.65\r\n                        },\r\n                        {\r\n                            \"id\": \"TRANSACTION_ID_2\",\r\n                            \"amount\": 50.45,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"status\": \"Booked\",\r\n                            \"valeur\": \"2019-03-04T15:51:32.5683741+02:00\",\r\n                            \"bookingDateTime\": \"2019-03-04T15:51:32.5683756+02:00\",\r\n                            \"description\": \"Pay mobile bill\",\r\n                            \"accountingBalance\": 4330.65\r\n                        },\r\n                        {\r\n                            \"id\": \"TRANSACTION_ID_1\",\r\n                            \"amount\": 1150,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Credit\",\r\n                            \"status\": \"Booked\",\r\n                            \"valeur\": \"2019-03-03T15:51:32.5683761+02:00\",\r\n                            \"bookingDateTime\": \"2019-03-03T15:51:32.5683766+02:00\",\r\n                            \"description\": \"Payroll\",\r\n                            \"accountingBalance\": 4381.1\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandboxId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandboxId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consents",
+			"item": [
+				{
+					"name": "Create Consent",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Data\": {\r\n\t\t\"Permissions\": [\r\n\t\t\t\"ReadAccountsDetail\",\r\n\t    \t\"ReadBalances\",\r\n\t    \t\"ReadBeneficiariesDetail\",\r\n\t    \t\"ReadDirectDebits\",\r\n\t    \t\"ReadProducts\",\r\n\t    \t\"ReadStandingOrdersDetail\",\r\n\t    \t\"ReadTransactionsCredits\",\r\n\t    \t\"ReadTransactionsDebits\",\r\n\t    \t\"ReadTransactionsDetail\",\r\n\t    \t\"ReadOffers\",\r\n\t    \t\"ReadPAN\",\r\n\t    \t\"ReadParty\",\r\n\t    \t\"ReadPartyPSU\",\r\n\t    \t\"ReadScheduledPaymentsDetail\",\r\n\t    \t\"ReadStatementsDetail\"\r\n\t\t]\r\n\t},\r\n\t\"Risk\": \"Risk description\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/account-access-consents",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consent",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "a5ec49abe27f02b9c5ced8e7fafd80aa7d5d20fe78c765093f17f4d0078f7b99",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/account-access-consents/{{consentId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents",
+								"{{consentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Consent",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "a5ec49abe27f02b9c5ced8e7fafd80aa7d5d20fe78c765093f17f4d0078f7b99",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/account-access-consents/{{consentId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents",
+								"{{consentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Accounts",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "62aaf4620152fc2ddec2d69e288f2dfa5d5a602266c82888baefb3d02402a651",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account By AccountId",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Balances",
+			"item": [
+				{
+					"name": "Get Balances ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"balances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Balances For Account",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"balances"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Beneficiaries",
+			"item": [
+				{
+					"name": "Get Beneficiaries ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/beneficiaries",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beneficiaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Beneficiaries For Account",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/beneficiaries",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"beneficiaries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DirectDebits",
+			"item": [
+				{
+					"name": "Get Direct Debits ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/direct-debits",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"direct-debits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Direct Debits For Account ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/direct-debits",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"direct-debits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offers",
+			"item": [
+				{
+					"name": "Get Offers ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/offers",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offers For Account ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/offers",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "Get Party ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/party",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"party"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Party For Account",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/party",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"party"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Products ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/products",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products For Account ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/product",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scheduled Payments",
+			"item": [
+				{
+					"name": "Get Scheduled Payments ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/scheduled-payments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"scheduled-payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scheduled Payments For Account",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/scheduled-payments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"scheduled-payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Standing Orders",
+			"item": [
+				{
+					"name": "Get Standing Orders ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/standing-orders",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"standing-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Standing Orders For Account",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/standing-orders",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"standing-orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statements",
+			"item": [
+				{
+					"name": "Get Statements ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/statements",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account And Statement (Not Implemented)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements/{{statementId}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements",
+								"{{statementId}}",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statement For Account By StatementId ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements/{{statementId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements",
+								"{{statementId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get File For Account And Statement",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "1e19b01d7c565902360a22bda1848f8a832f730418e91cef4e0655d3a6440f7a",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements/{{statementId}}/file",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements",
+								"{{statementId}}",
+								"file"
+							]
+						},
+						"description": "This call should be implemented by a client, because it returns a pdf file"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statements For Account ( simple )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statements For Account ( fromDate)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements?fromStatementDateTime={{fromStatementDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements"
+							],
+							"query": [
+								{
+									"key": "fromStatementDateTime",
+									"value": "{{fromStatementDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statements For Account ( toDate )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements?toStatementDateTime={{toStatementDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements"
+							],
+							"query": [
+								{
+									"key": "toStatementDateTime",
+									"value": "{{toStatementDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statements For Account ( full )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/statements?fromStatementDateTime={{fromStatementDateTime}}&toStatementDateTime={{toStatementDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"statements"
+							],
+							"query": [
+								{
+									"key": "fromStatementDateTime",
+									"value": "{{fromStatementDateTime}}"
+								},
+								{
+									"key": "toStatementDateTime",
+									"value": "{{toStatementDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get Transactions ( Not Implemented )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account ( simple )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"type": "text",
+								"value": "{{financialId}}"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"type": "text",
+								"value": "{{bankId}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandboxId}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account ( fromDate )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "fromBookingDateTime",
+									"value": "{{fromTransactionBookingDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account ( toDate )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/transactions?toBookingDateTime={{toTransactionBookingDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "toBookingDateTime",
+									"value": "{{toTransactionBookingDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account ( full )",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "9280606356c90069b87b01fb66306441f58adde26ef43295f38f4abfdaa0f427",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financialId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-subject-bank-id",
+								"value": "{{bankId}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandboxId}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts/{{accountId}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}&toBookingDateTime={{toTransactionBookingDateTime}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "fromBookingDateTime",
+									"value": "{{fromTransactionBookingDateTime}}"
+								},
+								{
+									"key": "toBookingDateTime",
+									"value": "{{toTransactionBookingDateTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
