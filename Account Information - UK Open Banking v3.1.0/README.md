@@ -1,4 +1,4 @@
-## **Accounts and Transactions v1.0 Sandbox API** 
+## **Account Information OAuth2 API v3.1.0** 
 ****
 ### **Introduction to the API**
 This API helps you obtain a list of your accounts and their respective information such as balances, transactions, statements and beneficiaries.
