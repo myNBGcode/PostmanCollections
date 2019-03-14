@@ -1,0 +1,751 @@
+{
+	"info": {
+		"_postman_id": "a37b8abd-176a-44ef-a972-60ada9d11908",
+		"name": "Account Info API",
+		"description": "Account Info API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}					
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"sandboxId\": \"{{sandbox_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}							
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}							
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"sandbox\": {\r\n    \t\"sanboxId\": \"{{sandbox_id}}\",\r\n        \"version\": 1,\r\n        \"users\": [\r\n            {\r\n                \"accounts\": [\r\n                    {\r\n                        \"account\": {\r\n                            \"accountType\": \"3000\",\r\n                            \"overdraftLimit\": null,\r\n                            \"numberOfMandates\": null,\r\n                            \"serialNo\": null,\r\n                            \"account\": \"67890123456\",\r\n                            \"iban\": \"GR5301106780000067890123456\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 1\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 50000,\r\n                            \"availableBalance\": 500000,\r\n                            \"newMoneyBalance\": 0,\r\n                            \"flag\": null,\r\n                            \"allowConnect\": null,\r\n                            \"allowDebit\": null,\r\n                            \"allowCredit\": null,\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            }\r\n                        },\r\n                        \"transactions\": [\r\n                            {\r\n                                \"serialNum\": \"1\",\r\n                                \"date\": \"2019-01-11T13:42:23.7918863Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"20\",\r\n                                \"amount\": -25,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Debit\",\r\n                                \"valeur\": \"2019-01-11T13:42:23.7918863Z\",\r\n                                \"description\": \"Check deposit Federer\",\r\n                                \"accountingBalance\": 500000,\r\n                                \"reference\": \"12345678901234567890\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            },\r\n                            {\r\n                                \"serialNum\": \"2\",\r\n                                \"date\": \"2019-01-10T13:42:23.7928869Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"64\",\r\n                                \"amount\": 450.86,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Credit\",\r\n                                \"valeur\": \"2019-01-10T13:42:23.7928869Z\",\r\n                                \"description\": \"Fund Transfer 1\",\r\n                                \"accountingBalance\": 499549.14,\r\n                                \"reference\": \"12345678901234567891\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            },\r\n                            {\r\n                                \"serialNum\": \"3\",\r\n                                \"date\": \"2019-01-09T13:42:23.7928869Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"64\",\r\n                                \"amount\": 400.86,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Credit\",\r\n                                \"valeur\": \"2019-01-09T13:42:23.7928869Z\",\r\n                                \"description\": \"Fund Transfer 2\",\r\n                                \"accountingBalance\": 499599.14,\r\n                                \"reference\": \"12345678901234567892\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            }\r\n                        ],\r\n                        \"deferred\": [],\r\n                        \"pending\": [],\r\n                        \"beneficiaries\": [\r\n                            {\r\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"order\": \"1\"\r\n                            },\r\n                            {\r\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\r\n                                \"order\": \"2\"\r\n                            }\r\n                        ],\r\n                        \"details\": {\r\n                            \"account\": \"67890123456\",\r\n                            \"iban\": \"GR5301106780000067890123456\",\r\n                            \"accountType\": \"3000\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 1\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 50000,\r\n                            \"availableBalance\": 500000,\r\n                            \"createDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"lastTransactionDate\": \"2019-01-11T13:42:23.7888843Z\",\r\n                            \"interestRate\": 0,\r\n                            \"interestAccrued\": 0,\r\n                            \"interestPeriod\": \"0\",\r\n                            \"chequeReservation\": 0,\r\n                            \"deptReservation\": 0,\r\n                            \"overdraftLimit\": 0,\r\n                            \"excessLimitAmount\": 0,\r\n                            \"availableLimitAmount\": 0,\r\n                            \"freeChequeAmnt\": 0,\r\n                            \"expirationDate\": \"2019-01-11T13:42:23.7888843Z\",\r\n                            \"interestScale\": \"1000\",\r\n                            \"irisAccount\": null,\r\n                            \"irisBalance\": 0,\r\n                            \"accType\": null,\r\n                            \"allowConnect\": \"1\",\r\n                            \"allowDebit\": \"1\",\r\n                            \"allowCredit\": \"11\",\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            },\r\n                            \"newMoneyBalance\": 0,\r\n                            \"mandatesNumber\": null\r\n                        },\r\n                        \"rates\": [\r\n                            {\r\n                                \"from\": 0,\r\n                                \"to\": 100000,\r\n                                \"rate\": 0.03\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"account\": {\r\n                            \"accountType\": \"20\",\r\n                            \"overdraftLimit\": null,\r\n                            \"numberOfMandates\": null,\r\n                            \"serialNo\": null,\r\n                            \"account\": \"67890123458\",\r\n                            \"iban\": \"GR9601106780000067890123458\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 2\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 10000,\r\n                            \"availableBalance\": 500000,\r\n                            \"newMoneyBalance\": 0,\r\n                            \"flag\": null,\r\n                            \"allowConnect\": null,\r\n                            \"allowDebit\": null,\r\n                            \"allowCredit\": null,\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            }\r\n                        },\r\n                        \"transactions\": [],\r\n                        \"deferred\": [],\r\n                        \"pending\": [],\r\n                        \"beneficiaries\": [\r\n                            {\r\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\r\n                                \"order\": \"1\"\r\n                            }\r\n                        ],\r\n                        \"details\": {\r\n                            \"account\": \"67890123458\",\r\n                            \"iban\": \"GR9601106780000067890123458\",\r\n                            \"accountType\": \"20\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 2\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 10000,\r\n                            \"availableBalance\": 500000,\r\n                            \"createDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"lastTransactionDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"interestRate\": 0,\r\n                            \"interestAccrued\": 0,\r\n                            \"interestPeriod\": \"0\",\r\n                            \"chequeReservation\": 0,\r\n                            \"deptReservation\": 0,\r\n                            \"overdraftLimit\": 0,\r\n                            \"excessLimitAmount\": 0,\r\n                            \"availableLimitAmount\": 0,\r\n                            \"freeChequeAmnt\": 0,\r\n                            \"expirationDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"interestScale\": \"1000\",\r\n                            \"irisAccount\": null,\r\n                            \"irisBalance\": 0,\r\n                            \"accType\": null,\r\n                            \"allowConnect\": \"1\",\r\n                            \"allowDebit\": \"1\",\r\n                            \"allowCredit\": \"11\",\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            },\r\n                            \"newMoneyBalance\": 0,\r\n                            \"mandatesNumber\": null\r\n                        },\r\n                        \"rates\": []\r\n                    }\r\n                ],\r\n                \"cards\": [\r\n                    {\r\n                        \"transactions\": [],\r\n                        \"card\": {\r\n                            \"creditLimit\": 0,\r\n                            \"ledgerBalance\": 0,\r\n                            \"expirationDate\": \"05/2019\",\r\n                            \"futureDueAmount\": 0,\r\n                            \"minimumPayment\": 0,\r\n                            \"paymentDate\": null,\r\n                            \"statementAmount\": 0,\r\n                            \"statementDate\": null,\r\n                            \"statementDeliver\": null,\r\n                            \"statementAddress\": null,\r\n                            \"statementAddressCity\": null,\r\n                            \"statementEmail\": null,\r\n                            \"currency\": null,\r\n                            \"status\": null,\r\n                            \"delayDate\": null,\r\n                            \"delayAmount\": null,\r\n                            \"limitATM\": 0,\r\n                            \"limitPOS\": 50,\r\n                            \"limitINT\": 0,\r\n                            \"alias\": \"Karta 1\",\r\n                            \"number\": \"4917910000000001\",\r\n                            \"productName\": \"VISA PREPAID\",\r\n                            \"type\": \"PCV\",\r\n                            \"creditBalance\": 0,\r\n                            \"features\": {\r\n                                \"hasAlerts\": true,\r\n                                \"quickCredit\": {\r\n                                    \"supportsQuickCredit\": true,\r\n                                    \"canBeInactive\": false,\r\n                                    \"hasCommission\": false,\r\n                                    \"isDeferred\": true,\r\n                                    \"isAmountRetreived\": true,\r\n                                    \"accountCurrency\": null\r\n                                },\r\n                                \"supportsQuickDebit\": false,\r\n                                \"hasOtherInfo\": true,\r\n                                \"hasLimitSet\": false,\r\n                                \"canBeCanceled\": false,\r\n                                \"hasAccounts\": false,\r\n                                \"canBeUpdated\": false\r\n                            },\r\n                            \"issuedBy\": null,\r\n                            \"kind\": null,\r\n                            \"color\": null,\r\n                            \"microtagType\": null\r\n                        }\r\n                    },\r\n                    {\r\n                        \"transactions\": [],\r\n                        \"card\": {\r\n                            \"creditLimit\": 5000,\r\n                            \"ledgerBalance\": 3400,\r\n                            \"expirationDate\": \"01/2020\",\r\n                            \"futureDueAmount\": 113.5,\r\n                            \"minimumPayment\": 65,\r\n                            \"paymentDate\": \"2019-01-12T13:42:23.7958889Z\",\r\n                            \"statementAmount\": 3342,\r\n                            \"statementDate\": null,\r\n                            \"statementDeliver\": null,\r\n                            \"statementAddress\": null,\r\n                            \"statementAddressCity\": null,\r\n                            \"statementEmail\": null,\r\n                            \"currency\": null,\r\n                            \"status\": null,\r\n                            \"delayDate\": null,\r\n                            \"delayAmount\": null,\r\n                            \"limitATM\": 0,\r\n                            \"limitPOS\": 0,\r\n                            \"limitINT\": 0,\r\n                            \"alias\": \"Karta 2\",\r\n                            \"number\": \"5278900000000001\",\r\n                            \"productName\": \"GOLD MASTERCARD\",\r\n                            \"type\": \"CC\",\r\n                            \"creditBalance\": 0,\r\n                            \"features\": {\r\n                                \"hasAlerts\": true,\r\n                                \"quickCredit\": {\r\n                                    \"supportsQuickCredit\": true,\r\n                                    \"canBeInactive\": false,\r\n                                    \"hasCommission\": false,\r\n                                    \"isDeferred\": true,\r\n                                    \"isAmountRetreived\": true,\r\n                                    \"accountCurrency\": null\r\n                                },\r\n                                \"supportsQuickDebit\": false,\r\n                                \"hasOtherInfo\": true,\r\n                                \"hasLimitSet\": false,\r\n                                \"canBeCanceled\": false,\r\n                                \"hasAccounts\": false,\r\n                                \"canBeUpdated\": false\r\n                            },\r\n                            \"issuedBy\": null,\r\n                            \"kind\": null,\r\n                            \"color\": null,\r\n                            \"microtagType\": null\r\n                        }\r\n                    },\r\n                    {\r\n                        \"transactions\": [],\r\n                        \"card\": {\r\n                            \"limitATM\": 100,\r\n                            \"limitPOS\": 50,\r\n                            \"limitINT\": 0,\r\n                            \"status\": null,\r\n                            \"statusTimestamp\": \"0001-01-01T00:00:00Z\",\r\n                            \"statusDescription\": null,\r\n                            \"productCode\": null,\r\n                            \"issueDate\": \"0001-01-01T00:00:00Z\",\r\n                            \"expirationDate\": \"0001-01-01T00:00:00Z\",\r\n                            \"ownerBranch\": null,\r\n                            \"technologyType\": null,\r\n                            \"pvvNum\": null,\r\n                            \"holder\": \"A.B C\",\r\n                            \"iLoc\": 0,\r\n                            \"commissionDate\": \"0001-01-01T00:00:00Z\",\r\n                            \"refresh\": null,\r\n                            \"lastATMTransactionTimestamp\": \"0001-01-01T00:00:00Z\",\r\n                            \"lastBranchTransactionTimestamp\": \"0001-01-01T00:00:00Z\",\r\n                            \"limits\": null,\r\n                            \"connectedAccounts\": [\r\n                                {\r\n                                    \"accountNumber\": \"67890123456\",\r\n                                    \"iban\": \"GR5301106780000067890123456\",\r\n                                    \"accountDescription\": \"3000\"\r\n                                }\r\n                            ],\r\n                            \"alias\": \"Karta 3\",\r\n                            \"number\": \"4589120000000001\",\r\n                            \"productName\": \"VISA DEBIT\",\r\n                            \"type\": \"DC\",\r\n                            \"creditBalance\": 1000,\r\n                            \"features\": {\r\n                                \"hasAlerts\": false,\r\n                                \"quickCredit\": {\r\n                                    \"supportsQuickCredit\": false,\r\n                                    \"canBeInactive\": false,\r\n                                    \"hasCommission\": false,\r\n                                    \"isDeferred\": false,\r\n                                    \"isAmountRetreived\": false,\r\n                                    \"accountCurrency\": null\r\n                                },\r\n                                \"supportsQuickDebit\": true,\r\n                                \"hasOtherInfo\": false,\r\n                                \"hasLimitSet\": false,\r\n                                \"canBeCanceled\": false,\r\n                                \"hasAccounts\": true,\r\n                                \"canBeUpdated\": true\r\n                            },\r\n                            \"issuedBy\": null,\r\n                            \"kind\": null,\r\n                            \"color\": null,\r\n                            \"microtagType\": null\r\n                        }\r\n                    }\r\n                ],\r\n                \"bank\": {\r\n                    \"name\": \"ΕΘΝΙΚΗ ΤΡΑΠΕΖΑ\",\r\n                    \"code\": \"011\",\r\n                    \"bankBic\": \"ETHNGRAA\",\r\n                    \"bankTitle\": \"ΕΘΝΙΚΗ ΤΡΑΠΕΖΑ\"\r\n                },\r\n                \"profilePicture\": [],\r\n                \"userId\": \"ymoud\"\r\n            },\r\n            {\r\n                \"accounts\": [\r\n                    {\r\n                        \"account\": {\r\n                            \"accountType\": \"3000\",\r\n                            \"overdraftLimit\": null,\r\n                            \"numberOfMandates\": null,\r\n                            \"serialNo\": null,\r\n                            \"account\": \"67890123456\",\r\n                            \"iban\": \"GR5301106780000067890123456\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 1\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 50000,\r\n                            \"availableBalance\": 500000,\r\n                            \"newMoneyBalance\": 0,\r\n                            \"flag\": null,\r\n                            \"allowConnect\": null,\r\n                            \"allowDebit\": null,\r\n                            \"allowCredit\": null,\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            }\r\n                        },\r\n                        \"transactions\": [\r\n                            {\r\n                                \"serialNum\": \"1\",\r\n                                \"date\": \"2019-01-11T13:42:23.7918863Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"20\",\r\n                                \"amount\": -25,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Debit\",\r\n                                \"valeur\": \"2019-01-11T13:42:23.7918863Z\",\r\n                                \"description\": \"Check deposit Federer\",\r\n                                \"accountingBalance\": 500000,\r\n                                \"reference\": \"12345678901234567890\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            },\r\n                            {\r\n                                \"serialNum\": \"2\",\r\n                                \"date\": \"2019-01-10T13:42:23.7928869Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"64\",\r\n                                \"amount\": 450.86,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Credit\",\r\n                                \"valeur\": \"2019-01-10T13:42:23.7928869Z\",\r\n                                \"description\": \"Fund Transfer 1\",\r\n                                \"accountingBalance\": 499549.14,\r\n                                \"reference\": \"12345678901234567891\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            },\r\n                            {\r\n                                \"serialNum\": \"3\",\r\n                                \"date\": \"2019-01-09T13:42:23.7928869Z\",\r\n                                \"branch\": null,\r\n                                \"trans\": \"64\",\r\n                                \"amount\": 400.86,\r\n                                \"currency\": \"070\",\r\n                                \"amountEquivalent\": 0,\r\n                                \"creditDebit\": \"Credit\",\r\n                                \"valeur\": \"2019-01-09T13:42:23.7928869Z\",\r\n                                \"description\": \"Fund Transfer 2\",\r\n                                \"accountingBalance\": 499599.14,\r\n                                \"reference\": \"12345678901234567892\",\r\n                                \"externalSystem\": \"RNB\",\r\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\r\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"timestamp\": null\r\n                            }\r\n                        ],\r\n                        \"deferred\": [],\r\n                        \"pending\": [],\r\n                        \"beneficiaries\": [\r\n                            {\r\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\r\n                                \"order\": \"1\"\r\n                            },\r\n                            {\r\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\r\n                                \"order\": \"2\"\r\n                            }\r\n                        ],\r\n                        \"details\": {\r\n                            \"account\": \"67890123456\",\r\n                            \"iban\": \"GR5301106780000067890123456\",\r\n                            \"accountType\": \"3000\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 1\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 50000,\r\n                            \"availableBalance\": 500000,\r\n                            \"createDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"lastTransactionDate\": \"2019-01-11T13:42:23.7888843Z\",\r\n                            \"interestRate\": 0,\r\n                            \"interestAccrued\": 0,\r\n                            \"interestPeriod\": \"0\",\r\n                            \"chequeReservation\": 0,\r\n                            \"deptReservation\": 0,\r\n                            \"overdraftLimit\": 0,\r\n                            \"excessLimitAmount\": 0,\r\n                            \"availableLimitAmount\": 0,\r\n                            \"freeChequeAmnt\": 0,\r\n                            \"expirationDate\": \"2019-01-11T13:42:23.7888843Z\",\r\n                            \"interestScale\": \"1000\",\r\n                            \"irisAccount\": null,\r\n                            \"irisBalance\": 0,\r\n                            \"accType\": null,\r\n                            \"allowConnect\": \"1\",\r\n                            \"allowDebit\": \"1\",\r\n                            \"allowCredit\": \"11\",\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            },\r\n                            \"newMoneyBalance\": 0,\r\n                            \"mandatesNumber\": null\r\n                        },\r\n                        \"rates\": [\r\n                            {\r\n                                \"from\": 0,\r\n                                \"to\": 100000,\r\n                                \"rate\": 0.03\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"account\": {\r\n                            \"accountType\": \"20\",\r\n                            \"overdraftLimit\": null,\r\n                            \"numberOfMandates\": null,\r\n                            \"serialNo\": null,\r\n                            \"account\": \"67890123458\",\r\n                            \"iban\": \"GR9601106780000067890123458\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 2\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 10000,\r\n                            \"availableBalance\": 500000,\r\n                            \"newMoneyBalance\": 0,\r\n                            \"flag\": null,\r\n                            \"allowConnect\": null,\r\n                            \"allowDebit\": null,\r\n                            \"allowCredit\": null,\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            }\r\n                        },\r\n                        \"transactions\": [],\r\n                        \"deferred\": [],\r\n                        \"pending\": [],\r\n                        \"beneficiaries\": [\r\n                            {\r\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\r\n                                \"order\": \"1\"\r\n                            }\r\n                        ],\r\n                        \"details\": {\r\n                            \"account\": \"67890123458\",\r\n                            \"iban\": \"GR9601106780000067890123458\",\r\n                            \"accountType\": \"20\",\r\n                            \"currency\": \"070\",\r\n                            \"alias\": \"Account 2\",\r\n                            \"product\": null,\r\n                            \"ledgerBalance\": 10000,\r\n                            \"availableBalance\": 500000,\r\n                            \"createDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"lastTransactionDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"interestRate\": 0,\r\n                            \"interestAccrued\": 0,\r\n                            \"interestPeriod\": \"0\",\r\n                            \"chequeReservation\": 0,\r\n                            \"deptReservation\": 0,\r\n                            \"overdraftLimit\": 0,\r\n                            \"excessLimitAmount\": 0,\r\n                            \"availableLimitAmount\": 0,\r\n                            \"freeChequeAmnt\": 0,\r\n                            \"expirationDate\": \"2019-01-11T13:42:23.7898852Z\",\r\n                            \"interestScale\": \"1000\",\r\n                            \"irisAccount\": null,\r\n                            \"irisBalance\": 0,\r\n                            \"accType\": null,\r\n                            \"allowConnect\": \"1\",\r\n                            \"allowDebit\": \"1\",\r\n                            \"allowCredit\": \"11\",\r\n                            \"indicators\": null,\r\n                            \"ledgerAccount\": null,\r\n                            \"isOwnAccount\": false,\r\n                            \"features\": {\r\n                                \"statement\": true,\r\n                                \"otherInfo\": true,\r\n                                \"mandates\": true,\r\n                                \"cheques\": true,\r\n                                \"transfer\": true,\r\n                                \"rates\": true,\r\n                                \"beneficiaries\": true\r\n                            },\r\n                            \"newMoneyBalance\": 0,\r\n                            \"mandatesNumber\": null\r\n                        },\r\n                        \"rates\": []\r\n                    }\r\n                ],\r\n                \"cards\": [],\r\n                \"bank\": {\r\n                    \"name\": \"ΕΘΝΙΚΗ ΤΡΑΠΕΖΑ\",\r\n                    \"code\": \"011\",\r\n                    \"bankBic\": \"ETHNGRAA\",\r\n                    \"bankTitle\": \"ΕΘΝΙΚΗ ΤΡΑΠΕΖΑ\"\r\n                },\r\n                \"profilePicture\": [],\r\n                \"userId\": \"CORPORATION\"\r\n            }\r\n        ]\r\n    }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}							
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ae36cb81-e2ee-4fbe-a603-160faddc339b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4728e107-b6fd-4d80-8358-244dce10dc3c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "List Accounts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"userId\": \"{{user_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"list"
+							]
+						},
+						"description": "List of accounts with details.\r\n\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"ownAccounts\": true,\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Account details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n\t\"account\": \"{{account_number}}\",\r\n    \"userId\": \"{{user_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/details",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"details"
+							]
+						},
+						"description": "Account details\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "List Beneficiaries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": {\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"{{client_id}}\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": {\r\n\t\t\"iban\": \"{{iban}}\",\r\n    \t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/beneficiaries",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"beneficiaries"
+							]
+						},
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"iban\": \"GR1601100400000004012345678\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "List Transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": \r\n\t{\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"{{client_id}}\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": \r\n\t{\r\n\t\t\"account\": \"{{account_number}}\",\r\n\t\t\"dateFrom\": \"2008-03-13T07:38:56.591Z\",\r\n\t\t\"dateTo\": \"2028-03-14T07:38:56.591Z\",\r\n\t\t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/transactions",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"transactions"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Foreign Currency Account",
+			"item": [
+				{
+					"name": "List Accounts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"userId\": \"{{user_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"list"
+							]
+						},
+						"description": "List of my accounts in foreign currency with details.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"ownAccounts\": true,\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Account details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"account\": \"{{foreign_account_number}}\",\r\n    \"userId\": \"{{user_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/details",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"details"
+							]
+						},
+						"description": "Account details.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "List Beneficiaries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": \r\n\t{\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"{{client_id}}\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": \r\n\t{\r\n    \t\"account\": \"{{foreign_account_number}}\",\r\n    \t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/beneficiaries",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"beneficiaries"
+							]
+						},
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "List Transcations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": \r\n\t{\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"{{client_id}}\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": \r\n\t{\r\n\t\t\"account\": \"{{foreign_account_number}}\",\r\n\t\t\"dateFrom\": \"2008-03-13T07:38:56.591Z\",\r\n\t\t\"dateTo\": \"2028-03-14T07:38:56.591Z\",\r\n    \t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/transactions",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"transactions"
+							]
+						},
+						"description": "Foreign Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for foreign-currency-account"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "B5CC5CB2-3EE8-4AF5-87C6-FCDBBCBC3AAF",
+								"type": "text"
+							}								
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": \r\n  {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{client_id}}\",\r\n    \"bank\": \"string\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 23.854930,\r\n    \"latitude\": 38.020160,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": \r\n  {\r\n    \"userId\": \"{{user_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/user/current",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"user",
+								"current"
+							]
+						},
+						"description": "Info about the logged in user (i.e. userId).\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for user"
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "REPLACE_THIS_VALUE",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b5ffe7fa-15dd-480c-a358-a9267160e20f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f7aa329f-96fb-4df0-b87b-096cea03b3ff",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
