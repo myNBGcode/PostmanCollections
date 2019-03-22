@@ -1,632 +1,389 @@
 {
-	"info": {
-		"_postman_id": "da83f5f0-240a-4db5-8100-ffbe45ac4253",
-		"name": "Cards API Headers",
-		"description": "## **Introduction**\n\nWelcome to the NBG Cards sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-cards-api-v1**\n\n The Cards API allows you to access the list of user cards and card information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Cards API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of cards for a logged in user \n - The list of cards for a logged in user at a specific bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Cards sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
+	"id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+	"name": "Cards API Headers",
+	"description": "## **Introduction**\n\nWelcome to the NBG Cards sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-cards-api-v1**\n\n The Cards API allows you to access the list of user cards and card information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Cards API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of cards for a logged in user \n - The list of cards for a logged in user at a specific bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Cards sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"999cb725-0dbf-8afa-d5a9-52d63a02a1b9",
+		"a9278790-08b7-bb24-ca60-9c0177f3ce94"
+	],
+	"folders": [
 		{
+			"id": "999cb725-0dbf-8afa-d5a9-52d63a02a1b9",
 			"name": "obp",
-			"item": [
-				{
-					"name": "Get cards for the current user",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "353f5e604e458524338702d4e03adf4a4be213c613c6e46306000c9edb91dd81",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_username",
-								"value": "{{provider_username}}",
-								"type": "text"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/obp/cards",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"obp",
-								"cards"
-							]
-						},
-						"description": "Returns data about all the physical cards a user has been issued. These could be debit cards, credit cards, etc."
-					},
-					"response": [
-						{
-							"name": "Get cards for the current user",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/json, application/xml, text/xml"
-									},
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "request_id",
-										"value": "{{request_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}",
-										"type": "text"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}",
-										"type": "text"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}",
-										"type": "text"
-									},
-									{
-										"key": "provider_username",
-										"value": "{{provider_username}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost/obp.card.sandbox.oauth2.api/obp/cards",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"obp.card.sandbox.oauth2.api",
-										"obp",
-										"cards"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 23 Nov 2018 10:01:53 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "13193"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"cards\": [\n        {\n            \"cardExtensions\": null,\n            \"cardId\": \"00000000-0000-0000-0000-000000000000\",\n            \"bank_card_number\": \"5278900029523359\",\n            \"name_on_card\": \"sDoulfis\",\n            \"issue_number\": \"52789000\",\n            \"serial_number\": \"321\",\n            \"valid_from_date\": \"2018-11-21T13:17:14.2547005+02:00\",\n            \"expires_date\": \"2028-11-21T13:17:14.2547005+02:00\",\n            \"enabled\": true,\n            \"cancelled\": false,\n            \"on_hot_list\": false,\n            \"technology\": null,\n            \"networks\": null,\n            \"allows\": null,\n            \"replacement\": null,\n            \"pin_reset\": null,\n            \"collected\": \"2018-11-21T13:17:14.2547005+02:00\",\n            \"posted\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"account\": {\n                \"id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\",\n                \"label\": \"SandboxNBG\",\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"views_available\": [\n                    {\n                        \"is_public\": false,\n                        \"id\": \"owner\",\n                        \"short_name\": \"owner\",\n                        \"description\": \"owner view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": true,\n                        \"can_add_comment\": true,\n                        \"can_add_corporate_location\": true,\n                        \"can_add_image\": true,\n                        \"can_add_image_url\": true,\n                        \"can_add_more_info\": true,\n                        \"can_add_open_corporates_url\": true,\n                        \"can_add_physical_location\": true,\n                        \"can_add_private_alias\": true,\n                        \"can_add_public_alias\": true,\n                        \"can_add_tag\": true,\n                        \"can_add_url\": true,\n                        \"can_add_counterparty\": true,\n                        \"can_add_where_tag\": true,\n                        \"can_add_narrative\": true,\n                        \"can_delete_comment\": true,\n                        \"can_delete_corporate_location\": true,\n                        \"can_delete_image\": true,\n                        \"can_delete_physical_location\": true,\n                        \"can_delete_tag\": true,\n                        \"can_delete_where_tag\": true,\n                        \"can_delete_narrative\": true,\n                        \"can_delete_image_url\": true,\n                        \"can_delete_public_alias\": true,\n                        \"can_delete_private_alias\": true,\n                        \"can_delete_more_info\": true,\n                        \"can_delete_open_corporates_url\": true,\n                        \"can_delete_url\": true,\n                        \"can_edit_owner_comment\": true,\n                        \"can_edit_where_tag\": true,\n                        \"can_edit_narrative\": true,\n                        \"can_edit_image_url\": true,\n                        \"can_edit_public_alias\": true,\n                        \"can_edit_private_alias\": true,\n                        \"can_edit_physical_location\": true,\n                        \"can_edit_corporate_location\": true,\n                        \"can_edit_more_info\": true,\n                        \"can_edit_open_corporates_url\": true,\n                        \"can_edit_url\": true,\n                        \"can_see_bank_account_balance\": true,\n                        \"can_see_bank_account_bank_name\": true,\n                        \"can_see_bank_account_currency\": true,\n                        \"can_see_bank_account_iban\": true,\n                        \"can_see_bank_account_label\": true,\n                        \"can_see_bank_account_national_identifier\": true,\n                        \"can_see_bank_account_number\": true,\n                        \"can_see_bank_account_owners\": true,\n                        \"can_see_bank_account_swift_bic\": true,\n                        \"can_see_bank_account_type\": true,\n                        \"can_see_comments\": true,\n                        \"can_see_narrative\": true,\n                        \"can_see_corporate_location\": true,\n                        \"can_see_image_url\": true,\n                        \"can_see_images\": true,\n                        \"can_see_more_info\": true,\n                        \"can_see_open_corporates_url\": true,\n                        \"can_see_other_account_bank_name\": true,\n                        \"can_see_other_account_iban\": true,\n                        \"can_see_other_account_kind\": true,\n                        \"can_see_other_account_metadata\": true,\n                        \"can_see_other_account_national_identifier\": true,\n                        \"can_see_other_account_number\": true,\n                        \"can_see_other_account_swift_bic\": true,\n                        \"can_see_owner_comment\": true,\n                        \"can_see_physical_location\": true,\n                        \"can_see_private_alias\": true,\n                        \"can_see_public_alias\": true,\n                        \"can_see_tags\": true,\n                        \"can_see_transaction_amount\": true,\n                        \"can_see_transaction_balance\": true,\n                        \"can_see_transaction_currency\": true,\n                        \"can_see_transaction_description\": true,\n                        \"can_see_transaction_finish_date\": true,\n                        \"can_see_transaction_metadata\": true,\n                        \"can_see_transaction_other_bank_account\": true,\n                        \"can_see_transaction_start_date\": true,\n                        \"can_see_transaction_this_bank_account\": true,\n                        \"can_see_transaction_type\": true,\n                        \"can_see_url\": true,\n                        \"can_see_where_tag\": true,\n                        \"can_see_bank_routing_scheme\": true,\n                        \"can_see_bank_routing_address\": true,\n                        \"can_see_bank_account_routing_scheme\": true,\n                        \"can_see_bank_account_routing_address\": true,\n                        \"can_see_other_bank_routing_scheme\": true,\n                        \"can_see_other_bank_routing_address\": true,\n                        \"can_see_other_account_routing_scheme\": true,\n                        \"can_see_other_account_routing_address\": true\n                    },\n                    {\n                        \"is_public\": true,\n                        \"id\": \"publicViewUser1\",\n                        \"short_name\": \"publicView\",\n                        \"description\": \"public view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": false,\n                        \"can_add_comment\": false,\n                        \"can_add_corporate_location\": false,\n                        \"can_add_image\": false,\n                        \"can_add_image_url\": false,\n                        \"can_add_more_info\": false,\n                        \"can_add_open_corporates_url\": false,\n                        \"can_add_physical_location\": false,\n                        \"can_add_private_alias\": false,\n                        \"can_add_public_alias\": false,\n                        \"can_add_tag\": false,\n                        \"can_add_url\": false,\n                        \"can_add_counterparty\": false,\n                        \"can_add_where_tag\": false,\n                        \"can_add_narrative\": false,\n                        \"can_delete_comment\": false,\n                        \"can_delete_corporate_location\": false,\n                        \"can_delete_image\": false,\n                        \"can_delete_physical_location\": false,\n                        \"can_delete_tag\": false,\n                        \"can_delete_where_tag\": false,\n                        \"can_delete_narrative\": false,\n                        \"can_delete_image_url\": false,\n                        \"can_delete_public_alias\": false,\n                        \"can_delete_private_alias\": false,\n                        \"can_delete_more_info\": false,\n                        \"can_delete_open_corporates_url\": false,\n                        \"can_delete_url\": false,\n                        \"can_edit_owner_comment\": false,\n                        \"can_edit_where_tag\": false,\n                        \"can_edit_narrative\": false,\n                        \"can_edit_image_url\": false,\n                        \"can_edit_public_alias\": false,\n                        \"can_edit_private_alias\": false,\n                        \"can_edit_physical_location\": false,\n                        \"can_edit_corporate_location\": false,\n                        \"can_edit_more_info\": false,\n                        \"can_edit_open_corporates_url\": false,\n                        \"can_edit_url\": false,\n                        \"can_see_bank_account_balance\": false,\n                        \"can_see_bank_account_bank_name\": false,\n                        \"can_see_bank_account_currency\": false,\n                        \"can_see_bank_account_iban\": false,\n                        \"can_see_bank_account_label\": false,\n                        \"can_see_bank_account_national_identifier\": false,\n                        \"can_see_bank_account_number\": false,\n                        \"can_see_bank_account_owners\": false,\n                        \"can_see_bank_account_swift_bic\": false,\n                        \"can_see_bank_account_type\": false,\n                        \"can_see_comments\": false,\n                        \"can_see_narrative\": false,\n                        \"can_see_corporate_location\": false,\n                        \"can_see_image_url\": false,\n                        \"can_see_images\": false,\n                        \"can_see_more_info\": false,\n                        \"can_see_open_corporates_url\": false,\n                        \"can_see_other_account_bank_name\": false,\n                        \"can_see_other_account_iban\": false,\n                        \"can_see_other_account_kind\": false,\n                        \"can_see_other_account_metadata\": false,\n                        \"can_see_other_account_national_identifier\": false,\n                        \"can_see_other_account_number\": false,\n                        \"can_see_other_account_swift_bic\": false,\n                        \"can_see_owner_comment\": false,\n                        \"can_see_physical_location\": false,\n                        \"can_see_private_alias\": false,\n                        \"can_see_public_alias\": false,\n                        \"can_see_tags\": false,\n                        \"can_see_transaction_amount\": false,\n                        \"can_see_transaction_balance\": false,\n                        \"can_see_transaction_currency\": false,\n                        \"can_see_transaction_description\": false,\n                        \"can_see_transaction_finish_date\": false,\n                        \"can_see_transaction_metadata\": false,\n                        \"can_see_transaction_other_bank_account\": false,\n                        \"can_see_transaction_start_date\": false,\n                        \"can_see_transaction_this_bank_account\": false,\n                        \"can_see_transaction_type\": false,\n                        \"can_see_url\": false,\n                        \"can_see_where_tag\": false,\n                        \"can_see_bank_routing_scheme\": false,\n                        \"can_see_bank_routing_address\": false,\n                        \"can_see_bank_account_routing_scheme\": false,\n                        \"can_see_bank_account_routing_address\": false,\n                        \"can_see_other_bank_routing_scheme\": false,\n                        \"can_see_other_bank_routing_address\": false,\n                        \"can_see_other_account_routing_scheme\": false,\n                        \"can_see_other_account_routing_address\": false\n                    }\n                ]\n            }\n        },\n        {\n            \"cardExtensions\": null,\n            \"cardId\": \"00000000-0000-0000-0000-000000000000\",\n            \"bank_card_number\": \"4917910017457593\",\n            \"name_on_card\": \"User2\",\n            \"issue_number\": \"49179100\",\n            \"serial_number\": \"\",\n            \"valid_from_date\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"expires_date\": \"2028-11-21T13:17:14.2552009+02:00\",\n            \"enabled\": true,\n            \"cancelled\": false,\n            \"on_hot_list\": false,\n            \"technology\": null,\n            \"networks\": null,\n            \"allows\": null,\n            \"replacement\": null,\n            \"pin_reset\": null,\n            \"collected\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"posted\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"account\": {\n                \"id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n                \"label\": \"SandboxNBG\",\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"views_available\": [\n                    {\n                        \"is_public\": false,\n                        \"id\": \"owner\",\n                        \"short_name\": \"owner\",\n                        \"description\": \"owner view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": true,\n                        \"can_add_comment\": true,\n                        \"can_add_corporate_location\": true,\n                        \"can_add_image\": true,\n                        \"can_add_image_url\": true,\n                        \"can_add_more_info\": true,\n                        \"can_add_open_corporates_url\": true,\n                        \"can_add_physical_location\": true,\n                        \"can_add_private_alias\": true,\n                        \"can_add_public_alias\": true,\n                        \"can_add_tag\": true,\n                        \"can_add_url\": true,\n                        \"can_add_counterparty\": true,\n                        \"can_add_where_tag\": true,\n                        \"can_add_narrative\": true,\n                        \"can_delete_comment\": true,\n                        \"can_delete_corporate_location\": true,\n                        \"can_delete_image\": true,\n                        \"can_delete_physical_location\": true,\n                        \"can_delete_tag\": true,\n                        \"can_delete_where_tag\": true,\n                        \"can_delete_narrative\": true,\n                        \"can_delete_image_url\": true,\n                        \"can_delete_public_alias\": true,\n                        \"can_delete_private_alias\": true,\n                        \"can_delete_more_info\": true,\n                        \"can_delete_open_corporates_url\": true,\n                        \"can_delete_url\": true,\n                        \"can_edit_owner_comment\": true,\n                        \"can_edit_where_tag\": true,\n                        \"can_edit_narrative\": true,\n                        \"can_edit_image_url\": true,\n                        \"can_edit_public_alias\": true,\n                        \"can_edit_private_alias\": true,\n                        \"can_edit_physical_location\": true,\n                        \"can_edit_corporate_location\": true,\n                        \"can_edit_more_info\": true,\n                        \"can_edit_open_corporates_url\": true,\n                        \"can_edit_url\": true,\n                        \"can_see_bank_account_balance\": true,\n                        \"can_see_bank_account_bank_name\": true,\n                        \"can_see_bank_account_currency\": true,\n                        \"can_see_bank_account_iban\": true,\n                        \"can_see_bank_account_label\": true,\n                        \"can_see_bank_account_national_identifier\": true,\n                        \"can_see_bank_account_number\": true,\n                        \"can_see_bank_account_owners\": true,\n                        \"can_see_bank_account_swift_bic\": true,\n                        \"can_see_bank_account_type\": true,\n                        \"can_see_comments\": true,\n                        \"can_see_narrative\": true,\n                        \"can_see_corporate_location\": true,\n                        \"can_see_image_url\": true,\n                        \"can_see_images\": true,\n                        \"can_see_more_info\": true,\n                        \"can_see_open_corporates_url\": true,\n                        \"can_see_other_account_bank_name\": true,\n                        \"can_see_other_account_iban\": true,\n                        \"can_see_other_account_kind\": true,\n                        \"can_see_other_account_metadata\": true,\n                        \"can_see_other_account_national_identifier\": true,\n                        \"can_see_other_account_number\": true,\n                        \"can_see_other_account_swift_bic\": true,\n                        \"can_see_owner_comment\": true,\n                        \"can_see_physical_location\": true,\n                        \"can_see_private_alias\": true,\n                        \"can_see_public_alias\": true,\n                        \"can_see_tags\": true,\n                        \"can_see_transaction_amount\": true,\n                        \"can_see_transaction_balance\": true,\n                        \"can_see_transaction_currency\": true,\n                        \"can_see_transaction_description\": true,\n                        \"can_see_transaction_finish_date\": true,\n                        \"can_see_transaction_metadata\": true,\n                        \"can_see_transaction_other_bank_account\": true,\n                        \"can_see_transaction_start_date\": true,\n                        \"can_see_transaction_this_bank_account\": true,\n                        \"can_see_transaction_type\": true,\n                        \"can_see_url\": true,\n                        \"can_see_where_tag\": true,\n                        \"can_see_bank_routing_scheme\": true,\n                        \"can_see_bank_routing_address\": true,\n                        \"can_see_bank_account_routing_scheme\": true,\n                        \"can_see_bank_account_routing_address\": true,\n                        \"can_see_other_bank_routing_scheme\": true,\n                        \"can_see_other_bank_routing_address\": true,\n                        \"can_see_other_account_routing_scheme\": true,\n                        \"can_see_other_account_routing_address\": true\n                    },\n                    {\n                        \"is_public\": true,\n                        \"id\": \"publicViewUser2\",\n                        \"short_name\": \"publicView\",\n                        \"description\": \"public view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": false,\n                        \"can_add_comment\": false,\n                        \"can_add_corporate_location\": false,\n                        \"can_add_image\": false,\n                        \"can_add_image_url\": false,\n                        \"can_add_more_info\": false,\n                        \"can_add_open_corporates_url\": false,\n                        \"can_add_physical_location\": false,\n                        \"can_add_private_alias\": false,\n                        \"can_add_public_alias\": false,\n                        \"can_add_tag\": false,\n                        \"can_add_url\": false,\n                        \"can_add_counterparty\": false,\n                        \"can_add_where_tag\": false,\n                        \"can_add_narrative\": false,\n                        \"can_delete_comment\": false,\n                        \"can_delete_corporate_location\": false,\n                        \"can_delete_image\": false,\n                        \"can_delete_physical_location\": false,\n                        \"can_delete_tag\": false,\n                        \"can_delete_where_tag\": false,\n                        \"can_delete_narrative\": false,\n                        \"can_delete_image_url\": false,\n                        \"can_delete_public_alias\": false,\n                        \"can_delete_private_alias\": false,\n                        \"can_delete_more_info\": false,\n                        \"can_delete_open_corporates_url\": false,\n                        \"can_delete_url\": false,\n                        \"can_edit_owner_comment\": false,\n                        \"can_edit_where_tag\": false,\n                        \"can_edit_narrative\": false,\n                        \"can_edit_image_url\": false,\n                        \"can_edit_public_alias\": false,\n                        \"can_edit_private_alias\": false,\n                        \"can_edit_physical_location\": false,\n                        \"can_edit_corporate_location\": false,\n                        \"can_edit_more_info\": false,\n                        \"can_edit_open_corporates_url\": false,\n                        \"can_edit_url\": false,\n                        \"can_see_bank_account_balance\": false,\n                        \"can_see_bank_account_bank_name\": false,\n                        \"can_see_bank_account_currency\": false,\n                        \"can_see_bank_account_iban\": false,\n                        \"can_see_bank_account_label\": false,\n                        \"can_see_bank_account_national_identifier\": false,\n                        \"can_see_bank_account_number\": false,\n                        \"can_see_bank_account_owners\": false,\n                        \"can_see_bank_account_swift_bic\": false,\n                        \"can_see_bank_account_type\": false,\n                        \"can_see_comments\": false,\n                        \"can_see_narrative\": false,\n                        \"can_see_corporate_location\": false,\n                        \"can_see_image_url\": false,\n                        \"can_see_images\": false,\n                        \"can_see_more_info\": false,\n                        \"can_see_open_corporates_url\": false,\n                        \"can_see_other_account_bank_name\": false,\n                        \"can_see_other_account_iban\": false,\n                        \"can_see_other_account_kind\": false,\n                        \"can_see_other_account_metadata\": false,\n                        \"can_see_other_account_national_identifier\": false,\n                        \"can_see_other_account_number\": false,\n                        \"can_see_other_account_swift_bic\": false,\n                        \"can_see_owner_comment\": false,\n                        \"can_see_physical_location\": false,\n                        \"can_see_private_alias\": false,\n                        \"can_see_public_alias\": false,\n                        \"can_see_tags\": false,\n                        \"can_see_transaction_amount\": false,\n                        \"can_see_transaction_balance\": false,\n                        \"can_see_transaction_currency\": false,\n                        \"can_see_transaction_description\": false,\n                        \"can_see_transaction_finish_date\": false,\n                        \"can_see_transaction_metadata\": false,\n                        \"can_see_transaction_other_bank_account\": false,\n                        \"can_see_transaction_start_date\": false,\n                        \"can_see_transaction_this_bank_account\": false,\n                        \"can_see_transaction_type\": false,\n                        \"can_see_url\": false,\n                        \"can_see_where_tag\": false,\n                        \"can_see_bank_routing_scheme\": false,\n                        \"can_see_bank_routing_address\": false,\n                        \"can_see_bank_account_routing_scheme\": false,\n                        \"can_see_bank_account_routing_address\": false,\n                        \"can_see_other_bank_routing_scheme\": false,\n                        \"can_see_other_bank_routing_address\": false,\n                        \"can_see_other_account_routing_scheme\": false,\n                        \"can_see_other_account_routing_address\": false\n                    }\n                ]\n            }\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Get cards for the specified bank",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "353f5e604e458524338702d4e03adf4a4be213c613c6e46306000c9edb91dd81",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_username",
-								"value": "{{provider_username}}",
-								"type": "text"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/obp/banks/:bank_id/cards/:card_type",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"obp",
-								"banks",
-								":bank_id",
-								"cards",
-								":card_type"
-							],
-							"variable": [
-								{
-									"key": "bank_id",
-									"value": "{{bank_id}}"
-								},
-								{
-									"key": "card_type",
-									"value": "{{card_type}}"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Get cards for the specified bank",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/json, application/xml, text/xml"
-									},
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "request_id",
-										"value": "{{request_id}}"
-									},
-									{
-										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-										"key": "Authorization",
-										"value": "Bearer",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost/obp.card.sandbox.oauth2.api/obp/banks/:bank_id/cards/:card_type",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"obp.card.sandbox.oauth2.api",
-										"obp",
-										"banks",
-										":bank_id",
-										"cards",
-										":card_type"
-									],
-									"variable": [
-										{
-											"key": "bank_id",
-											"value": "{{bank_id}}"
-										},
-										{
-											"key": "card_type",
-											"value": "{{card_type}}"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 23 Nov 2018 10:05:09 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "13193"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"cards\": [\n        {\n            \"cardExtensions\": null,\n            \"cardId\": \"00000000-0000-0000-0000-000000000000\",\n            \"bank_card_number\": \"5278900029523359\",\n            \"name_on_card\": \"sDoulfis\",\n            \"issue_number\": \"52789000\",\n            \"serial_number\": \"321\",\n            \"valid_from_date\": \"2018-11-21T13:17:14.2547005+02:00\",\n            \"expires_date\": \"2028-11-21T13:17:14.2547005+02:00\",\n            \"enabled\": true,\n            \"cancelled\": false,\n            \"on_hot_list\": false,\n            \"technology\": null,\n            \"networks\": null,\n            \"allows\": null,\n            \"replacement\": null,\n            \"pin_reset\": null,\n            \"collected\": \"2018-11-21T13:17:14.2547005+02:00\",\n            \"posted\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"account\": {\n                \"id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\",\n                \"label\": \"SandboxNBG\",\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"views_available\": [\n                    {\n                        \"is_public\": false,\n                        \"id\": \"owner\",\n                        \"short_name\": \"owner\",\n                        \"description\": \"owner view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": true,\n                        \"can_add_comment\": true,\n                        \"can_add_corporate_location\": true,\n                        \"can_add_image\": true,\n                        \"can_add_image_url\": true,\n                        \"can_add_more_info\": true,\n                        \"can_add_open_corporates_url\": true,\n                        \"can_add_physical_location\": true,\n                        \"can_add_private_alias\": true,\n                        \"can_add_public_alias\": true,\n                        \"can_add_tag\": true,\n                        \"can_add_url\": true,\n                        \"can_add_counterparty\": true,\n                        \"can_add_where_tag\": true,\n                        \"can_add_narrative\": true,\n                        \"can_delete_comment\": true,\n                        \"can_delete_corporate_location\": true,\n                        \"can_delete_image\": true,\n                        \"can_delete_physical_location\": true,\n                        \"can_delete_tag\": true,\n                        \"can_delete_where_tag\": true,\n                        \"can_delete_narrative\": true,\n                        \"can_delete_image_url\": true,\n                        \"can_delete_public_alias\": true,\n                        \"can_delete_private_alias\": true,\n                        \"can_delete_more_info\": true,\n                        \"can_delete_open_corporates_url\": true,\n                        \"can_delete_url\": true,\n                        \"can_edit_owner_comment\": true,\n                        \"can_edit_where_tag\": true,\n                        \"can_edit_narrative\": true,\n                        \"can_edit_image_url\": true,\n                        \"can_edit_public_alias\": true,\n                        \"can_edit_private_alias\": true,\n                        \"can_edit_physical_location\": true,\n                        \"can_edit_corporate_location\": true,\n                        \"can_edit_more_info\": true,\n                        \"can_edit_open_corporates_url\": true,\n                        \"can_edit_url\": true,\n                        \"can_see_bank_account_balance\": true,\n                        \"can_see_bank_account_bank_name\": true,\n                        \"can_see_bank_account_currency\": true,\n                        \"can_see_bank_account_iban\": true,\n                        \"can_see_bank_account_label\": true,\n                        \"can_see_bank_account_national_identifier\": true,\n                        \"can_see_bank_account_number\": true,\n                        \"can_see_bank_account_owners\": true,\n                        \"can_see_bank_account_swift_bic\": true,\n                        \"can_see_bank_account_type\": true,\n                        \"can_see_comments\": true,\n                        \"can_see_narrative\": true,\n                        \"can_see_corporate_location\": true,\n                        \"can_see_image_url\": true,\n                        \"can_see_images\": true,\n                        \"can_see_more_info\": true,\n                        \"can_see_open_corporates_url\": true,\n                        \"can_see_other_account_bank_name\": true,\n                        \"can_see_other_account_iban\": true,\n                        \"can_see_other_account_kind\": true,\n                        \"can_see_other_account_metadata\": true,\n                        \"can_see_other_account_national_identifier\": true,\n                        \"can_see_other_account_number\": true,\n                        \"can_see_other_account_swift_bic\": true,\n                        \"can_see_owner_comment\": true,\n                        \"can_see_physical_location\": true,\n                        \"can_see_private_alias\": true,\n                        \"can_see_public_alias\": true,\n                        \"can_see_tags\": true,\n                        \"can_see_transaction_amount\": true,\n                        \"can_see_transaction_balance\": true,\n                        \"can_see_transaction_currency\": true,\n                        \"can_see_transaction_description\": true,\n                        \"can_see_transaction_finish_date\": true,\n                        \"can_see_transaction_metadata\": true,\n                        \"can_see_transaction_other_bank_account\": true,\n                        \"can_see_transaction_start_date\": true,\n                        \"can_see_transaction_this_bank_account\": true,\n                        \"can_see_transaction_type\": true,\n                        \"can_see_url\": true,\n                        \"can_see_where_tag\": true,\n                        \"can_see_bank_routing_scheme\": true,\n                        \"can_see_bank_routing_address\": true,\n                        \"can_see_bank_account_routing_scheme\": true,\n                        \"can_see_bank_account_routing_address\": true,\n                        \"can_see_other_bank_routing_scheme\": true,\n                        \"can_see_other_bank_routing_address\": true,\n                        \"can_see_other_account_routing_scheme\": true,\n                        \"can_see_other_account_routing_address\": true\n                    },\n                    {\n                        \"is_public\": true,\n                        \"id\": \"publicViewUser1\",\n                        \"short_name\": \"publicView\",\n                        \"description\": \"public view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": false,\n                        \"can_add_comment\": false,\n                        \"can_add_corporate_location\": false,\n                        \"can_add_image\": false,\n                        \"can_add_image_url\": false,\n                        \"can_add_more_info\": false,\n                        \"can_add_open_corporates_url\": false,\n                        \"can_add_physical_location\": false,\n                        \"can_add_private_alias\": false,\n                        \"can_add_public_alias\": false,\n                        \"can_add_tag\": false,\n                        \"can_add_url\": false,\n                        \"can_add_counterparty\": false,\n                        \"can_add_where_tag\": false,\n                        \"can_add_narrative\": false,\n                        \"can_delete_comment\": false,\n                        \"can_delete_corporate_location\": false,\n                        \"can_delete_image\": false,\n                        \"can_delete_physical_location\": false,\n                        \"can_delete_tag\": false,\n                        \"can_delete_where_tag\": false,\n                        \"can_delete_narrative\": false,\n                        \"can_delete_image_url\": false,\n                        \"can_delete_public_alias\": false,\n                        \"can_delete_private_alias\": false,\n                        \"can_delete_more_info\": false,\n                        \"can_delete_open_corporates_url\": false,\n                        \"can_delete_url\": false,\n                        \"can_edit_owner_comment\": false,\n                        \"can_edit_where_tag\": false,\n                        \"can_edit_narrative\": false,\n                        \"can_edit_image_url\": false,\n                        \"can_edit_public_alias\": false,\n                        \"can_edit_private_alias\": false,\n                        \"can_edit_physical_location\": false,\n                        \"can_edit_corporate_location\": false,\n                        \"can_edit_more_info\": false,\n                        \"can_edit_open_corporates_url\": false,\n                        \"can_edit_url\": false,\n                        \"can_see_bank_account_balance\": false,\n                        \"can_see_bank_account_bank_name\": false,\n                        \"can_see_bank_account_currency\": false,\n                        \"can_see_bank_account_iban\": false,\n                        \"can_see_bank_account_label\": false,\n                        \"can_see_bank_account_national_identifier\": false,\n                        \"can_see_bank_account_number\": false,\n                        \"can_see_bank_account_owners\": false,\n                        \"can_see_bank_account_swift_bic\": false,\n                        \"can_see_bank_account_type\": false,\n                        \"can_see_comments\": false,\n                        \"can_see_narrative\": false,\n                        \"can_see_corporate_location\": false,\n                        \"can_see_image_url\": false,\n                        \"can_see_images\": false,\n                        \"can_see_more_info\": false,\n                        \"can_see_open_corporates_url\": false,\n                        \"can_see_other_account_bank_name\": false,\n                        \"can_see_other_account_iban\": false,\n                        \"can_see_other_account_kind\": false,\n                        \"can_see_other_account_metadata\": false,\n                        \"can_see_other_account_national_identifier\": false,\n                        \"can_see_other_account_number\": false,\n                        \"can_see_other_account_swift_bic\": false,\n                        \"can_see_owner_comment\": false,\n                        \"can_see_physical_location\": false,\n                        \"can_see_private_alias\": false,\n                        \"can_see_public_alias\": false,\n                        \"can_see_tags\": false,\n                        \"can_see_transaction_amount\": false,\n                        \"can_see_transaction_balance\": false,\n                        \"can_see_transaction_currency\": false,\n                        \"can_see_transaction_description\": false,\n                        \"can_see_transaction_finish_date\": false,\n                        \"can_see_transaction_metadata\": false,\n                        \"can_see_transaction_other_bank_account\": false,\n                        \"can_see_transaction_start_date\": false,\n                        \"can_see_transaction_this_bank_account\": false,\n                        \"can_see_transaction_type\": false,\n                        \"can_see_url\": false,\n                        \"can_see_where_tag\": false,\n                        \"can_see_bank_routing_scheme\": false,\n                        \"can_see_bank_routing_address\": false,\n                        \"can_see_bank_account_routing_scheme\": false,\n                        \"can_see_bank_account_routing_address\": false,\n                        \"can_see_other_bank_routing_scheme\": false,\n                        \"can_see_other_bank_routing_address\": false,\n                        \"can_see_other_account_routing_scheme\": false,\n                        \"can_see_other_account_routing_address\": false\n                    }\n                ]\n            }\n        },\n        {\n            \"cardExtensions\": null,\n            \"cardId\": \"00000000-0000-0000-0000-000000000000\",\n            \"bank_card_number\": \"4917910017457593\",\n            \"name_on_card\": \"User2\",\n            \"issue_number\": \"49179100\",\n            \"serial_number\": \"\",\n            \"valid_from_date\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"expires_date\": \"2028-11-21T13:17:14.2552009+02:00\",\n            \"enabled\": true,\n            \"cancelled\": false,\n            \"on_hot_list\": false,\n            \"technology\": null,\n            \"networks\": null,\n            \"allows\": null,\n            \"replacement\": null,\n            \"pin_reset\": null,\n            \"collected\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"posted\": \"2018-11-21T13:17:14.2552009+02:00\",\n            \"account\": {\n                \"id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n                \"label\": \"SandboxNBG\",\n                \"bank_id\": \"DB173089-A8FE-43F1-8947-F1B2A8699829\",\n                \"views_available\": [\n                    {\n                        \"is_public\": false,\n                        \"id\": \"owner\",\n                        \"short_name\": \"owner\",\n                        \"description\": \"owner view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": true,\n                        \"can_add_comment\": true,\n                        \"can_add_corporate_location\": true,\n                        \"can_add_image\": true,\n                        \"can_add_image_url\": true,\n                        \"can_add_more_info\": true,\n                        \"can_add_open_corporates_url\": true,\n                        \"can_add_physical_location\": true,\n                        \"can_add_private_alias\": true,\n                        \"can_add_public_alias\": true,\n                        \"can_add_tag\": true,\n                        \"can_add_url\": true,\n                        \"can_add_counterparty\": true,\n                        \"can_add_where_tag\": true,\n                        \"can_add_narrative\": true,\n                        \"can_delete_comment\": true,\n                        \"can_delete_corporate_location\": true,\n                        \"can_delete_image\": true,\n                        \"can_delete_physical_location\": true,\n                        \"can_delete_tag\": true,\n                        \"can_delete_where_tag\": true,\n                        \"can_delete_narrative\": true,\n                        \"can_delete_image_url\": true,\n                        \"can_delete_public_alias\": true,\n                        \"can_delete_private_alias\": true,\n                        \"can_delete_more_info\": true,\n                        \"can_delete_open_corporates_url\": true,\n                        \"can_delete_url\": true,\n                        \"can_edit_owner_comment\": true,\n                        \"can_edit_where_tag\": true,\n                        \"can_edit_narrative\": true,\n                        \"can_edit_image_url\": true,\n                        \"can_edit_public_alias\": true,\n                        \"can_edit_private_alias\": true,\n                        \"can_edit_physical_location\": true,\n                        \"can_edit_corporate_location\": true,\n                        \"can_edit_more_info\": true,\n                        \"can_edit_open_corporates_url\": true,\n                        \"can_edit_url\": true,\n                        \"can_see_bank_account_balance\": true,\n                        \"can_see_bank_account_bank_name\": true,\n                        \"can_see_bank_account_currency\": true,\n                        \"can_see_bank_account_iban\": true,\n                        \"can_see_bank_account_label\": true,\n                        \"can_see_bank_account_national_identifier\": true,\n                        \"can_see_bank_account_number\": true,\n                        \"can_see_bank_account_owners\": true,\n                        \"can_see_bank_account_swift_bic\": true,\n                        \"can_see_bank_account_type\": true,\n                        \"can_see_comments\": true,\n                        \"can_see_narrative\": true,\n                        \"can_see_corporate_location\": true,\n                        \"can_see_image_url\": true,\n                        \"can_see_images\": true,\n                        \"can_see_more_info\": true,\n                        \"can_see_open_corporates_url\": true,\n                        \"can_see_other_account_bank_name\": true,\n                        \"can_see_other_account_iban\": true,\n                        \"can_see_other_account_kind\": true,\n                        \"can_see_other_account_metadata\": true,\n                        \"can_see_other_account_national_identifier\": true,\n                        \"can_see_other_account_number\": true,\n                        \"can_see_other_account_swift_bic\": true,\n                        \"can_see_owner_comment\": true,\n                        \"can_see_physical_location\": true,\n                        \"can_see_private_alias\": true,\n                        \"can_see_public_alias\": true,\n                        \"can_see_tags\": true,\n                        \"can_see_transaction_amount\": true,\n                        \"can_see_transaction_balance\": true,\n                        \"can_see_transaction_currency\": true,\n                        \"can_see_transaction_description\": true,\n                        \"can_see_transaction_finish_date\": true,\n                        \"can_see_transaction_metadata\": true,\n                        \"can_see_transaction_other_bank_account\": true,\n                        \"can_see_transaction_start_date\": true,\n                        \"can_see_transaction_this_bank_account\": true,\n                        \"can_see_transaction_type\": true,\n                        \"can_see_url\": true,\n                        \"can_see_where_tag\": true,\n                        \"can_see_bank_routing_scheme\": true,\n                        \"can_see_bank_routing_address\": true,\n                        \"can_see_bank_account_routing_scheme\": true,\n                        \"can_see_bank_account_routing_address\": true,\n                        \"can_see_other_bank_routing_scheme\": true,\n                        \"can_see_other_bank_routing_address\": true,\n                        \"can_see_other_account_routing_scheme\": true,\n                        \"can_see_other_account_routing_address\": true\n                    },\n                    {\n                        \"is_public\": true,\n                        \"id\": \"publicViewUser2\",\n                        \"short_name\": \"publicView\",\n                        \"description\": \"public view\",\n                        \"alias\": \"\",\n                        \"hide_metadata_if_alias_used\": false,\n                        \"can_add_comment\": false,\n                        \"can_add_corporate_location\": false,\n                        \"can_add_image\": false,\n                        \"can_add_image_url\": false,\n                        \"can_add_more_info\": false,\n                        \"can_add_open_corporates_url\": false,\n                        \"can_add_physical_location\": false,\n                        \"can_add_private_alias\": false,\n                        \"can_add_public_alias\": false,\n                        \"can_add_tag\": false,\n                        \"can_add_url\": false,\n                        \"can_add_counterparty\": false,\n                        \"can_add_where_tag\": false,\n                        \"can_add_narrative\": false,\n                        \"can_delete_comment\": false,\n                        \"can_delete_corporate_location\": false,\n                        \"can_delete_image\": false,\n                        \"can_delete_physical_location\": false,\n                        \"can_delete_tag\": false,\n                        \"can_delete_where_tag\": false,\n                        \"can_delete_narrative\": false,\n                        \"can_delete_image_url\": false,\n                        \"can_delete_public_alias\": false,\n                        \"can_delete_private_alias\": false,\n                        \"can_delete_more_info\": false,\n                        \"can_delete_open_corporates_url\": false,\n                        \"can_delete_url\": false,\n                        \"can_edit_owner_comment\": false,\n                        \"can_edit_where_tag\": false,\n                        \"can_edit_narrative\": false,\n                        \"can_edit_image_url\": false,\n                        \"can_edit_public_alias\": false,\n                        \"can_edit_private_alias\": false,\n                        \"can_edit_physical_location\": false,\n                        \"can_edit_corporate_location\": false,\n                        \"can_edit_more_info\": false,\n                        \"can_edit_open_corporates_url\": false,\n                        \"can_edit_url\": false,\n                        \"can_see_bank_account_balance\": false,\n                        \"can_see_bank_account_bank_name\": false,\n                        \"can_see_bank_account_currency\": false,\n                        \"can_see_bank_account_iban\": false,\n                        \"can_see_bank_account_label\": false,\n                        \"can_see_bank_account_national_identifier\": false,\n                        \"can_see_bank_account_number\": false,\n                        \"can_see_bank_account_owners\": false,\n                        \"can_see_bank_account_swift_bic\": false,\n                        \"can_see_bank_account_type\": false,\n                        \"can_see_comments\": false,\n                        \"can_see_narrative\": false,\n                        \"can_see_corporate_location\": false,\n                        \"can_see_image_url\": false,\n                        \"can_see_images\": false,\n                        \"can_see_more_info\": false,\n                        \"can_see_open_corporates_url\": false,\n                        \"can_see_other_account_bank_name\": false,\n                        \"can_see_other_account_iban\": false,\n                        \"can_see_other_account_kind\": false,\n                        \"can_see_other_account_metadata\": false,\n                        \"can_see_other_account_national_identifier\": false,\n                        \"can_see_other_account_number\": false,\n                        \"can_see_other_account_swift_bic\": false,\n                        \"can_see_owner_comment\": false,\n                        \"can_see_physical_location\": false,\n                        \"can_see_private_alias\": false,\n                        \"can_see_public_alias\": false,\n                        \"can_see_tags\": false,\n                        \"can_see_transaction_amount\": false,\n                        \"can_see_transaction_balance\": false,\n                        \"can_see_transaction_currency\": false,\n                        \"can_see_transaction_description\": false,\n                        \"can_see_transaction_finish_date\": false,\n                        \"can_see_transaction_metadata\": false,\n                        \"can_see_transaction_other_bank_account\": false,\n                        \"can_see_transaction_start_date\": false,\n                        \"can_see_transaction_this_bank_account\": false,\n                        \"can_see_transaction_type\": false,\n                        \"can_see_url\": false,\n                        \"can_see_where_tag\": false,\n                        \"can_see_bank_routing_scheme\": false,\n                        \"can_see_bank_routing_address\": false,\n                        \"can_see_bank_account_routing_scheme\": false,\n                        \"can_see_bank_account_routing_address\": false,\n                        \"can_see_other_bank_routing_scheme\": false,\n                        \"can_see_other_bank_routing_address\": false,\n                        \"can_see_other_account_routing_scheme\": false,\n                        \"can_see_other_account_routing_address\": false\n                    }\n                ]\n            }\n        }\n    ]\n}"
-						}
-					]
-				}
+			"description": "Folder for obp",
+			"order": [
+				"ce3c57ae-56fe-3091-232f-f7de0242b29b",
+				"5366eeb9-73d1-0f64-3247-1b51fa243126"
 			],
-			"description": "Folder for obp"
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b"
 		},
 		{
+			"id": "a9278790-08b7-bb24-ca60-9c0177f3ce94",
 			"name": "sandbox",
-			"item": [
+			"description": "Folder for sandbox",
+			"order": [
+				"5b658937-e766-0711-80b0-06115bc298bd",
+				"08b2ab56-6ae9-d248-1f88-fd8df3744d37",
+				"f08a15b4-9ceb-f067-d183-bc9c56238e9c",
+				"5bfe1c24-15dd-5149-90b0-868f5805c5e8"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "08b2ab56-6ae9-d248-1f88-fd8df3744d37",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "GET",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
 				{
-					"name": "Create Sandbox",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_username",
-								"value": "{{provider_username}}",
-								"type": "text"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}"
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/sandbox",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"sandbox"
-							]
-						},
-						"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }"
-					},
-					"response": []
-				},
-				{
-					"name": "Export Sandbox",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_username",
-								"value": "{{provider_username}}",
-								"type": "text"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Export Sandbox data specified by sandbox id."
-					},
-					"response": []
-				},
-				{
-					"name": "Import Sandbox",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}",
-								"type": "text"
-							},
-							{
-								"key": "provider_username",
-								"value": "{{provider_username}}",
-								"type": "text"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Imports sandbox data specified by sandbox id."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Sandbox",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{card_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Delete Sandbox specified by sandbox id."
-					},
-					"response": []
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
 				}
 			],
-			"description": "Folder for sandbox"
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "a9278790-08b7-bb24-ca60-9c0177f3ce94"
+		},
+		{
+			"id": "5366eeb9-73d1-0f64-3247-1b51fa243126",
+			"name": "Get cards for the specified bank",
+			"description": "",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"card_type": "{{card_type}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/obp/banks/:bank_id/cards/:card_type",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "card_type",
+					"value": "{{card_type}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "999cb725-0dbf-8afa-d5a9-52d63a02a1b9"
+		},
+		{
+			"id": "5b658937-e766-0711-80b0-06115bc298bd",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "POST",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}",
+			"url": "https://{{env}}/{{card_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "a9278790-08b7-bb24-ca60-9c0177f3ce94"
+		},
+		{
+			"id": "5bfe1c24-15dd-5149-90b0-868f5805c5e8",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "DELETE",
+			"headers": "request_id: {{request_id}}\nAuthorization: Bearer\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "a9278790-08b7-bb24-ca60-9c0177f3ce94"
+		},
+		{
+			"id": "ce3c57ae-56fe-3091-232f-f7de0242b29b",
+			"name": "Get cards for the current user",
+			"description": "Returns data about all the physical cards a user has been issued. These could be debit cards, credit cards, etc.",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{env}}/{{card_api}}/obp/cards",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "999cb725-0dbf-8afa-d5a9-52d63a02a1b9"
+		},
+		{
+			"id": "f08a15b4-9ceb-f067-d183-bc9c56238e9c",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "d6c40497-a69c-9ea4-c2a6-d485ef262d6b",
+			"folder": "a9278790-08b7-bb24-ca60-9c0177f3ce94"
 		}
 	]
 }

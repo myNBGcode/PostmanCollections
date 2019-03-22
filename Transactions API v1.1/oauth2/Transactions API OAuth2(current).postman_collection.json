@@ -1,812 +1,388 @@
 {
-	"info": {
-		"_postman_id": "05b2898c-6988-4f0a-b027-7f3d607d17df",
-		"name": "Transactions API OAuth2",
-		"description": "## **Introduction**\n\nWelcome to the NBG Transactions sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-transactions-api-v1**\n\n The Transactions API allows you to access the list of a user's account (completed) transaction information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Transactions API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of a user's account transaction information \n - The list of a user's account transaction information (response optionally moderated by the viewID) \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Transactions sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
+	"id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+	"name": "Transactions API OAuth2",
+	"description": "## **Introduction**\n\nWelcome to the NBG Transactions sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-transactions-api-v1**\n\n The Transactions API allows you to access the list of a user's account (completed) transaction information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Transactions API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of a user's account transaction information \n - The list of a user's account transaction information (response optionally moderated by the viewID) \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Transactions sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"ed026977-a2b2-22d5-7c1e-eef32083d1af",
+		"98e1e3ad-3829-c14e-8d66-5a34117acfe0"
+	],
+	"folders": [
 		{
-			"name": "sandbox",
-			"item": [
-				{
-					"name": "Create Sandbox",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "127cc5a5792a2990a5d06b0132a615ba47d486a346c009e16e357949ca65c2cc",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}"
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/sandbox",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"sandbox"
-							]
-						},
-						"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }"
-					},
-					"response": []
-				},
-				{
-					"name": "Export Sandbox",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "2b4779024eebcb3a2d1f443eb04ca39cb693e141bad6498b83d1f91a543fbe03",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Export Sandbox data specified by sandbox id."
-					},
-					"response": []
-				},
-				{
-					"name": "Import Sandbox",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Imports sandbox data specified by sandbox id."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Sandbox",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer",
-								"disabled": true
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"sandbox",
-								":sandbox_id"
-							],
-							"variable": [
-								{
-									"key": "sandbox_id",
-									"value": "{{sandbox_id}}"
-								}
-							]
-						},
-						"description": "Delete Sandbox specified by sandbox id."
-					},
-					"response": []
-				}
+			"id": "98e1e3ad-3829-c14e-8d66-5a34117acfe0",
+			"name": "obp",
+			"description": "Folder for obp",
+			"order": [
+				"c1b22793-7479-c163-8029-e4838b010752",
+				"b7b63a42-d301-58d0-384e-f61ed0411842",
+				"7936bd37-2e37-a2bc-b43a-84c7f793e08c"
 			],
-			"description": "Folder for sandbox"
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071"
 		},
 		{
-			"name": "obp",
-			"item": [
+			"id": "ed026977-a2b2-22d5-7c1e-eef32083d1af",
+			"name": "sandbox",
+			"description": "Folder for sandbox",
+			"order": [
+				"5c52ebdd-7c30-1974-431c-b4d23ee05b56",
+				"3a348628-f614-724e-4e3b-3948013079bc",
+				"83071fe7-4033-e387-97c7-6483b7891b46",
+				"17c358f8-00f5-b63c-4fd9-a5515ce458da"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "17c358f8-00f5-b63c-4fd9-a5515ce458da",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "DELETE",
+			"headers": "request_id: {{request_id}}\n// Authorization: Bearer\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
 				{
-					"name": "Get Transactions for Account (Full)",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "609be318f6e08a3618a66c7984a2895719be3e7acdeda1363f0a12cfcf4ad62a",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-								"key": "Authorization",
-								"value": "Bearer",
-								"disabled": true
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"obp",
-								"banks",
-								":bank_id",
-								"accounts",
-								":account_id",
-								":view_id",
-								"transactions"
-							],
-							"variable": [
-								{
-									"key": "bank_id",
-									"value": "{{bank_id}}"
-								},
-								{
-									"key": "account_id",
-									"value": "{{account_id}}"
-								},
-								{
-									"key": "view_id",
-									"value": "{{view_id}}"
-								}
-							]
-						},
-						"description": "Returns the transactions list of the account specified by ACCOUNT_ID at BANK_ID and moderated by the view (VIEW_ID).<br />\r\nAuthentication is required if the view is not public.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC."
-					},
-					"response": [
-						{
-							"name": "Get Transactions for Account (Full)",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/json, application/xml, text/xml"
-									},
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "request_id",
-										"value": "{{request_id}}"
-									},
-									{
-										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-										"key": "Authorization",
-										"value": "Bearer",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost/obp.transaction.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"obp.transaction.sandbox.oauth2.api",
-										"obp",
-										"banks",
-										":bank_id",
-										"accounts",
-										":account_id",
-										":view_id",
-										"transactions"
-									],
-									"variable": [
-										{
-											"key": "bank_id",
-											"value": "{{bank_id}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{account_id}}"
-										},
-										{
-											"key": "view_id",
-											"value": "{{view_id}}"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 23 Nov 2018 10:18:13 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2454"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"9c70a571-0557-4ed4-a5a5-78aa0352358d\",\n        \"this_account\": {\n            \"id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\",\n            \"holders\": [\n                {\n                    \"name\": \"sDoulfis\",\n                    \"is_alias\": false\n                }\n            ],\n            \"number\": \"97226400154\",\n            \"kind\": \"Current\",\n            \"IBAN\": \"GR0901109720000097226400154\",\n            \"swift_bic\": \"ETHNGRAA\",\n            \"bank\": {\n                \"name\": \"NATIONAL BANK OF GREECE\",\n                \"national_identifier\": \"ETHNGRAA\"\n            }\n        },\n        \"other_account\": {\n            \"metadata\": {\n                \"public_alias\": {\n                    \"alias\": \"alias\"\n                },\n                \"private_alias\": {\n                    \"alias\": \"privateAlias\"\n                },\n                \"more_info\": {\n                    \"more_info\": \"moreInfo\"\n                },\n                \"URL\": {\n                    \"URL\": \"https://www.nbg.gr/\"\n                },\n                \"image_URL\": {\n                    \"image_URL\": \"https://www.nbg.gr/\"\n                },\n                \"open_corporates_URL\": {\n                    \"open_corporates_URL\": \"https://www.nbg.gr/\"\n                },\n                \"corporate_location\": {\n                    \"latitude\": 37.9838,\n                    \"longitude\": 23.7275,\n                    \"date\": \"2018-11-21T13:17:14.2491966+02:00\",\n                    \"user\": {\n                        \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                        \"provider\": \"local\",\n                        \"display_name\": \"sDoulfis\"\n                    }\n                },\n                \"physical_location\": {\n                    \"latitude\": 37.9838,\n                    \"longitude\": 23.7275,\n                    \"date\": \"2018-11-21T13:17:14.2501978+02:00\",\n                    \"user\": {\n                        \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                        \"provider\": \"local\",\n                        \"display_name\": \"sDoulfis\"\n                    }\n                }\n            },\n            \"id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n            \"holders\": [\n                {\n                    \"name\": \"User2\",\n                    \"is_alias\": false\n                }\n            ],\n            \"number\": \"10348012377\",\n            \"kind\": null,\n            \"IBAN\": \"GR4501101030000010348012377\",\n            \"swift_bic\": \"ETHNGRAA\",\n            \"bank\": {\n                \"name\": \"NATIONAL BANK OF GREECE\",\n                \"national_identifier\": \"ETHNGRAA\"\n            }\n        },\n        \"details\": {\n            \"type\": \"Account Transfer\",\n            \"description\": \"Transfer20EuroToUser2\",\n            \"posted\": \"2018-11-20T13:17:14.263709+02:00\",\n            \"completed\": \"2018-11-20T13:17:14.2632082+02:00\",\n            \"new_balance\": {\n                \"currency\": \"EUR\",\n                \"amount\": \"100000\"\n            },\n            \"value\": {\n                \"currency\": \"EUR\",\n                \"amount\": \"-20\"\n            }\n        },\n        \"metadata\": {\n            \"narrative\": \"narrative\",\n            \"comments\": [\n                {\n                    \"id\": \"ae0b27f6-6a89-44f8-8b2d-f05cfcfe5467\",\n                    \"value\": \"sandboxComment\",\n                    \"date\": \"2018-11-21T13:17:14.2642094+02:00\",\n                    \"user\": {\n                        \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                        \"provider\": \"local\",\n                        \"display_name\": \"sDoulfis\"\n                    }\n                }\n            ],\n            \"tags\": [\n                {\n                    \"id\": \"3aca28ea-095c-4ec4-83e1-7baf1b3953c7\",\n                    \"value\": \"1\",\n                    \"date\": \"2018-11-21T13:17:14.2647097+02:00\",\n                    \"user\": {\n                        \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                        \"provider\": \"local\",\n                        \"display_name\": \"sDoulfis\"\n                    }\n                }\n            ],\n            \"images\": [\n                {\n                    \"id\": \"0071c0d3-2bc9-49de-b609-b88e0dba15f5\",\n                    \"label\": \"label\",\n                    \"URL\": \"https://www.nbg.gr/\",\n                    \"date\": \"2018-11-21T13:17:14.2642094+02:00\",\n                    \"user\": {\n                        \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                        \"provider\": \"local\",\n                        \"display_name\": \"sDoulfis\"\n                    }\n                }\n            ],\n            \"where\": {\n                \"latitude\": 37.9838,\n                \"longitude\": 23.4587,\n                \"date\": \"2018-11-21T13:17:14.2647097+02:00\",\n                \"user\": {\n                    \"id\": \"53b470c6-f423-432d-8ece-de3ac54da216\",\n                    \"provider\": \"local\",\n                    \"display_name\": \"sDoulfis\"\n                }\n            }\n        }\n    }\n]"
-						}
-					]
-				},
-				{
-					"name": "Get Transaction details by reference number",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "69c571b8a22565f8d50fe420a691c12196ff8ff75a8a12f1765e1375e4f7a9be",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-								"key": "Authorization",
-								"value": "Bearer",
-								"disabled": true
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"tranId\": \"c17d42bb-06e2-432a-b271-cf1057f4d6a9\"\r\n}"
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions/details",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"obp",
-								"banks",
-								":bank_id",
-								"accounts",
-								":account_id",
-								":view_id",
-								"transactions",
-								"details"
-							],
-							"variable": [
-								{
-									"key": "bank_id",
-									"value": "{{bank_id}}"
-								},
-								{
-									"key": "account_id",
-									"value": "{{account_id}}"
-								},
-								{
-									"key": "view_id",
-									"value": "{{view_id}}"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Get Transaction details by reference number",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/json, application/xml, text/xml"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "request_id",
-										"value": "{{request_id}}"
-									},
-									{
-										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-										"key": "Authorization",
-										"value": "Bearer",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"tranId\": \"9c70a571-0557-4ed4-a5a5-78aa0352358d\"\r\n}"
-								},
-								"url": {
-									"raw": "https://localhost/obp.transaction.sandbox.oauth2.api/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions/details",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"obp.transaction.sandbox.oauth2.api",
-										"obp",
-										"banks",
-										":bank_id",
-										"accounts",
-										":account_id",
-										":view_id",
-										"transactions",
-										"details"
-									],
-									"variable": [
-										{
-											"key": "bank_id",
-											"value": "{{bank_id}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{account_id}}"
-										},
-										{
-											"key": "view_id",
-											"value": "{{view_id}}"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 23 Nov 2018 10:25:32 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "494"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"transactionId\": \"9c70a571-0557-4ed4-a5a5-78aa0352358d\",\n    \"ordererBankBic\": \"ETHNGRAA\",\n    \"ordererName\": \"sDoulfis\",\n    \"ordererAccountNo\": \"97226400154\",\n    \"ordererIban\": \"GR0901109720000097226400154\",\n    \"benAccountNo\": \"10348012377\",\n    \"benIban\": \"GR4501101030000010348012377\",\n    \"benName\": [\n        \"User2\"\n    ],\n    \"remAmount\": -20,\n    \"commision\": null,\n    \"chargesAmount\": null,\n    \"chargesXt\": null,\n    \"chargesMsg\": null,\n    \"valeur\": \"2018-11-24T00:00:00+02:00\",\n    \"issueDate\": \"2018-11-23T00:00:00+02:00\",\n    \"description\": \"\",\n    \"remStatus\": \"Pending\",\n    \"remMsg\": []\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Transactions for Account (Core)",
-					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "2b4779024eebcb3a2d1f443eb04ca39cb693e141bad6498b83d1f91a543fbe03",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "Bearer",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "request_id",
-								"value": "{{request_id}}"
-							},
-							{
-								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-								"key": "Authorization",
-								"value": "Bearer",
-								"disabled": true
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x_ibm_client_header}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{env}}/{{transaction_api}}/obp/my/banks/:bank_id/accounts/:account_id/transactions",
-							"protocol": "https",
-							"host": [
-								"{{env}}"
-							],
-							"path": [
-								"{{transaction_api}}",
-								"obp",
-								"my",
-								"banks",
-								":bank_id",
-								"accounts",
-								":account_id",
-								"transactions"
-							],
-							"variable": [
-								{
-									"key": "bank_id",
-									"value": "{{bank_id}}"
-								},
-								{
-									"key": "account_id",
-									"value": "{{account_id}}"
-								}
-							]
-						},
-						"description": "Returns transactions list (Core info) of the account specified by ACCOUNT_ID at BANK_ID.<br />\r\nAuthentication is required.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC."
-					},
-					"response": [
-						{
-							"name": "Get Transactions for Account (Core)",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json, text/json, application/xml, text/xml"
-									},
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "request_id",
-										"value": "{{request_id}}"
-									},
-									{
-										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
-										"key": "Authorization",
-										"value": "Bearer",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost/obp.transaction.sandbox.oauth2.api/obp/my/banks/:bank_id/accounts/:account_id/transactions",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"path": [
-										"obp.transaction.sandbox.oauth2.api",
-										"obp",
-										"my",
-										"banks",
-										":bank_id",
-										"accounts",
-										":account_id",
-										"transactions"
-									],
-									"variable": [
-										{
-											"key": "bank_id",
-											"value": "{{bank_id}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{account_id}}"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Cache-Control",
-									"value": "no-cache"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Expires",
-									"value": "-1"
-								},
-								{
-									"key": "Server",
-									"value": "Microsoft-IIS/10.0"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "ASP.NET"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 23 Nov 2018 10:19:02 GMT"
-								},
-								{
-									"key": "Content-Length",
-									"value": "870"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"9c70a571-0557-4ed4-a5a5-78aa0352358d\",\n        \"account\": {\n            \"id\": \"6af675a3-ebf5-41db-8de7-d58e3b2dda7d\",\n            \"holders\": [\n                {\n                    \"name\": \"sDoulfis\",\n                    \"is_alias\": false\n                }\n            ],\n            \"number\": \"97226400154\",\n            \"kind\": \"Current\",\n            \"IBAN\": \"GR0901109720000097226400154\",\n            \"swift_bic\": \"ETHNGRAA\",\n            \"bank\": {\n                \"name\": \"NATIONAL BANK OF GREECE\",\n                \"national_identifier\": \"ETHNGRAA\"\n            }\n        },\n        \"counterparty\": {\n            \"id\": \"acb8d730-6c0c-400e-93d0-30a89635e4c3\",\n            \"holders\": [\n                {\n                    \"name\": \"User2\",\n                    \"is_alias\": false\n                }\n            ],\n            \"number\": \"10348012377\",\n            \"kind\": \"Savings\",\n            \"IBAN\": \"GR4501101030000010348012377\",\n            \"swift_bic\": \"ETHNGRAA\",\n            \"bank\": {\n                \"name\": \"NATIONAL BANK OF GREECE\",\n                \"national_identifier\": \"ETHNGRAA\"\n            }\n        },\n        \"details\": {\n            \"type\": \"Account Transfer\",\n            \"description\": \"Transfer20EuroToUser2\",\n            \"posted\": \"2018-11-20T13:17:14.263709+02:00\",\n            \"completed\": \"2018-11-20T13:17:14.2632082+02:00\",\n            \"new_balance\": {\n                \"currency\": \"EUR\",\n                \"amount\": \"100000\"\n            },\n            \"value\": {\n                \"currency\": \"EUR\",\n                \"amount\": \"-20\"\n            }\n        }\n    }\n]"
-						}
-					]
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
 				}
 			],
-			"description": "Folder for obp"
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "ed026977-a2b2-22d5-7c1e-eef32083d1af"
+		},
+		{
+			"id": "3a348628-f614-724e-4e3b-3948013079bc",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "ed026977-a2b2-22d5-7c1e-eef32083d1af"
+		},
+		{
+			"id": "5c52ebdd-7c30-1974-431c-b4d23ee05b56",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}",
+			"url": "https://{{env}}/{{transaction_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "ed026977-a2b2-22d5-7c1e-eef32083d1af"
+		},
+		{
+			"id": "7936bd37-2e37-a2bc-b43a-84c7f793e08c",
+			"name": "Get Transactions for Account (Core)",
+			"description": "Returns transactions list (Core info) of the account specified by ACCOUNT_ID at BANK_ID.<br />\r\nAuthentication is required.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC.",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\n// Authorization: Bearer\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/my/banks/:bank_id/accounts/:account_id/transactions",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "98e1e3ad-3829-c14e-8d66-5a34117acfe0"
+		},
+		{
+			"id": "83071fe7-4033-e387-97c7-6483b7891b46",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "ed026977-a2b2-22d5-7c1e-eef32083d1af"
+		},
+		{
+			"id": "b7b63a42-d301-58d0-384e-f61ed0411842",
+			"name": "Get Transaction details by reference number",
+			"description": "",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\n// Authorization: Bearer\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"tranId\": \"c17d42bb-06e2-432a-b271-cf1057f4d6a9\"\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions/details",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "98e1e3ad-3829-c14e-8d66-5a34117acfe0"
+		},
+		{
+			"id": "c1b22793-7479-c163-8029-e4838b010752",
+			"name": "Get Transactions for Account (Full)",
+			"description": "Returns the transactions list of the account specified by ACCOUNT_ID at BANK_ID and moderated by the view (VIEW_ID).<br />\r\nAuthentication is required if the view is not public.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC.",
+			"collectionId": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\n// Authorization: Bearer\nx-ibm-client-id: {{x_ibm_client_header}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "x-ibm-client-id",
+					"value": "{{x_ibm_client_header}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "651bc0c0-8573-a0ac-8ad2-705efeea8071",
+			"folder": "98e1e3ad-3829-c14e-8d66-5a34117acfe0"
 		}
 	]
 }
