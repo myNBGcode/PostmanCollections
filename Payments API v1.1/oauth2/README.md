@@ -9,7 +9,7 @@ This API provides a standard RESTful interface that enables a user to
 * Place a transaction request
 * Get the details of a requested transaction
 
-> Visit https://developer.nbg.gr/documentation/payments-api-oauth2-v1-0
+> Visit https://developer.nbg.gr/documentation/Payments-API-OAuth2-v1-1691
 > for the full API documentation
 
 ### Real life Use Case Scenario

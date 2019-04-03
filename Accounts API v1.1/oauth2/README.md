@@ -9,7 +9,7 @@ This API provides a standard RESTful interface that enables a user to
 * Get all their private accounts
 * Get the full details of a specific account
 
-> Visit https://developer.nbg.gr/documentation/accounts-api-oauth2-v1-0
+> Visit https://developer.nbg.gr/documentation/c43eda78-bd5f-43ac-bc9e-84de705102d7
 > for the full API documentation
 
 ### Real life Use Case Scenario

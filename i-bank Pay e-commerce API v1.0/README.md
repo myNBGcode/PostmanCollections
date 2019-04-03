@@ -7,7 +7,7 @@
 ### Introduction
 The iBankPay eCommerce API, combined with the client's side Checkout process, enables us to finalize payments that have been created through the client. Specifically, the first part of the process is the one that happens in the client side (The customer's web browser) in order to create Payments with payment tokens returned and the final part takes place in your server's side for using our REST API to finalize the payments.
 
-> The full API documentation: https://developer.nbg.gr/documentation/ibankpay-ecommerce-sandbox-api-v1
+> The full API documentation: https://developer.nbg.gr/documentation/iBankPay-eCommerce-Sandbox-API-v1-1712
 
 ### Use case scenario
 This use case scenario will guide you from the checkout button of your website, to the sandbox calls in order to integrate the i-bank Pay payment method, which will trigger the below flow:

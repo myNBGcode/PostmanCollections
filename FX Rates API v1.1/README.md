@@ -13,7 +13,7 @@ This API provides a standard RESTful interface that enables a user to
 * View supported rates
 * View supported currencies
 
-> Visit https://microsites.nbg.gr/developer/documentation/87b7b6df-1290-4070-bb01-99011758f6d2 
+> Visit https://developer.nbg.gr/documentation/FX-Rates-API-v11-3938
 > for the full API documentation
 
 ### Real life Use Case Scenario

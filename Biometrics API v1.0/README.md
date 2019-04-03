@@ -6,7 +6,7 @@
 ### Introduction
 The Biometrics Sandbox API has been developed with three main functionalities in mind. It enables us to  compare two images so as to verify if they are the same person and performs a liveness check control in order to check if the person in a recorded video is alive and its not a static photo or image moving, and finally a user frame check that checks and returns the first image(frame) of a person detected from the recorded video.
 
-> The full API documentation: https://developer.nbg.gr/documentation/biometrics-api-v1
+> The full API documentation: https://developer.nbg.gr/documentation/Biometrics-API-v1-3655
 
 ### Use case scenarios
 In order to use this API for the first time you will need to create a Sandbox by making an **HTTP POST** request to the following URL

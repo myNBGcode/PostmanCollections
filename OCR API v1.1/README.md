@@ -22,7 +22,7 @@ This API provides a standard RESTful interface that enables a user to:
 
 * By using the endpoint _POST_ /ocr/uploadDocument in order to get the document's recognized data. 
 
-> Visit https://microsites.nbg.gr/developer/ocr-api-documents-optical-character-recognition-v1
+> Visit https://developer.nbg.gr/apiProduct/Optical-Character-Recognition-v11-965
 > for the full API documentation
 
 ### Real life Use Case Scenario

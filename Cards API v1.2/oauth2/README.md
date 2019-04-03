@@ -8,7 +8,7 @@ This API provides a standard RESTful interface that enables a user to
 * Get all the cards of the current user
 * Get the cards οf the current user in the specified bank
 
-> Visit https://microsites.nbg.gr/developer/documentation/Cards-API-OAuth2-v12-3956
+> Visit https://developer.nbg.gr/documentation/Cards-API-OAuth2-v12-3956
 > for the full API documentation
 
 ### Real life Use Case Scenario

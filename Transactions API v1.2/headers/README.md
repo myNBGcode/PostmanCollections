@@ -8,7 +8,7 @@ This API provides a standard RESTful interface that enables a user to
 * Get all the transactions specified by account and bank
 * Get the details of a specific transaction
 
-> Visit https://microsites.nbg.gr/developer/documentation/Transactions-API-v121-4208
+> Visit https://developer.nbg.gr/documentation/Transactions-API-v121-4208
 > for the full API documentation
 
 ### Real life Use Case Scenario

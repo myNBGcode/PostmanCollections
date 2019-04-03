@@ -15,7 +15,7 @@ The Social Network sandbox API provides a standard RESTful interface that enable
 * Send a direct message to a contact
 * React on a post/direct message
 
-> Visit https://microsites.nbg.gr/developer/documentation/93645a0f-58e6-4abf-a1eb-f1e3c8dc13ff 
+> Visit https://developer.nbg.gr/documentation/Social-Network-Application-v21-3989
 > for the full API documentation.
 
 ### Use case scenario

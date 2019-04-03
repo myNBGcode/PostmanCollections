@@ -12,7 +12,7 @@ Digital Payments Wallet is the multi-award winning wallet by National Bank of Gr
 This API provides a standard RESTful interface that enables a user to
 - Perform money transfers to another member or merchant or even make donations by just  **registering as a Member**  to our service and verifying your mobile device as a trusted one. 
 - Once the registration step is completed simply  **select the other member**  you wish to  **send money to or request money from or pay**  and pretty much that's it.
-> Visit https://microsites.nbg.gr/developer/documentation/ibank-Pay-Sandbox-v13-4264
+> Visit https://developer.nbg.gr/documentation/ibank-Pay-Sandbox-v13-5326
 > for the full API documentation
 > 
 ### Real life Use Case Scenario

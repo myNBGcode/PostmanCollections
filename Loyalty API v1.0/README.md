@@ -6,7 +6,7 @@ i-bank Loyalty API is a multi tenant rewards platform.
 It can be easily integrated to your APP, to ensure that your existing customers, won't leave you!
 Offering some reward to your users, who frequently make specific transactions, will strengthen your brand loyalty :)
 
-> Visit: https://microsites.nbg.gr/developer/documentation/2ba33221-7ff7-40da-8c9c-fccd37439a39 for the full API documentation.
+> Visit: https://developer.nbg.gr/documentation/5d160651-0a00-4ee9-957d-4d17ca3773bc for the full API documentation.
 
 ### Sample Scenario 
 "City Trends" Inc. has a mobile app, suggesting popular places around a city. "City Trends" wants to offer subscriber, bonus as a reward for 

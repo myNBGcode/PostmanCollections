@@ -9,7 +9,7 @@ This API provides a standard RESTful interface that enables a user to:
 * View their account balances
 * View their account transactions
 
-> Visit https://developer.nbg.gr/partner/documentation/ibank-PSD2-Accounts-Info-API-OAuth2-v11-5575 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v1-4942 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
 
@@ -29,7 +29,7 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 **Token  Endpoint**: https://my.nbg.gr/identity/connect/token
 
 
-See more [here](https://developer.nbg.gr/content/authorization-oauth-20#8an-authorization-code-flow-example)
+See more [here](https://developer.nbg.gr/oauth-document)
 
 ### Use Case Scenario 
 "User Accounts" Inc. has a mobile app, showing the user domestic and foreign currency accounts. The main functionality of the application is to retrieve some user basic informations e.g.  his/her name and to retrieve his/her accounts so that the user is 24/7 informed about his/her accounts status e.g balances, transactions etc.
