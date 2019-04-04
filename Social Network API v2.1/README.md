@@ -35,7 +35,7 @@ With a request body:
 ``` 
 
 *Note: Remember to store **sandbox_id** somewhere in your application, because you will need to provide it in as a header
-in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://microsites.nbg.gr/developer/apiProduct/Social-Network-Platform-v21-962)*
+in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Social-Network-Platform-v21-962)*
 
 ##### Use the Platform
 The response contains - among others - a social network. You should store **SocialNetworkId** in your application as we will need it later to access our Social Network. From now on, we will refere to this id as **our_network_id**.

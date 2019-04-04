@@ -19,7 +19,7 @@ With a request body:
  }
 ``` 
 
-*Note: Remember to store the **sandbox_id** somewhere in your application, because you will need to provide it in as a header in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id* header with the Client ID provided from your subscription of your application in the Developers Portal site (https://microsites.nbg.gr/developer/apiProduct/e5d439de-46eb-4c28-a50d-bebe83c903ec)*
+*Note: Remember to store the **sandbox_id** somewhere in your application, because you will need to provide it in as a header in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id* header with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Biometrics-v12-3947)*
 
 Once the sandbox is created, proceed with the two scenarios presented below:
 ##### Airport Face Control Scenario
