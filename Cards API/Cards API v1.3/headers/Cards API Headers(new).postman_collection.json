@@ -1,0 +1,390 @@
+{
+	"id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+	"name": "Cards API Headers",
+	"description": "## **Introduction**\n\nWelcome to the NBG Cards sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-cards-api-v1**\n\n The Cards API allows you to access the list of user cards and card information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Cards API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of cards for a logged in user \n - The list of cards for a logged in user at a specific bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Cards sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"d9e72726-fab8-a077-cfc9-cad2b7581e4c",
+		"5fb5caad-a8a2-fce3-a4fc-7da01f522334"
+	],
+	"folders": [
+		{
+			"id": "d9e72726-fab8-a077-cfc9-cad2b7581e4c",
+			"name": "obp",
+			"description": "Folder for obp",
+			"order": [
+				"d303dcde-5bc6-5085-873a-02d084bc9d32",
+				"19a4af70-a6e4-98dd-9d54-73431a8640c3"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01"
+		},
+		{
+			"id": "5fb5caad-a8a2-fce3-a4fc-7da01f522334",
+			"name": "sandbox",
+			"description": "Folder for sandbox",
+			"order": [
+				"d9890b5f-6686-0641-cbeb-52b228cf5ab8",
+				"22210228-49cd-41ef-be66-2f954bcdcce8",
+				"d79c91fc-0264-89f1-4683-aed4ccedac68",
+				"51dadbbd-744c-f0fa-e370-7e73cd2de0aa"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "19a4af70-a6e4-98dd-9d54-73431a8640c3",
+			"name": "Get cards for the specified bank",
+			"description": "",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"card_type": "{{card_type}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/obp/banks/:bank_id/cards/:card_type",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "card_type",
+					"value": "{{card_type}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "d9e72726-fab8-a077-cfc9-cad2b7581e4c"
+		},
+		{
+			"id": "22210228-49cd-41ef-be66-2f954bcdcce8",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "GET",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "5fb5caad-a8a2-fce3-a4fc-7da01f522334"
+		},
+		{
+			"id": "51dadbbd-744c-f0fa-e370-7e73cd2de0aa",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "DELETE",
+			"headers": "request_id: {{request_id}}\n// Authorization: Bearer\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "5fb5caad-a8a2-fce3-a4fc-7da01f522334"
+		},
+		{
+			"id": "d303dcde-5bc6-5085-873a-02d084bc9d32",
+			"name": "Get cards for the current user",
+			"description": "Returns data about all the physical cards a user has been issued. These could be debit cards, credit cards, etc.",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{env}}/{{card_api}}/obp/cards",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "d9e72726-fab8-a077-cfc9-cad2b7581e4c"
+		},
+		{
+			"id": "d79c91fc-0264-89f1-4683-aed4ccedac68",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "5fb5caad-a8a2-fce3-a4fc-7da01f522334"
+		},
+		{
+			"id": "d9890b5f-6686-0641-cbeb-52b228cf5ab8",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"method": "POST",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}",
+			"url": "https://{{env}}/{{card_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
+			"folder": "5fb5caad-a8a2-fce3-a4fc-7da01f522334"
+		}
+	]
+}

@@ -1,0 +1,472 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BillPayments.postman_collection_use_case",
+		"_postman_id": "ea35d8ba-1f17-56b7-b93e-e8b85a169d45",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PayForMe Use Case Bill Payments API Requests",
+			"description": "",
+			"item": [
+				{
+					"name": "POST /Payments/paymentsList",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"header\": {\n    \"ID\": \"{{$guid}}\",\n    \"application\": \"{{application_id}}\",\n    \"bank\": \"{{bank}}\",\n    \"hostSession\": null,\n    \"channel\": \"{{channel}}\",\n    \"customer\": 1,\n    \"logitude\": 1,\n    \"latitude\": 1,\n    \"go4moreMember\": {{go4moreMember}},\n    \"TAN\": null\n  },\n  \"payload\": {\n    \"userId\": \"{{user_id}}\",\n    \"requestMachineId\": null,\n    \"machineId\": null\n  }\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/paymentsList\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"6983210049208320\\\",\\\"application\\\":\\\"dogri\\\",\\\"bank\\\":\\\"bavap\\\",\\\"hostSession\\\":\\\"zo.br\\\",\\\"channel\\\":\\\"menokj\\\",\\\"customer\\\":36.96376714,\\\"logitude\\\":51.2836816,\\\"latitude\\\":84.50596056,\\\"go4moreMember\\\":\\\"true\\\",\\\"TAN\\\":\\\"docare\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Addie\\\",\\\"requestMachineId\\\":\\\"982201313263616\\\",\\\"machineId\\\":\\\"2005700125392896\\\",\\\"paymentCode\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"categoryName\\\":\\\"Seth Chapman\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/pay",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/pay",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{$guid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{$guid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"5b60f1c8-243f-4180-8c6b-0130572ee4ba\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n            \"PAYMENT_CODE\" : \"1234567890\"\r\n        },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 31.12,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/pay\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"2212924779134976\\\",\\\"application\\\":\\\"tuizoom\\\",\\\"bank\\\":\\\"furde\\\",\\\"hostSession\\\":\\\"lowous.hn\\\",\\\"channel\\\":\\\"tofik\\\",\\\"customer\\\":70.56824316,\\\"logitude\\\":98.34864268,\\\"latitude\\\":70.64124025,\\\"go4moreMember\\\":\\\"false\\\",\\\"TAN\\\":\\\"ocora\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Steven\\\",\\\"requestMachineId\\\":\\\"8543080443543552\\\",\\\"machineId\\\":\\\"1289734642991104\\\",\\\"paymentIdentification\\\":{\\\"instrId\\\":\\\"6179986580963328\\\",\\\"endtoendId\\\":\\\"5882297685377024\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"ramf\\\",\\\"paymentRef\\\":\\\"orica\\\"},\\\"paymentOrgIdentification\\\":{\\\"id\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"barcode\\\":[\\\"ureo\\\"],\\\"fields\\\":{\\\"id\\\":7524234794369024},\\\"extraData\\\":{\\\"id\\\":6064288466731008}},\\\"chargesInfo\\\":{\\\"chargesType\\\":\\\"DEBT\\\",\\\"ccy\\\":\\\"6376894326173019\\\",\\\"amount\\\":75.14014305},\\\"settlementInfo\\\":{\\\"ccy\\\":\\\"5018831601379461\\\",\\\"amount\\\":88.17216282,\\\"method\\\":\\\"CARD\\\"},\\\"debtor\\\":{\\\"name\\\":\\\"Lucille Cummings\\\",\\\"debtorAccount\\\":{\\\"iban\\\":\\\"kiil\\\",\\\"pan\\\":\\\"fawoh\\\"},\\\"telephone\\\":\\\"(435) 383-7676\\\",\\\"ibUserId\\\":\\\"Sophie\\\",\\\"idType\\\":\\\"5460666473250816\\\"},\\\"ultimateDebtor\\\":{\\\"name\\\":\\\"Agnes Stewart\\\",\\\"customerNumber\\\":\\\"2650344137949184\\\",\\\"ibUserId\\\":\\\"Cole\\\",\\\"idType\\\":\\\"4936947409616896\\\"},\\\"remittanceInfo\\\":{\\\"unstructured\\\":{\\\"line\\\":\\\"labevehi\\\"},\\\"structured\\\":{\\\"dueAmmount\\\":{\\\"ccy\\\":\\\"6011767228233639\\\",\\\"amount\\\":18.82207181},\\\"discountAmount\\\":{\\\"ccy\\\":\\\"6304403596786000\\\",\\\"amount\\\":13.35308766},\\\"remittedAmount\\\":{\\\"ccy\\\":\\\"6011644185066247\\\",\\\"amount\\\":99.60216873},\\\"creditorNoteAmount\\\":{\\\"note\\\":\\\"vifsejo\\\",\\\"ccy\\\":\\\"5018872406312125\\\",\\\"amount\\\":67.82222875},\\\"taxAmount\\\":{\\\"ccy\\\":\\\"6304024432798668\\\",\\\"amount\\\":97.72966819}}},\\\"acceptDuplicate\\\":\\\"false\\\",\\\"acceptDuplicateSpecification\\\":{\\\"includeUserId\\\":\\\"true\\\",\\\"includePaymentMethod\\\":\\\"true\\\",\\\"statuses\\\":[\\\"bewr\\\"],\\\"hourInterval\\\":31747608,\\\"includeCcy\\\":\\\"true\\\"},\\\"isSmsOtp\\\":\\\"false\\\",\\\"tanNumber\\\":\\\"5427301258887168\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/dailyTransactions",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/dailyTransactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"transactionDate\": \"{{transaction_date}}\",\r\n    \"paymentRef\": null,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/dailyTransactions\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"1742450722865152\\\",\\\"application\\\":\\\"heofeuga\\\",\\\"bank\\\":\\\"ifunucru\\\",\\\"hostSession\\\":\\\"jetidlo.cx\\\",\\\"channel\\\":\\\"palme\\\",\\\"customer\\\":71.89661502,\\\"logitude\\\":88.12178723,\\\"latitude\\\":19.21714614,\\\"go4moreMember\\\":\\\"true\\\",\\\"TAN\\\":\\\"ricece\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Elijah\\\",\\\"transactionDate\\\":\\\"2002-11-05T15:43:58.745Z\\\",\\\"paymentRef\\\":\\\"sipzo\\\",\\\"requestMachineId\\\":\\\"453159782711296\\\",\\\"machineId\\\":\\\"7408995964813312\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/status",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/status",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"UltimateDebtor\": {\r\n      \"name\": \"string\",\r\n      \"customerNumber\": \"string\"\r\n    },\r\n    \"acceptDuplicate\": true,\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/status\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"6995953663868928\\\",\\\"application\\\":\\\"takz\\\",\\\"bank\\\":\\\"kinr\\\",\\\"hostSession\\\":\\\"wuzmakug.tm\\\",\\\"channel\\\":\\\"igle\\\",\\\"customer\\\":29.61474261,\\\"logitude\\\":61.61862223,\\\"latitude\\\":52.67902119,\\\"go4moreMember\\\":\\\"true\\\",\\\"TAN\\\":\\\"sufesawf\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Laura\\\",\\\"PaymentIdentification\\\":{\\\"instrId\\\":\\\"2818363403272192\\\",\\\"endtoendId\\\":\\\"3002014359355392\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"puzubak\\\",\\\"paymentRef\\\":\\\"iktahoke\\\"},\\\"UltimateDebtor\\\":{\\\"name\\\":\\\"Julian Christensen\\\",\\\"customerNumber\\\":\\\"325312017596416\\\",\\\"ibUserId\\\":\\\"Winifred\\\",\\\"idType\\\":\\\"7582110743265280\\\"},\\\"acceptDuplicate\\\":\\\"true\\\",\\\"requestMachineId\\\":\\\"6104918710550528\\\",\\\"machineId\\\":\\\"7839795954843648\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/cancelPayment",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/cancelPayment\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"3677626222772224\\\",\\\"application\\\":\\\"nabka\\\",\\\"bank\\\":\\\"mega\\\",\\\"hostSession\\\":\\\"sogho.kz\\\",\\\"channel\\\":\\\"gavo\\\",\\\"customer\\\":63.28520868,\\\"logitude\\\":15.7920662,\\\"latitude\\\":96.51218669,\\\"go4moreMember\\\":\\\"false\\\",\\\"TAN\\\":\\\"figaz\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Garrett\\\",\\\"requestMachineId\\\":\\\"6805007001190400\\\",\\\"machineId\\\":\\\"7159048440905728\\\",\\\"cancelPaymentIdentification\\\":{\\\"instrId\\\":\\\"6207903899844608\\\",\\\"endtoendId\\\":\\\"1484697750208512\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"dohi\\\",\\\"paymentRef\\\":\\\"iwfak\\\"},\\\"paymentRequest\\\":{\\\"requestMachineId\\\":\\\"6488306923601920\\\",\\\"machineId\\\":\\\"942164934656000\\\",\\\"paymentIdentification\\\":{\\\"instrId\\\":\\\"5972001990639616\\\",\\\"endtoendId\\\":\\\"5859773132046336\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"haig\\\",\\\"paymentRef\\\":\\\"kiemumuf\\\"},\\\"paymentOrgIdentification\\\":{\\\"id\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"barcode\\\":[\\\"gifg\\\"],\\\"fields\\\":{\\\"id\\\":2519340192628736},\\\"extraData\\\":{\\\"id\\\":8959402681827328}},\\\"chargesInfo\\\":{\\\"chargesType\\\":\\\"DEBT\\\",\\\"ccy\\\":\\\"5018148483130585\\\",\\\"amount\\\":50.53146761},\\\"settlementInfo\\\":{\\\"ccy\\\":\\\"5125279613110104\\\",\\\"amount\\\":45.25407138,\\\"method\\\":\\\"CASH\\\"},\\\"debtor\\\":{\\\"name\\\":\\\"Luella Rice\\\",\\\"debtorAccount\\\":{\\\"iban\\\":\\\"avkapo\\\",\\\"pan\\\":\\\"dipege\\\"},\\\"telephone\\\":\\\"(716) 411-9516\\\",\\\"ibUserId\\\":\\\"Jackson\\\",\\\"idType\\\":\\\"4385030732251136\\\"},\\\"ultimateDebtor\\\":{\\\"name\\\":\\\"Wesley Gibbs\\\",\\\"customerNumber\\\":\\\"3399203583688704\\\",\\\"ibUserId\\\":\\\"Benjamin\\\",\\\"idType\\\":\\\"5599899011776512\\\"},\\\"remittanceInfo\\\":{\\\"unstructured\\\":{\\\"line\\\":\\\"mazuzile\\\"},\\\"structured\\\":{\\\"dueAmmount\\\":{\\\"ccy\\\":\\\"6011923769930469\\\",\\\"amount\\\":73.34749964},\\\"discountAmount\\\":{\\\"ccy\\\":\\\"5463490081120976\\\",\\\"amount\\\":67.1547049},\\\"remittedAmount\\\":{\\\"ccy\\\":\\\"343498061062990\\\",\\\"amount\\\":70.19998701},\\\"creditorNoteAmount\\\":{\\\"note\\\":\\\"luivtud\\\",\\\"ccy\\\":\\\"201455470146013\\\",\\\"amount\\\":35.18674634},\\\"taxAmount\\\":{\\\"ccy\\\":\\\"3528333211712692\\\",\\\"amount\\\":35.3925121}}},\\\"acceptDuplicate\\\":\\\"true\\\",\\\"acceptDuplicateSpecification\\\":{\\\"includeUserId\\\":\\\"false\\\",\\\"includePaymentMethod\\\":\\\"false\\\",\\\"statuses\\\":[\\\"wiol\\\"],\\\"hourInterval\\\":40767829,\\\"includeCcy\\\":\\\"true\\\"},\\\"isSmsOtp\\\":\\\"true\\\",\\\"tanNumber\\\":\\\"1912884047118336\\\"},\\\"isSmsOtp\\\":\\\"true\\\",\\\"tanNumber\\\":\\\"1023193617793024\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/lastPaymentTransactionDetails",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/lastPaymentTransactionDetails",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "content-type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n         \"instrId\": \"{{instrId}}\",\r\n         \"endtoendId\": \"{{endtoendId}}\",\r\n         \"txId\": \"{{txId}}\",\r\n         \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"requestMachineId\": null,\r\n  \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/lastPaymentTransactionDetails\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"7265517091946496\\\",\\\"application\\\":\\\"duhluvu\\\",\\\"bank\\\":\\\"becfial\\\",\\\"hostSession\\\":\\\"okirir.br\\\",\\\"channel\\\":\\\"motlompu\\\",\\\"customer\\\":17.59939012,\\\"logitude\\\":35.54732292,\\\"latitude\\\":98.42934148,\\\"go4moreMember\\\":\\\"false\\\",\\\"TAN\\\":\\\"sevdaguw\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Julian\\\",\\\"paymentIdentification\\\":{\\\"instrId\\\":\\\"8660585763831808\\\",\\\"endtoendId\\\":\\\"3156292052975616\\\",\\\"txId\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"clrSysRef\\\":\\\"aneruva\\\",\\\"paymentRef\\\":\\\"erzur\\\"},\\\"requestMachineId\\\":\\\"2144041927966720\\\",\\\"machineId\\\":\\\"7323834050936832\\\"}}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /Payments/commission",
+					"request": {
+						"url": "https://{{base_url}}/{{portal}}/Payments/commission",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "{{accept}}",
+								"description": ""
+							},
+							{
+								"key": "application_id",
+								"value": "{{application_id}}",
+								"description": ""
+							},
+							{
+								"key": "content-type",
+								"value": "{{content-type}}",
+								"description": ""
+							},
+							{
+								"key": "phone_number",
+								"value": "{{phone_number}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username}}",
+								"description": ""
+							},
+							{
+								"key": "{{client-id}}",
+								"value": "{{client-id-value}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 1,\r\n    \"logitude\": 1,\r\n    \"latitude\": 1,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"5b60f1c8-243f-4180-8c6b-0130572ee4ba\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n            \"PAYMENT_CODE\" : \"1234567890\"\r\n        },\r\n      \"extraData\": {}\r\n    },\r\n    \"settlementInfo\": {\r\n        \"ccy\": \"EUR\",\r\n        \"amount\": 31.12,\r\n        \"method\": \"ACCT\"\r\n        },\r\n    \"requestMachineId\": null,\r\n    \"machineId\": null\r\n  }\r\n}"
+						},
+						"description": "Generated from a curl request: \ncurl --request POST\n  --url https://apis.nbg.gr/public/sandbox/billpayments/v2/Payments/commission\n  --header 'accept: text/json'\n  --header 'application_id: REPLACE_THIS_VALUE'\n  --header 'content-type: text/json'\n  --header 'phone_number: null'\n  --header 'provider: REPLACE_THIS_VALUE'\n  --header 'provider_id: REPLACE_THIS_VALUE'\n  --header 'sandbox_id: REPLACE_THIS_VALUE'\n  --header 'user_id: REPLACE_THIS_VALUE'\n  --header 'username: REPLACE_THIS_VALUE'\n  --header 'x-ibm-client-id: REPLACE_THIS_KEY'\n  --data '{\\\"header\\\":{\\\"ID\\\":\\\"640030106189824\\\",\\\"application\\\":\\\"dizirtew\\\",\\\"bank\\\":\\\"jecfo\\\",\\\"hostSession\\\":\\\"naas.py\\\",\\\"channel\\\":\\\"punitega\\\",\\\"customer\\\":0.33534434,\\\"logitude\\\":99.37707603,\\\"latitude\\\":71.77444713,\\\"go4moreMember\\\":\\\"true\\\",\\\"TAN\\\":\\\"niisdar\\\"},\\\"payload\\\":{\\\"userId\\\":\\\"Larry\\\",\\\"paymentOrgIdentification\\\":{\\\"id\\\":\\\"00000000-0000-0000-0000-000000000000\\\",\\\"barcode\\\":[\\\"fonz\\\"],\\\"fields\\\":{\\\"id\\\":2541220249206784},\\\"extraData\\\":{\\\"id\\\":7781851588460544}},\\\"settlementInfo\\\":{\\\"ccy\\\":\\\"4903188087466382\\\",\\\"amount\\\":7.85655879,\\\"method\\\":\\\"CARD\\\"},\\\"requestMachineId\\\":\\\"82957211533312\\\",\\\"machineId\\\":\\\"4694998100475904\\\"}}'"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

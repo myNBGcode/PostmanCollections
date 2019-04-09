@@ -1,0 +1,918 @@
+{
+	"id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+	"name": "Payments API Headers",
+	"description": "## **Introduction**\n\nWelcome to the NBG Payments sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-payments-api-v1**\n\n The Payments API allows you to make payments (transaction requests) and access the list of a user's account transaction requests. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Payments API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n - The list of the Transaction Request Types supported by a bank \n -  The list of a user's account transaction requests at a specific bank \n2.\tInitiate a Payment via creating a Transaction Request \n3.\tAnswer a Transaction Request Challenge \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Payments sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"8498edd4-5360-40c5-a9da-f67f754bad17",
+		"8aec9dea-af8e-b3d6-44b5-f65297bf8693"
+	],
+	"folders": [
+		{
+			"id": "8498edd4-5360-40c5-a9da-f67f754bad17",
+			"name": "obp",
+			"description": "Folder for obp",
+			"order": [
+				"7777e672-b002-2b31-1886-8711f7a05904",
+				"4572a455-5666-f30d-7638-648f06e9d78f",
+				"a1af37db-0eea-f21a-de0c-9c24d24246d2",
+				"4151fd8e-8abf-311a-03fc-5ce761d1b953",
+				"ad9f61f8-e2fd-adf4-5ace-17faa525e425",
+				"0485d5b7-00ec-38df-eb93-7b4d4c10eb2d",
+				"7740a727-b1ca-8190-e559-5cd811cf5fd7",
+				"48c66f4f-ad05-c1d7-6f5e-e192bdd0f4bc"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33"
+		},
+		{
+			"id": "8aec9dea-af8e-b3d6-44b5-f65297bf8693",
+			"name": "sandbox",
+			"description": "Folder for sandbox",
+			"order": [
+				"6c6cba7a-aa69-af59-478b-50fc37f3a3b4",
+				"7f1619fe-0974-135d-75d0-dc51dcae249f",
+				"37ae8a3b-06ac-71ee-cc4a-729311bceffa",
+				"fad7f76b-bfa7-d783-8c99-4d0689219a2b"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "0485d5b7-00ec-38df-eb93-7b4d4c10eb2d",
+			"name": "Create Transaction Request (SEPA)",
+			"description": "Initiate a Payment via creating a Transaction Request. When using a SEPA Transaction Request, you specify the IBAN of a Counterparty in the body of the request.\r\nThe routing details (IBAN) of the counterparty will be forwarded to the core banking system for the transfer.\r\n\r\nSample request:\r\n            \r\n    POST / Create Transaction Request (SEPA)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501101030000010348012377\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"tests": "",
+			"preRequestScript": "",
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "37ae8a3b-06ac-71ee-cc4a-729311bceffa",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\nAuthorization: Bearer\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8aec9dea-af8e-b3d6-44b5-f65297bf8693"
+		},
+		{
+			"id": "4151fd8e-8abf-311a-03fc-5ce761d1b953",
+			"name": "Get Charge Information (SEPA)",
+			"description": "Calculates charges for a SEPA payment and indicates whether a transaction request creates a security challenge or not.\r\nWhen using a SEPA Transaction Request, you specify the IBAN of a Counterparty in the body of the request.\r\nThe routing details (IBAN) of the counterparty will be forwarded to the core banking system for the transfer.\r\n\r\nSample request:\r\n            \r\n    POST / Get Charge Information (SEPA)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n\t\"to\": {\r\n\t\t\"iban\": \"GR4501457684503004564000103433467\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests/expenses",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "4572a455-5666-f30d-7638-648f06e9d78f",
+			"name": "Get Transaction Request Details.",
+			"description": "Returns the transaction request details, when it is COMPLETED, specified by transaction_request_id.<br /><br />\r\nThe specified VIEW_ID must be 'owner' and the user must have access to this view.<br /><br />",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\ntransaction_request_id: {{transaction_request_id}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}",
+				"transaction_request_id": "{{transaction_request_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests/:transaction_request_id/details",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				},
+				{
+					"key": "transaction_request_id",
+					"value": "{{transaction_request_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "transaction_request_id",
+					"value": "{{transaction_request_id}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "48c66f4f-ad05-c1d7-6f5e-e192bdd0f4bc",
+			"name": "Answer Transaction Request Challenge",
+			"description": "This endpoint depends on the response body of a \"Create Transaction Request\" endpoint, i.e.:\r\n1) TRANSACTION_REQUEST_TYPE: is the same as the request URL of the \"Create Transaction Request\" endpoint's response.\r\n2) TRANSACTION_REQUEST_ID: is the same as the id field of the \"Create Transaction Request\" endpoint's response.\r\n3) id: is the challenge.id field.\r\n4) answer: In Sandbox mode, any string that can be converted to a positive integer will be accepted as an answer. In prod mode, the answer is obtained by a phone message or other channels.        \r\n\r\n\r\nSample request:\r\n            \r\n    POST / Answer Transaction Request Challenge\r\n    {\r\n        \"id\": \"eecc966c-01f2-4248-bdad-6367c561409a\",\r\n        \"answer\": 12345\r\n    }",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"id\": \"02a75dcc-3568-458e-9e40-fbae216e92fc\",\r\n  \"answer\": 12345\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/{{transaction_request_type}}/transaction-requests/{{transaction_request_id}}/challenge",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "6c6cba7a-aa69-af59-478b-50fc37f3a3b4",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nsandbox_id: {{sandbox_id}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}",
+			"url": "https://{{env}}/{{payment_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8aec9dea-af8e-b3d6-44b5-f65297bf8693"
+		},
+		{
+			"id": "7740a727-b1ca-8190-e559-5cd811cf5fd7",
+			"name": "Create Transaction Request (Card)",
+			"description": "Initiate a Card Payment via creating a Transaction Request.\r\n\r\n\r\nSample request:\r\n            \r\n    POST / Create Transaction Request (Card)\r\n    {\r\n        \"to\": {\r\n            \"iban\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        \"charge_policy\": \"SHARED\",\r\n        \"value\": {\r\n            \"currency\": \"EUR\",\r\n            \"amount\": 900\r\n        },\r\n        \"description\": \"METAFORA\"\r\n    }",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": " {\r\n\t\"to\": {\r\n\t\t\"creditCardNumber\": \"4567894575124567\"\r\n\t},\r\n\t\"charge_policy\": \"SHARED\",\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t},\r\n\t\"description\": \"METAFORA\"\r\n }\r\n\r\n",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "7777e672-b002-2b31-1886-8711f7a05904",
+			"name": "Get Transaction Requests.",
+			"description": "Returns the transaction requests for the account specified by ACCOUNT_ID at the bank specified by BANK_ID.<br /><br />\r\nThe specified VIEW_ID must be 'owner' and the user must have access to this view.<br /><br />\r\nTransaction Requests serve to initiate transactions that may or may not proceed. They contain information including:\r\n- Transaction Request Id\r\n- Transaction Request Type\r\n- Status (INITIATED, CANCELLED, COMPLETED)\r\n- Challenge (in order to confirm the request)\r\n- From Bank / Account\r\n- Details including Currency, Value, Description and other initiation information specific to each transaction request type.\r\n- Related Transactions<br /><br />\r\nThe customer can proceed with the Transaction by answering the security challenge.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "7f1619fe-0974-135d-75d0-dc51dcae249f",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8aec9dea-af8e-b3d6-44b5-f65297bf8693"
+		},
+		{
+			"id": "a1af37db-0eea-f21a-de0c-9c24d24246d2",
+			"name": "Get the Transaction Request Types supported by the bank",
+			"description": "Get the list of the Transaction Request Types supported by the bank.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/transaction-request-types",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "ad9f61f8-e2fd-adf4-5ace-17faa525e425",
+			"name": "Get Charge Information (Credit Card)",
+			"description": "Calculates charges for a Credit Card payment and indicates whether a transaction request creates a security challenge or not.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n\t\"to\": {\r\n\t\t\"creditCardNumber\": \"4567894575124567\"\r\n\t},\r\n\t\"value\": {\r\n\t\t\"currency\": \"EUR\",\r\n\t\t\"amount\": 1001\r\n\t}\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests/expenses",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8498edd4-5360-40c5-a9da-f67f754bad17"
+		},
+		{
+			"id": "fad7f76b-bfa7-d783-8c99-4d0689219a2b",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"method": "DELETE",
+			"helperAttributes": {},
+			"headers": "request_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
+			"folder": "8aec9dea-af8e-b3d6-44b5-f65297bf8693"
+		}
+	]
+}

@@ -1,0 +1,1469 @@
+{
+	"info": {
+		"_postman_id": "57812cd6-e9f2-4459-a23c-7b15580cb4bc",
+		"name": "EQueueing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandboxId\": \"moudilos\",\n    \"users\": [\n        {\n            \"Username\": \"User1\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        },\n        {\n            \"Username\": \"User2\",\n            \"ProviderId\": \"NBG.gr\",\n            \"Provider\": \"NBG\"\n        }\n    ],\n    \"regions\": [\n        {\n            \"id\": null,\n            \"nameGR\": null,\n            \"nameEN\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"parentId\": null\n        },\n        {\n            \"id\": null,\n            \"nameGR\": null,\n            \"nameEN\": null,\n            \"latitude\": null,\n            \"longitude\": null,\n            \"parentId\": null\n        }\n    ],\n    \"branches\": [\n        {\n            \"branchServicesEL\": [\n                \"Καταθέσεις,  Επενδύσεις & Αποταμίευση\",\n                \"Δάνεια προς Ιδιώτες & Επαγγελματίες\",\n                \"Δάνεια προς ΜΜΕ (κυκλ. Εργ. έως 2.5 εκ)\",\n                \"Κάρτες & υπηρεσίες εμπόρων\",\n                \"Εξυπηρέτηση Επιχειρήσεων με  κύκλο εργασιών άνω των 2.5 εκ.\",\n                \"Εργασίες Εξωτερικού (Εισαγωγές - Εξαγωγές)\",\n                \"Εμβάσματα & Πληρωμές\",\n                \"Αγορά Πώληση Συναλλάγματος\",\n                \"Στέλεχος Premium Banking\",\n                \"Προσωπικός Σύμβουλος Business Banking\",\n                \"Θυρίδες Θησαυροφυλακίου\"\n            ],\n            \"branchServicesEN\": [\n                \"Deposits\",\n                \"Loans\",\n                \"Loans for SME\",\n                \"Cards and Merchant services\",\n                \"Corporate services\",\n                \"Foreign Services (Import Export)\",\n                \"Payments\",\n                \"Money Exchange\",\n                \"Premium Banking Services\",\n                \"SME Services\",\n                \"Safe Deposits\"\n            ],\n            \"branchEServicesEL\": [\n                \"ΑΤΜ (καθημερινά 24 ώρες)\",\n                \"APS  (ωράριο καταστήματος)\"\n            ],\n            \"branchEServicesEN\": [\n                \"ATM (24x7)\",\n                \"APS (working hours)\"\n            ],\n            \"openSaturday\": true,\n            \"openSunday\": false,\n            \"openTellers\": 0,\n            \"longestWaitingTimes\": null,\n            \"deposits\": true,\n            \"retailLoans\": true,\n            \"corporateLoans\": true,\n            \"merchantCards\": true,\n            \"corporateCustomers\": true,\n            \"importsExports\": true,\n            \"payments\": true,\n            \"exchange\": true,\n            \"personalBanking\": true,\n            \"corporateConsulting\": true,\n            \"safeDeposits\": true,\n            \"atm\": true,\n            \"aps\": true,\n            \"phoneInternetBanking\": false,\n            \"workingDaysEN\": \"Monday to Thursday (08.00 - 14.30) - Friday (08.00 - 14.00)\",\n            \"workingDaysGR\": \"Δευτέρα έως Πέμπτη   (08.00 - 14.30) - Παρασκευή (08.00 - 14.00)\\n\",\n            \"canIssueTickets\": true,\n            \"isClosedForTickets\": false,\n            \"canShowTimes\": true,\n            \"meanWaitingTime\": 1466,\n            \"meanWaitingTimeNew\": 1466,\n            \"currentTicketNumber\": \"178\",\n            \"waitingCustomers\": 177,\n            \"activeTellers\": 7,\n            \"meanServiceTime\": 58,\n            \"opensAt\": \"2018-11-29T06:10:00.000Z\",\n            \"closesAt\": \"2018-11-29T12:25:00.000Z\",\n            \"timeNow\": \"2018-11-29T08:24:27.178Z\",\n            \"hasAppointments\": false,\n            \"code\": \"080\",\n            \"latitude\": 37.9805317,\n            \"longitude\": 23.7312227,\n            \"area\": 24,\n            \"nameGR\": \"ΟΔ. ΣΤΑΔΙΟΥ  38\",\n            \"nameEN\": \"STADIOU 38 ST.\",\n            \"addressGR\": \"Σταδίου 38\",\n            \"addressEN\": \"38,  Stadiou str.\",\n            \"zipCodePart1\": \"105\",\n            \"zipCodePart2\": \"64\",\n            \"phoneAreaCode\": \"210\",\n            \"phoneNumber\": \"3345512\",\n            \"distance\": null,\n            \"areaNameGR\": \"ΑΘΗΝΑ - ΚΕΝΤΡΟ\",\n            \"areaNameEN\": \"ATHENS CENTER\"\n        },\n        {\n            \"branchServicesEL\": [\n                \"Καταθέσεις,  Επενδύσεις & Αποταμίευση\",\n                \"Δάνεια προς Ιδιώτες & Επαγγελματίες\",\n                \"Δάνεια προς ΜΜΕ (κυκλ. Εργ. έως 2.5 εκ)\",\n                \"Κάρτες & υπηρεσίες εμπόρων\",\n                \"Εξυπηρέτηση Επιχειρήσεων με  κύκλο εργασιών άνω των 2.5 εκ.\",\n                \"Εργασίες Εξωτερικού (Εισαγωγές - Εξαγωγές)\",\n                \"Εμβάσματα & Πληρωμές\",\n                \"Αγορά Πώληση Συναλλάγματος\",\n                \"Στέλεχος Premium Banking\",\n                \"Προσωπικός Σύμβουλος Business Banking\"\n            ],\n            \"branchServicesEN\": [\n                \"Deposits\",\n                \"Loans\",\n                \"Loans for SME\",\n                \"Cards and Merchant services\",\n                \"Corporate services\",\n                \"Foreign Services (Import Export)\",\n                \"Payments\",\n                \"Money Exchange\",\n                \"Premium Banking Services\",\n                \"SME Services\"\n            ],\n            \"branchEServicesEL\": [\n                \"ΑΤΜ (καθημερινά 24 ώρες)\"\n            ],\n            \"branchEServicesEN\": [\n                \"ATM (24x7)\"\n            ],\n            \"openSaturday\": false,\n            \"openSunday\": false,\n            \"openTellers\": 0,\n            \"longestWaitingTimes\": null,\n            \"deposits\": true,\n            \"retailLoans\": true,\n            \"corporateLoans\": true,\n            \"merchantCards\": true,\n            \"corporateCustomers\": true,\n            \"importsExports\": true,\n            \"payments\": true,\n            \"exchange\": true,\n            \"personalBanking\": true,\n            \"corporateConsulting\": true,\n            \"safeDeposits\": false,\n            \"atm\": true,\n            \"aps\": false,\n            \"phoneInternetBanking\": false,\n            \"workingDaysEN\": \"Monday to Thursday (08.00 - 14.30) - Friday (08.00 - 14.00)\",\n            \"workingDaysGR\": \"Δευτέρα έως Πέμπτη   (08.00 - 14.30) - Παρασκευή (08.00 - 14.00)\\n\",\n            \"canIssueTickets\": true,\n            \"isClosedForTickets\": false,\n            \"canShowTimes\": true,\n            \"meanWaitingTime\": 17578,\n            \"meanWaitingTimeNew\": 17578,\n            \"currentTicketNumber\": \"59\",\n            \"waitingCustomers\": 141,\n            \"activeTellers\": 3,\n            \"meanServiceTime\": 374,\n            \"opensAt\": \"2018-11-29T06:10:00.000Z\",\n            \"closesAt\": \"2018-11-29T12:25:00.000Z\",\n            \"timeNow\": \"2018-11-29T08:37:11.150Z\",\n            \"hasAppointments\": false,\n            \"code\": \"090\",\n            \"latitude\": 38.033744,\n            \"longitude\": 23.7544444,\n            \"area\": 354,\n            \"nameGR\": \"ΠΕΡΙΣΣΟΥ\",\n            \"nameEN\": \"PERISSOS\",\n            \"addressGR\": \"Αιμιλιανού Γρεβενών 42\",\n            \"addressEN\": \"42, Aim. Grevenon str.\",\n            \"zipCodePart1\": \"142\",\n            \"zipCodePart2\": \"32\",\n            \"phoneAreaCode\": \"210\",\n            \"phoneNumber\": \"2721031\",\n            \"distance\": null,\n            \"areaNameGR\": \"ΝΕΑ ΙΩΝΙΑ\",\n            \"areaNameEN\": \"NEA IONIA\"\n        },\n        {\n            \"branchServicesEL\": [\n                \"Καταθέσεις,  Επενδύσεις & Αποταμίευση\",\n                \"Δάνεια προς Ιδιώτες & Επαγγελματίες\",\n                \"Κάρτες & υπηρεσίες εμπόρων\",\n                \"Εμβάσματα & Πληρωμές\",\n                \"Αγορά Πώληση Συναλλάγματος\",\n                \"Στέλεχος Premium Banking\"\n            ],\n            \"branchServicesEN\": [\n                \"Deposits\",\n                \"Loans\",\n                \"Cards and Merchant services\",\n                \"Payments\",\n                \"Money Exchange\",\n                \"Premium Banking Services\"\n            ],\n            \"branchEServicesEL\": [\n                \"ΑΤΜ (καθημερινά 24 ώρες)\"\n            ],\n            \"branchEServicesEN\": [\n                \"ATM (24x7)\"\n            ],\n            \"openSaturday\": false,\n            \"openSunday\": false,\n            \"openTellers\": 0,\n            \"longestWaitingTimes\": null,\n            \"deposits\": true,\n            \"retailLoans\": true,\n            \"corporateLoans\": false,\n            \"merchantCards\": true,\n            \"corporateCustomers\": false,\n            \"importsExports\": false,\n            \"payments\": true,\n            \"exchange\": true,\n            \"personalBanking\": true,\n            \"corporateConsulting\": false,\n            \"safeDeposits\": false,\n            \"atm\": true,\n            \"aps\": false,\n            \"phoneInternetBanking\": false,\n            \"workingDaysEN\": \"Monday to Thursday (08.00 - 14.30) - Friday (08.00 - 14.00)\",\n            \"workingDaysGR\": \"Δευτέρα έως Πέμπτη   (08.00 - 14.30) - Παρασκευή (08.00 - 14.00)\\n\",\n            \"canIssueTickets\": true,\n            \"isClosedForTickets\": false,\n            \"canShowTimes\": true,\n            \"meanWaitingTime\": 10797,\n            \"meanWaitingTimeNew\": 10797,\n            \"currentTicketNumber\": \"56\",\n            \"waitingCustomers\": 118,\n            \"activeTellers\": 2,\n            \"meanServiceTime\": 183,\n            \"opensAt\": \"2018-11-29T06:10:00.000Z\",\n            \"closesAt\": \"2018-11-29T12:25:00.000Z\",\n            \"timeNow\": \"2018-11-29T08:39:42.514Z\",\n            \"hasAppointments\": false,\n            \"code\": \"070\",\n            \"latitude\": 37.9641511,\n            \"longitude\": 23.5693291,\n            \"area\": 420,\n            \"nameGR\": \"ΠΕΡΑΜΑΤΟΣ\",\n            \"nameEN\": \"PERAMA (PIRAEUS)\",\n            \"addressGR\": \"Λεωφ. Ειρήνης 123\",\n            \"addressEN\": \"123, Irinis ave\",\n            \"zipCodePart1\": \"188\",\n            \"zipCodePart2\": \"63\",\n            \"phoneAreaCode\": \"210\",\n            \"phoneNumber\": \"4023411\",\n            \"distance\": null,\n            \"areaNameGR\": \"ΠΕΡΑΜΑ ΠΕΙΡΑΙΑ\",\n            \"areaNameEN\": \"PERAMA (PIRAEUS)\"\n        }\n    ],\n    \"atms\": [\n        {\n            \"withdrawals\": false,\n            \"transactionHistory\": false,\n            \"deposits\": false,\n            \"cashDeposits\": false,\n            \"payments\": false,\n            \"cashPayments\": false,\n            \"workingHours\": null,\n            \"code\": null,\n            \"acceptsDeposits\": false,\n            \"latitude\": 0,\n            \"longitude\": 0,\n            \"area\": 0,\n            \"nameGR\": null,\n            \"nameEN\": null,\n            \"addressGR\": null,\n            \"addressEN\": null,\n            \"is24Hours\": false,\n            \"distance\": null,\n            \"areaNameGR\": null,\n            \"areaNameEN\": null\n        },\n        {\n            \"withdrawals\": false,\n            \"transactionHistory\": false,\n            \"deposits\": false,\n            \"cashDeposits\": false,\n            \"payments\": false,\n            \"cashPayments\": false,\n            \"workingHours\": null,\n            \"code\": null,\n            \"acceptsDeposits\": false,\n            \"latitude\": 0,\n            \"longitude\": 0,\n            \"area\": 0,\n            \"nameGR\": null,\n            \"nameEN\": null,\n            \"addressGR\": null,\n            \"addressEN\": null,\n            \"is24Hours\": false,\n            \"distance\": null,\n            \"areaNameGR\": null,\n            \"areaNameEN\": null\n        }\n    ],\n    \"branchTickets\": [\n        {\n            \"ticketId\": null,\n            \"number\": null,\n            \"issueBranchCode\": null,\n            \"issueDate\": null,\n            \"deviceId\": null,\n            \"score\": null,\n            \"ratingComment\": null,\n            \"feedbackComment\": null,\n            \"wasUseful\": null,\n            \"notUsefulReason\": null,\n            \"ticketStatus\": \"Active\"\n        },\n        {\n            \"ticketId\": null,\n            \"number\": null,\n            \"issueBranchCode\": null,\n            \"issueDate\": null,\n            \"deviceId\": null,\n            \"score\": null,\n            \"ratingComment\": null,\n            \"feedbackComment\": null,\n            \"wasUseful\": null,\n            \"notUsefulReason\": null,\n            \"ticketStatus\": \"Active\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"value": "{{client_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"User3\",\r\n  \"isAdmin\" : false\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Regions",
+			"item": [
+				{
+					"name": "Get Regions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"parentId\": 1,\r\n    \"type\": \"City\",\r\n    \"userId\": \"1533\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/regions",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"regions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fc8050ab-dee7-443c-bc46-606117f8037e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "81398ea2-852b-49f7-9ee4-eda75834dbe2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Branches",
+			"item": [
+				{
+					"name": "Get Area Branches",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"area\": 24,\r\n    \"userId\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/areaBranches",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"areaBranches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nearest Branches",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"distance\": 370000,\r\n    \"latitude\": 37,\r\n    \"longitude\": 26,\r\n    \"userId\": \"1533\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/nearestBranches",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"nearestBranches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nearest Retail Branches",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"distance\": 0,\r\n    \"latitude\": 0,\r\n    \"longitude\": 0,\r\n    \"userId\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/nearestRetailBranches",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"nearestRetailBranches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nearest Retail Branches By Postal Code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"string\",\r\n    \"postalCode\": null,\r\n    \"region\": null,\r\n    \"city\": \"ATHENS CENTER\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/nearestRetailBranchesByPostalCode",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"nearestRetailBranchesByPostalCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branch Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"code\": \"080\",\r\n    \"userId\": \"string\",\r\n    \"eQueueData\": true\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/branchDetails",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"branchDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branch Details v2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"code\": \"070\",\r\n    \"userId\": \"string\",\r\n    \"eQueueData\": true\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/branchDetailsv2",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"branchDetailsv2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get eQueueing Branches",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/eQueueBranches",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"eQueueBranches"
+							]
+						},
+						"description": "Returns branches that support e-tickets"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Faster Service Branch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"branchCode\": \"090\",\r\n    \"latitude\": 0,\r\n    \"longitude\": 0,\r\n    \"distanceThreshold\": 15000,\r\n    \"ItemThreshold\": 150000,\r\n    \"waitingThreshold\":15000\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/findBranchFasterService",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"findBranchFasterService"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ATMs",
+			"item": [
+				{
+					"name": "Get Area ATMs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"area\": 594,\r\n    \"userId\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/areaAtms",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"areaAtms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nearest ATMs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"distance\": 1231231231230,\r\n    \"latitude\": 37,\r\n    \"longitude\":26,\r\n    \"userId\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/nearestAtms",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"nearestAtms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ATM Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"code\": \"NB0869N6\",\r\n    \"userId\": \"1533\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/atmDetails",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"atmDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ATM Details v2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"code\": \"NB0869N6\",\r\n    \"userId\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/atmDetailsv2",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"atmDetailsv2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Get Queue Info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"code\": \"080\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/queueInfo",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"queueInfo"
+							]
+						},
+						"description": "Returns the queue information for the specified branch"
+					},
+					"response": []
+				},
+				{
+					"name": "Issue Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"branchCode\": \"090\",\r\n    \"reason\": \"General\",\r\n    \"comments\": \"Please Issue a Ticket for me\",\r\n    \"deviceId\": \"{{device_id}}\",\r\n    \"pushNotificationId\": \"string\",\r\n    \"pushNotificationType\": \"Android\",\r\n    \"lang\": \"string\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/issueTicket",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"issueTicket"
+							]
+						},
+						"description": "Creates a Ticket for the specified device to the specified branch"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"id\": \"{{ticket_id1}}\",\r\n    \"deviceId\": \"{{device_id}}\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/cancelTicket",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"cancelTicket"
+							]
+						},
+						"description": "Cancels a Ticket for specified the device"
+					},
+					"response": []
+				},
+				{
+					"name": "Ticket Usage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"id\": \"{{ticket_id1}}\",\r\n    \"deviceId\": \"{{device_id}}\",\r\n    \"wasUseful\": false\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/ticketUsage",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"ticketUsage"
+							]
+						},
+						"description": "Submits whether a Ticket was useful"
+					},
+					"response": []
+				},
+				{
+					"name": "Rate Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"id\": \"{{ticket_id1}}\",\r\n    \"deviceId\": \"{{device_id}}\",\r\n    \"score\": 100,\r\n    \"comment\": \"takis makis sakis\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/rateTicket",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"rateTicket"
+							]
+						},
+						"description": "Submits a rating for a Ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "Not useful Ticket Feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "{{client_header_key}}",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "application_id",
+								"type": "text",
+								"value": "{{application_id}}"
+							},
+							{
+								"key": "user_id",
+								"type": "text",
+								"value": "{{user_id}}"
+							},
+							{
+								"key": "username",
+								"type": "text",
+								"value": "{{username}}"
+							},
+							{
+								"key": "provider_id",
+								"type": "text",
+								"value": "{{provider_id}}"
+							},
+							{
+								"key": "provider",
+								"type": "text",
+								"value": "{{provider}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"string\",\r\n    \"bank\": \"NBG\",\r\n    \"hostSession\": \"string\",\r\n    \"channel\": \"string\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": true,\r\n    \"TAN\": \"string\"\r\n  },\r\n  \"payload\": {\r\n    \"id\": \"{{ticket_id1}}\",\r\n    \"deviceId\": \"{{device_id}}\",\r\n    \"notUsefulReason\": \"NotInTime\",\r\n    \"comment\": \"Not In Time!!!\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/EQueueing/notUsedTicketFeedback",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"EQueueing",
+								"notUsedTicketFeedback"
+							]
+						},
+						"description": "Submits feedback about a ticket that was not useful"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bbf438ef-4ea9-47fe-829f-73dafa609340",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b760d4eb-79fe-4de0-acae-ab18545465f7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ed0662f8-785c-46a0-8f59-0c1760e762f9",
+			"key": "device_id",
+			"value": "5B474BF4-9A60-4BE6-9C0E-8720CAB11498",
+			"type": "string"
+		},
+		{
+			"id": "6c32046c-3ae7-4141-b0b1-a6569d974261",
+			"key": "ticket_id1",
+			"value": "D88A4291-6F6C-4386-B911-AC815102189B",
+			"type": "string"
+		},
+		{
+			"id": "09de7934-aacb-4fe5-9ec2-2fe304a1216d",
+			"key": "ticket_id2",
+			"value": "327746C5-2A7A-4E10-A84C-A15D82F7C70E",
+			"type": "string"
+		}
+	]
+}

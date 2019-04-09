@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "04c8d852-1d26-4be9-ac11-06cc0c81a4d5",
+		"name": "Biometrics API Sandbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandbox-id\": \"{{sandbox_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/api/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/api/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandbox-id\": \"{{sandbox_id}}\",\n    \"face-match-response\": [\n        {\n            \"matching-score\": 90,\n            \"matching-level\": \"HighMatch\",\n            \"face-num1\": 1,\n            \"face-num2\": 1\n        },\n        {\n            \"matching-score\": 10,\n            \"matching-level\": \"NoMatch\",\n            \"face-num1\": 1,\n            \"face-num2\": 1\n        },\n        {\n            \"matching-score\": 0,\n            \"matching-level\": \"NoMatch\",\n            \"face-num1\": 0,\n            \"face-num2\": 0\n        },\n        {\n            \"matching-score\": 55,\n            \"matching-level\": \"MediumMatch\",\n            \"face-num1\": 1,\n            \"face-num2\": 1\n        }\n    ],\n    \"user-frame-response\": [\n        {\n            \"image\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\n        }\n    ],\n    \"liveness-check-response\": [\n        {\n            \"liveness\": \"Passed\",\n            \"blinked\": true,\n            \"smiled\": true,\n            \"eyebrow-moved\": true\n        },\n        {\n            \"liveness\": \"Passed\",\n            \"blinked\": false,\n            \"smiled\": true,\n            \"eyebrow-moved\": false\n        },\n        {\n            \"liveness\": \"Failed\",\n            \"blinked\": false,\n            \"smiled\": false,\n            \"eyebrow-moved\": false\n        },\n        {\n            \"liveness\": \"CannotDetermine\",\n            \"blinked\": false,\n            \"smiled\": false,\n            \"eyebrow-moved\": false\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Biometrics",
+			"item": [
+				{
+					"name": "FaceMatch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "0",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"image1\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\",\n  \"image2\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/face-match",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"face-match"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LivenessCheck",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"frames\": [\r\n    \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/liveness-check",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"liveness-check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserFrame",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "0",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"frames\": [\r\n    \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/user-frame",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"user-frame"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Biometrics Use Case Automatic Customer Registration",
+			"item": [
+				{
+					"name": "FaceMatch, selfie of customer and photo of his/her identity card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "0",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"image1\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\",\n  \"image2\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/face-match",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"face-match"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LivenessCheck, customer video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"frames\": [\r\n    \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/liveness-check",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"liveness-check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Biometrics Use Case Airport customer identification",
+			"item": [
+				{
+					"name": "FaceMatch, selfie of customer and photo of his/her identity card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "index",
+								"value": "0",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{Client-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"image1\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\",\n  \"image2\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/biometrics/face-match",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"biometrics",
+								"face-match"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

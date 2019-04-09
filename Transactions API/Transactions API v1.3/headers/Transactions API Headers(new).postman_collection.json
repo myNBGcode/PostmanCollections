@@ -1,0 +1,515 @@
+{
+	"id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+	"name": "Transactions API Headers",
+	"description": "## **Introduction**\n\nWelcome to the NBG Transactions sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-transactions-api-v1**\n\n The Transactions API allows you to access the list of a user's account (completed) transaction information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Transactions API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of a user's account transaction information \n - The list of a user's account transaction information (response optionally moderated by the viewID) \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Transactions sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"474d334b-411d-08de-f8f8-dba1047f690c",
+		"ad7c9d71-a4dc-c9ec-1960-f5a7b4e8c20f"
+	],
+	"folders": [
+		{
+			"id": "ad7c9d71-a4dc-c9ec-1960-f5a7b4e8c20f",
+			"name": "obp",
+			"description": "Folder for obp",
+			"order": [
+				"db8dad4e-e373-4e13-d302-87813eb80bd2",
+				"01bbd2f9-9f7b-d591-b147-e3b6af2028a1",
+				"34267e76-5380-2ba5-064b-e3b60377acab"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b"
+		},
+		{
+			"id": "474d334b-411d-08de-f8f8-dba1047f690c",
+			"name": "sandbox",
+			"description": "Folder for sandbox",
+			"order": [
+				"76036d9f-62eb-2d36-4b67-33a59525542e",
+				"3a1384c2-fdfc-e9be-691b-074ebc56c584",
+				"7bdefe56-c722-dc78-97d6-b6c32e0e4854",
+				"c5ea0eca-17fe-b5e9-eade-58622c372f1c"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "01bbd2f9-9f7b-d591-b147-e3b6af2028a1",
+			"name": "Get Transaction details by reference number",
+			"description": "",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n  \"tranId\": \"c17d42bb-06e2-432a-b271-cf1057f4d6a9\"\r\n}",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions/details",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "ad7c9d71-a4dc-c9ec-1960-f5a7b4e8c20f"
+		},
+		{
+			"id": "34267e76-5380-2ba5-064b-e3b60377acab",
+			"name": "Get Transactions for Account (Core)",
+			"description": "Returns transactions list (Core info) of the account specified by ACCOUNT_ID at BANK_ID.<br />\r\nAuthentication is required.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC.",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/my/banks/:bank_id/accounts/:account_id/transactions",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "ad7c9d71-a4dc-c9ec-1960-f5a7b4e8c20f"
+		},
+		{
+			"id": "3a1384c2-fdfc-e9be-691b-074ebc56c584",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "474d334b-411d-08de-f8f8-dba1047f690c"
+		},
+		{
+			"id": "76036d9f-62eb-2d36-4b67-33a59525542e",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}",
+			"url": "https://{{env}}/{{transaction_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "474d334b-411d-08de-f8f8-dba1047f690c"
+		},
+		{
+			"id": "7bdefe56-c722-dc78-97d6-b6c32e0e4854",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\n// Authorization: Bearer\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "474d334b-411d-08de-f8f8-dba1047f690c"
+		},
+		{
+			"id": "c5ea0eca-17fe-b5e9-eade-58622c372f1c",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "DELETE",
+			"headers": "request_id: {{request_id}}\n// Authorization: Bearer\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "474d334b-411d-08de-f8f8-dba1047f690c"
+		},
+		{
+			"id": "db8dad4e-e373-4e13-d302-87813eb80bd2",
+			"name": "Get Transactions for Account (Full)",
+			"description": "Returns the transactions list of the account specified by ACCOUNT_ID at BANK_ID and moderated by the view (VIEW_ID).<br />\r\nAuthentication is required if the view is not public.<br /><br />\r\nPossible custom headers for pagination:\r\n- sort_direction=ASC/DESC ==&gt; default value: DESC\r\n- limit=NUMBER ==&gt; default value: 50\r\n- offset=NUMBER ==&gt; default value: 0\r\n- from_date=DATE =&gt; default value: date of the oldest transaction registered (format below)\r\n- to_date=DATE =&gt; default value: date of the newest transaction registered (format below)\r\n<br /><br />\r\nDate format parameter: \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\" (2014-07-01T00:00:00.000Z) ==&gt; time zone is UTC.",
+			"collectionId": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{transaction_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transactions",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "acd77dfb-c019-a156-8c61-48e1f4d9688b",
+			"folder": "ad7c9d71-a4dc-c9ec-1960-f5a7b4e8c20f"
+		}
+	]
+}

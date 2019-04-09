@@ -1,0 +1,825 @@
+{
+	"id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+	"name": "Accounts API Headers",
+	"description": "## **Introduction**\n\nWelcome to the NBG Accounts sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-accounts-api-v1**\n\n The Accounts API allows you to access the list of user accounts and account information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Accounts API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of the private or public accounts at all banks or at a specific bank \n - The account information by accountID (response optionally moderated by the viewID) \n2.\tUpdate the label of an account \n3.\tCreate an account at a bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Account sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
+	"order": [],
+	"folders_order": [
+		"3d52a57e-4116-6835-3918-0693920556f4",
+		"93702e1a-3a5c-a976-a184-fca918474595"
+	],
+	"folders": [
+		{
+			"id": "3d52a57e-4116-6835-3918-0693920556f4",
+			"name": "obp",
+			"description": "Folder for obp",
+			"order": [
+				"40e15a40-cb23-a659-9f5f-6c5cf707b56e",
+				"d217d454-040a-6678-63ec-d0c2ba9d4084",
+				"ca1e27a1-dd02-ae4d-13e3-9dda8b107da3",
+				"cae9605d-da13-90db-8698-eb2e269331bc",
+				"2b1755d2-5eb8-c900-a488-00005bdc20be",
+				"5c322fb4-b6dc-8a1c-89d6-a83922a70574",
+				"206641c7-5929-15b1-d106-ff07c14a9bfd",
+				"20be76a5-6f19-c751-fc25-07b83c3d872e"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b"
+		},
+		{
+			"id": "93702e1a-3a5c-a976-a184-fca918474595",
+			"name": "sandbox",
+			"description": "Folder for sandbox",
+			"order": [
+				"403aaa37-6101-d57a-67fa-ed1837de0cd1",
+				"8fec4370-7231-4092-0f14-64460b4f9a9e",
+				"e2805172-05af-1f87-4b53-a6b28f166513",
+				"e4da2c3f-bffb-694c-fb69-6ac95a4d4e2b"
+			],
+			"folders_order": [],
+			"owner": "2297966",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b"
+		}
+	],
+	"owner": "2297966",
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "206641c7-5929-15b1-d106-ff07c14a9bfd",
+			"name": "Get Account Beneficiaries by Id",
+			"description": "Information returned about the account specified by ACCOUNT_ID. This call returns the list of account's beneficiaries and requires access to the owner view.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "20be76a5-6f19-c751-fc25-07b83c3d872e",
+			"name": "Get Account by Id (Full)",
+			"description": "Information returned about an account specified by ACCOUNT_ID as moderated by the view (VIEW_ID).",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}",
+				"view_id": "{{view_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				},
+				{
+					"key": "view_id",
+					"value": "{{view_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "2b1755d2-5eb8-c900-a488-00005bdc20be",
+			"name": "Get private accounts at one bank",
+			"description": "Returns the list of private (non-public) accounts at BANK_ID that the user has access to. For each account the API returns the ID and the available views. \r\nIf you want less information about the account, use the /my/accounts call.\r\nAuthentication is mandatory.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/private",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "403aaa37-6101-d57a-67fa-ed1837de0cd1",
+			"name": "Create Sandbox",
+			"description": "Import bulk data into the sandbox. This call can be used to create banks, users, accounts and transactions.\r\n\r\n\r\nSample request:\r\n            \r\n    POST /Create Sandbox\r\n    {\r\n        \"sandbox_id\": \"TestSandbox\"\r\n    }",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "POST",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}",
+			"url": "https://{{env}}/{{account_api}}/sandbox",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "93702e1a-3a5c-a976-a184-fca918474595"
+		},
+		{
+			"id": "40e15a40-cb23-a659-9f5f-6c5cf707b56e",
+			"name": "Get Accounts at all Banks (Private)",
+			"description": "Get the private accounts at all banks (authenticated access). \r\nReturns the list of accounts containing private views for the authenticated user at all banks. For each account the API returns the ID and the available views.\r\nAuthentication is Mandatory.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: DF52EF05-F1F1-45A8-8245-DB8115FACF5B\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{env}}/{{account_api}}/obp/my/accounts",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "DF52EF05-F1F1-45A8-8245-DB8115FACF5B"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "5c322fb4-b6dc-8a1c-89d6-a83922a70574",
+			"name": "Get Account by Id (Core)",
+			"description": "Information returned about the account specified by ACCOUNT_ID. This call returns the owner view and requires access to that view.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}",
+				"account_id": "{{account_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/account",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "account_id",
+					"value": "{{account_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "8fec4370-7231-4092-0f14-64460b4f9a9e",
+			"name": "Export Sandbox",
+			"description": "Export Sandbox data specified by sandbox id.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "93702e1a-3a5c-a976-a184-fca918474595"
+		},
+		{
+			"id": "ca1e27a1-dd02-ae4d-13e3-9dda8b107da3",
+			"name": "Get Accounts at one Bank (Public and Private)",
+			"description": "Get the accounts at one bank that the user has access to (Authenticated or Anonymous access). Returns the list of accounts at BANK_ID that the user has access to. \r\nFor each account the API returns the account ID and the available views. If the user is not authenticated, the list will contain only the accounts providing public views.\r\nAuthentication is optional.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\nAuthorization: Bearer\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+					"key": "Authorization",
+					"value": "Bearer"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "cae9605d-da13-90db-8698-eb2e269331bc",
+			"name": "Get Accounts at Bank (Public)",
+			"description": "Returns the list of the public accounts (anonymous access) at BANK_ID. For each account the API returns the ID and the available views. Authentication via OAuth is not required.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\nbank_id: {{bank_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"bank_id": "{{bank_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/public",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "bank_id",
+					"value": "{{bank_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "d217d454-040a-6678-63ec-d0c2ba9d4084",
+			"name": "Get Public Accounts at all Banks",
+			"description": "Get the public accounts at all banks (anonymous access). Returns the accounts that contain at least one public view (a view where is_public is true). \r\nFor each account the API returns the ID and the available views. Authentication is optional.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "GET",
+			"helperAttributes": {},
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nsandbox_id: {{sandbox_id}}\nrequest_id: {{request_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{env}}/{{account_api}}/obp/accounts/public",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "3d52a57e-4116-6835-3918-0693920556f4"
+		},
+		{
+			"id": "e2805172-05af-1f87-4b53-a6b28f166513",
+			"name": "Import Sandbox",
+			"description": "Imports sandbox data specified by sandbox id.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "PUT",
+			"headers": "Accept: application/json, text/json, application/xml, text/xml\nContent-Type: application/json\nrequest_id: {{request_id}}\n// Authorization: Bearer\nClient-Id: {{client_id}}\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json, text/json, application/xml, text/xml"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "request_id",
+					"value": "{{request_id}}"
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer",
+					"enabled": false
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "93702e1a-3a5c-a976-a184-fca918474595"
+		},
+		{
+			"id": "e4da2c3f-bffb-694c-fb69-6ac95a4d4e2b",
+			"name": "Delete Sandbox",
+			"description": "Delete Sandbox specified by sandbox id.",
+			"collectionId": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"method": "DELETE",
+			"helperAttributes": {},
+			"headers": "request_id: 79630C48-A172-4E6E-BE04-68FADE9CC520\napplication_id: {{application_id}}\nprovider: {{provider}}\nprovider_id: {{provider_id}}\nprovider_username: {{provider_username}}\nClient-Id: {{client_id}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {
+				"sandbox_id": "{{sandbox_id}}"
+			},
+			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"responses": [],
+			"pathVariableData": [
+				{
+					"key": "sandbox_id",
+					"value": "{{sandbox_id}}"
+				}
+			],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "request_id",
+					"value": "79630C48-A172-4E6E-BE04-68FADE9CC520"
+				},
+				{
+					"key": "application_id",
+					"value": "{{application_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider",
+					"value": "{{provider}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_id",
+					"value": "{{provider_id}}",
+					"type": "text"
+				},
+				{
+					"key": "provider_username",
+					"value": "{{provider_username}}",
+					"type": "text"
+				},
+				{
+					"key": "Client-Id",
+					"value": "{{client_id}}",
+					"type": "text"
+				}
+			],
+			"collection_id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
+			"folder": "93702e1a-3a5c-a976-a184-fca918474595"
+		}
+	]
+}

@@ -1,0 +1,336 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OCR Document",
+		"_postman_id": "2ad033f0-2d86-1b32-ac1e-9fbf41402aaf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandbox_id\": \"{{sandbox_id}}\"\r\n}\r\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"SandboxID\": \"2439278040711168\",\n        \"Users\": [\n            {\n                \"user_id\": \"645af800-8c97-4f47-b489-6b9d7b05b86d\",\n                \"provider_id\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"username\": \"User1\",\n                \"createdByUserID\": \"00000000-0000-0000-0000-000000000000\",\n                \"application_id\": null\n            },\n            {\n                \"user_id\": \"4f2b0290-0f71-4ee0-82ca-578db883be5e\",\n                \"provider_id\": \"NBG.gr\",\n                \"provider\": \"NBG\",\n                \"username\": \"User2\",\n                \"createdByUserID\": \"00000000-0000-0000-0000-000000000000\",\n                \"application_id\": null\n            }\n        ],\n        \"Documents\": [\n            {\n                \"DocumentType\": \"Passport\",\n                \"DocumentProximity\": \"8,73\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"1cc5088d-2e92-41e6-b012-62dd0200bf16\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"country\",\n                        \"PropertyValue\": \"99999\",\n                        \"Proximity\": null,\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Nationality\",\n                        \"PropertyValue\": \"ΕΛΛΗΝΙΚΗ\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Passport_No\",\n                        \"PropertyValue\": \"AH0000000\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Sur_Name\",\n                        \"PropertyValue\": \"PAPADOPOULOS\",\n                        \"Proximity\": \"9999899999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,91\"\n                    },\n                    {\n                        \"PropertyName\": \"Greek_Sur_Name\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ\",\n                        \"Proximity\": \"9999099999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,18\"\n                    },\n                    {\n                        \"PropertyName\": \"Greek_Name\",\n                        \"PropertyValue\": \"ΣΤΥΛΙΑΝΟΣ\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Birth_Date\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"DateTime\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"Expiry_Date\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"DateTime\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"Issue_Date\",\n                        \"PropertyValue\": \"06 Nov 09\",\n                        \"Proximity\": \"998999890\",\n                        \"Type\": \"DateTime\",\n                        \"WordProximity\": \"7,78\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"tif\"\n            },\n            {\n                \"DocumentType\": \"DrivingLicensePage\",\n                \"DocumentProximity\": \"8,39\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"027affc9-99a9-49ce-a873-1192946e9983\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"Driving_GreekSurname\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ\",\n                        \"Proximity\": \"999909999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_EnglishSurname\",\n                        \"PropertyValue\": \"PAPADOPOULOS\",\n                        \"Proximity\": \"999909999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_GreekName\",\n                        \"PropertyValue\": \"ΛΟΥΚΙΑΝΟΣ\",\n                        \"Proximity\": \"890999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,33\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_EnglishName\",\n                        \"PropertyValue\": \"LOYKIANOS\",\n                        \"Proximity\": \"90909\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"5,40\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_DateOfBirth\",\n                        \"PropertyValue\": \"27.11.1982\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_PlaceOfBirth\",\n                        \"PropertyValue\": \"ΑΘΗΝΑ ΑΤΤΙΚΗΣ\",\n                        \"Proximity\": \"9999989999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,92\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_IssueDate\",\n                        \"PropertyValue\": \"09.11.2015\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_AuthorityOffice\",\n                        \"PropertyValue\": \"ΑΝΑΤ.ΑΘΗΝΑΣ\",\n                        \"Proximity\": \"99999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_ExpirationDate\",\n                        \"PropertyValue\": \"09.11.2030\",\n                        \"Proximity\": \"99999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_Afm\",\n                        \"PropertyValue\": \"000000001\",\n                        \"Proximity\": \"99999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_Number\",\n                        \"PropertyValue\": \"000000001\",\n                        \"Proximity\": \"99999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Driving_Type\",\n                        \"PropertyValue\": \"B\",\n                        \"Proximity\": \"9\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"jpg\"\n            },\n            {\n                \"DocumentType\": \"BackIDPage\",\n                \"DocumentProximity\": \"6,56\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"1782d81f-5ac0-4a71-ae44-97cf1b6f348d\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"GreekSurname\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ\",\n                        \"Proximity\": \"08999909\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"6,63\"\n                    },\n                    {\n                        \"PropertyName\": \"EnglishSurname\",\n                        \"PropertyValue\": \"PAPADOPOULOS\",\n                        \"Proximity\": \"999900909\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"6,00\"\n                    },\n                    {\n                        \"PropertyName\": \"GreekName\",\n                        \"PropertyValue\": \"ΛΟΥΚΙΑΝΟΣ\",\n                        \"Proximity\": \"90099\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"5,40\"\n                    },\n                    {\n                        \"PropertyName\": \"EnglishName\",\n                        \"PropertyValue\": \"LOUKIANOS\",\n                        \"Proximity\": \"90900\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"3,60\"\n                    },\n                    {\n                        \"PropertyName\": \"FatherGreekName\",\n                        \"PropertyValue\": \"ΔΗΜΗΤΡΗΣ\",\n                        \"Proximity\": \"000999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"4,50\"\n                    },\n                    {\n                        \"PropertyName\": \"FatherEnglishName\",\n                        \"PropertyValue\": \"DIMITRIS\",\n                        \"Proximity\": \"000999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"4,50\"\n                    },\n                    {\n                        \"PropertyName\": \"FatherGreekSurnName\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ\",\n                        \"Proximity\": \"000999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,00\"\n                    },\n                    {\n                        \"PropertyName\": \"MotherName\",\n                        \"PropertyValue\": \"ΕΛΕΝΗ\",\n                        \"Proximity\": \"99990899999999999989\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,45\"\n                    },\n                    {\n                        \"PropertyName\": \"MotherSurname\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΥ\",\n                        \"Proximity\": \"899999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,83\"\n                    },\n                    {\n                        \"PropertyName\": \"BirthDate\",\n                        \"PropertyValue\": \"27/10/1985\",\n                        \"Proximity\": \"0899089999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,00\"\n                    },\n                    {\n                        \"PropertyName\": \"BirthPlace\",\n                        \"PropertyValue\": \"ΑΘΗΝΑ ΑΤΤΙΚΗΣ\",\n                        \"Proximity\": \"9998989888999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,56\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"jpg\"\n            },\n            {\n                \"DocumentType\": \"TaxForm\",\n                \"DocumentProximity\": \"8,08\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"e0236ce1-9ea1-459b-82cd-cce5f5ff36b0\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"675\",\n                        \"PropertyValue\": \"0,47\",\n                        \"Proximity\": \"0999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"6,75\"\n                    },\n                    {\n                        \"PropertyName\": \"667\",\n                        \"PropertyValue\": \"3,12\",\n                        \"Proximity\": \"9999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"605\",\n                        \"PropertyValue\": \"1.523,71\",\n                        \"Proximity\": \"09999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,88\"\n                    },\n                    {\n                        \"PropertyName\": \"425\",\n                        \"PropertyValue\": \"7.618,56\",\n                        \"Proximity\": \"99999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"401\",\n                        \"PropertyValue\": \"3.079,37\",\n                        \"Proximity\": \"99999998\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,88\"\n                    },\n                    {\n                        \"PropertyName\": \"301\",\n                        \"PropertyValue\": \"999999\",\n                        \"Proximity\": \"0999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9.00\"\n                    },\n                    {\n                        \"PropertyName\": \"801\",\n                        \"PropertyValue\": \"031441594\",\n                        \"Proximity\": \"9999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,33\"\n                    },\n                    {\n                        \"PropertyName\": \"097\",\n                        \"PropertyValue\": \"12\",\n                        \"Proximity\": \"99\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"091\",\n                        \"PropertyValue\": \"98\",\n                        \"Proximity\": \"99\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"092\",\n                        \"PropertyValue\": \"1\",\n                        \"Proximity\": \"9\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"017\",\n                        \"PropertyValue\": \"1\",\n                        \"Proximity\": \"9\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"0,00\"\n                    },\n                    {\n                        \"PropertyName\": \"NumberOfChildren\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"9\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"FullName\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ ΑΝΔ\",\n                        \"Proximity\": \"99999999999999999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"FirstName\",\n                        \"PropertyValue\": \"ΚΩΝΣΤΑΝΤΙΝΟΣ\",\n                        \"Proximity\": \"999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"LastName\",\n                        \"PropertyValue\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ\",\n                        \"Proximity\": \"999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"FathersName\",\n                        \"PropertyValue\": \"ΑΝΔ\",\n                        \"Proximity\": \"999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"VatNumber\",\n                        \"PropertyValue\": \"161006250\",\n                        \"Proximity\": \"009999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Address\",\n                        \"PropertyValue\": \"ΠΑΛΑΜΑ 25, 17563 - Ν ΦΑΛΗΡΟ\",\n                        \"Proximity\": \"9999999999990099999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,36\"\n                    },\n                    {\n                        \"PropertyName\": \"TaxOffice\",\n                        \"PropertyValue\": \"ΝΕΟ ΦΑΛΗΡΟΥ\",\n                        \"Proximity\": \"999999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"DeclarationNumber\",\n                        \"PropertyValue\": \"115546\",\n                        \"Proximity\": \"000999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"4,50\"\n                    },\n                    {\n                        \"PropertyName\": \"IssueNumber\",\n                        \"PropertyValue\": \"19242\",\n                        \"Proximity\": \"99999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"SpouseFullName\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"SpouseFirstName\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"SpouseLastName\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"SpouseVatNumber\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"SpouseFatherName\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"TotalDeclaredIncome\",\n                        \"PropertyValue\": \"30.233,12\",\n                        \"Proximity\": \"99999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"TaxYear\",\n                        \"PropertyValue\": \"2016\",\n                        \"Proximity\": \"9999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"pdf\"\n            },\n            {\n                \"DocumentType\": \"DehPage\",\n                \"DocumentProximity\": \"8,33\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"0eea3272-e69c-42ff-a2dd-7e1896fee894\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"Deh_FullName\",\n                        \"PropertyValue\": \" ΜΑΥΡΟΥ ΝΙΚΗ\",\n                        \"Proximity\": \"999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Deh_SendAddress\",\n                        \"PropertyValue\": \"ΠΑΛΑΜΑ 62 175 99 Ν. ΦΑΛΗΡΟ\",\n                        \"Proximity\": \"9999999999999999999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,25\"\n                    },\n                    {\n                        \"PropertyName\": \"Deh_PropertyAddress\",\n                        \"PropertyValue\": \"ΠΑΛΑΜΑ 62 175 99 Ν. ΦΑΛΗΡΟ\",\n                        \"Proximity\": \"8888888888889999999999099999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,25\"\n                    },\n                    {\n                        \"PropertyName\": \"Deh_AFM\",\n                        \"PropertyValue\": \"035304440\",\n                        \"Proximity\": \"999990099\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"7,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Deh_Service_Number\",\n                        \"PropertyValue\": \"6 04244416-01 2\",\n                        \"Proximity\": \"999999099999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,40\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"jpg\"\n            },\n            {\n                \"DocumentType\": \"EydapPage\",\n                \"DocumentProximity\": \"8,42\",\n                \"ExtractedDocument\": null,\n                \"ExtractedDocumentFormat\": \"tif\",\n                \"ExtractedDocumentType\": \"583973d4-ee99-4bab-9c8e-02dd85851e08\",\n                \"Items\": [\n                    {\n                        \"PropertyName\": \"Eydap_OwnerName\",\n                        \"PropertyValue\": \" ΜΑΥΡΟΥ ΣΩΤΗΡΗΣ\",\n                        \"Proximity\": \"99999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Eydap_RenterName\",\n                        \"PropertyValue\": \"\",\n                        \"Proximity\": \"\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": null\n                    },\n                    {\n                        \"PropertyName\": \"Eydap_Address\",\n                        \"PropertyValue\": \"ΠΑΛΑΜΑ 63  175 62 ΝΕΟΥ ΦΑΛΗΡΟΥ\",\n                        \"Proximity\": \"99999999999999999999999999999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"9,00\"\n                    },\n                    {\n                        \"PropertyName\": \"Eydap_Afm\",\n                        \"PropertyValue\": \"222222222\",\n                        \"Proximity\": \"999990099\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"6,67\"\n                    },\n                    {\n                        \"PropertyName\": \"Eydap_Meter_Number\",\n                        \"PropertyValue\": \"222222222\",\n                        \"Proximity\": \"999999999\",\n                        \"Type\": \"string\",\n                        \"WordProximity\": \"8,40\"\n                    }\n                ],\n                \"InitialDocumentFormat\": \"jpg\"\n            }\n        ]\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sandbox User",
+					"request": {
+						"url": "{{root_url}}/sandbox/{{sandbox_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"24392478040711168\"\r\n}\r\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OCR Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Get info",
+					"request": {
+						"url": "{{root_url}}/OcrDocument/getInfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"header\": {\n    \"ID\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"application\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"bank\": \"string\",\n    \"hostSession\": \"string\",\n    \"channel\": \"nbg\",\n    \"customer\": 0,\n    \"logitude\": 0,\n    \"latitude\": 0,\n    \"go4moreMember\": true,\n    \"TAN\": \"string\"\n  },\n\t\"payload\": {\n\t  \"documentTypeId\": \"1782d81f-5ac0-4a71-ae44-97cf1b6f348d\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get info (total)",
+					"request": {
+						"url": "{{root_url}}/OcrDocument/getInfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"header\": {\n    \"ID\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"application\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"bank\": \"string\",\n    \"hostSession\": \"string\",\n    \"channel\": \"nbg\",\n    \"customer\": 0,\n    \"logitude\": 0,\n    \"latitude\": 0,\n    \"go4moreMember\": true,\n    \"TAN\": \"string\"\n  },\n\t\"payload\": {\n\t \n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Upload document",
+					"request": {
+						"url": "{{root_url}}/OcrDocument/uploadDocument ",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "{{user_id1}}",
+								"description": ""
+							},
+							{
+								"key": "provider_id",
+								"value": "{{provider_id}}",
+								"description": ""
+							},
+							{
+								"key": "username",
+								"value": "{{username1}}",
+								"description": ""
+							},
+							{
+								"key": "provider",
+								"value": "{{provider}}",
+								"description": ""
+							},
+							{
+								"key": "x-ibm-client-id",
+								"value": "{{x-ibm-client-id}}",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"header\": {\n    \"ID\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"application\": \"78301201-148C-42B1-994E-BFADD6BE64C4\",\n    \"bank\": \"string\",\n    \"hostSession\": \"string\",\n    \"channel\": \"nbg\",\n    \"customer\": 0,\n    \"logitude\": 0,\n    \"latitude\": 0,\n    \"go4moreMember\": true,\n    \"TAN\": \"string\"\n  },\n                \"payload\": {\n                                \"initialDocument\":\"/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAcwBzAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5\",\n                    \"declaredDocumentType\": \"1CC5088D-2E92-41E6-B012-62DD0200BF16\",\n                    \"initialDocumentFormat\": \"JPG\",\n                    \"initialDocumentName\": \"asd\",\n                    \"isMultiPage\": false\n                }\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
