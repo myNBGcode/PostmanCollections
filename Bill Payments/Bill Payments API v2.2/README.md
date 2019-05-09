@@ -1,4 +1,4 @@
-﻿## **Bill Payments v2.1 Sandbox API** 
+﻿## **Bill Payments v2.2 Sandbox API** 
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
