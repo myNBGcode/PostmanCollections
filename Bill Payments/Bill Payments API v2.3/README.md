@@ -1,9 +1,9 @@
-﻿## **Bill Payments v2.3 Sandbox API** 
+## **Bill Payments v2.3 Sandbox API** 
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
 ### **Real Life Use Case Scenario**
-Everyone has bills and bills must be paid, so imagine you are somewhere that has no bank branches either places that you can pay your bills, taxes or car taxes.
+Everyone has bills and bills must be paid, so imagine you are somewhere that has no bank branches or places that you can pay your bills, taxes or car taxes.
 What can you do about it?  The answer is simple, you can use this api to create a custom bill payments web application in order to help users pay their bills using their bank account.
 
 **Idea**: You can use this API together with **Rewards Platform ( i-bank Loyalty API Sandbox - v1.1 )** in order to increase your customer’s loyalty by applying your own rewarding platform.
@@ -17,7 +17,7 @@ We will create our sandbox by making an **HTTP POST** request to the following U
 Request Body:
 ```json
  {
-   "sandbox_id": "payforme"
+   "sandboxId": "payforme"
  }
 ``` 
 
@@ -74,25 +74,31 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 <details><summary>Response</summary>
  
  ```json
- { 
-  "payload": {
+ {
+    "payload": {
+        "networkMetadata": null,
         "payments": [
             {
                 "id": "5b60f1c8-243f-4180-8c6b-0130572ee4ba",
-                "legacyCode": "90906",
-                "legacyType": "NONNBG",
                 "name": "ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ",
                 "categoryName": "Δήμοι/Ύδρευση",
+                "categorySortOrder": 6,
                 "supportedPaymentMethods": [
                     {
                         "name": "ACCT",
-                        "otp": false
+                        "otp": false,
+                        "media": null
                     }
                 ],
                 "isOnline": false,
                 "supportsBarcode": false,
-                "validationAlgorithm": "RI2",
+                "supportsDeferred": false,
                 "sortOrder": 1,
+                "legacyCode": "90906",
+                "masterOrganization": null,
+                "legacyType": "NONNBG",
+                "messages": null,
+                "validationAlgorithm": "RI2",
                 "objects": [
                     {
                         "name": "debtor",
@@ -113,7 +119,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             },
                             {
                                 "id": "9fe9b85d-dfa0-4735-be0d-97244dd08e49",
@@ -130,7 +137,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             }
                         ],
                         "object": null
@@ -139,23 +147,6 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                         "name": "ultimateDebtor",
                         "description": "Τελικός Οφειλέτης",
                         "fields": [
-                            {
-                                "id": "ce1507cc-428d-48c4-96ed-3953f1028485",
-                                "name": "customerNumber",
-                                "description": "Κωδικός Πελάτη",
-                                "dataType": "string",
-                                "dataTypeName": "Αλφαριθμητικό",
-                                "length": 36,
-                                "precision": 0,
-                                "isMandatory": true,
-                                "isVisible": false,
-                                "isPartOfPaymentRef": false,
-                                "partOrder": 0,
-                                "fillMethod": null,
-                                "fillValue": null,
-                                "formatting": null,
-                                "formattingExample": null
-                            },
                             {
                                 "id": "f22e6a44-f5f1-419c-bbbf-9c5595e91622",
                                 "name": "name",
@@ -171,7 +162,26 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
+                            },
+                            {
+                                "id": "ce1507cc-428d-48c4-96ed-3953f1028485",
+                                "name": "customerNumber",
+                                "description": "Κωδικός Πελάτη",
+                                "dataType": "string",
+                                "dataTypeName": "Αλφαριθμητικό",
+                                "length": 36,
+                                "precision": 0,
+                                "isMandatory": true,
+                                "isVisible": false,
+                                "isPartOfPaymentRef": false,
+                                "partOrder": 0,
+                                "fillMethod": null,
+                                "fillValue": null,
+                                "formatting": null,
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             }
                         ],
                         "object": null
@@ -195,7 +205,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             }
                         ],
                         "object": null
@@ -219,7 +230,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             },
                             {
                                 "id": "323ea7f6-70b3-4e53-ac57-3b866c9ea0bb",
@@ -236,7 +248,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             },
                             {
                                 "id": "515008df-c6ce-4ce4-8f97-835386db17bf",
@@ -253,7 +266,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "fillMethod": null,
                                 "fillValue": null,
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             }
                         ],
                         "object": null
@@ -272,12 +286,13 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                 "precision": 0,
                                 "isMandatory": true,
                                 "isVisible": true,
-                                "isPartOfPaymentRef": false,
-                                "partOrder": 0,
-                                "fillMethod": null,
-                                "fillValue": null,
+                                "isPartOfPaymentRef": true,
+                                "partOrder": 1,
+                                "fillMethod": "PADLEFT",
+                                "fillValue": "0",
                                 "formatting": null,
-                                "formattingExample": null
+                                "formattingExample": null,
+                                "fieldMetadata": null
                             }
                         ],
                         "object": null
@@ -305,7 +320,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                                     "fillMethod": null,
                                     "fillValue": null,
                                     "formatting": null,
-                                    "formattingExample": null
+                                    "formattingExample": null,
+                                    "fieldMetadata": null
                                 }
                             ],
                             "object": null
@@ -315,9 +331,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "preprocessSteps": null,
                 "objectMappings": null
             }
-		]
-	}
-}
+        ]
+    },
+    "exception": null,
+    "messages": null,
+    "executionTime": 0
+ }
 ```
 </details>
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
@@ -420,7 +439,6 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     },
     "debtor": {
       "name": "{{User1Fullname}}",
-      "ibUserId": "{{user_id}}",
       "debtorAccount": {
         "iban": "{{User1AccountIBAN}}",
         "pan": null
@@ -465,12 +483,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "pan": null
             },
             "telephone": "6980157548",
-            "ibUserId": "e6da8f9c-ee8b-488c-9179-0a566e9d8aed",
-            "idType": null
+			"extraIdentities": null
         },
         "settlementInfo": {
             "ccy": "EUR",
             "amount": 31.12,
+			"instalments": 0,
             "method": "ACCT"
         },
         "commissionInfo": {
@@ -603,7 +621,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
             }
         ],
         "cancelationSucceeded": true,
-        "cancellationSucceeded": false,
+        "cancellationSucceeded": true,
         "paymentResponse": null,
         "additional": {
             "ledgerBalance": 100000,
@@ -660,7 +678,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "additional": {
                     "ledgerBalance": null,
                     "availableBalance": null,
-                    "sendCutOffTime": "28/11/2018 6:00:00 μμ"
+                    "sendCutOffTime": "28-11-2018 18:00:00"
                 },
                 "paymentOrgIdentification": {
                     "postTransactionData": {},
@@ -676,7 +694,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                     "endtoendId": "90773001121420176229",
                     "txId": "a76b579d-ed50-4d2b-a053-628247140593",
                     "clrSysRef": "11773001121420176229",
-                    "paymentRef": null
+                    "paymentRef": "90773"
                 },
                 "creditor": {
                     "name": "ΔΕΗ",
@@ -697,12 +715,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                         "pan": null
                     },
                     "telephone": "2101234567",
-                    "ibUserId": "acd77e31-a637-48b6-a070-ffc5d1d68e63",
-                    "idType": null
+					"extraIdentities": null
                 },
                 "settlementInfo": {
                     "ccy": "EUR",
                     "amount": 17,
+					"instalments": 0,
                     "method": "ACCT"
                 },
                 "commissionInfo": {
@@ -713,13 +731,14 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                     "subAgent": 0
                 },
                 "status": "COMPLETED",
-                "timestamp": "2018-11-28T13:39:24.956Z"
+                "timestamp": "2018-11-28T13:39:24.956Z",
+				"deferred": null
             },
             {
                 "additional": {
                     "ledgerBalance": null,
                     "availableBalance": null,
-                    "sendCutOffTime": "28/11/2018 6:00:00 μμ"
+                    "sendCutOffTime": "28-11-2018 18:00:00"
                 },
                 "paymentOrgIdentification": {
                     "postTransactionData": {},
@@ -735,7 +754,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                     "endtoendId": "474813749889",
                     "txId": "c97dba0b-02ee-4755-82d4-7b576cceb1bb",
                     "clrSysRef": "90906700112820185715",
-                    "paymentRef": null
+                    "paymentRef": "00000000001234567890"
                 },
                 "creditor": {
                     "name": "ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ",
@@ -756,12 +775,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                         "pan": null
                     },
                     "telephone": "6980157548",
-                    "ibUserId": "DemoTPP4UsersSpotMachine1",
-                    "idType": null
+					"extraIdentities": null
                 },
                 "settlementInfo": {
                     "ccy": "EUR",
                     "amount": 31.12,
+					"instalments": 0,
                     "method": "ACCT"
                 },
                 "commissionInfo": {
@@ -772,13 +791,14 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                     "subAgent": 0
                 },
                 "status": "COMPLETED",
-                "timestamp": "2018-11-28T13:48:06.678Z"
+                "timestamp": "2018-11-28T13:48:06.678Z",
+				"deferred": null
             },
             {
                 "additional": {
                     "ledgerBalance": null,
                     "availableBalance": null,
-                    "sendCutOffTime": "28/11/2018 6:00:00 μμ"
+                    "sendCutOffTime": "28-11-2018 18:00:00"
                 },
                 "paymentOrgIdentification": {
                     "postTransactionData": {},
@@ -815,12 +835,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                         "pan": null
                     },
                     "telephone": "6980157548",
-                    "ibUserId": "DemoTPP4UsersSpotMachine1",
-                    "idType": null
+					"extraIdentities": null
                 },
                 "settlementInfo": {
                     "ccy": "EUR",
                     "amount": 31.12,
+					"instalments": 0,
                     "method": "ACCT"
                 },
                 "commissionInfo": {
@@ -831,7 +851,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                     "subAgent": 0
                 },
                 "status": "CANCELLED",
-                "timestamp": "2018-11-28T14:21:30.355Z"
+                "timestamp": "2018-11-28T14:21:30.355Z",
+				"deferred": null
             }
         ]
     },
@@ -870,7 +891,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
          "clrSysRef": "{{clrSysRef}}"
     },
     "requestMachineId": null,
-  "machineId": null
+    "machineId": null
   }
 }
 ``` 
@@ -893,7 +914,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
             "endtoendId": "725428646563",
             "txId": "b98799b0-3c04-413c-a8b2-2e9ee96ef785",
             "clrSysRef": "90906700112820185239",
-            "paymentRef": null
+            "paymentRef": "00000000001234567890"
         },
         "creditor": {
             "name": "ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ",
@@ -914,12 +935,12 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
                 "pan": null
             },
             "telephone": "6980157548",
-            "ibUserId": "DemoTPP4UsersSpotMachine1",
-            "idType": null
+            "extraIdentities": null
         },
         "settlementInfo": {
             "ccy": "EUR",
             "amount": 31.12,
+            "instalments": 0,
             "method": "ACCT"
         },
         "commissionInfo": {
@@ -930,7 +951,8 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
             "subAgent": 0
         },
         "status": "CANCELLED",
-        "timestamp": "2018-11-28T14:21:30.355Z"
+        "timestamp": "2018-11-28T14:21:30.355Z",
+		"deferred": null
     },
     "exception": null,
     "messages": null,
