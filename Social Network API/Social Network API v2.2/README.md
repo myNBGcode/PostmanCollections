@@ -81,46 +81,7 @@ The registration proccess continues by asking the user to fill in their personal
 * Alias ([user_alias])
 * Phone Number ([user_phone_number])
 
-After storing the user input, user must accept the terms and conditions of our network. In order to show the terms, we will make an **HTTP POST** request to 
-
-> https://apis.nbg.gr/sandbox/socialnetwork/headers/v2.2/UserManagement/declarations
-
-providing our network id as shown below
-```json
-{
-	"payload": {
-	    "socialNetworkId": "[our_network_id]"
-    }
-}
-```
-The response contains a list of declarations. We will need the ids of all the declarations of type **Terms**.
-```json
-{
-    "payload": {
-        "declarations": [
-            {
-                "declarationId": "8ae414a9-065e-4a8b-beee-dd382a63634f",
-                "declarationType": "Terms",
-                "description": "Όροι αποδοχής",
-                "timestamp": "2018-11-28T16:18:50.851Z",
-                "order": 1
-            },
-            {
-                "declarationId": "2405f2e6-5e98-4663-b067-87a9b9a67c3b",
-                "declarationType": "Announcement",
-                "description": "Ανακοίνωση",
-                "timestamp": "2018-11-28T16:18:50.851Z",
-                "order": 2
-            }
-        ]
-    },
-    "exception": null,
-    "messages": null,
-    "executionTime": 0
-}
-```
-
-In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634f** and the description which must be show to the user is **Όροι αποδοχής**. When the user accepts terms, we are ready to initiate the registration procces by making an **HTTP POST** request to
+In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634f** and the user accepts terms by default. Now we are ready to initiate the registration procces by making an **HTTP POST** request to
 
 > https://apis.nbg.gr/sandbox/socialnetwork/headers/v2.2/UserManagement/userRegistration
 
@@ -161,8 +122,48 @@ The response of this request contains a verificationId as shown below.
     "executionTime": 0
 }
 ```
+*Note: Remember to store **verificationId** somewhere in your application, because you will need to provide it in **Verify User Registration** process next.*
 
-This verification id must be sent to the API along with a verification code in order to complete the registration process.
+After registering to the social network, we can dislay the terms that were accepted in the registration process. In order to show the terms, we will make an **HTTP POST** request to 
+
+> https://apis.nbg.gr/sandbox/socialnetwork/headers/v2.2/UserManagement/declarations
+
+providing our network id as shown below
+```json
+{
+	"payload": {
+	    "socialNetworkId": "[our_network_id]"
+    }
+}
+```
+The response contains a list of declarations. We will need the ids of all the declarations of type **Terms**. Τhe description which must be show to the user is **Όροι αποδοχής**.
+```json
+{
+    "payload": {
+        "declarations": [
+            {
+                "declarationId": "8ae414a9-065e-4a8b-beee-dd382a63634f",
+                "declarationType": "Terms",
+                "description": "Όροι αποδοχής",
+                "timestamp": "2018-11-28T16:18:50.851Z",
+                "order": 1
+            },
+            {
+                "declarationId": "2405f2e6-5e98-4663-b067-87a9b9a67c3b",
+                "declarationType": "Announcement",
+                "description": "Ανακοίνωση",
+                "timestamp": "2018-11-28T16:18:50.851Z",
+                "order": 2
+            }
+        ]
+    },
+    "exception": null,
+    "messages": null,
+    "executionTime": 0
+}
+```
+
+The verification id from Register Member response must be sent to the API along with a verification code in order to complete the registration process.
 This is a sandbox API, thus, no sms is sent to the user containing a code. However, our application could prompt the user to fill in a code.
 
 When they do fill in a code, we will make an **HTTP POST** request to 
