@@ -81,7 +81,7 @@ The registration proccess continues by asking the user to fill in their personal
 * Alias ([user_alias])
 * Phone Number ([user_phone_number])
 
-In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634f** and the user accepts terms by default. Now we are ready to initiate the registration procces by making an **HTTP POST** request to
+A *declarationId* (e.g. for a Terms of Use note) is required in the request, as well as a value for the *action* variable assigned to this specific declarationId. In our case, the id of the declaration is **88ae414a9-065e-4a8b-beee-dd382a63634f** and the user accepts terms by default. Now we are ready to initiate the registration process by making an **HTTP POST** request to
 
 > https://apis.nbg.gr/sandbox/socialnetwork/headers/v2.2/UserManagement/userRegistration
 
@@ -216,10 +216,11 @@ with request body:
 
 ```json
 {
+    "payload": {
     "socialNetworkId": "[our_network]",
     "memberId": "[member_id]",
     "content": "[user_input]"
-}
+}}
 ``` 
 
 The response of a successful post looks like this:
