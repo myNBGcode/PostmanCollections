@@ -17,10 +17,10 @@ This API provides a standard RESTful interface that enables a user to:
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:
 
 
-**Sandbox Scopes**: openid profile ibank_profile sandbox-account-info-api-v1
+**Sandbox Scopes**: openid profile ibank_profile sandbox-account-info-api-v1-3
 
 
-**Production Scopes**: openid profile account-info-api-v1
+**Production Scopes**: openid profile account-info-api-v1-1
 
 
 **Authorization Endpoint**: https://my.nbg.gr/identity/connect/authorize
