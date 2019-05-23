@@ -5,18 +5,16 @@
 ### The API
 This API provides a standard RESTful interface that enables a user to check the availability of their funds. The availability is determined by providing the account's details and the corresponding amount in question.
 
-> Visit https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v12-5452 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v13-5674 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
-
-
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:
 
     
-**Sandbox Scopes** : openid profile ibank_profile role sandbox-funds-confirmation-api-v1
+**Sandbox Scopes** : openid profile role sandbox-funds-confirmation-api-v1-3
     
     
-**Production Scopes** : openid profile ibank_profile role funds-confirmation-api-v1
+**Production Scopes** : openid profile ibank_profile role funds-confirmation-api-v1-1
     
 
 **Authorization Endpoint**: https://my.nbg.gr/identity/connect/authorize
@@ -28,10 +26,10 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 See more [here](https://developer.nbg.gr/oauth-document)
 
 ### Use Case Scenario 
-"Wallet" Inc. has a mobile app, which offers an service in order to check if a transfer is possible based on your current funds.
+"Wallet" Inc. has a mobile app, which offers an service in order to check if a transfer is possible based on your current funds. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v13-5674#section/Quick-Getting-Started)).
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/sandbox/confirmation.funds/oauth2/v1.2/sandbox
+> https://apis.nbg.gr/sandbox/confirmation.funds/oauth2/v1.3/sandbox
 
 With a request body:
 ```json
@@ -41,7 +39,6 @@ With a request body:
 	"application": "598A4414-395A-43D6-A9C3-D53A15E6E9F6"
   },
   "payload": {
-	"userId": "User1",
 	"sanboxId": "MySandbox"
   }
 }
@@ -51,7 +48,7 @@ With a request body:
 
 The funds availability can be retrieved from the following API Call
 
-> https://apis.nbg.gr/sandbox/confirmation.funds/oauth2/v1.2/funds-confirmations/check-availability
+> https://apis.nbg.gr/sandbox/confirmation.funds/oauth2/v1.3/funds-confirmations/check-availability
 
 With a request body:
 ```json
