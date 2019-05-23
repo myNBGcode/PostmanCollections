@@ -10,16 +10,16 @@ This API provides a standard RESTful interface that enables a user to:
 * View their account balances
 * View their account transactions
 
-> Visit https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v13-5674 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v13-5683 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:
 
 
-**Sandbox Scopes**: openid profile ibank_profile sandbox-account-info-api-v1-3
+**Sandbox Scopes**: openid profile role sandbox-account-info-api-v1-3
 
 
-**Production Scopes**: openid profile account-info-api-v1-1
+**Production Scopes**: openid profile ibank_profile role account-info-api-v1-1
 
 
 **Authorization Endpoint**: https://my.nbg.gr/identity/connect/authorize
@@ -31,7 +31,7 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 See more [here](https://developer.nbg.gr/oauth-document)
 
 ### Use Case Scenario 
-"User Accounts" Inc. has a mobile app, showing the user domestic and foreign currency accounts. The main functionality of the application is to retrieve some user basic informations e.g.  his/her name and to retrieve his/her accounts so that the user is 24/7 informed about his/her accounts status e.g balances, transactions etc. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v13-5674#section/Quick-Getting-Started)).
+"User Accounts" Inc. has a mobile app, showing the user domestic and foreign currency accounts. The main functionality of the application is to retrieve some user basic informations e.g.  his/her name and to retrieve his/her accounts so that the user is 24/7 informed about his/her accounts status e.g balances, transactions etc. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v13-5683#section/Quick-Getting-Started)).
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/sandbox/account.info/oauth2/v1.3/sandbox
