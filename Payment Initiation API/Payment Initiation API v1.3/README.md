@@ -94,7 +94,6 @@ With a request body:
     "amount": 1,
     "description": "PAYMENT TEST 1",
     "tanNumber": "smsotp",
-    "isSmsOtp": true,
     "userId": "User1"
   }
 }
@@ -121,7 +120,6 @@ With a request body:
     "beneficiary": "GEORGE",
     "description": "PAYMENT TEST 1",
     "tanNumber": "smsotp",
-    "isSmsOtp": true,
     "currency": "EUR",
     "userId": "User1"
   }
