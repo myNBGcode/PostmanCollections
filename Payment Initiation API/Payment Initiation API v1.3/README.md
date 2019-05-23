@@ -12,18 +12,16 @@ There are 3 types of payments:
 * Sepa Transfer (Transfer using account’s IBAN format, receiver account can be either a NBG account or any other bank account e.g Eurobank)
 * Non Sepa Transfer (In case the receiver account bank does not support IBAN format and a different account number format is needed, which format depends on the bank that is used)
 
-> Visit https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v12-5506 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v13-5680 for the full API documentation
 
 ### Authentication & Authorization (OAuth2) ##
-
-
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:
     
     
-**Sandbox Scopes** : openid profile ibank_profile role sandbox-payment-initiation-api-v1
+**Sandbox Scopes** : openid profile role sandbox-payment-initiation-api-v1-3
     
     
-**Production Scopes** : openid profile ibank_profile role payment-initiation-api-v1
+**Production Scopes** : openid profile ibank_profile role payment-initiation-api-v1-1
 
 
 **Authorization Endpoint**: https://my.nbg.gr/identity/connect/authorize
@@ -35,10 +33,10 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 See more [here](https://developer.nbg.gr/content/authorization-oauth-20#8an-authorization-code-flow-example)
 
 ### Use Case Scenario 
-"Payments" Inc. has a mobile app, which offers an service in order to transfer money between accounts. As an additional feature "Payments" Inc provides a mechanism which calculates the transfer charges of a provided payment so that the user is always informed of the current expense system.
+"Payments" Inc. has a mobile app, which offers an service in order to transfer money between accounts. As an additional feature "Payments" Inc provides a mechanism which calculates the transfer charges of a provided payment so that the user is always informed of the current expense system. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v13-5680#section/Quick-Getting-Started)).
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
-> https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v1.2/sandbox
+> https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v1.3/sandbox
 
 With a request body:
 ```json
@@ -48,7 +46,6 @@ With a request body:
 	"application": "598A4414-395A-43D6-A9C3-D53A15E6E9F6"
   },
   "payload": {
-	"userId": "User1",
 	"sanboxId": "MySandbox"
   }
 }
@@ -57,7 +54,7 @@ With a request body:
 **Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header in each api call. Moreover userId should be the same as the logged in user username.**
 
 The calculation expense mechanism can be invoked from the following url:
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.1/payments/transfer-charges
+> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.3/payments/transfer-charges
 
 With a request body:
 ```json
@@ -82,7 +79,7 @@ With a request body:
 ```
 
 Second the user can transfer money between NBG accounts. The endpoint can be invoked from the following url:
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.1/payments/nbg-transfer
+> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.3/payments/nbg-transfer
 
 With a request body:
 ```json
@@ -107,7 +104,7 @@ With a request body:
 
 Third the user can send money not only to an NBG account but to another bank as well. The following endpoint serves this purpose:
 
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.1/payments/sepa-transfer
+> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v1.3/payments/sepa-transfer
 
 With a request body:
 ```json
