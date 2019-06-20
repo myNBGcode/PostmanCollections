@@ -23,12 +23,6 @@
 								"description": ""
 							},
 							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
-							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -54,12 +48,6 @@
 								"description": ""
 							},
 							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
-							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -80,12 +68,6 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
-							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -105,12 +87,6 @@
 						"url": "{{root_url}}/sandbox/{{sandbox_id}}",
 						"method": "DELETE",
 						"header": [
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
 							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
@@ -135,12 +111,6 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
 							},
 							{
 								"key": "Client-Id",
@@ -199,12 +169,6 @@
 								"description": ""
 							},
 							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
-							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -255,12 +219,6 @@
 								"description": ""
 							},
 							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
-							},
-							{
 								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"description": ""
@@ -309,12 +267,6 @@
 								"key": "provider",
 								"value": "{{provider}}",
 								"description": ""
-							},
-							{
-								"key": "x-ibm-client-id",
-								"value": "{{x-ibm-client-id}}",
-								"description": "",
-								"disabled": true
 							},
 							{
 								"key": "Client-Id",
