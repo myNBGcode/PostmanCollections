@@ -381,7 +381,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": {\n            \"accountIban\": \"{{account_to_iban}}\",\n            \"accountText\": null,\n            \"beneficiaryBic\": \"ETHNGRAA\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"type\": \"NBG\",\n        \"chargePolicy\": \"BEN\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": {\n            \"accountIban\": \"{{account_to_iban}}\",\n            \"accountText\": null,\n            \"beneficiaryBic\": \"ETHNGRAA\"\n        },\n        \"amount\": 15001,\n        \"currency\": \"EUR\",\n        \"type\": \"NBG\",\n        \"chargePolicy\": \"OUR\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n        \"emergency\": true\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/payments/transfer-charges",
@@ -573,6 +573,863 @@
 						"description": "This type of transfer is used when the receiver account’s bank does not support IBAN standard system and a different account number format is needed, which format depends on the bank that is used"
 					},
 					"response": []
+				},
+				{
+					"name": "Get Payment Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"remittanceType\": \"RNB\",\n\t\t\"paymentId\": \"12345678901234567890\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/details",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"details"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n\t    \"account\": \"{{account_to}}\",\n\t    \"remittanceType\": \"RNB\",\n\t    \"paymentId\": \"35507525413112257167\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/cancel",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"cancel"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Scheduled Payments",
+			"item": [
+				{
+					"name": "NBG",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": \"{{account_to}}\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"smsotp\",\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/scheduled-payments/nbg",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"scheduled-payments",
+								"nbg"
+							]
+						},
+						"description": "Account details\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": \"{{account_to_iban}}\",\n        \"amount\": 10,\n        \"chargePolicy\": \"SHA\",\n        \"beneficiary\": \"TEST\",\n        \"currency\": \"EUR\",\n        \"description\": \"TEST\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }\t    \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/scheduled-payments/sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"scheduled-payments",
+								"sepa"
+							]
+						},
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"iban\": \"GR1601100400000004012345678\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Non SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": {\n\t\t     \"accountNumber\": \"{{account_to}}\",\n\t\t     \"beneficiaryBic\": \"ETHNGRAA\",\n\t\t     \"beneficiaryName\": \"USER 1\",\n\t\t     \"beneficiaryAddress\": \"Address 1\",\n\t\t     \"country\": \"SE\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"chargePolicy\": \"SHA\",\n        \"description\": \"description\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }        \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/scheduled-payments/non-sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"scheduled-payments",
+								"non-sepa"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Scheduled Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"scheduleId\": \"67890123456\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/scheduled-payments/cancel",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"scheduled-payments",
+								"cancel"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Batch Payments",
+			"item": [
+				{
+					"name": "Batch Payments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"tanNumber\": \"smsotp\",\n        \"batchPayments\": [\n            {\n                \"to\": {\n                    \"accountIban\": \"GR9601106780000067890123458\",\n                    \"beneficiaryBic\": \"ETHNGRAA\",\n                    \"beneficiaryName\": null,\n                    \"beneficiaryAddress\": null,\n                    \"country\": null\n                },\n                \"amount\": 1,\n                \"currency\": \"EUR\",\n                \"chargePolicy\": \"SHA\",\n                \"description\": \"ASDADADAS\",\n                \"useSpecialClearingSystem\": false,\n                \"emergency\": true\n            },\n            {\n                \"to\": {\n                    \"accountIban\": \"GR9601106780000067890123458\",\n                    \"beneficiaryBic\": \"ETHNGRAA\",\n                    \"beneficiaryName\": null,\n                    \"beneficiaryAddress\": null,\n                    \"country\": null\n                },\n                \"amount\": 1,\n                \"currency\": \"EUR\",\n                \"chargePolicy\": \"SHA\",\n                \"description\": \"ASDADADAS\",\n                \"useSpecialClearingSystem\": false,\n                \"emergency\": true\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								""
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Payments Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"batchId\": \"6866411544\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/status",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								"status"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Payments Charges",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"batchPayments\": [\n            {\n                \"to\": {\n                    \"accountIban\": \"{{account_to_iban}}\",\n                    \"accountText\": null,\n                    \"beneficiaryBic\": \"ETHNGRAA\"\n                },\n                \"amount\": 10,\n                \"currency\": \"EUR\",\n                \"type\": \"NBG\",\n                \"chargePolicy\": \"SHA\",\n                \"useSpecialClearingSystem\": false,\n                \"specialClearingSystem\": null,\n                \"emergency\": true\n            },\n            {\n                \"to\": {\n                    \"accountIban\": \"{{account_to_iban}}\",\n                    \"accountText\": null,\n                    \"beneficiaryBic\": \"ETHNGRAA\"\n                },\n                \"amount\": 12,\n                \"currency\": \"EUR\",\n                \"type\": \"NBG\",\n                \"chargePolicy\": \"SHA\",\n                \"useSpecialClearingSystem\": false,\n                \"specialClearingSystem\": null,\n                \"emergency\": true\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/charges",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								"charges"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Standing Orders",
+			"item": [
+				{
+					"name": "NBG",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": \"{{account_to}}\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"smsotp\",\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/nbg",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"nbg"
+							]
+						},
+						"description": "Account details\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": \"{{account_to_iban}}\",\n        \"amount\": 10,\n        \"chargePolicy\": \"SHA\",\n        \"beneficiary\": \"TEST\",\n        \"currency\": \"EUR\",\n        \"description\": \"TEST\",\n\t    \"tanNumber\" : \"smsotp\",\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }   \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"sepa"
+							]
+						},
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"iban\": \"GR1601100400000004012345678\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Non SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": {\n\t\t     \"accountNumber\": \"{{account_to}}\",\n\t\t     \"beneficiaryBic\": \"ETHNGRAA\",\n\t\t     \"beneficiaryName\": \"USER 1\",\n\t\t     \"beneficiaryAddress\": \"Address 1\",\n\t\t     \"country\": \"SE\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"chargePolicy\": \"SHA\",\n        \"description\": \"description\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }      \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/non-sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"non-sepa"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Standing Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"orderNo\": \"67890123456\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/cancel",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"cancel"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
 				}
 			],
 			"description": "Folder for account",
@@ -659,7 +1516,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "a6262673c3880a38c762c886f7ad39503e1c9eb0bf1541e6874a63598ec2b5b9",
+				"value": "7081e8b03e0c8811728eaf4a6e1f490eecbfe0b78130fce100d373d75df3355a",
 				"type": "string"
 			},
 			{
