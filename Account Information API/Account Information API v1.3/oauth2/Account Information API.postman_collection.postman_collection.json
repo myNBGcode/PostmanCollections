@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "71c5f0a7-695a-407f-a939-c70e92c5c423",
+		"_postman_id": "41eb97b6-9ae4-4553-838e-8446f85c25c5",
 		"name": "Account Info API",
 		"description": "Account Info API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -897,53 +897,52 @@
 			"description": "Folder for user"
 		},
 		{
-			"name": "Standing Orders",
+			"name": "Standing orders",
 			"item": [
 				{
-					"name": "Standing Orders List",
+					"name": "List standing orders",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "{{accept}}"
+								"value": "{{accept}}",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "sandbox_id",
-								"type": "text",
-								"value": "{{sandbox_id}}"
+								"value": "{{sandbox_id}}",
+								"type": "text"
 							},
 							{
 								"key": "Client-Id",
-								"type": "text",
-								"value": "{{client_id}}"
+								"value": "{{client_id}}",
+								"type": "text"
 							},
 							{
 								"key": "Request-Id",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
 							},
 							{
 								"key": "Consent-Id",
-								"type": "text",
-								"value": "{{Consent-Id}}"
+								"value": "{{Consent-Id}}",
+								"type": "text"
 							},
 							{
 								"key": "X-Consent-Check",
-								"type": "text",
-								"value": "{{X-Consent-Check}}"
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"header\": \r\n\t{\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"0CBCD8B0-99E7-45D0-ACB5-F5BCB644257F\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": \r\n\t{\r\n\t\t\"account\": \"{{account_number}}\",\r\n\t\t\"dateFrom\": \"2008-03-13T07:38:56.591Z\",\r\n\t\t\"dateTo\": \"2028-03-14T07:38:56.591Z\",\r\n\t\t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/standing-orders/list",
@@ -954,18 +953,17 @@
 								"standing-orders",
 								"list"
 							]
-						},
-						"description": "List of NBG domestic accounts in euro"
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Scheduled Payments",
+			"name": "Scheduled payments",
 			"item": [
 				{
-					"name": "Scheduled Payments List",
+					"name": "List scheduled payments",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -976,7 +974,6 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
 							},
@@ -1008,7 +1005,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"header\": \r\n\t{\r\n\t\t\"ID\": \"{{$guid}}\",\r\n\t\t\"application\": \"0CBCD8B0-99E7-45D0-ACB5-F5BCB644257F\",\r\n\t\t\"bank\": \"string\",\r\n\t\t\"hostSession\": \"string\",\r\n\t\t\"channel\": \"string\",\r\n\t\t\"customer\": 0,\r\n\t\t\"logitude\": 23.854930,\r\n\t\t\"latitude\": 38.020160,\r\n\t\t\"go4moreMember\": true,\r\n\t\t\"TAN\": \"string\"\r\n\t},\r\n\t\"payload\": \r\n\t{\r\n\t\t\"account\": \"{{account_number}}\",\r\n\t\t\"dateFrom\": \"2008-03-13T07:38:56.591Z\",\r\n\t\t\"dateTo\": \"2028-03-14T07:38:56.591Z\",\r\n\t\t\"userId\": \"{{user_id}}\"\r\n\t}\r\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/scheduled-payments/list",
@@ -1019,8 +1016,7 @@
 								"scheduled-payments",
 								"list"
 							]
-						},
-						"description": "List of NBG domestic accounts in euro"
+						}
 					},
 					"response": []
 				}
@@ -1032,7 +1028,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "ef8590a533ddc3c9ffc0b61284b4181e397b91e34a48338195a783fc17d185d6",
+				"value": "dda47e308176184f0d0293eb051cd23d0916010094b2f5b4618dafe625b57a35",
 				"type": "string"
 			},
 			{
