@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "b53f18b1-d637-4158-884a-e6f459ecb149",
+		"name": "UK Funds Confirmations Sandbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consents",
+			"item": [
+				{
+					"name": "Create Consent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a9a0614-571e-4d67-bea0-5a4c7d53199c",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if(data.Data !== undefined)\r",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financial-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Data\": {\n\t\t\"ExpirationDateTime\": \"2019-12-31\",\n\t\t\"DebtorAccount\": {\n\t\t\t\"SchemeName\": \"UK.OBIE.IBAN\",\n\t\t\t\"Identification\": \"GR3201106970000069774934603\"\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/funds-confirmation-consents",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"funds-confirmation-consents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/funds-confirmation-consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"funds-confirmation-consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Consent",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financial-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/funds-confirmation-consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"funds-confirmation-consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funds",
+			"item": [
+				{
+					"name": "Get Available Funds",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-financial-id",
+								"value": "{{financial-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Data\": {\n\t\t\"ConsentId\": \"{{consent-id}}\",\n\t\t\"Reference\": \"REF-123-456\",\n\t\t\"InstructedAmount\": {\n\t\t\t\"Amount\": 10,\n\t\t\t\"Currency\": \"EUR\"\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/funds-confirmations",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"funds-confirmations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "b7aa120d328ffaf0ca72f3593ddf5ec6b05fe8a4a1482559a9307bb9bf7374e2",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d9baea45-d4d3-4a39-909c-bdac1df49483",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "29b45deb-d667-4b5c-95d2-0eadb85296d7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
