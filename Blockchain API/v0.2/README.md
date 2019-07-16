@@ -12,6 +12,18 @@ NBG is implementing a blockchain solution for storing and retrieving API data. T
 
 A business transaction is considered an API transaction that contains one or more documents. A document can be any information of the API transaction, from the whole request body to a specific entry. As stated above, to protect the customer's privacy, the transactions that are about to be stored on the blockchain will be transformed in a one-way manner to a digest. To ensure the one-way transformation, salts will be used. Salts are randomly generated strings that go along with each document and each transaction to make the pre-transformed information unique. Afterward, these salts will be used for the verification process.
 
+### Business Logic 
+The Blockchain API Registry Service will be built on top of NBG's Open Banking platform. The main goal is to give the capability to NBG's API users, to store their API transactions securely on the blockchain. As seen in the picture below, when a third-party use our APIs, if they want, they can store information from their request and response, either the complete transaction or specific information as documents. By the time the transaction is stored on the blockchain, anyone (API user or not) can serve as a validator and verify a transaction. By using this service, the users are confident that their stored transaction cannot be changed due to the blockchain. Also, it is in the users' hands to decide which part of the information will be stored and under which policies, which information, will be retrieved.
+
+![Blockchain API Registry Service](pictures/blockchain_simple_architecture.png)
+
+
+## Transformation Mechanism 
+The transaction that is about to be stored on the blockchain may contain sensitive information. As a result, the information must be transformed in a one-way manner, impossible to reverse engineer. For this reason, every transaction and each sub-document of the transaction will be transformed to a digest (cryptographic hash). Of course, different transactions should have different digests, even if they contain the same data. To ensure the uniqueness of these digests, in every transaction and every document, randomly generated salts will be attached. Afterward, the documents and the transactions will be transformed into digests.
+
+![Transformation Mechanism](pictures/transformation.png)
+
+
 ## The Api
 
 This sandbox API will allow its users to perform the following interactions:
@@ -20,11 +32,11 @@ This sandbox API will allow its users to perform the following interactions:
 
 2. Retrieve and then verify a specific business transaction. "Retrieve" means to get the pre-transformed data, while the "Verify" means to get the salts that used to transform the documents to its matching digests along with these digests. So given the salts, you can transform the data yourself, produce a new matching digest and compare it with the digest stored on the blockchain as a proof of existence for the corresponding business transaction.
 
-3. Verify a specific business transaction knowing the data and salt of the transaction. 
+3. Verify a specific business transaction knowing the data and salt of the transaction. You should parse the UUID of the transaction, all the API data, the salt of the transaction that was used for the transformation and the Smart Contract's name and address.
 
-4. Retrieve and then verify specific documents of a business transaction. You should ask particular document names.
+4. Retrieve and then verify specific documents of a business transaction. You should only ask for particular document names; the rest of the process is similar to operation 2.
 
-5. Verify specific documents of a business transaction by providing the document names, data and corresponding salts. 
+5. Verify specific documents of a business transaction by providing the document names, data and corresponding salts. Similarly to operation 3, you should provide the specific documents (names and data) and their corresponding salts. 
 
 ### Real Life Use Case Scenario
 
