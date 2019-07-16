@@ -15,13 +15,13 @@ A business transaction is considered an API transaction that contains one or mor
 ### Business Logic 
 The Blockchain API Registry Service will be built on top of NBG's Open Banking platform. The main goal is to give the capability to NBG's API users, to store their API transactions securely on the blockchain. As seen in the picture below, when a third-party use our APIs, if they want, they can store information from their request and response, either the complete transaction or specific information as documents. By the time the transaction is stored on the blockchain, anyone (API user or not) can serve as a validator and verify a transaction. By using this service, the users are confident that their stored transaction cannot be changed due to the blockchain. Also, it is in the users' hands to decide which part of the information will be stored and under which policies, which information, will be retrieved.
 
-![Blockchain API Registry Service](pictures/blockchain_simple_architecture.png)
+![Blockchain API Registry Service](pictures/blockchain_simple_architecture.PNG)
 
 
 ## Transformation Mechanism 
 The transaction that is about to be stored on the blockchain may contain sensitive information. As a result, the information must be transformed in a one-way manner, impossible to reverse engineer. For this reason, every transaction and each sub-document of the transaction will be transformed to a digest (cryptographic hash). Of course, different transactions should have different digests, even if they contain the same data. To ensure the uniqueness of these digests, in every transaction and every document, randomly generated salts will be attached. Afterward, the documents and the transactions will be transformed into digests.
 
-![Transformation Mechanism](pictures/transformation.png)
+![Transformation Mechanism](pictures/transformation.PNG)
 
 
 ## The Api
