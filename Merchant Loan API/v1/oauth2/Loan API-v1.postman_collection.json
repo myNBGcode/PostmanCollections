@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "7ff6d814-6425-4396-9989-b065a8ff8ad2",
+		"name": "Loan API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox Service",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sandboxId\": \"{{sandbox_id}}\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandboxId\": \"MySandbox\",\r\n    \"user\": {\r\n        \"userId\": \"ckifonidis\",\r\n        \"phone\": \"6974327980\"\r\n    },\r\n    \"customerData\": {\r\n        \"personalInformation\": {\r\n            \"FirstName\": \"Σωτήρης\",\r\n            \"FirstNameLatin\": \"Sotiris\",\r\n            \"LastName\": \"Παπαδοπουλος\",\r\n            \"LastNameLatin\": \"Papadopoulos\",\r\n            \"Gender\": \"Male\",\r\n            \"FatherName\": \"Γιάννης\",\r\n            \"FatherNameLatin\": \"Giannis\",\r\n            \"FatherLastName\": \"Papadopoulos\",\r\n            \"MotherName\": \"Μαρία\",\r\n            \"DateOfBirth\": \"1990-01-01T00:00:00.000Z\",\r\n            \"LocationOfBirth\": \"Αθήνα\",\r\n            \"SocialSecurityNumber\": \"12345\",\r\n            \"TaxOfficeNumber\": \"567890\",\r\n            \"TaxOffice\": \"Α ΔΟΥ Πειραιά\",\r\n            \"PPP\": true\r\n        },\r\n        \"contactInformation\": {\r\n            \"street\": \"Μεσογείων\",\r\n            \"number\": \"123\",\r\n            \"postalCode\": \"12312\",\r\n            \"municipality\": \"Αθήνα\",\r\n            \"country\": \"Ελλάδα\",\r\n            \"phoneNumber\": \"210123123123\",\r\n            \"email\": \"someone@mail.gr\"\r\n        },\r\n        \"workInformation\": {\r\n            \"occupation\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n            \"occupationCategory\": \"Πληροφορική\",\r\n            \"profession\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n            \"employer\": \"ΕΤΕ\",\r\n            \"jobDescription\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n            \"employmentType\": \"Πλήρους απασχόλησης\",\r\n            \"expirationDate\": \"2019-12-31T00:00:00.000Z\"\r\n        },\r\n        \"familyInformation\": {\r\n            \"maritalStatus\": \"Single\",\r\n            \"dependentMembers\": 0,\r\n            \"spouseFirstName\": null,\r\n            \"spouseLastName\": null,\r\n            \"commonTaxStatement\": false\r\n        },\r\n        \"residentialInformation\": {\r\n            \"street\": \"Μεσογείων\",\r\n            \"number\": \"123\",\r\n            \"postalCode\": \"12312\",\r\n            \"municipality\": \"Αθήνα\",\r\n            \"country\": \"Ελλάδα\",\r\n            \"phoneNumber\": \"210123123123\",\r\n            \"mobilePhoneNumber\": \"698111111111\",\r\n            \"residenceType\": \"\"\r\n        },\r\n        \"financialInformation\": {\r\n            \"declaredPersonalIncome\": 10000.0,\r\n            \"declaredFamilyIncome\": 15000.0,\r\n            \"independentlyTaxableIncome\": 0.0,\r\n            \"taxYear\": 2019,\r\n            \"incomeDeclarationNumber\": \"123\"\r\n        },\r\n        \"workExperience\": {\r\n            \"currentJobExperience\": 3\r\n        },\r\n        \"workAddress\": {\r\n            \"street\": \"Κιφησίας\",\r\n            \"number\": \"456\",\r\n            \"postalCode\": \"45645\",\r\n            \"municipality\": \"Αθήνα\",\r\n            \"country\": \"Ελλάδα\",\r\n            \"phoneNumber\": \"21046456546\"\r\n        },\r\n        \"identificationInformation\": {\r\n            \"type\": \"ΑΣΤΥΝΟΜΙΚΗ ΤΑΥΤΟΤΗΤΑ\",\r\n            \"number\": \"ΑΘ124223\",\r\n            \"issueDate\": \"2001-03-05T00:00:00.000Z\",\r\n            \"expirationDate\": \"2059-02-02T00:00:00.000Z\",\r\n            \"issuingAuthority\": \"ΑΣΤΥΝΟΜΙΚΟ ΤΜΗΜΑ\",\r\n            \"issuer\": \"AT Εξαρχείων\",\r\n            \"issuerCountry\": \"Ελλάδα\",\r\n            \"citizenship\": \"Ελληνική\",\r\n            \"legalCapacity\": true\r\n        }\r\n    },\r\n    \"otpDocsCode\": \"123123\",\r\n    \"otpContractCode\": \"123456\",\r\n    \"applications\": [\r\n        {\r\n            \"status\": \"BindCustomerDataOk\",\r\n            \"applicationNumber\": \"270747742\",\r\n            \"customerData\": {\r\n                \"personalInformation\": {\r\n                    \"FirstName\": \"Σωτήρης\",\r\n                    \"FirstNameLatin\": \"Sotiris\",\r\n                    \"LastName\": \"Παπαδοπουλος\",\r\n                    \"LastNameLatin\": \"Papadopoulos\",\r\n                    \"Gender\": \"Male\",\r\n                    \"FatherName\": \"Γιάννης\",\r\n                    \"FatherNameLatin\": \"Giannis\",\r\n                    \"FatherLastName\": \"Papadopoulos\",\r\n                    \"MotherName\": \"Μαρία\",\r\n                    \"DateOfBirth\": \"1990-01-01T00:00:00.000Z\",\r\n                    \"LocationOfBirth\": \"Αθήνα\",\r\n                    \"SocialSecurityNumber\": \"12345\",\r\n                    \"TaxOfficeNumber\": \"567890\",\r\n                    \"TaxOffice\": \"Α ΔΟΥ Πειραιά\",\r\n                    \"PPP\": true\r\n                },\r\n                \"contactInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"email\": \"someone@mail.gr\"\r\n                },\r\n                \"workInformation\": {\r\n                    \"occupation\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"occupationCategory\": \"Πληροφορική\",\r\n                    \"profession\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employer\": \"ΕΤΕ\",\r\n                    \"jobDescription\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employmentType\": \"Πλήρους απασχόλησης\",\r\n                    \"expirationDate\": \"2019-12-31T00:00:00.000Z\"\r\n                },\r\n                \"familyInformation\": {\r\n                    \"maritalStatus\": \"Single\",\r\n                    \"dependentMembers\": 0,\r\n                    \"spouseFirstName\": null,\r\n                    \"spouseLastName\": null,\r\n                    \"commonTaxStatement\": false\r\n                },\r\n                \"residentialInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"mobilePhoneNumber\": \"698111111111\",\r\n                    \"residenceType\": \"\"\r\n                },\r\n                \"financialInformation\": {\r\n                    \"declaredPersonalIncome\": 10000.0,\r\n                    \"declaredFamilyIncome\": 15000.0,\r\n                    \"independentlyTaxableIncome\": 0.0,\r\n                    \"taxYear\": 2019,\r\n                    \"incomeDeclarationNumber\": \"123\"\r\n                },\r\n                \"workExperience\": {\r\n                    \"currentJobExperience\": 3\r\n                },\r\n                \"workAddress\": {\r\n                    \"street\": \"Κιφησίας\",\r\n                    \"number\": \"456\",\r\n                    \"postalCode\": \"45645\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"21046456546\"\r\n                },\r\n                \"identificationInformation\": {\r\n                    \"type\": \"ΑΣΤΥΝΟΜΙΚΗ ΤΑΥΤΟΤΗΤΑ\",\r\n                    \"number\": \"ΑΘ124223\",\r\n                    \"issueDate\": \"2001-03-05T00:00:00.000Z\",\r\n                    \"expirationDate\": \"2059-02-02T00:00:00.000Z\",\r\n                    \"issuingAuthority\": \"ΑΣΤΥΝΟΜΙΚΟ ΤΜΗΜΑ\",\r\n                    \"issuer\": \"AT Εξαρχείων\",\r\n                    \"issuerCountry\": \"Ελλάδα\",\r\n                    \"citizenship\": \"Ελληνική\",\r\n                    \"legalCapacity\": true\r\n                }\r\n            },\r\n            \"userId\": \"ckifonidis\"\r\n        },\r\n        {\r\n            \"status\": \"LoanContractConfirmedOk\",\r\n            \"applicationNumber\": \"883617311\",\r\n            \"customerData\": {\r\n                \"personalInformation\": {\r\n                    \"FirstName\": \"Σωτήρης\",\r\n                    \"FirstNameLatin\": \"Sotiris\",\r\n                    \"LastName\": \"Παπαδοπουλος\",\r\n                    \"LastNameLatin\": \"Papadopoulos\",\r\n                    \"Gender\": \"Male\",\r\n                    \"FatherName\": \"Γιάννης\",\r\n                    \"FatherNameLatin\": \"Giannis\",\r\n                    \"FatherLastName\": \"Papadopoulos\",\r\n                    \"MotherName\": \"Μαρία\",\r\n                    \"DateOfBirth\": \"1990-01-01T00:00:00.000Z\",\r\n                    \"LocationOfBirth\": \"Αθήνα\",\r\n                    \"SocialSecurityNumber\": \"12345\",\r\n                    \"TaxOfficeNumber\": \"567890\",\r\n                    \"TaxOffice\": \"Α ΔΟΥ Πειραιά\",\r\n                    \"PPP\": true\r\n                },\r\n                \"contactInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"email\": \"someone@mail.gr\"\r\n                },\r\n                \"workInformation\": {\r\n                    \"occupation\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"occupationCategory\": \"Πληροφορική\",\r\n                    \"profession\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employer\": \"ΕΤΕ\",\r\n                    \"jobDescription\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employmentType\": \"Πλήρους απασχόλησης\",\r\n                    \"expirationDate\": \"2019-12-31T00:00:00.000Z\"\r\n                },\r\n                \"familyInformation\": {\r\n                    \"maritalStatus\": \"Single\",\r\n                    \"dependentMembers\": 0,\r\n                    \"spouseFirstName\": null,\r\n                    \"spouseLastName\": null,\r\n                    \"commonTaxStatement\": false\r\n                },\r\n                \"residentialInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"mobilePhoneNumber\": \"698111111111\",\r\n                    \"residenceType\": \"\"\r\n                },\r\n                \"financialInformation\": {\r\n                    \"declaredPersonalIncome\": 10000.0,\r\n                    \"declaredFamilyIncome\": 15000.0,\r\n                    \"independentlyTaxableIncome\": 0.0,\r\n                    \"taxYear\": 2019,\r\n                    \"incomeDeclarationNumber\": \"123\"\r\n                },\r\n                \"workExperience\": {\r\n                    \"currentJobExperience\": 3\r\n                },\r\n                \"workAddress\": {\r\n                    \"street\": \"Κιφησίας\",\r\n                    \"number\": \"456\",\r\n                    \"postalCode\": \"45645\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"21046456546\"\r\n                },\r\n                \"identificationInformation\": {\r\n                    \"type\": \"ΑΣΤΥΝΟΜΙΚΗ ΤΑΥΤΟΤΗΤΑ\",\r\n                    \"number\": \"ΑΘ124223\",\r\n                    \"issueDate\": \"2001-03-05T00:00:00.000Z\",\r\n                    \"expirationDate\": \"2059-02-02T00:00:00.000Z\",\r\n                    \"issuingAuthority\": \"ΑΣΤΥΝΟΜΙΚΟ ΤΜΗΜΑ\",\r\n                    \"issuer\": \"AT Εξαρχείων\",\r\n                    \"issuerCountry\": \"Ελλάδα\",\r\n                    \"citizenship\": \"Ελληνική\",\r\n                    \"legalCapacity\": true\r\n                }\r\n            },\r\n            \"userId\": \"ckifonidis\"\r\n        },\r\n        {\r\n            \"status\": \"ApplicationApproved\",\r\n            \"applicationNumber\": \"656018152\",\r\n            \"customerData\": {\r\n                \"personalInformation\": {\r\n                    \"FirstName\": \"Σωτήρης\",\r\n                    \"FirstNameLatin\": \"Sotiris\",\r\n                    \"LastName\": \"Παπαδοπουλος\",\r\n                    \"LastNameLatin\": \"Papadopoulos\",\r\n                    \"Gender\": \"Male\",\r\n                    \"FatherName\": \"Γιάννης\",\r\n                    \"FatherNameLatin\": \"Giannis\",\r\n                    \"FatherLastName\": \"Papadopoulos\",\r\n                    \"MotherName\": \"Μαρία\",\r\n                    \"DateOfBirth\": \"1990-01-01T00:00:00.000Z\",\r\n                    \"LocationOfBirth\": \"Αθήνα\",\r\n                    \"SocialSecurityNumber\": \"12345\",\r\n                    \"TaxOfficeNumber\": \"567890\",\r\n                    \"TaxOffice\": \"Α ΔΟΥ Πειραιά\",\r\n                    \"PPP\": true\r\n                },\r\n                \"contactInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"email\": \"someone@mail.gr\"\r\n                },\r\n                \"workInformation\": {\r\n                    \"occupation\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"occupationCategory\": \"Πληροφορική\",\r\n                    \"profession\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employer\": \"ΕΤΕ\",\r\n                    \"jobDescription\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n                    \"employmentType\": \"Πλήρους απασχόλησης\",\r\n                    \"expirationDate\": \"2019-12-31T00:00:00.000Z\"\r\n                },\r\n                \"familyInformation\": {\r\n                    \"maritalStatus\": \"Single\",\r\n                    \"dependentMembers\": 0,\r\n                    \"spouseFirstName\": null,\r\n                    \"spouseLastName\": null,\r\n                    \"commonTaxStatement\": false\r\n                },\r\n                \"residentialInformation\": {\r\n                    \"street\": \"Μεσογείων\",\r\n                    \"number\": \"123\",\r\n                    \"postalCode\": \"12312\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"210123123123\",\r\n                    \"mobilePhoneNumber\": \"698111111111\",\r\n                    \"residenceType\": \"\"\r\n                },\r\n                \"financialInformation\": {\r\n                    \"declaredPersonalIncome\": 10000.0,\r\n                    \"declaredFamilyIncome\": 15000.0,\r\n                    \"independentlyTaxableIncome\": 0.0,\r\n                    \"taxYear\": 2019,\r\n                    \"incomeDeclarationNumber\": \"123\"\r\n                },\r\n                \"workExperience\": {\r\n                    \"currentJobExperience\": 3\r\n                },\r\n                \"workAddress\": {\r\n                    \"street\": \"Κιφησίας\",\r\n                    \"number\": \"456\",\r\n                    \"postalCode\": \"45645\",\r\n                    \"municipality\": \"Αθήνα\",\r\n                    \"country\": \"Ελλάδα\",\r\n                    \"phoneNumber\": \"21046456546\"\r\n                },\r\n                \"identificationInformation\": {\r\n                    \"type\": \"ΑΣΤΥΝΟΜΙΚΗ ΤΑΥΤΟΤΗΤΑ\",\r\n                    \"number\": \"ΑΘ124223\",\r\n                    \"issueDate\": \"2001-03-05T00:00:00.000Z\",\r\n                    \"expirationDate\": \"2059-02-02T00:00:00.000Z\",\r\n                    \"issuingAuthority\": \"ΑΣΤΥΝΟΜΙΚΟ ΤΜΗΜΑ\",\r\n                    \"issuer\": \"AT Εξαρχείων\",\r\n                    \"issuerCountry\": \"Ελλάδα\",\r\n                    \"citizenship\": \"Ελληνική\",\r\n                    \"legalCapacity\": true\r\n                }\r\n            },\r\n            \"userId\": \"ckifonidis\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Online Flow",
+			"item": [
+				{
+					"name": "Initialize Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cb1f98c-d128-4c81-8e6f-5fe0f4a05daa",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"applicationNumber\", jsonData.applicationNumber);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"installments\": 5,\n\t\"amount\": 123.24\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bind Customer Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/bind-customer-data",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"bind-customer-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Precontractual Documents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"taxStatement\":\"asdasda\",\r\n   \"customerData\":{\r\n    \"personalInformation\": {\r\n        \"FirstName\": \"Σωτήρης\",\r\n        \"FirstNameLatin\": \"Sotiris\",\r\n        \"LastName\": \"Παπαδοπουλος\",\r\n        \"LastNameLatin\": \"Papadopoulos\",\r\n        \"Gender\": \"Male\",\r\n        \"FatherName\": \"Γιάννης\",\r\n        \"FatherNameLatin\": \"Giannis\",\r\n        \"FatherLastName\": \"Papadopoulos\",\r\n        \"MotherName\": \"Μαρία\",\r\n        \"DateOfBirth\": \"1990-01-01T00:00:00.000Z\",\r\n        \"LocationOfBirth\": \"Αθήνα\",\r\n        \"SocialSecurityNumber\": \"12345\",\r\n        \"TaxOfficeNumber\": \"567890\",\r\n        \"TaxOffice\": \"Α ΔΟΥ Πειραιά\",\r\n        \"PPP\": true\r\n    },\r\n    \"contactInformation\": {\r\n        \"street\": \"Μεσογείων\",\r\n        \"number\": \"123\",\r\n        \"postalCode\": \"12312\",\r\n        \"municipality\": \"Αθήνα\",\r\n        \"country\": \"Ελλάδα\",\r\n        \"phoneNumber\": \"210123123123\",\r\n        \"email\": \"someone@mail.gr\"\r\n    },\r\n    \"workInformation\": {\r\n        \"occupation\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n        \"occupationCategory\": \"Πληροφορική\",\r\n        \"profession\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n        \"employer\": \"ΕΤΕ\",\r\n        \"jobDescription\": \"Προγραμματιστής Ηλεκτρονικών υπολογιστών\",\r\n        \"employmentType\": \"Πλήρους απασχόλησης\",\r\n        \"expirationDate\": \"2019-12-31T00:00:00.000Z\"\r\n    },\r\n    \"familyInformation\": {\r\n        \"maritalStatus\": \"Single\",\r\n        \"dependentMembers\": 0,\r\n        \"spouseFirstName\": null,\r\n        \"spouseLastName\": null,\r\n        \"commonTaxStatement\": false\r\n    },\r\n    \"residentialInformation\": {\r\n        \"street\": \"Μεσογείων\",\r\n        \"number\": \"123\",\r\n        \"postalCode\": \"12312\",\r\n        \"municipality\": \"Αθήνα\",\r\n        \"country\": \"Ελλάδα\",\r\n        \"phoneNumber\": \"210123123123\",\r\n        \"mobilePhoneNumber\": \"698111111111\",\r\n        \"residenceType\": \"\"\r\n    },\r\n    \"financialInformation\": {\r\n        \"declaredPersonalIncome\": 10000.0,\r\n        \"declaredFamilyIncome\": 15000.0,\r\n        \"independentlyTaxableIncome\": 0.0,\r\n        \"taxYear\": 2019,\r\n        \"incomeDeclarationNumber\": \"123\"\r\n    },\r\n    \"workExperience\": {\r\n        \"currentJobExperience\": 3\r\n    },\r\n    \"workAddress\": {\r\n        \"street\": \"Κιφησίας\",\r\n        \"number\": \"456\",\r\n        \"postalCode\": \"45645\",\r\n        \"municipality\": \"Αθήνα\",\r\n        \"country\": \"Ελλάδα\",\r\n        \"phoneNumber\": \"21046456546\"\r\n    },\r\n    \"identificationInformation\": {\r\n        \"type\": \"ΑΣΤΥΝΟΜΙΚΗ ΤΑΥΤΟΤΗΤΑ\",\r\n        \"number\": \"ΑΘ124223\",\r\n        \"issueDate\": \"2001-03-05T00:00:00.000Z\",\r\n        \"expirationDate\": \"2059-02-02T00:00:00.000Z\",\r\n        \"issuingAuthority\": \"ΑΣΤΥΝΟΜΙΚΟ ΤΜΗΜΑ\",\r\n        \"issuer\": \"AT Εξαρχείων\",\r\n        \"issuerCountry\": \"Ελλάδα\",\r\n        \"citizenship\": \"Ελληνική\",\r\n        \"legalCapacity\": true\r\n    }\r\n}\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/generate-precontractual-documents",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"generate-precontractual-documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Precontractual Documents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/download-precontractual-documents",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"download-precontractual-documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confrim Precontractual Documents Step 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"precontractualDocument1\": true,\n\t\"precontractualDocument2\": true,\n\t\"precontractualDocument3\": true,\n\t\"otp\": \"SmsOtp\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/confirm-precontractual-documents",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"confirm-precontractual-documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confrim Precontractual Documents Step 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"precontractualDocument1\": true,\n\t\"precontractualDocument2\": true,\n\t\"precontractualDocument3\": true,\n\t\"otp\": \"123123\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/confirm-precontractual-documents",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"confirm-precontractual-documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Loan Contract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4bcbf87-948d-4e37-abba-b53e3a817f73",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"contractDocument\", jsonData.data);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/download-loan-contract",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"download-loan-contract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Loan Contract Sign Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"{{contractDocument}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/loan-contract-sign-request",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"loan-contract-sign-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Loan Contract Sign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"otp\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/loan-contract-sign",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"loan-contract-sign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Loan Contract Signed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"precontractualDocument1\": true,\n\t\"precontractualDocument2\": true,\n\t\"precontractualDocument3\": true,\n\t\"otp\": \"123123\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/applications/{{applicationNumber}}/download-loan-contract-signed",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationNumber}}",
+								"download-loan-contract-signed"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "01d0057a-563a-490c-90a9-fa4f4f05c1bb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceeef488-e813-43d6-a6ab-d936eac48a00",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "fb4ac56051986e7499c3ecca59c2db2064fbfa0e59e9101537697db453ad754f",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2f952eb8-d663-4ed8-ab0c-9fe6d3a1a52d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "26d3107f-1021-4443-87a5-3653fdb1952b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
