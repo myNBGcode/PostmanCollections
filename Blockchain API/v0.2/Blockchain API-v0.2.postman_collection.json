@@ -6,6 +6,60 @@
 	},
 	"item": [
 		{
+			"name": "Create sandbox",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Client-Id",
+						"value": "{{client-id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sandboxId\":\"{{sandbox-id}}\"\n\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/sandbox",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sandbox"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "update sandbox",
 			"request": {
 				"auth": {
@@ -55,60 +109,6 @@
 					"path": [
 						"sandbox",
 						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create sandbox",
-			"request": {
-				"auth": {
-					"type": "oauth2",
-					"oauth2": [
-						{
-							"key": "accessToken",
-							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
-							"type": "string"
-						},
-						{
-							"key": "tokenType",
-							"value": "Bearer",
-							"type": "string"
-						},
-						{
-							"key": "addTokenTo",
-							"value": "header",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Client-Id",
-						"value": "{{client-id}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"sandboxId\":\"{{sandbox-id}}\"\n\n}"
-				},
-				"url": {
-					"raw": "https://{{host}}/sandbox",
-					"protocol": "https",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"sandbox"
 					]
 				}
 			},
@@ -251,7 +251,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"uuid\": \"b4143ef3-7dfe-414e-a017-fe9a5f88e672\",\r\n  \r\n    \r\n      \"documents\": [\r\n        {\r\n          \"name\": \"req.field1\",\r\n          \"data\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        {\r\n          \"name\": \"req.field2\",\r\n          \"data\": \"EUR\"\r\n        },\r\n        {\r\n        \t\"name\":\"req.field3\",\r\n        \t\"data\":\"900\"\r\n        },\r\n        {\r\n        \t\"name\":\"resp.field4\",\r\n        \t\"data\":\"success\"\r\n        }\r\n        ],\r\n        \"saltHex\":\"0xc20388d7d3bb09a9cea7cb19d6dc26a50fb1e4492a1db6afb6be5a3b55eb1c4d\",\r\n  \"contract\": {\r\n    \"className\": \"BtrxlogEthereumContract_v1\",\r\n    \"addressHex\": \"0xbd83a3a6d0709b02eeb32f923d62bfe3e5cb59f5\"\r\n  },\r\n  \"ethereumConnectionConfig\": {\r\n    \"clientUrl\": \"http://172.36.79.57:8545/\",\r\n    \"accountPrivateKey\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\r\n  }\r\n}"
+					"raw": "{\r\n  \"uuid\": \"ba534cc4-359f-4945-bcb8-1dc2997cb194\",\r\n  \r\n    \r\n      \"documents\": [\r\n        {\r\n          \"name\": \"req.field1\",\r\n          \"data\": \"GR4501457684503004564000103433467\"\r\n        },\r\n        {\r\n          \"name\": \"req.field2\",\r\n          \"data\": \"EUR\"\r\n        },\r\n        {\r\n        \t\"name\":\"req.field3\",\r\n        \t\"data\":\"900\"\r\n        },\r\n        {\r\n        \t\"name\":\"resp.field4\",\r\n        \t\"data\":\"success\"\r\n        }\r\n        ],\r\n        \"saltHex\":\"0xc20388d7d3bb09a9cea7cb19d6dc26a50fb1e4492a1db6afb6be5a3b55eb1c4d\",\r\n  \"contract\": {\r\n    \"className\": \"BtrxlogEthereumContract_v1\",\r\n    \"addressHex\": \"0xbd83a3a6d0709b02eeb32f923d62bfe3e5cb59f5\"\r\n  }\r\n}"
 				},
 				"url": {
 					"raw": "https://{{host}}/blockchain/Transaction/verifyGiven",
@@ -292,7 +292,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"uuid\": \"b41ecaa0-009a-44d9-beed-4e533a8f1a5f\"\r\n  \r\n}"
+					"raw": "{\r\n  \"uuid\": \"ba534cc4-359f-4945-bcb8-1dc2997cb194\"\r\n  \r\n}"
 				},
 				"url": {
 					"raw": "https://{{host}}/blockchain/transaction/retrieveThenVerify",
@@ -368,7 +368,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"uuid\": \"b4143ef3-7dfe-414e-a017-fe9a5f88e672\",\r\n  \"saltedDocuments\": [\r\n    {\r\n      \"document\": {\r\n        \"name\": \"req.field1\",\r\n        \"data\": \"GR3368165681546834531546836313151\"\r\n      },\r\n      \"saltHex\": \"0x6e02bf01fa9ee1560216667402ad0f2ab90b625241d5d2acb93860c4a4d15aaf\"\r\n    },\r\n    {\r\n      \"document\": {\r\n        \"name\": \"req.field2\",\r\n        \"data\": \"262.2\"\r\n      },\r\n      \"saltHex\": \"0x1dc77e10deb3e5441e91deceec0801a8a2fae92b9497d8f287197035f4934376\"\r\n    }\r\n  ],\r\n  \"contract\": {\r\n    \"className\": \"BtrxlogEthereumContract_v1\",\r\n    \"addressHex\": \"0xbd83a3a6d0709b02eeb32f923d62bfe3e5cb59f5\"\r\n  },\r\n  \"ethereumConnectionConfig\": {\r\n    \"clientUrl\": \"http://172.36.79.57:8545/\",\r\n    \"accountPrivateKey\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\r\n  }\r\n}"
+					"raw": "{\r\n  \"uuid\": \"ba534cc4-359f-4945-bcb8-1dc2997cb194\",\r\n  \"saltedDocuments\": [\r\n    {\r\n      \"document\": {\r\n        \"name\": \"req.field1\",\r\n        \"data\": \"GR4501457684503004564000103433467\"\r\n      },\r\n      \"saltHex\": \"0x75c26a1f42c279468805e8ad6cef1284ee5f390d917d56745bb13f77e66c5aae\"\r\n    },\r\n    {\r\n      \"document\": {\r\n        \"name\": \"req.field2\",\r\n        \"data\": \"EUR\"\r\n      },\r\n      \"saltHex\": \"0x29d6daa9e498e4811c709eff91bf28603f4bad9e7df8fc598d3281fb2e844043\"\r\n    }\r\n  ],\r\n  \"contract\": {\r\n    \"className\": \"BtrxlogEthereumContract_v1\",\r\n    \"addressHex\": \"0xbd83a3a6d0709b02eeb32f923d62bfe3e5cb59f5\"\r\n }\r\n}"
 				},
 				"url": {
 					"raw": "https://{{host}}/blockchain/document/verifyGiven",
@@ -429,7 +429,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"uuid\": \"ba534cc4-359f-4945-bcb8-1dc2997cb194\",\r\n  \"docnames\":[\"req.field1\",\"req.field4\"]\r\n \r\n}"
+					"raw": "{\r\n  \"uuid\": \"ba534cc4-359f-4945-bcb8-1dc2997cb194\",\r\n  \"docnames\":[\"req.field1\",\"resp.field4\"]\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://{{host}}/blockchain/Document/retrieveThenVerify",
