@@ -13,7 +13,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
+							"value": "replace_with_your_token",
 							"type": "string"
 						},
 						{
@@ -125,7 +125,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
+							"value": "replace_with_your_token",
 							"type": "string"
 						},
 						{
@@ -180,7 +180,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
+							"value": "replace_with_your_token",
 							"type": "string"
 						},
 						{
@@ -393,7 +393,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "fdc02909d2c7ed7b07dc9cead71402c6853b0b49ad474bf039d8b3a7f4e74097",
+							"value": "replace_with_your_token",
 							"type": "string"
 						},
 						{

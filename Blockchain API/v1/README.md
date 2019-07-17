@@ -49,7 +49,7 @@ Suppose that Company A uses checks to pay its partner Company B. In order for A 
 Your first job is to create a sandbox and save your sandbox_id in order to be able to interact with the API.
 
 We will create our sandbox by making an HTTP POST request to the following URL:
-[http://apis.nbg.gr/public/sandbox/blockchain/v0/sandbox](http://apis.nbg.gr/public/sandbox/blockchain/v0/sandbox)
+[https://apis.nbg.gr/sandbox/blockchain/headers/v1/sandbox](https://apis.nbg.gr/sandbox/blockchain/headers/v1/sandbox)
 
 Request Body:
 ```
