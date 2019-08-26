@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "41eb97b6-9ae4-4553-838e-8446f85c25c5",
+		"_postman_id": "2718e8b2-d28c-4320-928a-39e47bc644d7",
 		"name": "Account Info API",
 		"description": "Account Info API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -185,6 +185,97 @@
 			"item": [
 				{
 					"name": "Generate consent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c432f91a-1be5-4381-9673-442089284fc6",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "04fde41b-99bb-49d0-b855-6f487eca5bd3",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var consentid = jsonData.payload.consentId\r",
+									"pm.environment.set(\"Consent-Id\", consentid);\r",
+									"\r",
+									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
+									"\r",
+									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -211,13 +302,28 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{application_Id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/request-access",
@@ -235,6 +341,81 @@
 				},
 				{
 					"name": "Get consent information",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "482f518d-59ad-417e-8aa9-c075958a6a97",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -261,13 +442,28 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/info",
@@ -285,6 +481,95 @@
 				},
 				{
 					"name": "Delete consent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "783cc610-ad17-4761-aad9-5b20bab85105",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "812e9d8a-7ad2-47e0-bdbc-21c968333e2f",
+								"exec": [
+									"var consentid =  pm.environment.get(\"Consent-Id\");\r",
+									"\r",
+									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
+									"\r",
+									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -311,7 +596,22 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
 								"type": "text"
 							}
 						],
@@ -340,6 +640,81 @@
 			"item": [
 				{
 					"name": "List Accounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6a7ad1d3-2791-4049-82e0-08148b485094",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -366,7 +741,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -378,11 +753,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/account/list",
@@ -400,6 +790,81 @@
 				},
 				{
 					"name": "Account details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1d253965-5e2d-4e5d-bff9-1f392932082c",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -425,7 +890,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -437,11 +902,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/account/details",
@@ -459,6 +939,81 @@
 				},
 				{
 					"name": "List Beneficiaries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c9aad094-b9b0-477e-8cbb-c636bed80a4e",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -484,7 +1039,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -496,11 +1051,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"iban\": \"{{iban}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"iban\": \"GR5301106780000067890123456\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/account/beneficiaries",
@@ -518,6 +1088,81 @@
 				},
 				{
 					"name": "List Transactions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "88d37c25-6025-4a61-8b6c-6c27bb3e84c5",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -543,7 +1188,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -555,11 +1200,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/account/transactions",
@@ -605,6 +1265,81 @@
 			"item": [
 				{
 					"name": "List Accounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "39d6295d-96ed-44af-9f04-83608dd759ff",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -630,7 +1365,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -642,11 +1377,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/foreign-currency-account/list",
@@ -664,6 +1414,81 @@
 				},
 				{
 					"name": "Account details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4e8302d8-6052-4c77-b4c6-5d637f1b0997",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -689,7 +1514,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -701,11 +1526,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/foreign-currency-account/details",
@@ -723,6 +1563,81 @@
 				},
 				{
 					"name": "List Beneficiaries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "39d70635-4a10-4b4e-82e3-819e1b5d5262",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -748,7 +1663,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -760,11 +1675,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/foreign-currency-account/beneficiaries",
@@ -782,6 +1712,81 @@
 				},
 				{
 					"name": "List Transcations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1bc87958-8f87-4161-bf3f-326088be8a33",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -807,7 +1812,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -819,11 +1824,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/foreign-currency-account/transactions",
@@ -873,6 +1893,21 @@
 								"key": "Request-Id",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -901,6 +1936,81 @@
 			"item": [
 				{
 					"name": "List standing orders",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "73607062-0e48-4ddf-84ba-ba4586743827",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -926,7 +2036,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
+								"value": "{{request_guid}}",
 								"type": "text"
 							},
 							{
@@ -938,11 +2048,26 @@
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
 								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/standing-orders/list",
@@ -964,6 +2089,81 @@
 			"item": [
 				{
 					"name": "List scheduled payments",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ed60a21f-c655-4d9d-b388-eb9ab8828b6b",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -990,7 +2190,7 @@
 							{
 								"key": "Request-Id",
 								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{request_guid}}"
 							},
 							{
 								"key": "Consent-Id",
@@ -1001,11 +2201,26 @@
 								"key": "X-Consent-Check",
 								"type": "text",
 								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/scheduled-payments/list",
@@ -1028,7 +2243,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "dda47e308176184f0d0293eb051cd23d0916010094b2f5b4618dafe625b57a35",
+				"value": "404bcc2a443a0b29b12ca66673efb9a0e514caaadc6b1e05c4ea24798ed70545",
 				"type": "string"
 			},
 			{
