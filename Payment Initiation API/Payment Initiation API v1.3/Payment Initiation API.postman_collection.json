@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "2718e8b2-d28c-4320-928a-39e47bc644d7",
-		"name": "Account Info API",
-		"description": "Account Info API",
+		"_postman_id": "76451685-32c1-4149-9e7b-423e17d0fc05",
+		"name": "Payments Initiation API",
+		"description": "Payments Initiation API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -20,13 +20,13 @@
 							},
 							{
 								"key": "Client-Id",
-								"type": "text",
-								"value": "{{client_id}}"
+								"value": "{{client_id}}",
+								"type": "text"
 							},
 							{
 								"key": "Request-Id",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -185,97 +185,6 @@
 			"item": [
 				{
 					"name": "Generate consent",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "c432f91a-1be5-4381-9673-442089284fc6",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "04fde41b-99bb-49d0-b855-6f487eca5bd3",
-								"exec": [
-									"var jsonData = pm.response.json();\r",
-									"var consentid = jsonData.payload.consentId\r",
-									"pm.environment.set(\"Consent-Id\", consentid);\r",
-									"\r",
-									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
-									"\r",
-									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -302,22 +211,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
+								"value": "{{$guid}}",
 								"type": "text"
 							},
 							{
@@ -338,11 +232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
-=======
 							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/request-access",
@@ -360,81 +250,6 @@
 				},
 				{
 					"name": "Get consent information",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "482f518d-59ad-417e-8aa9-c075958a6a97",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -461,22 +276,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
+								"value": "{{$guid}}",
 								"type": "text"
 							},
 							{
@@ -497,11 +297,7 @@
 						],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
-=======
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n\t\t\"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/info",
@@ -519,95 +315,6 @@
 				},
 				{
 					"name": "Delete consent",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "783cc610-ad17-4761-aad9-5b20bab85105",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "812e9d8a-7ad2-47e0-bdbc-21c968333e2f",
-								"exec": [
-									"var consentid =  pm.environment.get(\"Consent-Id\");\r",
-									"\r",
-									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
-									"\r",
-									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -634,22 +341,7 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
+								"value": "{{$guid}}",
 								"type": "text"
 							},
 							{
@@ -689,85 +381,10 @@
 			]
 		},
 		{
-			"name": "Account",
+			"name": "Payment",
 			"item": [
 				{
-					"name": "List Accounts",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "6a7ad1d3-2791-4049-82e0-08148b485094",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Transfer Charges",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -775,37 +392,333 @@
 								"key": "Accept",
 								"value": "{{accept}}",
 								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": {\n            \"accountIban\": \"{{account_to_iban}}\",\n            \"accountText\": null,\n            \"beneficiaryBic\": \"ETHNGRAA\"\n        },\n        \"amount\": 15001,\n        \"currency\": \"EUR\",\n        \"type\": \"NBG\",\n        \"chargePolicy\": \"OUR\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n        \"emergency\": true\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/transfer-charges",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"transfer-charges"
+							]
+						},
+						"description": "Calculates the expenses of a transfer"
+					},
+					"response": []
+				},
+				{
+					"name": "NBG Transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"tanNumber\": \"smsotp\",\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": \"{{account_to}}\",\n        \"amount\": 1,\n        \"description\": \"Transfer description\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/nbg-transfer",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"nbg-transfer"
+							]
+						},
+						"description": "Transfer between NBG accounts using the 11 digit account format"
+					},
+					"response": []
+				},
+				{
+					"name": "SEPA Transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"tanNumber\": \"smsotp\",\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": \"{{account_to_iban}}\",\n        \"amount\": 10,\n        \"chargePolicy\": \"SHA\",\n        \"beneficiary\": \"TEST\",\n        \"currency\": \"EUR\",\n        \"description\": \"TEST\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/sepa-transfer",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"sepa-transfer"
+							]
+						},
+						"description": "Transfer using IBAN destination account format, destination account can be either NBG or any other bank participating in SEPA payment types e.g Eurobank"
+					},
+					"response": []
+				},
+				{
+					"name": "Non SEPA Transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"tanNumber\": \"smsotp\",\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": {\n            \"accountNumber\": \"{{account_to}}\",\n            \"beneficiaryBic\": \"ETHNGRAA\",\n            \"beneficiaryName\": \"USER 1\",\n            \"beneficiaryAddress\": \"Address 1\",\n            \"country\": \"SE\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"chargePolicy\": \"SHA\",\n        \"description\": \"description\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/payments/non-sepa-transfer",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"payments",
+								"non-sepa-transfer"
+							]
+						},
+						"description": "This type of transfer is used when the receiver account’s bank does not support IBAN standard system and a different account number format is needed, which format depends on the bank that is used"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
 							},
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -825,285 +738,62 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"remittanceType\": \"RNB\",\n\t\t\"paymentId\": \"12345678901234567890\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/account/list",
+							"raw": "{{root_url}}/payments/details",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"account",
-								"list"
-							]
-						},
-						"description": "List of NBG domestic accounts in euro"
-					},
-					"response": []
-				},
-				{
-					"name": "Account details",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "1d253965-5e2d-4e5d-bff9-1f392932082c",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
-						},
-						"url": {
-							"raw": "{{root_url}}/account/details",
-							"host": [
-								"{{root_url}}"
-							],
-							"path": [
-								"account",
+								"payments",
 								"details"
 							]
 						},
-						"description": "Retrieves information of a specified account"
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				},
 				{
-					"name": "List Beneficiaries",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "c9aad094-b9b0-477e-8cbb-c636bed80a4e",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Cancel Payment",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{accept}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -1123,168 +813,19 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"iban\": \"GR5301106780000067890123456\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n\t    \"account\": \"{{account_to}}\",\n\t    \"remittanceType\": \"RNB\",\n\t    \"paymentId\": \"35507525413112257167\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/account/beneficiaries",
+							"raw": "{{root_url}}/payments/cancel",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"account",
-								"beneficiaries"
+								"payments",
+								"cancel"
 							]
 						},
-						"description": "NBG account beneficiaries (masked)"
-					},
-					"response": []
-				},
-				{
-					"name": "List Transactions",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "88d37c25-6025-4a61-8b6c-6c27bb3e84c5",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
-						},
-						"url": {
-							"raw": "{{root_url}}/account/transactions",
-							"host": [
-								"{{root_url}}"
-							],
-							"path": [
-								"account",
-								"transactions"
-							]
-						},
-						"description": "Retrieves transactions of a specified account"
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				}
@@ -1314,122 +855,47 @@
 			]
 		},
 		{
-			"name": "Foreign Currency Account",
+			"name": "Scheduled Payments",
 			"item": [
 				{
-					"name": "List Accounts",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "39d6295d-96ed-44af-9f04-83608dd759ff",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "NBG",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{accept}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -1449,99 +915,24 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": \"{{account_to}}\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"smsotp\",\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }\n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/foreign-currency-account/list",
+							"raw": "{{root_url}}/scheduled-payments/nbg",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"foreign-currency-account",
-								"list"
+								"scheduled-payments",
+								"nbg"
 							]
 						},
-						"description": "List of my accounts in foreign currency with details."
+						"description": "Account details\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				},
 				{
-					"name": "Account details",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "4e8302d8-6052-4c77-b4c6-5d637f1b0997",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "SEPA",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1567,17 +958,17 @@
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
+								"value": "{{$guid}}",
 								"type": "text"
 							},
 							{
 								"key": "X-Consent-Check",
 								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
 								"type": "text"
 							},
 							{
@@ -1598,136 +989,62 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": \"{{account_to_iban}}\",\n        \"amount\": 10,\n        \"chargePolicy\": \"SHA\",\n        \"beneficiary\": \"TEST\",\n        \"currency\": \"EUR\",\n        \"description\": \"TEST\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }\t    \n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/foreign-currency-account/details",
+							"raw": "{{root_url}}/scheduled-payments/sepa",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"foreign-currency-account",
-								"details"
+								"scheduled-payments",
+								"sepa"
 							]
 						},
-						"description": "Account details."
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"iban\": \"GR1601100400000004012345678\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				},
 				{
-					"name": "List Beneficiaries",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "39d70635-4a10-4b4e-82e3-819e1b5d5262",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Non SEPA",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{accept}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -1747,136 +1064,62 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": {\n\t\t     \"accountNumber\": \"{{account_to}}\",\n\t\t     \"beneficiaryBic\": \"ETHNGRAA\",\n\t\t     \"beneficiaryName\": \"USER 1\",\n\t\t     \"beneficiaryAddress\": \"Address 1\",\n\t\t     \"country\": \"SE\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"chargePolicy\": \"SHA\",\n        \"description\": \"description\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }        \n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/foreign-currency-account/beneficiaries",
+							"raw": "{{root_url}}/scheduled-payments/non-sepa",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"foreign-currency-account",
-								"beneficiaries"
+								"scheduled-payments",
+								"non-sepa"
 							]
 						},
-						"description": "NBG Account beneficiaries masked."
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				},
 				{
-					"name": "List Transcations",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "1bc87958-8f87-4161-bf3f-326088be8a33",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Cancel Scheduled Payment",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{accept}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -1896,24 +1139,622 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"scheduleId\": \"67890123456\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}/foreign-currency-account/transactions",
+							"raw": "{{root_url}}/scheduled-payments/cancel",
 							"host": [
 								"{{root_url}}"
 							],
 							"path": [
-								"foreign-currency-account",
-								"transactions"
+								"scheduled-payments",
+								"cancel"
 							]
 						},
-						"description": "Foreign Account Transcations."
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
 					},
 					"response": []
 				}
 			],
-			"description": "Folder for foreign-currency-account"
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Batch Payments",
+			"item": [
+				{
+					"name": "Batch Payments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"tanNumber\": \"smsotp\",\n        \"batchPayments\": [\n            {\n                \"to\": {\n                    \"accountIban\": \"GR9601106780000067890123458\",\n                    \"beneficiaryBic\": \"ETHNGRAA\",\n                    \"beneficiaryName\": null,\n                    \"beneficiaryAddress\": null,\n                    \"country\": null\n                },\n                \"amount\": 1,\n                \"currency\": \"EUR\",\n                \"chargePolicy\": \"SHA\",\n                \"description\": \"ASDADADAS\",\n                \"useSpecialClearingSystem\": false,\n                \"emergency\": true\n            },\n            {\n                \"to\": {\n                    \"accountIban\": \"GR9601106780000067890123458\",\n                    \"beneficiaryBic\": \"ETHNGRAA\",\n                    \"beneficiaryName\": null,\n                    \"beneficiaryAddress\": null,\n                    \"country\": null\n                },\n                \"amount\": 1,\n                \"currency\": \"EUR\",\n                \"chargePolicy\": \"SHA\",\n                \"description\": \"ASDADADAS\",\n                \"useSpecialClearingSystem\": false,\n                \"emergency\": true\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								""
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Payments Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"batchId\": \"6866411544\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/status",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								"status"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Payments Charges",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"batchPayments\": [\n            {\n                \"to\": {\n                    \"accountIban\": \"{{account_to_iban}}\",\n                    \"accountText\": null,\n                    \"beneficiaryBic\": \"ETHNGRAA\"\n                },\n                \"amount\": 10,\n                \"currency\": \"EUR\",\n                \"type\": \"NBG\",\n                \"chargePolicy\": \"SHA\",\n                \"useSpecialClearingSystem\": false,\n                \"specialClearingSystem\": null,\n                \"emergency\": true\n            },\n            {\n                \"to\": {\n                    \"accountIban\": \"{{account_to_iban}}\",\n                    \"accountText\": null,\n                    \"beneficiaryBic\": \"ETHNGRAA\"\n                },\n                \"amount\": 12,\n                \"currency\": \"EUR\",\n                \"type\": \"NBG\",\n                \"chargePolicy\": \"SHA\",\n                \"useSpecialClearingSystem\": false,\n                \"specialClearingSystem\": null,\n                \"emergency\": true\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/batch-payments/charges",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"batch-payments",
+								"charges"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Standing Orders",
+			"item": [
+				{
+					"name": "NBG",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"from\": \"{{account_from}}\",\n        \"to\": \"{{account_to}}\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"smsotp\",\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/nbg",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"nbg"
+							]
+						},
+						"description": "Account details\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": \"{{account_to_iban}}\",\n        \"amount\": 10,\n        \"chargePolicy\": \"SHA\",\n        \"beneficiary\": \"TEST\",\n        \"currency\": \"EUR\",\n        \"description\": \"TEST\",\n\t    \"tanNumber\" : \"smsotp\",\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }   \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"sepa"
+							]
+						},
+						"description": "NBG Account beneficiaries masked.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"iban\": \"GR1601100400000004012345678\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Non SEPA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n\t\t\"ID\": \"{{$guid}}\",\n\t    \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\": \"{{user_id}}\",\n        \"payerIban\": \"{{account_from_iban}}\",\n        \"to\": {\n\t\t     \"accountNumber\": \"{{account_to}}\",\n\t\t     \"beneficiaryBic\": \"ETHNGRAA\",\n\t\t     \"beneficiaryName\": \"USER 1\",\n\t\t     \"beneficiaryAddress\": \"Address 1\",\n\t\t     \"country\": \"SE\"\n        },\n        \"amount\": 1,\n        \"currency\": \"EUR\",\n        \"chargePolicy\": \"SHA\",\n        \"description\": \"description\",\n\t    \"tanNumber\" : \"smsotp\",\n        \"useSpecialClearingSystem\": false,\n        \"specialClearingSystem\": null,\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }      \n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/non-sepa",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"non-sepa"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Standing Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"orderNo\": \"67890123456\",\n        \"tanNumber\": \"smsotp\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/cancel",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"cancel"
+							]
+						},
+						"description": "Account Transcations.\r\n\r\nSample request:\r\n\r\n    {\r\n        \"header\": {\r\n            \"ID\": \"(uuid)\",\r\n            \"application\": \"598A4414-395A-43D6-A9C3-D53A15E6E9F6\"\r\n        },\r\n        \"payload\": {\r\n            \"account\": \"01234567890\",\r\n            \"dateFrom\": \"2018-03-13T07:38:56.591Z\",\r\n            \"dateTo\": \"2018-03-14T07:38:56.591Z\",\r\n            \"userId\": \"123456\"\r\n        }\r\n    }"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "User",
@@ -1930,8 +1771,8 @@
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							},
 							{
 								"key": "sandbox_id",
@@ -1939,13 +1780,13 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -1983,312 +1824,6 @@
 				}
 			],
 			"description": "Folder for user"
-		},
-		{
-			"name": "Standing orders",
-			"item": [
-				{
-					"name": "List standing orders",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "73607062-0e48-4ddf-84ba-ba4586743827",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "{{accept}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Client-Id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{request_guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Consent-Id",
-								"value": "{{Consent-Id}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Consent-Check",
-								"value": "{{X-Consent-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
-						},
-						"url": {
-							"raw": "{{root_url}}/standing-orders/list",
-							"host": [
-								"{{root_url}}"
-							],
-							"path": [
-								"standing-orders",
-								"list"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Scheduled payments",
-			"item": [
-				{
-					"name": "List scheduled payments",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "ed60a21f-c655-4d9d-b388-eb9ab8828b6b",
-								"exec": [
-									"{//loading private key",
-									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
-									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
-									"var privateKey = pm.environment.get(\"privatekey\");",
-									"//loading public key  and addit to header ",
-									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
-									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
-									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
-									"var Property = require('postman-collection').Property;",
-									"",
-									"",
-									"var runit =  function(){",
-									"    //loading RSA JWT library",
-									"    var navigator = {};",
-									"    var window = {};",
-									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
-									"    console.log(\" now u can use KJUR as a rsa library\");",
-									"    ",
-									"    //prepare head",
-									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
-									"    var sHeader = JSON.stringify(oHeader);",
-									"    ",
-									"    //prepare pody",
-									"    //var oData = {dsa:\"dsa\"};",
-									"    var oRaw = pm.request.body.raw ",
-									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
-									"    ",
-									"    var sPayload = JSON.stringify(oData);",
-									"    //var sPayload = pm.request.body.raw;",
-									"    console.log(sPayload);",
-									"    ",
-									"    //Creating Signature",
-									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
-									"    console.log(\"JWT:\" +  sJWT);",
-									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
-									"    console.log(\"detached JWT:\" +  detachedJWT);",
-									"    pm.environment.set(\"Signature\", detachedJWT);",
-									"}",
-									"var newguid = (function() {",
-									"  function s4() {",
-									"    return Math.floor((1 + Math.random()) * 0x10000)",
-									"               .toString(16)",
-									"               .substring(1);",
-									"  }",
-									"  return function() {",
-									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
-									"           s4() + '-' + s4() + s4() + s4();",
-									"  };",
-									"})();",
-									"",
-									"//Change Request Guid on body",
-									"pm.environment.set(\"request_guid\",newguid())",
-									"//download forgeJS from web and set varible",
-									"if(!pm.globals.has(\"RSAJS\")){",
-									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
-									"        if (err) {",
-									"            console.log(err);}",
-									"        else {",
-									"            pm.globals.set(\"RSAJS\", res.text());",
-									"            runit();",
-									"        }",
-									"})}",
-									"else {runit(); }",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"type": "text",
-								"value": "{{accept}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "sandbox_id",
-								"type": "text",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "Client-Id",
-								"type": "text",
-								"value": "{{client_id}}"
-							},
-							{
-								"key": "Request-Id",
-								"type": "text",
-								"value": "{{request_guid}}"
-							},
-							{
-								"key": "Consent-Id",
-								"type": "text",
-								"value": "{{Consent-Id}}"
-							},
-							{
-								"key": "X-Consent-Check",
-								"type": "text",
-								"value": "{{X-Consent-Check}}"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
-						},
-						"url": {
-							"raw": "{{root_url}}/scheduled-payments/list",
-							"host": [
-								"{{root_url}}"
-							],
-							"path": [
-								"scheduled-payments",
-								"list"
-							]
-						}
-					},
-					"response": []
-				}
-			]
 		}
 	],
 	"auth": {
@@ -2296,7 +1831,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "404bcc2a443a0b29b12ca66673efb9a0e514caaadc6b1e05c4ea24798ed70545",
+				"value": "7081e8b03e0c8811728eaf4a6e1f490eecbfe0b78130fce100d373d75df3355a",
 				"type": "string"
 			},
 			{
