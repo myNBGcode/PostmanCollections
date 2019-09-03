@@ -320,30 +320,11 @@
 								"key": "Signature",
 								"value": "{{Signature}}",
 								"type": "text"
-							},
-							{
-								"key": "X-Certificate-Check",
-								"value": "{{X-Certificate-Check}}",
-								"type": "text"
-							},
-							{
-								"key": "TPP-Signature-Certificate",
-								"value": "{{TPP-Signature-Certificate}}",
-								"type": "text"
-							},
-							{
-								"key": "Signature",
-								"value": "{{Signature}}",
-								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
 							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
-=======
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/request-access",
@@ -463,11 +444,7 @@
 							{
 								"key": "Request-Id",
 								"type": "text",
-<<<<<<< HEAD
 								"value": "{{request_guid}}"
-=======
-								"value": "{{$guid}}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
 							},
 							{
 								"key": "X-Certificate-Check",
@@ -487,11 +464,7 @@
 						],
 						"body": {
 							"mode": "raw",
-<<<<<<< HEAD
 							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n\t\t\"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
-=======
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n\t\t\"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
 						},
 						"url": {
 							"raw": "{{root_url}}/consents/info",
@@ -611,11 +584,7 @@
 							{
 								"key": "Request-Id",
 								"type": "text",
-<<<<<<< HEAD
 								"value": "{{request_guid}}"
-=======
-								"value": "{{$guid}}"
->>>>>>> 72c0c7f1d791ebb76584b49a71e807931b05d0fa
 							},
 							{
 								"key": "X-Certificate-Check",
