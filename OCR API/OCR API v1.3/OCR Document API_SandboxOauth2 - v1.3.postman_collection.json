@@ -61,7 +61,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -141,7 +141,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -216,7 +216,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -278,7 +278,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -338,7 +338,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -397,7 +397,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
@@ -461,7 +461,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client_id}}",
+								"value": "{{Client_Id}}",
 								"type": "text"
 							}
 						],
