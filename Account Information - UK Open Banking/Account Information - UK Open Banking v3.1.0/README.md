@@ -11,7 +11,7 @@ Imagine you want to create an application which handles all of your banks' accou
 Your first job is to create a sandbox and save your **sandbox-id** in order to be able to **"play"** with the api.
 
 We will create our sandbox by making an **HTTP POST** request to the following URL:
-> https://microsites.nbg.gr/api.gateway/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.0/sandbox
+> https://apis.nbg.gr/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.1/sandbox
 
 Request Body:
 ```json
@@ -39,7 +39,7 @@ The following headers are required for every call. In postman they are in the ap
 ``` 
 ## **Scenario Request**
 You send **GET /accounts** request to get a list of the available accounts among with their details. The level of details depend on the permission that has been asigned to the Consent. For our testing purposes full permissions will be granted.
-> https://microsites.nbg.gr/api.gateway/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.0/accounts
+> https://apis.nbg.gr/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.1/accounts
 
 
 **Response** (Contains information about the available accounts (e.g. currency, type, description)):
@@ -65,7 +65,7 @@ You send **GET /accounts** request to get a list of the available accounts among
 	}]
 },
 "Links": 
-	"Self": "https://microsites.nbg.gr/api.gateway/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.0/accounts/accounts"
+	"Self": "https://apis.nbg.gr/sandbox/uk.openbanking.accountinfo/oauth2/v3.1.1/accounts/accounts"
 },
 "Meta": {
 	"TotalPages": 1

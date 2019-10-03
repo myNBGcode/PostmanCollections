@@ -14,16 +14,20 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Content-Type",
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							},
 							{
-								"key": "preferred_username",
-								"value": "user1",
-								"type": "text",
-								"disabled": true
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -47,7 +51,18 @@
 					"name": "Get",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
 							"protocol": "https",
@@ -64,9 +79,27 @@
 				},
 				{
 					"name": "Delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b4711a00-8320-43b7-9785-ccfc7ba8fc71",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -99,8 +132,11 @@
 								"id": "ce03a025-c477-4689-9e6f-7397c303fddc",
 								"exec": [
 									"var data = JSON.parse(responseBody);",
-									"if(data.Data !== undefined)",
-									"   postman.setEnvironmentVariable(\"domestic-payment-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined){",
+									"   postman.setEnvironmentVariable(\"domestic-payment-consent-id\", data.Data.ConsentId);",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);",
+									"}",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -110,10 +146,20 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Content-Type",
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
@@ -129,11 +175,21 @@
 								"key": "x-fapi-financial-id",
 								"type": "text",
 								"value": "{{financial-id}}"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\t\"Initiation\":{\n\t\t\t\"debtorAccount\":{\n\t\t\t\t\"name\":\"123\",\n\t\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"creditorAccount\":{\n\t\t\t\t\"name\":\"123\",\n\t\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR7501102520000025275533583\"\n\t\t\t},\n\t\t\t\"instructedAmount\":{\n\t\t\t\t\"amount\":\"70\",\n\t\t\t\t\"currency\":\"EUR\"\n\t\t\t},\n\t\t\t\"EndToEndIdentification\":\"123\",\n\t\t\t\"InstructionIdentification\":\"123\"\n\t\t},\n\t\t\"authorization\":{\n\t\t\t\"authorizationType\":\"Single\"\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\": {\n\t\t\"Initiation\": {\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"EUR\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-payment-consents",
@@ -168,6 +224,16 @@
 						"method": "GET",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -175,6 +241,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -223,6 +294,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -236,11 +312,21 @@
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{domestic-payment-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t},\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7501102520000025275533583\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"70\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{domestic-payment-consent-id}}\",\n\t\t\"Initiation\": {\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"EUR\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-payments",
@@ -266,6 +352,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -273,6 +364,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -296,6 +392,16 @@
 						"method": "GET",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -303,6 +409,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -335,8 +446,11 @@
 								"id": "493a8846-5eaa-4289-a1b6-cf925f25502f",
 								"exec": [
 									"var data = JSON.parse(responseBody);",
-									"if(data.Data !== undefined)",
-									"   postman.setEnvironmentVariable(\"domestic-scheduled-payment-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined){",
+									"   postman.setEnvironmentVariable(\"domestic-scheduled-payment-consent-id\", data.Data.ConsentId);",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);",
+									"}",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -352,8 +466,12 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -370,11 +488,21 @@
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"Permission\":\"Create\",\n\t\"Initiation\":{\n\t\t\"RequestedExecutionDateTime\":\"2019-06-03T06:54:19Z\",\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7501102520000025275533583\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"0.01\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t},\n\t\"authorization\":{\n\t\t\"authorizationType\":\"Single\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"Permission\":\"Create\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"RequestedExecutionDateTime\":\"2020-01-10T00:00:00Z\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"EUR\"\n\t\t\t},\n\t\t\t\"DebtorAccount\":{\n\t\t\t\t\"Name\":\"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\":{\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-scheduled-payment-consents",
@@ -400,6 +528,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"type": "text",
 								"value": "{{sandbox-id}}"
@@ -407,6 +540,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -450,8 +588,12 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -468,11 +610,21 @@
 								"key": "x-idempotency-key",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{domestic-scheduled-payment-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"RequestedExecutionDateTime\":\"2019-06-03T06:54:19Z\",\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7501102520000025275533583\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"0.01\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{domestic-scheduled-payment-consent-id}}\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"RequestedExecutionDateTime\":\"2020-01-10T00:00:00Z\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"EUR\"\n\t\t\t},\n\t\t\t\"DebtorAccount\":{\n\t\t\t\t\"Name\":\"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\":{\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-scheduled-payments",
@@ -498,6 +650,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -505,6 +662,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -536,8 +698,11 @@
 								"id": "1a37fed8-a0a6-4eb7-ac01-db52cfcb4f18",
 								"exec": [
 									"var data = JSON.parse(responseBody);\r",
-									"if(data.Data !== undefined)\r",
-									"   postman.setEnvironmentVariable(\"domestic-standing-order-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined) {\r",
+									"   postman.setEnvironmentVariable(\"domestic-standing-order-consent-id\", data.Data.ConsentId);\r",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);\r",
+									"}\r",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -548,34 +713,48 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-idempotency-key",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"Permission\":\"Create\",\n\t\"Initiation\":{\n\t\t\"frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\"numberOfPayments\":\"3\",\n\t\t\"firstPaymentAmount\":{\n\t\t\t\"amount\":\"1.00\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"FirstPaymentDateTime\": \"2019-06-03T06:54:19Z\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"0.10\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t},\n\t\"authorization\":{\n\t\t\"authorizationType\":\"Single\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"Permission\":\"Create\",\n\t\t\"Initiation\":{\n\t\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\t\"Reference\": \"STANDING-ORDER-ID\",\n\t\t\t\"NumberOfPayments\":\"3\",\n\t\t\t\"FirstPaymentDateTime\": \"2020-01-10T00:00:00Z\",\n\t\t\t\"FirstPaymentAmount\":{\n\t\t\t\t\"Amount\":\"2.5\",\n\t\t\t\t\"Currency\":\"EUR\"\n\t\t\t},\n\t\t\t\"DebtorAccount\":{\n\t\t\t\t\"Name\":\"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\":{\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-standing-order-consents",
@@ -601,6 +780,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"type": "text",
 								"value": "{{sandbox-id}}"
@@ -608,6 +792,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -651,14 +840,18 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
@@ -669,11 +862,21 @@
 								"key": "x-idempotency-key",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{domestic-standing-order-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\"numberOfPayments\":\"3\",\n\t\t\"firstPaymentAmount\":{\n\t\t\t\"amount\":\"1.00\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"FirstPaymentDateTime\": \"2019-06-03T06:54:19Z\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"0.10\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{domestic-standing-order-consent-id}}\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\t\"NumberOfPayments\":\"3\",\n\t\t\t\"FirstPaymentAmount\":{\n\t\t\t\t\"Amount\":\"2.5\",\n\t\t\t\t\"Currency\":\"EUR\"\n\t\t\t},\n\t\t\t\"FirstPaymentDateTime\": \"2020-01-10T00:00:00Z\",\n\t\t\t\"DebtorAccount\":{\n\t\t\t\t\"Name\":\"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\":{\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR2102600060000440200471249\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/domestic-standing-orders",
@@ -699,6 +902,11 @@
 								"value": "application/json"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"type": "text",
 								"value": "{{sandbox-id}}"
@@ -706,6 +914,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -737,8 +950,11 @@
 								"id": "452fb075-e90d-45c5-a3a6-eeaeca3b1be4",
 								"exec": [
 									"var data = JSON.parse(responseBody);",
-									"if(data.Data !== undefined)",
-									"   postman.setEnvironmentVariable(\"international-payment-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined) {",
+									"   postman.setEnvironmentVariable(\"international-payment-consent-id\", data.Data.ConsentId);",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);",
+									"}",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -748,30 +964,49 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-idempotency-key",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"Initiation\":{\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t},\n\t\"authorization\":{\n\t\t\"authorizationType\":\"Single\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructionPriority\": \"Normal\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-payment-consents",
@@ -797,6 +1032,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -804,6 +1044,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -842,19 +1087,23 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
@@ -865,11 +1114,21 @@
 								"key": "x-idempotency-key",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{international-payment-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{international-payment-consent-id}}\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructionPriority\": \"Normal\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-payments",
@@ -891,18 +1150,28 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -930,13 +1199,23 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -969,8 +1248,11 @@
 								"id": "7ef396b0-1ab5-4051-9af7-17f7f1dc2030",
 								"exec": [
 									"var data = JSON.parse(responseBody);\r",
-									"if(data.Data !== undefined)\r",
-									"   postman.setEnvironmentVariable(\"international-scheduled-payment-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined){\r",
+									"   postman.setEnvironmentVariable(\"international-scheduled-payment-consent-id\", data.Data.ConsentId); \r",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);\r",
+									"}\r",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -981,34 +1263,48 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-idempotency-key",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"Permission\":\"Create\",\n\t\"Initiation\":{\n\t\t\"RequestedExecutionDateTime\":\"2019-06-03T06:54:19Z\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1.5\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t},\n\t\"authorization\":{\n\t\t\"authorizationType\":\"Single\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"Permission\":\"Create\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructionPriority\": \"Normal\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"RequestedExecutionDateTime\":\"2020-01-10T00:00:00Z\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-scheduled-payment-consents",
@@ -1034,13 +1330,23 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -1079,34 +1385,48 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-idempotency-key",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{international-scheduled-payment-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"RequestedExecutionDateTime\":\"2019-06-03T06:54:19Z\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1.5\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{international-scheduled-payment-consent-id}}\",\n\t\t\"Initiation\":{\n\t\t\t\"InstructionIdentification\":\"INSTRUCTION-ID\",\n\t\t\t\"EndToEndIdentification\": \"END-TO-END-ID\",\n\t\t\t\"InstructionPriority\": \"Normal\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"RequestedExecutionDateTime\":\"2020-01-10T00:00:00Z\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t},\n\t\t\t\"RemittanceInformation\": {\n\t\t\t\t\"Unstructured\": \"TEST REMITTANCE INFO\",\n\t\t\t\t\"Reference\": \"TEST REFERENCE\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-scheduled-payments",
@@ -1132,6 +1452,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -1139,6 +1464,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -1163,18 +1493,28 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -1206,8 +1546,11 @@
 								"id": "a4364d47-73cb-4330-ae15-73f5959baaa5",
 								"exec": [
 									"var data = JSON.parse(responseBody);\r",
-									"if(data.Data !== undefined)\r",
-									"   postman.setEnvironmentVariable(\"international-standing-order-consent-id\", data.Data.ConsentId);"
+									"if(data.Data !== undefined) {\r",
+									"   postman.setEnvironmentVariable(\"international-standing-order-consent-id\", data.Data.ConsentId);\r",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);\r",
+									"}\r",
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -1218,34 +1561,48 @@
 						"header": [
 							{
 								"key": "Accept",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
-								"type": "text",
-								"value": "{{financial-id}}"
+								"value": "{{financial-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-idempotency-key",
-								"type": "text",
-								"value": "{{$guid}}"
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"Permission\":\"Create\",\n\t\"Initiation\":{\n\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\"NumberOfPayments\":\"3\",\n\t\t\"FirstPaymentDateTime\": \"2019-07-10T06:54:19Z\",\n\t\t\"InstructedAmount\":{\n\t\t\t\"amount\":\"1.00\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"CurrencyOfTransfer\": \"EUR\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t},\n\t\"authorization\":{\n\t\t\"authorizationType\":\"Any\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"Permission\":\"Create\",\n\t\t\"Initiation\":{\n\t\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\t\"Reference\": \"INTERNATIONAL-STANDING-ORDER-ID\",\n\t\t\t\"NumberOfPayments\":\"3\",\n\t\t\t\"FirstPaymentDateTime\": \"2020-01-10T00:00:00Z\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-standing-order-consents",
@@ -1271,13 +1628,23 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -1321,14 +1688,18 @@
 							},
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"type": "text",
-								"value": "{{sandbox-id}}"
+								"value": "{{sandbox-id}}",
+								"type": "text"
 							},
 							{
 								"key": "x-fapi-financial-id",
@@ -1339,11 +1710,21 @@
 								"key": "x-idempotency-key",
 								"value": "{{$guid}}",
 								"type": "text"
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\":{\n\t\"ConsentId\":\"{{international-standing-order-consent-id}}\",\n\t\"Initiation\":{\n\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\"NumberOfPayments\":\"3\",\n\t\t\"FirstPaymentDateTime\": \"2019-07-10T06:54:19Z\",\n\t\t\"InstructedAmount\":{\n\t\t\t\"amount\":\"1.00\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"CurrencyOfTransfer\": \"EUR\",\n\t\t\"creditorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"ES7501102520000025275533583\"\n\t\t},\n\t\t\"debtorAccount\":{\n\t\t\t\"name\":\"123\",\n\t\t\t\"schemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\"Identification\":\"GR7901107200000072064315855\"\n\t\t},\n\t\t\"instructedAmount\":{\n\t\t\t\"amount\":\"1\",\n\t\t\t\"currency\":\"EUR\"\n\t\t},\n\t\t\"currencyOfTransfer\":\"EUR\",\n\t\t\"EndToEndIdentification\":\"123\",\n\t\t\"InstructionIdentification\":\"123\"\n\t}\n\t},\n\t\"Risk\":{}\n}"
+							"raw": "{\n\t\"Data\":{\n\t\t\"ConsentId\":\"{{international-standing-order-consent-id}}\",\n\t\t\"Initiation\":{\n\t\t\t\"Frequency\":\"IntrvlMnthDay:1:1\",\n\t\t\t\"Reference\": \"INTERNATIONAL-STANDING-ORDER-ID\",\n\t\t\t\"NumberOfPayments\":\"3\",\n\t\t\t\"FirstPaymentDateTime\": \"2020-01-10T00:00:00Z\",\n\t\t\t\"ChargeBearer\": \"Shared\",\n\t\t\t\"CurrencyOfTransfer\":\"GBP\",\n\t\t\t\"InstructedAmount\": {\n\t\t\t\t\"Amount\": \"2.5\",\n\t\t\t\t\"Currency\": \"GBP\"\n\t\t\t},\n\t\t\t\"DebtorAccount\": {\n\t\t\t\t\"Name\": \"DEBTOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GR3201106970000069774934603\"\n\t\t\t},\n\t\t\t\"CreditorAccount\": {\n\t\t\t\t\"Name\": \"CREDITOR NAME\",\n\t\t\t\t\"SchemeName\":\"UK.OBIE.IBAN\",\n\t\t\t\t\"Identification\":\"GB29NWBK60161331926819\"\n\t\t\t}\n\t\t}\n\t},\n\t\"Risk\":{}\n}"
 						},
 						"url": {
 							"raw": "https://{{host}}/international-standing-orders",
@@ -1369,6 +1750,11 @@
 								"type": "text"
 							},
 							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							},
+							{
 								"key": "sandbox-id",
 								"value": "{{sandbox-id}}",
 								"type": "text"
@@ -1376,6 +1762,11 @@
 							{
 								"key": "x-fapi-financial-id",
 								"value": "{{financial-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-certificate-check",
+								"value": "false",
 								"type": "text"
 							}
 						],
@@ -1401,7 +1792,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "a3076a9bdcdba3a1fdfd0f2cdc5ed54ac4afc60a29aec5165985fdf5c524d9b2",
+				"value": "ce48a7af8884ec8c1543968e6a3f2307a64ee7e1da59efc6e492cdb45c58f93b",
 				"type": "string"
 			},
 			{
@@ -1423,7 +1814,65 @@
 				"id": "d9baea45-d4d3-4a39-909c-bdac1df49483",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"var privateKey = pm.environment.get(\"certificate-private-key\");",
+					"var Property = require('postman-collection').Property;",
+					"",
+					"var runit =  function(){",
+					"    //loading RSA JWT library",
+					"    var navigator = {};",
+					"    var window = {};",
+					"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+					"    ",
+					"    if (privateKey === undefined || privateKey === \"\") return;",
+					"    ",
+					"    //prepare head",
+					"    var oHeader = {",
+					"        \"alg\": \"PS256\", ",
+					"        \"typ\": \"JOSE\",",
+					"        \"cty\": \"application/json\",",
+					"        //\"kid\": \"12345-67890\",",
+					"        \"b64\": \"false\",",
+					"        \"http://openbanking.org.uk/iat\": ~~(Date.now() / 1000),",
+					"        \"http://openbanking.org.uk/iss\": \"L=ATHENS, SERIALNUMBER=7101 0019 1790 0013, CN=NATIONAL BANK OF GREECE S.A., OU=INFORMATION TECHNOLOGY, OID.2.5.4.97=PSDGR-BOG-094014201, O=NATIONAL BANK OF GREECE S.A., C=GR\",",
+					"        //\"http://openbanking.org.uk/tan\": \"my.trustanchor.gr\",",
+					"        \"crit\": [\"http://openbanking.org.uk/iat\", \"http://openbanking.org.uk/iss\", \"http://openbanking.org.uk/tan\", \"b64\"]",
+					"    };",
+					"    var sHeader = JSON.stringify(oHeader);",
+					"    ",
+					"    if (pm.request.method !== \"POST\" && pm.request.method !== \"PUT\" && pm.request.method !== \"PATCH\") return;",
+					"    if (pm.request.body === undefined || pm.request.body === \"\") return;",
+					"    ",
+					"    //prepare pody",
+					"    var oRaw = pm.request.body.raw",
+					"    //console.log(\"RAW : \" + oRaw);",
+					"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+					"    //console.log(\"oData : \" + oData);",
+					"    var sPayload = JSON.stringify(oData);",
+					"    //console.log(\"Payload : \" + sPayload);",
+					"    ",
+					"    //Creating Signature",
+					"    var sJWT = KJUR.jws.JWS.sign(\"PS256\", sHeader, sPayload, privateKey);",
+					"    //console.log(\"JWT :\" + sJWT);",
+					"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+					"    //console.log(\"Detached JWT :\" + detachedJWT);",
+					"    pm.environment.set(\"signature\", detachedJWT);",
+					"}",
+					"",
+					"//download forgeJS from web and set varible",
+					"if (!pm.globals.has(\"RSAJS\"))",
+					"{",
+					"    pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+					"        if (err) {",
+					"            console.log(err);}",
+					"        else {",
+					"            pm.globals.set(\"RSAJS\", res.text());",
+					"            runit();",
+					"        }",
+					"    })",
+					"}",
+					"else {",
+					"    runit(); ",
+					"}"
 				]
 			}
 		},
@@ -1437,5 +1886,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

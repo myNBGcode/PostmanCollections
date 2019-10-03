@@ -14,15 +14,30 @@
 						"method": "POST",
 						"header": [
 							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
 								"key": "Content-Type",
 								"name": "Content-Type",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}"
+							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "https://{{host}}/sandbox",
@@ -41,7 +56,18 @@
 					"name": "Get",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
 							"protocol": "https",
@@ -60,7 +86,13 @@
 					"name": "Delete",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -110,7 +142,13 @@
 							},
 							{
 								"key": "Content-Type",
+								"name": "Content-Type",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -126,7 +164,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\": {\n\t\t\"ExpirationDateTime\": \"2019-12-31\",\n\t\t\"DebtorAccount\": {\n\t\t\t\"SchemeName\": \"UK.OBIE.IBAN\",\n\t\t\t\"Identification\": \"GR3201106970000069774934603\"\n\t\t}\n\t}\n}"
+							"raw": "{\n\t\"Data\": {\n\t\t\"ExpirationDateTime\": \"2019-12-31\",\n\t\t\"DebtorAccount\": {\n\t\t\t\"SchemeName\": \"UK.OBIE.IBAN\",\n\t\t\t\"Identification\": \"GR3201106970000069774934603\",\n\t\t\t\"Name\": \"Users Name\"\n\t\t}\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "https://{{host}}/funds-confirmation-consents",
@@ -149,6 +192,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -184,6 +232,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -228,7 +281,13 @@
 							},
 							{
 								"key": "Content-Type",
+								"name": "Content-Type",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{clientId}}",
 								"type": "text"
 							},
 							{
@@ -244,7 +303,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\": {\n\t\t\"ConsentId\": \"{{consent-id}}\",\n\t\t\"Reference\": \"REF-123-456\",\n\t\t\"InstructedAmount\": {\n\t\t\t\"Amount\": 10,\n\t\t\t\"Currency\": \"EUR\"\n\t\t}\n\t}\n}"
+							"raw": "{\n\t\"Data\": {\n\t\t\"ConsentId\": \"{{consent-id}}\",\n\t\t\"Reference\": \"TEST REFERENCE\",\n\t\t\"InstructedAmount\": {\n\t\t\t\"Amount\": 10.0,\n\t\t\t\"Currency\": \"EUR\"\n\t\t}\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "https://{{host}}/funds-confirmations",
@@ -267,7 +331,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "b7aa120d328ffaf0ca72f3593ddf5ec6b05fe8a4a1482559a9307bb9bf7374e2",
+				"value": "0b36ba3d90bdb078f2bedc96feb95b4b74324583decff7bcf19cb9ca81b11b38",
 				"type": "string"
 			},
 			{
@@ -303,5 +367,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
