@@ -1,0 +1,2378 @@
+{
+	"info": {
+		"_postman_id": "3f4ab7a7-db89-4fec-9b91-53b06c215fda",
+		"name": "Account Info API",
+		"description": "Account Info API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"sandboxId\": \"{{sandbox_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						},
+						"description": "A Sandbox with default data is created. Simply call by providing an “id” as your sandbox id and naming it almost anything you like."
+					},
+					"response": []
+				},
+				{
+					"name": "Export Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Export a sandbox"
+					},
+					"response": []
+				},
+				{
+					"name": "Import Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"sanboxId\": \"{{sandbox_id}}\",\n        \"version\": 2,\n        \"users\": [\n            {\n                \"accounts\": [\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": -1000.0,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"12345678901234567890\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567891\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567892\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"4\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"68\",\n                                \"transDescription\": null,\n                                \"amount\": -100.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"SEPA TRANSFER\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"77148764243232803409\",\n                                \"externalSystem\": \"ROT\",\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/01/2019 12:47:11\"\n                            },\n                            {\n                                \"serialNum\": \"5\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"24\",\n                                \"transDescription\": null,\n                                \"amount\": -1.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Transfer commission to IT14T0760101600000007957730\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"ΠΡΟΜ.77148764243232803409\",\n                                \"externalSystem\": null,\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/01/2019 12:47:11\"\n                            }\n                        ],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1.0,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543211\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 1.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543212\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 2.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"3\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-03T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 4,\n                                \"amount\": 20.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543215\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 20.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"order\": \"1\"\n                            },\n                            {\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\n                                \"order\": \"2\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": -1000.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0.0,\n                                \"to\": 100000.0,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"20\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1.0,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543213\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 1.0,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543214\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 2.0,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"accountType\": \"20\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": 0.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": []\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25.0,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"12345678901234567880\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567881\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567882\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            }\n                        ],\n                        \"deferred\": [],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": 0.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0.0,\n                                \"to\": 100000.0,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    }\n                ],\n                \"userId\": \"{{user_id}}\",\n                \"mobilePhoneNumber\": \"{{subscribed_phone_number}}\"\n            },\n            {\n                \"accounts\": [\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": -1000.0,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"12345678901234567890\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567891\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567892\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"4\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"68\",\n                                \"transDescription\": null,\n                                \"amount\": -100.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"SEPA TRANSFER\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"77148764243232803409\",\n                                \"externalSystem\": \"ROT\",\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/01/2019 12:47:11\"\n                            },\n                            {\n                                \"serialNum\": \"5\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"24\",\n                                \"transDescription\": null,\n                                \"amount\": -1.0,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Transfer commission to IT14T0760101600000007957730\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"ΠΡΟΜ.77148764243232803409\",\n                                \"externalSystem\": null,\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/01/2019 12:47:11\"\n                            }\n                        ],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1.0,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543211\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 1.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543212\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 2.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"3\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-03T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 4,\n                                \"amount\": 20.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543215\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 20.0,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"order\": \"1\"\n                            },\n                            {\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\n                                \"order\": \"2\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": -1000.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0.0,\n                                \"to\": 100000.0,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"20\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1.0,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543213\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 1.0,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-02T10:47:11.7463186Z\",\n                                \"executionDate\": \"2019-11-06T10:47:11.7463186Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2.0,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543214\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 2.0,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"accountType\": \"20\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": 0.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": []\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"newMoneyBalance\": 0.0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25.0,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-01T10:47:11.7463186Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000.0,\n                                \"reference\": \"12345678901234567880\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-31T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567881\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0.0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-10-30T10:47:11.7463186Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567882\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            }\n                        ],\n                        \"deferred\": [],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000.0,\n                            \"availableBalance\": 500000.0,\n                            \"createDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"lastTransactionDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestRate\": 0.0,\n                            \"interestAccrued\": 0.0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0.0,\n                            \"deptReservation\": 0.0,\n                            \"overdraftLimit\": 0.0,\n                            \"excessLimitAmount\": 0.0,\n                            \"availableLimitAmount\": 0.0,\n                            \"freeChequeAmnt\": 0.0,\n                            \"expirationDate\": \"2019-11-01T10:47:11.7463186Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0.0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0.0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0.0,\n                                \"to\": 100000.0,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    }\n                ],\n                \"userId\": \"CORPORATION\",\n                \"mobilePhoneNumber\": \"\"\n            }\n        ],\n        \"consentApplicationIds\": [\n            \"72f01708-be1e-4567-926e-8c87d03ca551\"\n        ],\n        \"consents\": [\n            {\n                \"consentId\": \"8c29b1c6-ceef-4c0c-8faf-ba4b3db26287\",\n                \"name\": null,\n                \"consentData\": null,\n                \"startDate\": null,\n                \"endDate\": null,\n                \"created\": \"2019-11-01T10:47:26.4335066Z\",\n                \"updated\": \"2019-11-01T10:47:26.4335066Z\",\n                \"uses\": 0,\n                \"status\": \"AwaitingAuthorization\",\n                \"statusDate\": \"2019-11-01T10:47:26.4335066Z\",\n                \"applicationId\": \"72f01708-be1e-4567-926e-8c87d03ca551\",\n                \"sub\": null,\n                \"preferredUsername\": null,\n                \"providerId\": null\n            },\n            {\n                \"consentId\": \"9ba77ec3-d94e-40d2-88f3-2ad26345f3fc\",\n                \"name\": null,\n                \"consentData\": null,\n                \"startDate\": null,\n                \"endDate\": null,\n                \"created\": \"2019-11-01T10:47:52.1956143Z\",\n                \"updated\": \"2019-11-01T10:47:52.1956143Z\",\n                \"uses\": 0,\n                \"status\": \"AwaitingAuthorization\",\n                \"statusDate\": \"2019-11-01T10:47:52.1956143Z\",\n                \"applicationId\": \"72f01708-be1e-4567-926e-8c87d03ca551\",\n                \"sub\": null,\n                \"preferredUsername\": null,\n                \"providerId\": null\n            },\n            {\n                \"consentId\": \"f01f9335-c0e8-4d10-9d75-4b4c09d969cc\",\n                \"name\": null,\n                \"consentData\": null,\n                \"startDate\": null,\n                \"endDate\": null,\n                \"created\": \"2019-11-01T10:49:28.0357681Z\",\n                \"updated\": \"2019-11-01T10:49:28.0357681Z\",\n                \"uses\": 0,\n                \"status\": \"Authorized\",\n                \"statusDate\": \"2019-11-01T10:49:28.0357681Z\",\n                \"applicationId\": \"72f01708-be1e-4567-926e-8c87d03ca551\",\n                \"sub\": null,\n                \"preferredUsername\": null,\n                \"providerId\": null\n            },\n            {\n                \"consentId\": \"e69d4f85-46c8-4cfe-b010-6f12e3dd2a8f\",\n                \"name\": \"{{user_id}}\",\n                \"consentData\": null,\n                \"startDate\": null,\n                \"endDate\": null,\n                \"created\": \"2019-11-01T10:58:50.120023Z\",\n                \"updated\": \"2019-11-01T10:58:50.120023Z\",\n                \"uses\": 0,\n                \"status\": \"Authorized\",\n                \"statusDate\": \"2019-11-01T10:58:50.120023Z\",\n                \"applicationId\": \"72f01708-be1e-4567-926e-8c87d03ca551\",\n                \"sub\": null,\n                \"preferredUsername\": null,\n                \"providerId\": null\n            }\n        ]\n    },\n    \"exception\": null,\n    \"messages\": null,\n    \"executionTime\": 0.0\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Import a sandbox"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sandbox",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox_id}}"
+							]
+						},
+						"description": "Delete a sandbox"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ae36cb81-e2ee-4fbe-a603-160faddc339b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4728e107-b6fd-4d80-8358-244dce10dc3c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Consent",
+			"item": [
+				{
+					"name": "Generate consent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c432f91a-1be5-4381-9673-442089284fc6",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "04fde41b-99bb-49d0-b855-6f487eca5bd3",
+								"exec": [
+									"var consentid =  pm.environment.get(\"Consent-Id\");\r",
+									"\r",
+									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
+									"\r",
+									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"applicationId\": \"{{consent_application_Id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/consents/request-access",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"consents",
+								"request-access"
+							]
+						},
+						"description": "Generates a consentId that must be used when the user visits the Consent UI to give his/her consent, using client credential authorisation flow."
+					},
+					"response": []
+				},
+				{
+					"name": "Get consent information",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "32dc82d7-71b3-4265-816b-620772628df3",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "873d45ed-cffe-4bcf-a052-12a2450ac105",
+								"exec": [
+									"var consentid =  pm.environment.get(\"Consent-Id\");\r",
+									"\r",
+									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
+									"\r",
+									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"applicationId\": \"{{consent_application_Id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/consents/info",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"consents",
+								"info"
+							]
+						},
+						"description": "Retrieves the consent information of a user's consent."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete consent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "783cc610-ad17-4761-aad9-5b20bab85105",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "812e9d8a-7ad2-47e0-bdbc-21c968333e2f",
+								"exec": [
+									"var consentid =  pm.environment.get(\"Consent-Id\");\r",
+									"\r",
+									"var sandboxid = pm.environment.get(\"sandbox_id\");\r",
+									"\r",
+									"console.log(\"https://my.nbg.gr/sandbox.consent/account.info/authorize?consent_id=\" + consentid + \"&sandbox_id=\" + sandboxid + \"&redirect_uri=https://www.google.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"tanNumber\": \"119922\",\n        \"userId\": \"{{user_id}}\",\n        \"consentId\": \"{{Consent-Id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/consents/delete",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"consents",
+								"delete"
+							]
+						},
+						"description": "Deletes a user's consent."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "List Accounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6a7ad1d3-2791-4049-82e0-08148b485094",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"list"
+							]
+						},
+						"description": "List of NBG domestic accounts in euro"
+					},
+					"response": []
+				},
+				{
+					"name": "Account details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1d253965-5e2d-4e5d-bff9-1f392932082c",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/details",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"details"
+							]
+						},
+						"description": "Retrieves information of a specified account"
+					},
+					"response": []
+				},
+				{
+					"name": "List Beneficiaries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c9aad094-b9b0-477e-8cbb-c636bed80a4e",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"iban\": \"GR5301106780000067890123456\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/beneficiaries",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"beneficiaries"
+							]
+						},
+						"description": "NBG account beneficiaries (masked)"
+					},
+					"response": []
+				},
+				{
+					"name": "List Transactions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "88d37c25-6025-4a61-8b6c-6c27bb3e84c5",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/account/transactions",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"account",
+								"transactions"
+							]
+						},
+						"description": "Retrieves transactions of a specified account"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "42a45814-79ae-40d0-adec-435092d45636",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "122e689c-c50b-4f00-8f84-f548d732c8cd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Foreign Currency Account",
+			"item": [
+				{
+					"name": "List Accounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "39d6295d-96ed-44af-9f04-83608dd759ff",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"list"
+							]
+						},
+						"description": "List of my accounts in foreign currency with details."
+					},
+					"response": []
+				},
+				{
+					"name": "Account details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4e8302d8-6052-4c77-b4c6-5d637f1b0997",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/details",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"details"
+							]
+						},
+						"description": "Account details."
+					},
+					"response": []
+				},
+				{
+					"name": "List Beneficiaries",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "39d70635-4a10-4b4e-82e3-819e1b5d5262",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/beneficiaries",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"beneficiaries"
+							]
+						},
+						"description": "NBG Account beneficiaries masked."
+					},
+					"response": []
+				},
+				{
+					"name": "List Transcations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1bc87958-8f87-4161-bf3f-326088be8a33",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{foreign_account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/foreign-currency-account/transactions",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"foreign-currency-account",
+								"transactions"
+							]
+						},
+						"description": "Foreign Account Transcations."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for foreign-currency-account",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fc193560-1310-4b5f-be50-06a2f09c98b2",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/user/current",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"user",
+								"current"
+							]
+						},
+						"description": "Info about the logged in user."
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for user",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Standing orders",
+			"item": [
+				{
+					"name": "List standing orders",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "73607062-0e48-4ddf-84ba-ba4586743827",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{request_guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Consent-Id",
+								"value": "{{Consent-Id}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Consent-Check",
+								"value": "{{X-Consent-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/standing-orders/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"standing-orders",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Scheduled payments",
+			"item": [
+				{
+					"name": "List scheduled payments",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ed60a21f-c655-4d9d-b388-eb9ab8828b6b",
+								"exec": [
+									"{//loading private key",
+									"console.log(\"Now private key must be placed in plain text base64 starting and ending with '-----' lines\");",
+									"console.log(\"Additionally u can use KEYUTIL for safe key storage.\" );",
+									"var privateKey = pm.environment.get(\"privatekey\");",
+									"//loading public key  and addit to header ",
+									"console.log(\" additionally u can use KEYUTIL for safe certificate storage now is in plain text\");",
+									"var publicKey = pm.environment.get(\"publiccertificate\").replace('-----BEGIN CERTIFICATE-----','').replace('-----END CERTIFICATE-----','').replace(/(?:\\r\\n|\\r|\\n)/g, '');",
+									"pm.environment.set(\"TPP-Signature-Certificate\", publicKey);",
+									"var Property = require('postman-collection').Property;",
+									"",
+									"",
+									"var runit =  function(){",
+									"    //loading RSA JWT library",
+									"    var navigator = {};",
+									"    var window = {};",
+									"    eval(postman.getGlobalVariable(\"RSAJS\"));",
+									"    console.log(\" now u can use KJUR as a rsa library\");",
+									"    ",
+									"    //prepare head",
+									"    var oHeader = {\"alg\" : \"RS256\",\"typ\" : \"JWT\"};",
+									"    var sHeader = JSON.stringify(oHeader);",
+									"    ",
+									"    //prepare pody",
+									"    //var oData = {dsa:\"dsa\"};",
+									"    var oRaw = pm.request.body.raw ",
+									"    var oData = JSON.parse(Property.replaceSubstitutions(pm.request.body.raw , pm.variables.toObject()));",
+									"    ",
+									"    var sPayload = JSON.stringify(oData);",
+									"    //var sPayload = pm.request.body.raw;",
+									"    console.log(sPayload);",
+									"    ",
+									"    //Creating Signature",
+									"    var sJWT = KJUR.jws.JWS.sign(\"RS256\", sHeader, sPayload, privateKey);",
+									"    console.log(\"JWT:\" +  sJWT);",
+									"    var detachedJWT = sJWT.split(\".\",1)+\"..\" + sJWT.split(\".\")[2];",
+									"    console.log(\"detached JWT:\" +  detachedJWT);",
+									"    pm.environment.set(\"Signature\", detachedJWT);",
+									"}",
+									"var newguid = (function() {",
+									"  function s4() {",
+									"    return Math.floor((1 + Math.random()) * 0x10000)",
+									"               .toString(16)",
+									"               .substring(1);",
+									"  }",
+									"  return function() {",
+									"    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +",
+									"           s4() + '-' + s4() + s4() + s4();",
+									"  };",
+									"})();",
+									"",
+									"//Change Request Guid on body",
+									"pm.environment.set(\"request_guid\",newguid())",
+									"//download forgeJS from web and set varible",
+									"if(!pm.globals.has(\"RSAJS\")){",
+									"        pm.sendRequest(\"https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.12/jsrsasign-all-min.js\", function (err, res) {",
+									"        if (err) {",
+									"            console.log(err);}",
+									"        else {",
+									"            pm.globals.set(\"RSAJS\", res.text());",
+									"            runit();",
+									"        }",
+									"})}",
+									"else {runit(); }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{request_guid}}"
+							},
+							{
+								"key": "Consent-Id",
+								"type": "text",
+								"value": "{{Consent-Id}}"
+							},
+							{
+								"key": "X-Consent-Check",
+								"type": "text",
+								"value": "{{X-Consent-Check}}"
+							},
+							{
+								"key": "X-Certificate-Check",
+								"value": "{{X-Certificate-Check}}",
+								"type": "text"
+							},
+							{
+								"key": "TPP-Signature-Certificate",
+								"value": "{{TPP-Signature-Certificate}}",
+								"type": "text"
+							},
+							{
+								"key": "Signature",
+								"value": "{{Signature}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{request_guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"account\": \"{{account_number}}\",\n        \"dateFrom\": \"2008-03-13T07:38:56.591Z\",\n        \"dateTo\": \"2028-03-14T07:38:56.591Z\",\n        \"userId\": \"{{user_id}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/scheduled-payments/list",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"scheduled-payments",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "ce1995a36f8a85fe886971f2c01201eaefab293b98c4352858d7eb7c23ed5b81",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b5ffe7fa-15dd-480c-a358-a9267160e20f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f7aa329f-96fb-4df0-b87b-096cea03b3ff",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
