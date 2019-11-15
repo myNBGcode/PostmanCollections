@@ -15,7 +15,7 @@ The Social Network sandbox API provides a standard RESTful interface that enable
 * Send a direct message to a contact
 * React on a post/direct message
 
-> Visit https://developer.nbg.gr/documentation/Social-Network-Application-v22-5521
+> Visit https://developer.nbg.gr/documentation/Social-Network-Application-v2.2
 > for the full API documentation.
 
 ### Use case scenario
@@ -35,7 +35,7 @@ With a request body:
 ``` 
 
 *Note: Remember to store **sandbox_id** somewhere in your application, because you will need to provide it in as a header
-in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Social-Network-Platform-v21-962)*
+in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id header* with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Social-Network-Platform)*
 
 ##### Use the Platform
 The response contains - among others - a social network. You should store **SocialNetworkId** in your application as we will need it later to access our Social Network. From now on, we will refere to this id as **our_network_id**.

@@ -6,7 +6,7 @@
 ### Introduction
 The Biometrics Sandbox API has been developed with three main functionalities in mind. It enables us to compare two images so as to verify if they contain the same person and also we can perform a liveness check control in order to verify that a person in a recorded video is alive. Finally, you can find an endpoint that returns the first image (frame) of a person detected from the recorded video.
 
-> The full API documentation: https://developer.nbg.gr/documentation/Biometrics-API-v13-5437
+> The full API documentation: https://developer.nbg.gr/documentation/Biometrics-API-v1.3
 
 ### Use case scenarios
 In order to use this API for the first time you will need to create a Sandbox by making an **HTTP POST** request to the following URL
@@ -19,7 +19,7 @@ With a request body:
  }
 ``` 
 
-*Note: Remember to store the **sandbox_id** somewhere in your application, because you will need to provide it in as a header in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id* header with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Biometrics-v12-3947)*
+*Note: Remember to store the **sandbox_id** somewhere in your application, because you will need to provide it in as a header in each api call. Also for your ease remember to change your sandbox_id in the enviroment.json provided with this API and the *Client-Id* header with the Client ID provided from your subscription of your application in the Developers Portal site (https://developer.nbg.gr/apiProduct/Biometrics)*
 
 Once the sandbox is created, proceed with the two scenarios presented below:
 ##### Airport Face Control Scenario

@@ -21,7 +21,7 @@ This API provides a standard RESTful interface that enables a user to:
 
 * By using the endpoint _POST_ /ocr/uploadDocument in order to get the document's recognized data. 
 
-> Visit https://developer.nbg.gr/documentation/OCR-API-for-Documents-Optical-Character-Recognition-v13
+> Visit https://developer.nbg.gr/documentation/OCR-API-for-Documents-Optical-Character-Recognition-v1.3
 > for the full API documentation
 
 ### Real life Use Case Scenario

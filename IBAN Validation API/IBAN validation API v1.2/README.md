@@ -14,7 +14,7 @@ This API provides a standard RESTful interface that enables a user to
 * Get the IBAN of a bank account number
 * Check if an IBAN is valid
 
-> Visit https://developer.nbg.gr/documentation/IBAN-Validation-API-v12-5476 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/IBAN-Validation-API-v1.2 for the full API documentation
 
 ### Real life Use Case Scenario
 In this scenario we will be using the API to provide data to the *IBAN Calculator* application.

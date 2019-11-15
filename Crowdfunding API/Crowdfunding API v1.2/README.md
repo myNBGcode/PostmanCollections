@@ -25,7 +25,7 @@ Is the promise that a registered user will pay the amount he promised for a spec
 ##### Content for actions
 Each action has one or more contents to display. For example the description of an action is content.
 
-> Visit https://developer.nbg.gr/documentation/Crowdfunding-API-v12-5458 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Crowdfunding-API-v1.2 for the full API documentation
 
 ### Real life Use Case Scenario
 Let's say that we want to create an application in which end users will make donations to two actions. The first action named 'Therapy dogs' has the purpose to raise €8000 in order to provide animal assisted therapy. The second action is the 'Help me go to school' and has the purpose to raise €30000 in order to purchase a specialy modified school bus for people with cerebral palcy.
