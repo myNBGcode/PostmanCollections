@@ -9,7 +9,7 @@ This API provides a standard RESTful interface that enables a user to:
 * View their account balances
 * View their account transactions
 
-> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v12-5416 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v1.2 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
 

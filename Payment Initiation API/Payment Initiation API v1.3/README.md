@@ -12,7 +12,7 @@ There are 3 types of payments:
 * Sepa Transfer (Transfer using account’s IBAN format, receiver account can be either a NBG account or any other bank account e.g Eurobank)
 * Non Sepa Transfer (In case the receiver account bank does not support IBAN format and a different account number format is needed, which format depends on the bank that is used)
 
-> Visit https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v13-5680 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v1.3 for the full API documentation
 
 ### Authentication & Authorization (OAuth2) ##
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:

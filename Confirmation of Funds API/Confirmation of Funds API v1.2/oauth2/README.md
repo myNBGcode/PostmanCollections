@@ -5,7 +5,7 @@
 ### The API
 This API provides a standard RESTful interface that enables a user to check the availability of their funds. The availability is determined by providing the account's details and the corresponding amount in question.
 
-> Visit https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v12-5452 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Confirmation-Funds-API-OAuth2-v1.2 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
 

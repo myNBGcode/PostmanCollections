@@ -5,7 +5,7 @@
 ### Introduction
 The eQueueing API provides information about branches and ATMs. It also manages tickets for a branch, which means that someone can issue a ticket for a branch remotely from his way to the branch.
 
-> The full API documentation: https://developer.nbg.gr/documentation/eQueuing-Sandbox-API-v11-4265
+> The full API documentation: https://developer.nbg.gr/documentation/eQueuing-Sandbox-API-v1.1
 
 ### Use case scenario
 In this scenario, we are going to use the API in order to provide data to the *WeFixDevices eServices* mobile application.

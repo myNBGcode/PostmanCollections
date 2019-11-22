@@ -10,7 +10,7 @@ This API provides a standard RESTful interface that enables a user to:
 * View their account balances
 * View their account transactions
 
-> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v13-5683 for the full API documentation
+> Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v1.3 for the full API documentation
 
 ### Authentication & Authorization (OAuth2)
 This API version uses the OAuth2.0 protocol for authentication and authorization, which means that a Bearer (access token) should be acquired. An access token can be retrieved using the client_id and client_secret of the APP that you created and subscribed in this API, and your own credentials (username, password) that you use to sign in the NBG Technology HUB. The scopes are defined below:
