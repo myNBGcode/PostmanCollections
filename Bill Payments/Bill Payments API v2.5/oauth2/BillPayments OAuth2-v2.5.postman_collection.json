@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fa957c64-c67b-412c-a99e-dbb1ffbba5ee",
+		"_postman_id": "44735ef4-6eb5-4f91-a623-80364ba624bd",
 		"name": "BillPayments OAuth2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1957,7 +1957,7 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": \"DemoTPP4UsersSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsListLight",
 							"protocol": "https",
 							"host": [
 								"{{base_url}}"
@@ -1965,7 +1965,7 @@
 							"path": [
 								"{{portal}}",
 								"Payments",
-								"paymentsList"
+								"paymentsListLight"
 							]
 						}
 					},
@@ -2005,7 +2005,7 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": \"DemoTPP4UsersSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsCategoriesList",
 							"protocol": "https",
 							"host": [
 								"{{base_url}}"
@@ -2013,7 +2013,7 @@
 							"path": [
 								"{{portal}}",
 								"Payments",
-								"paymentsList"
+								"paymentsCategoriesList"
 							]
 						}
 					},

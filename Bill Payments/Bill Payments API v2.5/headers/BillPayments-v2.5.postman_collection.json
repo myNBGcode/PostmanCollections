@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cf20cd14-0e74-44fc-9bc2-90b76ff9022a",
+		"_postman_id": "6a6a8143-29f4-4a3e-a246-20382098742d",
 		"name": "BillPayments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -2664,13 +2664,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "a55bccee-ffcb-49e1-ada1-f06de7e49d4e",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2715,7 +2716,7 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": \"DemoTPP4UsersSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsListLight",
 							"protocol": "https",
 							"host": [
 								"{{base_url}}"
@@ -2723,7 +2724,7 @@
 							"path": [
 								"{{portal}}",
 								"Payments",
-								"paymentsList"
+								"paymentsListLight"
 							]
 						}
 					},
@@ -2735,13 +2736,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "28f33d0d-67ff-4927-a8c2-0ca08a553fff",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2786,7 +2788,7 @@
 							"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": \"DemoTPP4UsersSpotMachine1\",\r\n    \"machineId\": null\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsList",
+							"raw": "https://{{base_url}}/{{portal}}/Payments/paymentsCategoriesList",
 							"protocol": "https",
 							"host": [
 								"{{base_url}}"
@@ -2794,7 +2796,7 @@
 							"path": [
 								"{{portal}}",
 								"Payments",
-								"paymentsList"
+								"paymentsCategoriesList"
 							]
 						}
 					},
