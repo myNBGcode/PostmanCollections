@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9826f669-ce40-4c98-adc4-dd890afadd7d",
+		"_postman_id": "e5fdd191-14d6-4115-980c-43727a599126",
 		"name": "File.API.Sandbox",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -54,9 +54,9 @@
 							"raw": "{\n    \"sandboxId\": \"{{sandbox_id}}\",\n    \"userId\": \"{{user_id}}\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/sandbox",
+							"raw": "{{root_url}}/sandbox",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox"
@@ -88,9 +88,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -127,9 +127,9 @@
 							"raw": "{\n    \"SandboxID\": \"{{sandbox_id}}\",\n    \"Users\": [\n        {\n            \"Username\": \"User1\",\n            \"Folders\": [\n                {\n                    \"FolderId\": \"0e9b903d-93b8-4ed0-8482-5a7848502dbf\",\n                    \"Permissions\": {\n                        \"canAdd\": true,\n                        \"canView\": true,\n                        \"canEditMetadata\": true,\n                        \"canMove\": true,\n                        \"canDelete\": true,\n                        \"canShare\": true\n                    }\n                }\n            ],\n            \"Files\": [\n                {\n                    \"FileId\": \"7d66145b-f9b5-4202-855f-d7d09cfc95a1\",\n                    \"Permissions\": {\n                        \"canAdd\": true,\n                        \"canView\": true,\n                        \"canEditMetadata\": true,\n                        \"canMove\": true,\n                        \"canDelete\": true,\n                        \"canShare\": true\n                    }\n                }\n            ]\n        },\n        {\n        \t \"Username\": \"User2\",\n            \"Folders\": [],\n            \"Files\": []\n        }\n    ],\n    \"Folders\": [\n        {\n            \"FolderId\": \"0e9b903d-93b8-4ed0-8482-5a7848502dbf\",\n            \"FolderName\": \"MyFolder1\",\n            \"FolderDescription\": \"MyFolder 1\",\n            \"FolderIcon\": null,\n            \"SubFolders\": null,\n            \"createdByUserId\": \"User1\",\n            \"createdByUserRegistry\": \"IBank\",\n            \"updatedByUserId\": null,\n            \"updatedByUserRegistry\": null,\n            \"createdOn\": \"2018-02-02T00:00:00.000Z\",\n            \"updatedOn\": null\n        }\n    ],\n    \"Files\": [\n        {\n            \"FolderId\": \"0e9b903d-93b8-4ed0-8482-5a7848502dbf\",\n            \"FileId\": \"7d66145b-f9b5-4202-855f-d7d09cfc95a1\",\n            \"FileContent\": \"LzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQW9IQndnSEJnb0lDQWdMQ2dvTERoZ1FEZzBORGgwVkZoRVlJeDhsSkNJZklpRW1LemN2SmlrMEtTRWlNRUV4TkRrN1BqNCtKUzVFU1VNOFNEYzlQanYvMndCREFRb0xDdzRORGh3UUVCdzdLQ0lvT3pzN096czdPenM3T3pzN096czdPenM3T3pzN096czdPenM3T3pzN096czdPenM3T3pzN096czdPenM3T3pzN096di93QUFSQ0FCcEFHa0RBU0lBQWhFQkF4RUIvOFFBR2dBQkFRRUJBUUVCQUFBQUFBQUFBQUFBQUFVR0JBTUhBZi9FQURVUUFBRURBd0lFQkFJSUJ3QUFBQUFBQUFBQkFnTUVCUkVTSVFZVEZERkJVVk5oTTNFSElpTTBnWUtSa2hVa01rSlNzY0wveEFBYUFRRUFBZ01CQUFBQUFBQUFBQUFBQUFBQUFnTUJCQVVHLzhRQUxSRUFBZ0VDQXdVR0J3QUFBQUFBQUFBQUFBRUNBeEVFSVdFRkVoTXhnUlFWTW5HUjhEUkJVVkpqb2VILzJnQU1Bd0VBQWhFREVRQS9BUHN3QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFPT3ZxbndOYTJQWnp2SHlRbjlaVStzNDZicjhTUDVLUmJoWHJRZFBpa3FLbm56Tmkrd1pxMFovdWQ1SW5tZVUyaFhyUEZTaEdUeTEwTjZsR080bTBVZXNxZldjT3NxZldjUmVKTDQzaHl4ejNSOEN6dGhWcWN0cnRLcmx5Tjc0OXlqRElrc0xKRVRHdHFPeDVaVEpvOFd1b3FXODdlWlphTjdXT25yS24xbkRyS24xbkhqbmZIaW83Sm53STlvcmZlL1ZtZDJQMFBicktuMW5EcktuMW5FTGlHL3NzRUZKSzZuV2ZxcWxsT2lJL1RwMWVQWXJrblZycUtrNU96MU1XamUxaW5RVmNrcjFpa1hWdGxGTzhrVzM3MytWU3VlbjJYVW5Vdzk1dStacDFrbFBJQUE2UlNBQUFUTHI4U1A1S1lINlFaNW9JN0p5WnBJdGR6amE3UTVVeW0reTQ4RGZYWDRrZnlVaFhTelVONFNuU3RpZElsTk1rMGVIcTNEMDdMdDNQSllxY1lZNlVwY3Y0YjBFM1Nzakg4ZVZ0MXFlRHJ4SFgybEtLR044ZkpsNmhzbk4rMVR3VHR0dWMwOXZadzFldUdLNjNYQ3FtbXVjcllhbHNzeXZTb1k1RXk3SHRuL1JzcjFEYUxyUTFGdHVUMGZEOVZaWTJ1VkZUQ281TzIva2NObzRhNFl0OXpqcmJiU2Z6Q3N6RzdMM3RqUlU4TTdOenY1RWFlSWpHbHV0TmM4a3NuZEpmTjlRNE55NW1ONGdXSzdVbDV2bHNwS3ZGSE01RXVNbHdjeFdQYXFiUnNUdzdZVGJ1VTRxVjNFZkhzbExYMVZUMHJyVEROSkJGS3JHdmN1bnVpZUdWeVdhcmhMaE44OWJMTFJPVlpsWG5JMVpGWnFjdUZWcUp0cTM4TjB5VUtTaXNsSmRWdU5PN0ZTdEsySG1hM0sxWTJvaW9ubG5HbGZQQzVKeXhNVkMwRStUdHB5MTAwOGpDZzc1bnphYWVvYndzeW1hNTlSMFBFZkpwMnlQeXVsTjBibGZkVFljQVRQdW44UXUxZFZ5eVhKODdvcHFaeXFqYVZFWFppTi9EdjdmTW9ONGM0Y2U3b1d4dVZ6NnJyOVBNZnZMbFV6bjV0WGIyVW93MkczVTk4bXZNTVRvNnlkbWlWelhxalhwN3Q3WjJUY2pYeE5PY0hGSnB2Myt6TVlOTzVjdHYzdjhBS3BYSkZ0KzkvbFVyblkyUjhOMVpSWDhZQUIxaWdBQUE0YmxBK1JHdllpdTA3S2lFM2xTZW03OXFtZ0J5Y1RzdUZlbzZtOWE1ZkNzNHExakt5MmVubmtmSkpUT1Y4bWRUdnJKblpxZjhOL1QzRVZvZ2hramtqcDVHckdtRzd1eDRwMi9GVFZBcDdueXR4SDc2a3VQb1pTU3pVOHNqM3lVcm44eitwcnNxMWQwWHQyN29oK3JaNFYxWmhsVkhOMHFpdWQvaWpjOSsrRVJNOTlqVkFkei9BSkg3NmpqNkdZaHRzY0VuTWpwM2E5Q00xcWlxdUVWVjdyN3VYOVQzNVVucHUvYXBvQVJleFl2bk4rZzdSb1RiYlR5TmxXVnpWYW1NSm54S1FCMWNOaDQ0ZW51UmR5bWMzTjNZQUJza0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUQvMlE9PQ==\",\n            \"FileName\": \"File1.txt\",\n            \"FileDescription\": \"My file 1\",\n            \"FileIcon\": null,\n            \"FileSize\": 10,\n            \"TotalChunks\": 1,\n            \"FileStatus\": \"Completed\",\n            \"Metadata\": \"customProperty : customerPropertyValue\",\n            \"UserTags\": [\n                \"PersonalFile\"\n            ],\n            \"SystemTags\": [\n                \"EthnofileSystemResponse\"\n            ],\n            \"createdByUserId\": \"User1\",\n            \"createdByUserRegistry\": \"IBank\",\n            \"updatedByUserId\": null,\n            \"updatedByUserRegistry\": null,\n            \"createdOn\": \"2018-02-02T00:00:00.000Z\",\n            \"updatedOn\": null\n        }\n    ]\n}"
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -160,9 +160,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -216,9 +216,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"My Folder\",\r\n  \"folderDescription\": \"Folder for my files\",\r\n  \"folderIcon\": null,\r\n  \"parentFolderId\": null\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -266,9 +266,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -316,9 +316,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"My Folder Updated\",\r\n  \"folderDescription\": null,\r\n  \"folderIcon\": null,\r\n  \"parentFolderId\": null\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -370,9 +370,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -421,9 +421,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canAdd\": true,\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": true\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -478,9 +478,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -538,9 +538,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderId\": null,\r\n  \"fileName\": \"MyFile.txt\",\r\n  \"fileDescription\": \"My File\",\r\n  \"userTags\": [\r\n    \"MyFile\"\r\n  ],\r\n  \"fileSize\": \"1\",\r\n  \"metadata\": null,\r\n  \"fileIcon\": null\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/upload-initiation",
+							"raw": "{{root_url}}/files/upload-initiation",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -589,9 +589,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileContent\": \"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABpAGkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAUGBAMHAf/EADUQAAEDAwIEBAIIBwAAAAAAAAABAgMEBRESIQYTFDFBUVNhM3EHIiM0gYKRkhUkMkJSscL/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUG/8QALREAAgECAwUGBwAAAAAAAAAAAAECAxEEIWEFEhMxgRQVMnGR8DRBUVJjoeH/2gAMAwEAAhEDEQA/APswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOvqnwNa2PZzvHyQn9ZU+s46br8SP5KRbhXrQdPikqKnnzNi+wZq0Z/ud5InmeU2hXrPFShGTy10N6lGO4m0UesqfWcOsqfWcReJL43hyxz3R8CzthVqctrtKrlyN749yjDIksLJETGtqOx5ZTJo8WuoqW87eZZaN7WOnrKn1nDrKn1nHjnfHio7JnwI9orfe/Vmd2P0PbrKn1nDrKn1nELiG/ssEFJK6nWfqqllOiI/Tp1ePYrknVrqKk5Oz1MWje1inQVckr1ikXVtlFO8kW373+VSuen2XUnUw95u+Zp1klPIAA6RSAAATLr8SP5KYH6QZ5oI7JyZpItdzja7Q5Uym+y48DfXX4kfyUhXSzUN4SnStidIlNMk0eHq3D07Lt3PJYqcYY6Upcv4b0E3SsjH8eVt1qeDrxHX2lKKGN8fJl6hsnN+1TwTttuc09vZw1euGK63XCqmmucrYalssyvSoY5Ey7Htn/Rsr1DaLrQ1FtuT0fD9VZY2uVFTCo5O2/kcNo4a4Yt9zjrbbSfzCszG7L3tjRU8M7Nzv5EaeIjGlutNc8ksndJfN9Q4Ny5mN4gWK7Ul5vlspKvFHM5EuMlwcxWPaqbRsTw7YTbuU4qV3EfHslLX1VT0rrTDNJBFKrGvcunuieGVyWarhLhN89bLLROVZlXnI1ZFZqcuFVqJtq38N0yUKSislJdVuNO7FStK2Hma3K1Y2oionlnGlfPC5JyxMVC0E+Ttpy1008jCg75nzaaeobwsyma59R0PEfJp2yPyulN0blfdTYcATPun8Qu1dVyyXJ87opqZyqjaVEXZiN/Dv7fMoN4c4ce7oWxuVz6rr9PMfvLlUzn5tXb2Uow2G3U98mvMMTo6ydmiVzXqjXp7t7Z2TcjXxNOcHFJpv3+zMYNO5ctv3v8AKpXJFt+9/lUrnY2R8N1ZRX8YAB1igAAA4blA+RGvYiu07KiE3lSem79qmgBycTsuFeo6m9a5fCs4q1jKy2ennkfJJTOV8mdTvrJnZqf8N/T3EVoghkjkjp5GrGmG7ux4p2/FTVAp7nytxH76kuPoZSSzU8sj3yUrn8z+prsq1d0Xt27oh+rZ4V1ZhlVHN0qiud/ijc9++ERM99jVAdz/AJH76jj6GYhtscEnMjp3a9CM1qiquEVV7r7uX9T35Unpu/apoARexYvnN+g7RoTbbTyNlWVzVamMJnxKQB1cNh44enuRdymc3N3YABskAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==\",\r\n  \"chunkPart\": 1\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/upload",
+							"raw": "{{root_url}}/files/{{file_id}}/upload",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -641,9 +641,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/{{chunk_part}}",
+							"raw": "{{root_url}}/files/{{file_id}}/{{chunk_part}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -686,9 +686,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -730,9 +730,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileName\": \"File8.txt\",\r\n  \"userTags\": [\r\n    \"PersonalFile\"\r\n  ],\r\n  \"fileDescription\": \"My File\",\r\n  \"fileIcon\": null,\r\n  \"folderId\": null,\r\n  \"useFolderId\" : false\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -774,9 +774,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"FileStatus\": \"Immutable\"\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/status/{{file_id}}",
+							"raw": "{{root_url}}/files/status/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -823,9 +823,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -902,9 +902,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files",
+							"raw": "{{root_url}}/files",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files"
@@ -945,9 +945,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canView\": true,\r\n    \"canEditMetadata\": true,\r\n    \"canMove\": true,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -996,9 +996,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -1048,9 +1048,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/sendfiletoethnofiles",
+							"raw": "{{root_url}}/files/sendfiletoethnofiles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",

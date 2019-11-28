@@ -52,16 +52,17 @@ With a request body:
   "needsApproval": false
 }
 ```
-The response is a JSON object containing the file id, the number of file chunks and their size, as shown below.
+The response is a JSON object containing the file id, the number of file chunks and their size, as shown below. 
+note: The Sandbox app always return 1 file chunk as a response and accepts 1 chunk to be uploaded by the following operation but the functionality is the same as the production. This is different to the production which can return maney chunks and expects those chunks as described in the step below.
 ```
 {
   "fileId": "F9C9E3B1-AC46-4851-AF34-60297EE9300E",
-  "fileChunks": 2,
+  "fileChunks": 1,
   "fileChunkSize": 4
 }
 ```
 
-2. Upload the chunks one by one in a chronologically and incremental way as they seperated. Upload can be invoked by making an HTTP POST request to the following URL. The File identifier is retrieved from the previous step. Let's say there are 2 chunks, the first chunk return an HTTP Status Code 308 Range and the final one returns HTTP Status Code 200 OK which indicates that the operation ended successfully.
+2. Upload the chunks one by one in a chronologically and incremental way as they seperated (Sandbox environment only accepts 1 chunk). Upload can be invoked by making an HTTP PUT request to the following URL. The File identifier is retrieved from the previous step. Let's say there are 2 chunks, the first chunk return an HTTP Status Code 308 Range and the final one returns HTTP Status Code 200 OK which indicates that the operation ended successfully.
 
 > https://apis.nbg.gr/sandbox/file/oauth2/v2.1/files/{fileId}/upload
 
@@ -132,7 +133,7 @@ The response is a JSON object containing the file chunk part content, as shown b
 
 ### Update File Metadata
 
-Update file metadata by making an HTTP PUT request to the following url, only the filled values are used.
+Update file metadata by making an HTTP PUT request to the following url. Only the values that are not null in the request body are used to update the metadata of the file. A null value indicates that the particular metadata key should remain unchanged.
 
 > https://apis.nbg.gr/sandbox/file/oauth2/v2.1/files/{fileId}/upload
 
@@ -154,7 +155,7 @@ With a request body:
   "fileDescription": "My File Updated",
   "fileIcon": null,
   "folderId": null,
-  "FileStatus": "Completed"
+  "useFolderId" : false
 }
 ```
 ### Delete a File
@@ -384,6 +385,39 @@ The response is a JSON object containing the folder list, as shown below.
     }
   }
 ]
+```
+### Send a File from File API to Ethnofiles System
+
+Send a file stored in the File API to Ethnofiles by making an HTTP POST request to the following url.
+
+> https://apis.nbg.gr/sandbox/file/oauth2/v2.1/files/SendFileToEthnofiles
+
+With a request body:
+```
+{
+    "header":{
+		"id":"guid",
+		"application":"client_id"
+	},
+    "payload": {
+        "fileApiFileId": "80000006-0000-fc00-b63f-84710c7967bb",
+        "userId": "",
+        "fileTypeId": "",
+        "rowCount": "",
+        "totalSum": "",
+        "tanNumber": "",
+        "locale": "",
+        "inboxId": "",
+        "xactionId": "",
+        "isSmsOtp": "",
+        "convId": "",
+        "xmlFileField": "",
+        "debtorName": "",
+        "debtorIBAN": "",
+        "fileId": "",
+        "acceptTerms": "",
+        "acceptTrnTerms": ""
+}
 ```
 
 Created by **NBG**. See more at https://developer.nbg.gr/
