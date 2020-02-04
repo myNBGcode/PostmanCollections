@@ -1,0 +1,687 @@
+[
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"payload\": {\n        \"sandboxId\": \"a_sandbox_id\",\n        \"version\": 1,\n        \"users\": [\n            {\n                \"accounts\": [\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": -1000,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"12345678901234567890\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-11-27T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-27T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567891\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-11-26T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-26T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567892\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"4\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"68\",\n                                \"transDescription\": null,\n                                \"amount\": -100,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"SEPA TRANSFER\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"77148764243232803409\",\n                                \"externalSystem\": \"ROT\",\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/28/2019 08:29:38\"\n                            },\n                            {\n                                \"serialNum\": \"5\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"24\",\n                                \"transDescription\": null,\n                                \"amount\": -1,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Transfer commission to IT14T0760101600000007957730\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"ΠΡΟΜ.77148764243232803409\",\n                                \"externalSystem\": null,\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/28/2019 08:29:38\"\n                            }\n                        ],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543211\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 1,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543212\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 2,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"3\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-11-30T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 4,\n                                \"amount\": 20,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543215\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 20,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"order\": \"1\"\n                            },\n                            {\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\n                                \"order\": \"2\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": -1000,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0,\n                                \"to\": 100000,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"20\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543213\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 1,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543214\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 2,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"accountType\": \"20\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": 0,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": []\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"12345678901234567880\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-11-27T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-27T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567881\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-11-26T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-26T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567882\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            }\n                        ],\n                        \"deferred\": [],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": 0,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0,\n                                \"to\": 100000,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    }\n                ],\n                \"userId\": \"libreazer\",\n                \"mobilePhoneNumber\": \"6978421642\"\n            },\n            {\n                \"accounts\": [\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": -1000,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"12345678901234567890\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-11-27T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-27T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567891\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-11-26T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-26T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567892\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR5301106780000067890123456\",\n                                \"relatedName\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"4\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"68\",\n                                \"transDescription\": null,\n                                \"amount\": -100,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"SEPA TRANSFER\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"77148764243232803409\",\n                                \"externalSystem\": \"ROT\",\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/28/2019 08:29:38\"\n                            },\n                            {\n                                \"serialNum\": \"5\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": \"700\",\n                                \"trans\": \"24\",\n                                \"transDescription\": null,\n                                \"amount\": -1,\n                                \"currency\": \"070\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Transfer commission to IT14T0760101600000007957730\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"ΠΡΟΜ.77148764243232803409\",\n                                \"externalSystem\": null,\n                                \"relatedAccount\": \"IT14T0760101600000007957730\",\n                                \"relatedName\": \"DR. WHO\",\n                                \"timestamp\": \"11/28/2019 08:29:38\"\n                            }\n                        ],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543211\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 1,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543212\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 2,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"3\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-11-30T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 4,\n                                \"amount\": 20,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543215\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR5301106780000067890123456\",\n                                \"totalAmount\": 20,\n                                \"creditAccount\": \"GR9601106780000067890123458\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΠΑΠΑΔΟΠΟΥΛΟΣ ΓΕΩΡΓΙΟΣ\",\n                                \"order\": \"1\"\n                            },\n                            {\n                                \"name\": \"ΠΑΠΠΑΣ ΝΙΚΟΛΑΟΣ\",\n                                \"order\": \"2\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123456\",\n                            \"iban\": \"GR5301106780000067890123456\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 1\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": -1000,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0,\n                                \"to\": 100000,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"20\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [],\n                        \"deferred\": [\n                            {\n                                \"trnNo\": \"1\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 1,\n                                \"totalPayments\": 1,\n                                \"amount\": 1,\n                                \"status\": \"pending\",\n                                \"transId\": \"12345678909876543213\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 1,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            },\n                            {\n                                \"trnNo\": \"2\",\n                                \"trnId\": null,\n                                \"name\": \"NAME\",\n                                \"description\": \"TEST\",\n                                \"createdDate\": \"2019-11-29T06:29:38.272194Z\",\n                                \"executionDate\": \"2019-12-03T06:29:38.272194Z\",\n                                \"cancellationDate\": null,\n                                \"frequency\": 2,\n                                \"totalPayments\": 2,\n                                \"amount\": 2,\n                                \"status\": null,\n                                \"transId\": \"12345678909876543214\",\n                                \"channel\": null,\n                                \"rowsNum\": 1,\n                                \"debitAccount\": \"GR9601106780000067890123458\",\n                                \"totalAmount\": 2,\n                                \"creditAccount\": \"GR5301106780000067890123456\",\n                                \"details\": null,\n                                \"historical\": null,\n                                \"history\": null,\n                                \"future\": null,\n                                \"master\": null\n                            }\n                        ],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΒΑΣΙΛΕΙΟΥ ΜΑΡΙΑ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"67890123458\",\n                            \"iban\": \"GR9601106780000067890123458\",\n                            \"accountType\": \"20\",\n                            \"currency\": \"EUR\",\n                            \"alias\": \"Account 2\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": 0,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": []\n                    },\n                    {\n                        \"account\": {\n                            \"accountType\": \"3000\",\n                            \"overdraftLimit\": null,\n                            \"numberOfMandates\": null,\n                            \"serialNo\": null,\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"newMoneyBalance\": 0,\n                            \"flag\": null,\n                            \"allowConnect\": null,\n                            \"allowDebit\": null,\n                            \"allowCredit\": null,\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            }\n                        },\n                        \"transactions\": [\n                            {\n                                \"serialNum\": \"1\",\n                                \"date\": \"2019-11-28T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"20\",\n                                \"transDescription\": null,\n                                \"amount\": -25,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Debit\",\n                                \"valeur\": \"2019-11-28T06:29:38.272194Z\",\n                                \"description\": \"Check deposit Federer\",\n                                \"accountingBalance\": 500000,\n                                \"reference\": \"12345678901234567880\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"2\",\n                                \"date\": \"2019-11-27T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 450.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-27T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 1\",\n                                \"accountingBalance\": 499549.14,\n                                \"reference\": \"12345678901234567881\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            },\n                            {\n                                \"serialNum\": \"3\",\n                                \"date\": \"2019-11-26T06:29:38.272194Z\",\n                                \"branch\": null,\n                                \"trans\": \"64\",\n                                \"transDescription\": null,\n                                \"amount\": 400.86,\n                                \"currency\": \"002\",\n                                \"amountEquivalent\": 0,\n                                \"creditDebit\": \"Credit\",\n                                \"valeur\": \"2019-11-26T06:29:38.272194Z\",\n                                \"description\": \"Fund Transfer 2\",\n                                \"accountingBalance\": 499599.14,\n                                \"reference\": \"12345678901234567882\",\n                                \"externalSystem\": \"RNB\",\n                                \"relatedAccount\": \"GR9601106780000012332112332\",\n                                \"relatedName\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"timestamp\": null\n                            }\n                        ],\n                        \"deferred\": [],\n                        \"pending\": [],\n                        \"beneficiaries\": [\n                            {\n                                \"name\": \"ΓΕΩΡΓΙΟΥ ΓΙΩΡΓΟΣ\",\n                                \"order\": \"1\"\n                            }\n                        ],\n                        \"details\": {\n                            \"account\": \"12332112332\",\n                            \"iban\": \"GR9601106780000012332112332\",\n                            \"accountType\": \"3000\",\n                            \"currency\": \"USD\",\n                            \"alias\": \"Account 3\",\n                            \"product\": null,\n                            \"ledgerBalance\": 500000,\n                            \"availableBalance\": 500000,\n                            \"createDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"lastTransactionDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestRate\": 0,\n                            \"interestAccrued\": 0,\n                            \"interestPeriod\": \"0\",\n                            \"chequeReservation\": 0,\n                            \"deptReservation\": 0,\n                            \"overdraftLimit\": 0,\n                            \"excessLimitAmount\": 0,\n                            \"availableLimitAmount\": 0,\n                            \"freeChequeAmnt\": 0,\n                            \"expirationDate\": \"2019-11-28T06:29:38.272194Z\",\n                            \"interestScale\": \"1000\",\n                            \"irisAccount\": null,\n                            \"irisBalance\": 0,\n                            \"accType\": null,\n                            \"allowConnect\": \"1\",\n                            \"allowDebit\": \"1\",\n                            \"allowCredit\": \"11\",\n                            \"indicators\": null,\n                            \"ledgerAccount\": null,\n                            \"isOwnAccount\": true,\n                            \"features\": {\n                                \"statement\": true,\n                                \"otherInfo\": true,\n                                \"mandates\": true,\n                                \"cheques\": true,\n                                \"transfer\": true,\n                                \"rates\": true,\n                                \"beneficiaries\": true\n                            },\n                            \"newMoneyBalance\": 0,\n                            \"mandatesNumber\": null\n                        },\n                        \"rates\": [\n                            {\n                                \"from\": 0,\n                                \"to\": 100000,\n                                \"rate\": 0.03\n                            }\n                        ]\n                    }\n                ],\n                \"userId\": \"CORPORATION\",\n                \"mobilePhoneNumber\": \"\"\n            }\n        ],\n        \"consentApplicationIds\": [\n            \"72f01708-be1e-4567-926e-8c87d03ca551\"\n        ],\n        \"consents\": []\n    },\n    \"exception\": null,\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "Authorization": "Bearer replace_this_value",
+                "Client-Id": "replace_this_value"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this value\",\n        \"application\": \"replace_this_value\"\n    },\n    \"payload\": {\n        \"sandboxId\": \"replace_this_value\"\n    }\n}"
+        },
+        "path": "/sandbox",
+        "headers": {},
+        "created": "Thu Nov 28 2019 08:29:15 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the authorization code flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "minified": false,
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "Welcome to Payments Initiation API. Feel free to create a sandbox, by replacing the sandbox id with a unique id."
+    },
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"payload\": {\n        \"consentId\": \"5eb7cc7f-e864-42a2-9723-9549adc52825\"\n    },\n    \"exception\": null,\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "sandbox_id": "replace_this_value",
+                "Authorization": "Bearer replace_this_value",
+                "Request-Id": "replace_this_value",
+                "Signature": "1",
+                "TPP-Signature-Certificate": "1",
+                "X-Certificate-Check": "false",
+                "Client-Id": "replace_this_value"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this_value\",\n        \"application\": \"replace_this_value\"\n    },\n    \"payload\": {\n        \"applicationId\": \"72f01708-be1e-4567-926e-8c87d03ca551\"\n    }\n}"
+        },
+        "path": "/consents/request-access",
+        "headers": {},
+        "created": "Thu Nov 28 2019 08:54:01 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "sandbox_id",
+                "in": "header",
+                "description": "The unique name of your Sandbox",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the client credentials flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            },
+            {
+                "name": "Request-Id",
+                "in": "header",
+                "description": "A guid that uniquely identifies your request",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "6E6079FA-F66F-42FF-82B9-17A8C97B7BA9"
+                }
+            },
+            {
+                "name": "Signature",
+                "in": "header",
+                "description": "Signature (Detached JWS signature)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "TPP-Signature-Certificate",
+                "in": "header",
+                "description": "TPP-Signature-Certificate (X.509 certificate in .pem format)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "X-Certificate-Check",
+                "in": "header",
+                "description": "A Boolean to enable or disable the certificate validation",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": false
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "minified": false,
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "This POST call generates a consent id. To have access to consent UI, you need the consent id. To create it, you need to provide your sandbox id, your access token, and a random UUID."
+    },
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"payload\": null,\n    \"exception\": {\n        \"id\": \"4ed418ef-6ebe-4031-8a18-155ee43cf50d\",\n        \"code\": \"SMSOTP.500\",\n        \"desc\": \"Ο Ηλεκτρονικός Κλειδάριθμος έχει αποσταλεί με επιτυχία στο κινήτό σας!\",\n        \"sev\": 1,\n        \"cat\": 3\n    },\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "X-Consent-Check": "false",
+                "TPP-Signature-Certificate": "1",
+                "Consent-Id": "replace_this_value",
+                "sandbox_id": "replace_this_value",
+                "Signature": "1",
+                "Authorization": "Bearer replace_this_value",
+                "Request-Id": "replace_this_value",
+                "Client-Id": "replace_this_value",
+                "X-Certificate-Check": "false"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this_value\",\n        \"application\": \"replace_this_value\"\n    },\n    \"payload\": {\n        \"userId\": \"libreazer\",\n        \"from\": \"67890123456\",\n        \"to\": \"67890123458\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"smsotp\",\n        \"scheduledPayment\": {\n            \"date\": \"2020-02-08T12:40:00.515Z\",\n            \"name\": \"DEFERRED TRANSACTION\"\n        }\n    }\n}"
+        },
+        "path": "/scheduled-payments/nbg",
+        "headers": {},
+        "created": "Thu Nov 28 2019 09:20:06 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "sandbox_id",
+                "in": "header",
+                "description": "The unique name of your Sandbox",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the authorization code flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            },
+            {
+                "name": "Request-Id",
+                "in": "header",
+                "description": "A guid that uniquely identifies your request",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "CD9B23FD-0B9E-4574-8695-AFB4596F8D14"
+                }
+            },
+            {
+                "name": "Signature",
+                "in": "header",
+                "description": "Signature (Detached JWS signature)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "TPP-Signature-Certificate",
+                "in": "header",
+                "description": "TPP-Signature-Certificate (X.509 certificate in .pem format)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "X-Certificate-Check",
+                "in": "header",
+                "description": "A Boolean to enable or disable the certificate validation",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": false
+                }
+            },
+            {
+                "in": "header",
+                "name": "Consent-Id",
+                "description": "Consent Identifier",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "uuid",
+                    "default": "87DD5171-746E-4C66-8981-C4765FC8C48E"
+                }
+            },
+            {
+                "in": "header",
+                "name": "X-Consent-Check",
+                "description": "A Boolean to enable or disable the consent validation",
+                "required": true,
+                "schema": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "minified": false,
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "In this part of the API, you can plan scheduled payments between National Bank of Greece accounts, using the 11-digit account number. To plan your scheduled payments, you need to provide your sandbox id, your access token, your consent id, and a random UUID."
+    },
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"payload\": {\n        \"userId\": \"libreazer\",\n        \"smsOtpMobile\": \"(697) **** 642\"\n    },\n    \"exception\": null,\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "sandbox_id": "replace_this_value",
+                "Authorization": "Bearer replace_this_value",
+                "Request-Id": "1",
+                "Signature": "1",
+                "TPP-Signature-Certificate": "false",
+                "X-Certificate-Check": "false",
+                "Client-Id": "replace_this_value"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this_value\",\n        \"application\": \"replace_this_value\"\n    }\n}"
+        },
+        "path": "/user/current",
+        "headers": {},
+        "created": "Thu Nov 28 2019 09:31:06 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "sandbox_id",
+                "in": "header",
+                "description": "The unique name of your Sandbox",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the authorization code flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            },
+            {
+                "name": "Request-Id",
+                "in": "header",
+                "description": "A guid that uniquely identifies your request",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "5C5C4643-ADD5-49AB-9F7A-000D2D7720D2"
+                }
+            },
+            {
+                "name": "Signature",
+                "in": "header",
+                "description": "Signature (Detached JWS signature)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "TPP-Signature-Certificate",
+                "in": "header",
+                "description": "TPP-Signature-Certificate (X.509 certificate in .pem format)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "X-Certificate-Check",
+                "in": "header",
+                "description": "A Boolean to enable or disable the certificate validation",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": false
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "Hereabouts, you can get information about a specific logged-in user. You will obtain details like the user id, and the mobile phone number where the OTP will be sent. To collect the information, you need to provide your sandbox id, your access token, and a random UUID."
+    },
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"payload\": {\n        \"isAvailable\": true\n    },\n    \"exception\": null,\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "X-Consent-Check": "false",
+                "TPP-Signature-Certificate": "1",
+                "Consent-Id": "replace_this_value",
+                "sandbox_id": "replace_this_value",
+                "Signature": "1",
+                "Authorization": "Bearer replace_this_value",
+                "Request-Id": "replace_this_value",
+                "Client-Id": "replace_this_value",
+                "X-Certificate-Check": "false"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this_value\",\n        \"application\": \"replace_this_value\"\n    },\n    \"payload\": {\n        \"userId\": \"libreazer\",\n        \"iban\": \"GR5301106780000067890123456\",\n        \"payee\": \"payee name\",\n        \"amount\": {\n            \"amount\": 1,\n            \"currency\": \"EUR\"\n        }\n    }\n}"
+        },
+        "path": "/funds-confirmations/check-availability",
+        "headers": {},
+        "created": "Thu Nov 28 2019 09:35:03 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "sandbox_id",
+                "in": "header",
+                "description": "The unique name of your Sandbox",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the authorization code flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            },
+            {
+                "name": "Request-Id",
+                "in": "header",
+                "description": "A guid that uniquely identifies your request",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "A579644C-C273-4EE3-B43A-EEC9C9EB2CE4"
+                }
+            },
+            {
+                "name": "Signature",
+                "in": "header",
+                "description": "Signature (Detached JWS signature)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "TPP-Signature-Certificate",
+                "in": "header",
+                "description": "TPP-Signature-Certificate (X.509 certificate in .pem format)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "X-Certificate-Check",
+                "in": "header",
+                "description": "A Boolean to enable or disable the certificate validation",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": false
+                }
+            },
+            {
+                "in": "header",
+                "name": "Consent-Id",
+                "description": "Consent Identifier",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "uuid",
+                    "default": "87DD5171-746E-4C66-8981-C4765FC8C48E"
+                }
+            },
+            {
+                "in": "header",
+                "name": "X-Consent-Check",
+                "description": "A Boolean to enable or disable the consent validation",
+                "required": true,
+                "schema": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "minified": false,
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "In this section of the API, you can check the availability of funds in the corresponding amount. To check the availability of funds, all you have to do is to provide your sandbox id, your access token,  your consent id, and a random UUID."
+    },
+    {
+        "security": [
+            {
+                "type": "apiKey",
+                "description": "A guid that uniquely identifies your application",
+                "in": "header",
+                "name": "Client-Id"
+            }
+        ],
+        "response": {
+            "success": true,
+            "data": "{\n    \"exception\": null,\n    \"payload\": {\n        \"tanCheck\": \"368\",\n        \"date\": \"2019-11-28T08:03:40.3610213Z\"\n    },\n    \"messages\": null,\n    \"executionTime\": 0\n}"
+        },
+        "method": "post",
+        "form": {
+            "query": {},
+            "header": {
+                "X-Consent-Check": "false",
+                "TPP-Signature-Certificate": "1",
+                "Consent-Id": "replace_this_value",
+                "sandbox_id": "replace_this_value",
+                "Signature": "1",
+                "Authorization": "Bearer replace_this_value",
+                "Request-Id": "replace_this_value",
+                "Client-Id": "replace_this_value",
+                "X-Certificate-Check": "false"
+            },
+            "path": {},
+            "body": "{\n    \"header\": {\n        \"ID\": \"replace_this_value\",\n        \"application\": \"replace_this_value\"\n    },\n    \"payload\": {\n        \"userId\": \"libreazer\",\n        \"from\": \"67890123456\",\n        \"to\": \"67890123458\",\n        \"amount\": 1,\n        \"description\": \"DESCRIPTION\",\n        \"tanNumber\": \"Your OTP Number\",\n\t    \"standingOrder\": {\n\t      \"date\": \"2020-02-08T12:40:00.515Z\",\n\t      \"name\": \"DEFERRED TRANSACTION\",\n\t      \"period\": 1,\n\t      \"totalPayments\": 1\n\t    }\n    }\n}"
+        },
+        "path": "/standing-orders/nbg",
+        "headers": {},
+        "created": "Thu Nov 28 2019 10:03:17 GMT+0200 (EET)",
+        "parameters": [
+            {
+                "name": "sandbox_id",
+                "in": "header",
+                "description": "The unique name of your Sandbox",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Authorization Bearer obtained using the authorization code flow (OAuth2)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "Bearer"
+                }
+            },
+            {
+                "name": "Request-Id",
+                "in": "header",
+                "description": "A guid that uniquely identifies your request",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": "CD9B23FD-0B9E-4574-8695-AFB4596F8D14"
+                }
+            },
+            {
+                "name": "Signature",
+                "in": "header",
+                "description": "Signature (Detached JWS signature)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "TPP-Signature-Certificate",
+                "in": "header",
+                "description": "TPP-Signature-Certificate (X.509 certificate in .pem format)",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            {
+                "name": "X-Certificate-Check",
+                "in": "header",
+                "description": "A Boolean to enable or disable the certificate validation",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "default": false
+                }
+            },
+            {
+                "in": "header",
+                "name": "Consent-Id",
+                "description": "Consent Identifier",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "format": "uuid",
+                    "default": "87DD5171-746E-4C66-8981-C4765FC8C48E"
+                }
+            },
+            {
+                "in": "header",
+                "name": "X-Consent-Check",
+                "description": "A Boolean to enable or disable the consent validation",
+                "required": true,
+                "schema": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        ],
+        "https": true,
+        "formShown": true,
+        "formErrors": [],
+        "history": [],
+        "documentationId": "86004709-5e0e-42ad-9272-6a90b4648a13",
+        "horLayout": false,
+        "toggleForm": true,
+        "historyForm": {
+            "query": {},
+            "header": {},
+            "path": {},
+            "body": ""
+        },
+        "minified": false,
+        "uuid": "replace_this_value",
+        "loading": true,
+        "favorite": true,
+        "description": "Feel free to plan your standing orders among the National Bank of Greece accounts, using the 11-digit account number. Just provide your sandbox id, your access token, your consent id, and a random UUID."
+    }
+]
