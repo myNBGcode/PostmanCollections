@@ -5,10 +5,10 @@
 ### The API
 This API provides a standard RESTful interface that enables a user to:
 * Set consents for accounts
-* View their account list
-* View their account details
+* View their account/card list
+* View their account/card details
+* View their account/card transactions
 * View their account balances
-* View their account transactions
 
 > Visit https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v2.1 for the full API documentation
 
@@ -31,7 +31,7 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 See more [here](https://developer.nbg.gr/oauth-document)
 
 ### Use Case Scenario 
-"User Accounts" Inc. has a mobile app, showing the user domestic and foreign currency accounts. The main functionality of the application is to retrieve some user basic informations e.g.  his/her name and to retrieve his/her accounts so that the user is 24/7 informed about his/her accounts status e.g balances, transactions etc. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v2-1#section/How-To-Get-Started)).
+"User Accounts" Inc. has a mobile app, showing the user domestic and foreign currency accounts. The main functionality of the application is to retrieve some user basic informations e.g.  his/her name and to retrieve his/her accounts so that the user is 24/7 informed about his/her accounts status e.g balances, transactions etc. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow.
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/sandbox/account.info/oauth2/v2.1/sandbox
