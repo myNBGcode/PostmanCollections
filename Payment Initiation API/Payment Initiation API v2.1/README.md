@@ -30,10 +30,10 @@ This API version uses the OAuth2.0 protocol for authentication and authorization
 **Token  Endpoint**: https://my.nbg.gr/identity/connect/token
 
 
-See more [here](https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v2#section/Authentication-and-Authorization-(OAuth2))
+See more [here](https://developer.nbg.gr/documentation/Accounts-Information-API-OAuth2-v2.1#section/Authentication-and-Authorization-(OAuth2))
 
 ### Use Case Scenario 
-"Payments" Inc. has a mobile app, which offers an service in order to transfer money between accounts. As an additional feature "Payments" Inc provides a mechanism which calculates the transfer charges of a provided payment so that the user is always informed of the current expense system. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v2#section/How-To-Get-Started)).
+"Payments" Inc. has a mobile app, which offers an service in order to transfer money between accounts. As an additional feature "Payments" Inc provides a mechanism which calculates the transfer charges of a provided payment so that the user is always informed of the current expense system. Use the header "x-consent-check: false" in order to enable/disable the consent_id parameter validation to help you get up to speed with consuming the core API functionality before dealing with the user consent flow (See more [here](https://developer.nbg.gr/documentation/Payments-Initiation-API-OAuth2-v2.1#section/How-To-Get-Started)).
 
 First of all, we will create our sandbox by making an **HTTP POST** request to the following URL
 > https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v2.1/sandbox
