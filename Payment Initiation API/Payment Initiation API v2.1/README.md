@@ -54,7 +54,7 @@ With a request body:
 **Note: Remember to store *sandbox_id* somewhere in your application, because you will need to provide it in as a header in each api call. Moreover userId should be the same as the logged in user username.**
 
 The calculation expense mechanism can be invoked from the following url:
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v2.1/payments/transfer-charges
+> https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v2.1/payments/transfer-charges
 
 With a request body:
 ```json
@@ -79,7 +79,7 @@ With a request body:
 ```
 
 Second the user can transfer money between NBG accounts. The endpoint can be invoked from the following url:
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v2.1/payments/nbg-transfer
+> https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v2.1/payments/nbg-transfer
 
 With a request body:
 ```json
@@ -104,7 +104,7 @@ With a request body:
 
 Third the user can send money not only to an NBG account but to another bank as well. The following endpoint serves this purpose:
 
-> https://microsites.nbg.gr/api.gateway/sandbox/payment.initiation/oauth2/v2.1/payments/sepa-transfer
+> https://apis.nbg.gr/sandbox/payment.initiation/oauth2/v2.1/payments/sepa-transfer
 
 With a request body:
 ```json
