@@ -1,35 +1,29 @@
 {
 	"info": {
-		"_postman_id": "4f54e5fd-8ed4-46c9-bb66-8bfb3b1f00bf",
+		"_postman_id": "9aee61f1-6518-4304-87a6-40fb75c8914c",
 		"name": "BillPayments OAuth2.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"item": [
-		{
+	"item": [{
 			"name": "Sandbox Service",
-			"item": [
-				{
+			"item": [{
 					"name": "Delete Sandbox",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"response is empty\"] = responseBody === \"\";",
-									"tests[\"Status code is 204\"] = responseCode.code === 204;"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"tests[\"response is empty\"] = responseBody === \"\";",
+								"tests[\"Status code is 204\"] = responseCode.code === 204;"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "DELETE",
-						"header": [
-							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
-							}
-						],
+						"header": [{
+							"key": "Client-Id",
+							"value": "{{client-id}}"
+						}],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -51,33 +45,30 @@
 				},
 				{
 					"name": "Create Sandbox",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;",
-									"",
-									"postman.setEnvironmentVariable(\"user_id1\", jsonData.payload.users[0].userId);",
-									"postman.setEnvironmentVariable(\"username1\", jsonData.payload.users[0].userName);"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;",
+								"",
+								"postman.setEnvironmentVariable(\"user_id1\", jsonData.payload.users[0].userId);",
+								"postman.setEnvironmentVariable(\"username1\", jsonData.payload.users[0].userName);"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -100,30 +91,27 @@
 				},
 				{
 					"name": "Import Sandbox",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "PUT",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -147,29 +135,26 @@
 				},
 				{
 					"name": "Export Sandbox",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;",
-									"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "be505b46-cf52-47d3-b293-56cb6d219dbe",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;",
+								"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
-							}
-						],
+						"header": [{
+							"key": "Client-Id",
+							"value": "{{client-id}}"
+						}],
 						"url": {
 							"raw": "https://{{base_url}}/{{portal}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
@@ -187,24 +172,21 @@
 				},
 				{
 					"name": "Create Sandbox User (IBANK_USER)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
@@ -233,8 +215,8 @@
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -259,30 +241,27 @@
 				},
 				{
 					"name": "Get User Accounts",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "GET",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"url": {
@@ -305,32 +284,29 @@
 				},
 				{
 					"name": "Create User Account",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;",
-									"",
-									"postman.setEnvironmentVariable(\"User2TestAccountID\", jsonData.payload.accountId);"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;",
+								"",
+								"postman.setEnvironmentVariable(\"User2TestAccountID\", jsonData.payload.accountId);"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -357,30 +333,27 @@
 				},
 				{
 					"name": "Update Account Balance",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								]
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"type": "text/javascript",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							]
 						}
-					],
+					}],
 					"request": {
 						"method": "PUT",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -410,14 +383,13 @@
 					"name": "Delete User Account",
 					"request": {
 						"method": "DELETE",
-						"header": [
-							{
+						"header": [{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -447,8 +419,7 @@
 					"name": "Update Transaction",
 					"request": {
 						"method": "PUT",
-						"header": [
-							{
+						"header": [{
 								"key": "accept",
 								"value": "{{accept}}"
 							},
@@ -457,8 +428,8 @@
 								"value": "{{content-type}}"
 							},
 							{
-								"key": "{{client-id}}",
-								"value": "{{client-id-value}}"
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -487,38 +458,38 @@
 		},
 		{
 			"name": "BillPayments Service",
-			"item": [
-				{
+			"item": [{
 					"name": "(Needs SMS OTP) Execute Payment DEH (ACCOUNT)",
-					"item": [
-						{
+					"item": [{
 							"name": "Get DEH Commissions",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "abd0e1d9-6fa3-4a71-9cd2-0b9352e22571",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											""
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "abd0e1d9-6fa3-4a71-9cd2-0b9352e22571",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										""
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -542,25 +513,22 @@
 						},
 						{
 							"name": "Pay DEH Step 1 ( With smsotp )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload === null;",
+										"tests[\"exception is empty\"] = jsonData.exception !== null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
@@ -571,6 +539,11 @@
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -594,30 +567,27 @@
 						},
 						{
 							"name": "Pay DEH Step 2 ( With I-CODE )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
-											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
-											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
-											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+										"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+										"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+										"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
@@ -628,11 +598,16 @@
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"849459\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/pay",
@@ -651,31 +626,32 @@
 						},
 						{
 							"name": "Cancel Payment DEH Step 1 ( With smsotp )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "856b56b8-4243-47f0-8e18-45ef0a1ac956",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "856b56b8-4243-47f0-8e18-45ef0a1ac956",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -699,31 +675,31 @@
 						},
 						{
 							"name": "Cancel Payment DEH Step 2 ( With I-CODE )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "856b56b8-4243-47f0-8e18-45ef0a1ac956",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "856b56b8-4243-47f0-8e18-45ef0a1ac956",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -747,31 +723,33 @@
 						},
 						{
 							"name": "Get Payment Status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "d2393552-ce60-42e8-87f3-9a5a6dfb8fbb",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "d2393552-ce60-42e8-87f3-9a5a6dfb8fbb",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -799,34 +777,33 @@
 				},
 				{
 					"name": "(Needs SMS OTP) Execute Payment EParavolo (ACCOUNT)",
-					"item": [
-						{
+					"item": [{
 							"name": "Execute Preprocess Step1 (EParavolo Retrieve All Types)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "300d01e0-2265-436a-9d14-29c1492cf168",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "300d01e0-2265-436a-9d14-29c1492cf168",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -850,35 +827,35 @@
 						},
 						{
 							"name": "Execute Preprocess Step2 (EParavolo Get User)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a3a24e68-6df9-44e6-952e-58e6ab997b34",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FIRSTNAME\", jsonData.payload.output.firstName);",
-											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_LASTNAME\", jsonData.payload.output.lastName);",
-											"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FATHERNAME\", jsonData.payload.output.fatherName);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "a3a24e68-6df9-44e6-952e-58e6ab997b34",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FIRSTNAME\", jsonData.payload.output.firstName);",
+										"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_LASTNAME\", jsonData.payload.output.lastName);",
+										"postman.setEnvironmentVariable(\"EPARAVOLO_GET_USER_FATHERNAME\", jsonData.payload.output.fatherName);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -902,36 +879,36 @@
 						},
 						{
 							"name": "Execute Preprocess Step3 (EParavolo Create Short)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "0fd346fb-2f4c-45f9-918b-d432f44e2352",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"DEBTOR_TAX_ID\", jsonData.payload.output.DEBTOR_TAX_ID);",
-											"postman.setEnvironmentVariable(\"PAYMENT_CODE\", jsonData.payload.output.PAYMENT_CODE);",
-											"postman.setEnvironmentVariable(\"AUX_PAYMENT_CODE\", jsonData.payload.output.AUX_PAYMENT_CODE);",
-											"postman.setEnvironmentVariable(\"EPARAVOLO_AMOUNT\", jsonData.payload.output.amount);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "0fd346fb-2f4c-45f9-918b-d432f44e2352",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"DEBTOR_TAX_ID\", jsonData.payload.output.DEBTOR_TAX_ID);",
+										"postman.setEnvironmentVariable(\"PAYMENT_CODE\", jsonData.payload.output.PAYMENT_CODE);",
+										"postman.setEnvironmentVariable(\"AUX_PAYMENT_CODE\", jsonData.payload.output.AUX_PAYMENT_CODE);",
+										"postman.setEnvironmentVariable(\"EPARAVOLO_AMOUNT\", jsonData.payload.output.amount);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -955,31 +932,31 @@
 						},
 						{
 							"name": "Get Eparavolo Commission",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "2aa60233-5a26-41ea-b254-bf64b8d45644",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "2aa60233-5a26-41ea-b254-bf64b8d45644",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1003,31 +980,31 @@
 						},
 						{
 							"name": "Pay Eparavolo Step Step 1 ( With smsotp )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "6f4bfc1f-35d8-4156-b077-f7efa98ff1cd",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "6f4bfc1f-35d8-4156-b077-f7efa98ff1cd",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload === null;",
+										"tests[\"exception is empty\"] = jsonData.exception !== null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1051,30 +1028,27 @@
 						},
 						{
 							"name": "Pay Eparavolo Step Step 2 ( With I-CODE )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "ddb3e861-fb5d-4b03-8c3d-cdc39132ba80",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
-											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
-											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
-											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "ddb3e861-fb5d-4b03-8c3d-cdc39132ba80",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+										"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+										"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+										"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
@@ -1082,6 +1056,9 @@
 										"key": "Content-Type",
 										"value": "{{content-type}}",
 										"type": "text"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1105,31 +1082,31 @@
 						},
 						{
 							"name": "Get Payment Status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "8e2a3790-be4b-4a2f-8471-7095b1eee877",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "8e2a3790-be4b-4a2f-8471-7095b1eee877",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1157,37 +1134,36 @@
 				},
 				{
 					"name": "(Needs SMS OTP) Execute Barcode Payment DEH (ACCOUNT)",
-					"item": [
-						{
+					"item": [{
 							"name": "Get DEH PaymentCode From Barcode",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "95d1bfc7-ace8-4f52-8b11-58f3b1c8e963",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"paymentCodeDei\", jsonData.payload.paymentIdentification.paymentCode);",
-											"postman.setEnvironmentVariable(\"AmountDei\", jsonData.payload.paymentIdentification.amount);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "95d1bfc7-ace8-4f52-8b11-58f3b1c8e963",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"paymentCodeDei\", jsonData.payload.paymentIdentification.paymentCode);",
+										"postman.setEnvironmentVariable(\"AmountDei\", jsonData.payload.paymentIdentification.amount);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1211,32 +1187,32 @@
 						},
 						{
 							"name": "Get DEH Commissions",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "249f255b-9ff8-4cac-bb16-9eb9ff1343f2",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											""
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "249f255b-9ff8-4cac-bb16-9eb9ff1343f2",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										""
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1260,25 +1236,22 @@
 						},
 						{
 							"name": "Pay DEH Step 1 ( With smsotp ) Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload === null;",
+										"tests[\"exception is empty\"] = jsonData.exception !== null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
@@ -1289,6 +1262,9 @@
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1312,30 +1288,27 @@
 						},
 						{
 							"name": "Pay DEH Step 2 ( With I-CODE ) Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
-											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
-											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
-											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "676706d5-f11a-4ecc-893c-a975fac2d2ba",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"",
+										"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
+										"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
+										"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
+										"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
@@ -1346,6 +1319,9 @@
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1369,31 +1345,31 @@
 						},
 						{
 							"name": "Get Payment Status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "c1f1fead-4ff1-4e5d-9bad-0a45f0d91b17",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "c1f1fead-4ff1-4e5d-9bad-0a45f0d91b17",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1421,35 +1397,36 @@
 				},
 				{
 					"name": "ExecuteMassPayments",
-					"item": [
-						{
+					"item": [{
 							"name": "Get Mass Commissions",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "8122701c-d8fc-4a04-908f-ff43e6ec6607",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											""
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "8122701c-d8fc-4a04-908f-ff43e6ec6607",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										""
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -1473,31 +1450,33 @@
 						},
 						{
 							"name": "Mass Pay With OTP Step 1 ( With smsotp )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "dbe3b05c-bd94-4c7a-a4e1-c5b26d2271d3",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;"
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "dbe3b05c-bd94-4c7a-a4e1-c5b26d2271d3",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload === null;",
+										"tests[\"exception is empty\"] = jsonData.exception !== null;"
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -1521,38 +1500,40 @@
 						},
 						{
 							"name": "Mass Pay With OTP Step 2 ( With I-CODE )",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b8e30401-ac4a-4051-a7b3-5e09506ee506",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"\r",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;\r",
-											"tests[\"exception is empty\"] = jsonData.exception === null;\r",
-											"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;\r",
-											""
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "b8e30401-ac4a-4051-a7b3-5e09506ee506",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);\r",
+										"\r",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;\r",
+										"tests[\"exception is empty\"] = jsonData.exception === null;\r",
+										"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;\r",
+										""
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									},
+									{
+										"key": "Client-Id",
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{instrid1}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{instrid2}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t],\r\n\t\"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{instrid1}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{instrid2}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t],\r\n\t\"isSmsOtp\": true,\r\n\t\"tanNumber\": \"877155\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massPayWithOtp",
@@ -1571,33 +1552,33 @@
 						},
 						{
 							"name": "Mass Pay Without OTP",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "756425de-d29d-43bf-b626-ebf7b0147b9d",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;",
-											""
-										],
-										"type": "text/javascript"
-									}
+							"event": [{
+								"listen": "test",
+								"script": {
+									"id": "756425de-d29d-43bf-b626-ebf7b0147b9d",
+									"exec": [
+										"var jsonData = JSON.parse(responseBody);",
+										"",
+										"tests[\"payload not empty\"] = jsonData.payload !== null;",
+										"tests[\"exception is empty\"] = jsonData.exception === null;",
+										"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;",
+										""
+									],
+									"type": "text/javascript"
 								}
-							],
+							}],
 							"request": {
 								"method": "POST",
-								"header": [
-									{
+								"header": [{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
 									},
 									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
+									}, {
+										"key": "Client-Id",
+										"value": "{{client-id}}"
 									}
 								],
 								"body": {
@@ -1625,25 +1606,22 @@
 				},
 				{
 					"name": "Get List of Supported Payments",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "1b9604f6-95ab-4dcb-9fdc-7887c240c894",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "1b9604f6-95ab-4dcb-9fdc-7887c240c894",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
@@ -1651,6 +1629,9 @@
 								"key": "Content-Type",
 								"value": "{{content-type}}",
 								"type": "text"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1674,31 +1655,31 @@
 				},
 				{
 					"name": "Get List of Supported Payments (Light)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "0b38be3d-00db-45f6-8747-6d7a6d2547f1",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "0b38be3d-00db-45f6-8747-6d7a6d2547f1",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1722,31 +1703,31 @@
 				},
 				{
 					"name": "Get List of Supported Payment Categories",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "b29b5efc-9e73-4fa2-9026-e8f998735ebf",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "b29b5efc-9e73-4fa2-9026-e8f998735ebf",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1770,8 +1751,7 @@
 				},
 				{
 					"name": "Get Daily Transactions",
-					"event": [
-						{
+					"event": [{
 							"listen": "test",
 							"script": {
 								"id": "74980ad3-60cc-470c-86f5-16e01708979a",
@@ -1799,14 +1779,16 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1830,31 +1812,31 @@
 				},
 				{
 					"name": "Get Last Payment Transaction Details",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "1e60f6cb-279c-46d1-aa86-96784b472fdf",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "1e60f6cb-279c-46d1-aa86-96784b472fdf",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1878,8 +1860,7 @@
 				},
 				{
 					"name": "Get Recent Transactions",
-					"event": [
-						{
+					"event": [{
 							"listen": "test",
 							"script": {
 								"id": "51300711-1cd6-4314-92f0-d861f79697d5",
@@ -1907,14 +1888,16 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1938,8 +1921,7 @@
 				},
 				{
 					"name": "Get Top Payment Organizations",
-					"event": [
-						{
+					"event": [{
 							"listen": "test",
 							"script": {
 								"id": "f4a05c67-33da-44a2-96ee-3386c3297a73",
@@ -1967,14 +1949,16 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -1998,31 +1982,31 @@
 				},
 				{
 					"name": "Get PaymentCode Info From Barcode",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "fc754024-d66b-48fc-ad92-d8ebe3db9381",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "fc754024-d66b-48fc-ad92-d8ebe3db9381",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -2046,31 +2030,31 @@
 				},
 				{
 					"name": "Get Payment Info From RF Payment Code",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "69216054-b4c6-4496-9310-8cb6b6311c22",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"tests[\"payload not empty\"] = jsonData.payload !== null;",
-									"tests[\"exception is empty\"] = jsonData.exception === null;"
-								],
-								"type": "text/javascript"
-							}
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "69216054-b4c6-4496-9310-8cb6b6311c22",
+							"exec": [
+								"var jsonData = JSON.parse(responseBody);",
+								"",
+								"tests[\"payload not empty\"] = jsonData.payload !== null;",
+								"tests[\"exception is empty\"] = jsonData.exception === null;"
+							],
+							"type": "text/javascript"
 						}
-					],
+					}],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
+						"header": [{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
 							},
 							{
 								"key": "Content-Type",
 								"value": "{{content-type}}"
+							}, {
+								"key": "Client-Id",
+								"value": "{{client-id}}"
 							}
 						],
 						"body": {
@@ -2098,10 +2082,9 @@
 	],
 	"auth": {
 		"type": "oauth2",
-		"oauth2": [
-			{
+		"oauth2": [{
 				"key": "accessToken",
-				"value": "510355fc83ce1bab3e07f5ff25f878d6e38c7e6f4469bdb1464a375a386f8453",
+				"value": "",
 				"type": "string"
 			},
 			{
@@ -2116,8 +2099,7 @@
 			}
 		]
 	},
-	"event": [
-		{
+	"event": [{
 			"listen": "prerequest",
 			"script": {
 				"id": "8d37b26d-8543-4a07-93d7-7045a12f01d2",
