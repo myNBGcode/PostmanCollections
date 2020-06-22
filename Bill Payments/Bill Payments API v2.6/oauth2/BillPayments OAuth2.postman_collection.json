@@ -1,12 +1,7 @@
 {
 	"info": {
-<<<<<<< HEAD
-		"_postman_id": "1bf72b48-89e6-4c8c-b4c5-3aa7ad7d7b7f",
-		"name": "BillPayments - v2.7",
-=======
-		"_postman_id": "c307f422-fead-4be7-9a22-38a04c121614",
-		"name": "BillPayments",
->>>>>>> master
+		"_postman_id": "384f5a9e-f2b3-4663-8475-7417233ae891",
+		"name": "BillPayments OAuth2 - v2.7",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -23,12 +18,8 @@
 								"exec": [
 									"tests[\"response is empty\"] = responseBody === \"\";",
 									"tests[\"Status code is 204\"] = responseCode.code === 204;"
-<<<<<<< HEAD
 								],
-								"id": "1ca7c7cd-9357-4de1-98db-e504be88cc70"
-=======
-								]
->>>>>>> master
+								"id": "ea0da65a-378f-4964-8aaa-3969099834df"
 							}
 						}
 					],
@@ -74,12 +65,8 @@
 									"",
 									"postman.setEnvironmentVariable(\"user_id1\", jsonData.payload.users[0].userId);",
 									"postman.setEnvironmentVariable(\"username1\", jsonData.payload.users[0].userName);"
-<<<<<<< HEAD
 								],
-								"id": "8bd91ded-4281-46df-a58e-b739b4221418"
-=======
-								]
->>>>>>> master
+								"id": "6cbadf1c-e710-4066-86ca-aaecdf85c4ed"
 							}
 						}
 					],
@@ -125,12 +112,8 @@
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "e72a9b71-cb05-4b1a-860f-90cca7c9e57e"
-=======
-								]
->>>>>>> master
+								"id": "b7d1d43a-5235-44d7-b880-3b59d4933683"
 							}
 						}
 					],
@@ -171,19 +154,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "6c5938d2-3f2a-4461-a8de-f1bbb604a59d",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;",
 									"tests[\"valid sandbox_id\"] = jsonData.payload.sandboxID === postman.getEnvironmentVariable(\"sandbox_id\");"
-<<<<<<< HEAD
 								],
-								"id": "3a99613b-5b67-4f23-beb6-fe5a9ba5002d"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -222,12 +201,8 @@
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "bb7bec80-4fbd-4bc9-8662-c6d3ae9100ee"
-=======
-								]
->>>>>>> master
+								"id": "cb43dfc8-c7c6-4d9f-a88b-cf3a8530d21e"
 							}
 						}
 					],
@@ -299,12 +274,8 @@
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "7d6438a2-d0e5-4dbd-9bb5-4b6f8908dc50"
-=======
-								]
->>>>>>> master
+								"id": "6b7b697a-c82b-4ccf-9058-71f8ab5cd5a8"
 							}
 						}
 					],
@@ -352,12 +323,8 @@
 									"tests[\"exception is empty\"] = jsonData.exception === null;",
 									"",
 									"postman.setEnvironmentVariable(\"User2TestAccountID\", jsonData.payload.accountId);"
-<<<<<<< HEAD
 								],
-								"id": "9b7756ae-0241-4181-b387-9309e4adfd5d"
-=======
-								]
->>>>>>> master
+								"id": "a6282ade-4ea6-4358-8472-329da860cab9"
 							}
 						}
 					],
@@ -407,12 +374,8 @@
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "2a9daae0-e94c-4295-879b-e232ab88806a"
-=======
-								]
->>>>>>> master
+								"id": "bea75419-112a-4e48-b4c7-2033f008d787"
 							}
 						}
 					],
@@ -542,19 +505,15 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
+										"id": "23e6ece4-a5ab-47ce-a7e0-100f4990ad1b",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
 											"tests[\"payload not empty\"] = jsonData.payload !== null;",
 											"tests[\"exception is empty\"] = jsonData.exception === null;",
 											""
-<<<<<<< HEAD
 										],
-										"id": "65e45b22-395b-4173-aae4-efcd8a9dabe7"
-=======
-										]
->>>>>>> master
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -566,32 +525,13 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
-										"value": "{{client-id}}"
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -619,21 +559,12 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "ae6f7680-98e3-49fa-87b3-0c1cdf26f89e",
-=======
-										"id": "5e18c044-4c48-442c-ba41-d8bfe51b4c2e",
->>>>>>> master
+										"id": "db84df55-0e7c-4990-bbe4-521ced172694",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"",
-											"postman.setEnvironmentVariable(\"instrId\", jsonData.payload.paymentIdentification.instrId);",
-											"postman.setEnvironmentVariable(\"endtoendId\", jsonData.payload.paymentIdentification.endtoendId);",
-											"postman.setEnvironmentVariable(\"txId\", jsonData.payload.paymentIdentification.txId);",
-											"postman.setEnvironmentVariable(\"clrSysRef\", jsonData.payload.paymentIdentification.clrSysRef);"
+											"tests[\"payload not empty\"] = jsonData.payload === null;",
+											"tests[\"exception is empty\"] = jsonData.exception !== null;"
 										],
 										"type": "text/javascript"
 									}
@@ -651,38 +582,18 @@
 										"value": "{{application_id}}"
 									},
 									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
-										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}",
+										"value": "{{client-id}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"smsotp\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n     \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"smsotp\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/pay",
@@ -700,16 +611,12 @@
 							"response": []
 						},
 						{
-							"name": "Pay DEH Step 2 ( With I-CODE)",
+							"name": "Pay DEH Step 2 ( With I-CODE )",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "7ec2f337-9951-4761-bf13-88dee350e5a2",
-=======
-										"id": "54d77778-05aa-4255-bb0e-3734eaac8e41",
->>>>>>> master
+										"id": "9f487c19-6708-4ca4-975f-7a22dec59ade",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -737,33 +644,18 @@
 										"value": "{{application_id}}"
 									},
 									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
-										"value": "{{client-id}}"
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"{{I-CODE}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/pay",
@@ -786,11 +678,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "108a4428-174a-431b-91a5-a06da87be7e5",
-=======
-										"id": "14d947e9-a546-4ec8-9c72-41ee3d1ba782",
->>>>>>> master
+										"id": "303471dc-0702-45c6-b108-0c92b8fa404a",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -809,42 +697,17 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n     \"endtoendId\": \"{{endtoendId}}\",\r\n     \"txId\": \"{{txId}}\",\r\n     \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"smsotp\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n     \"instrId\": \"{{instrid}}\",\r\n     \"endtoendId\": \"{{endtoendId}}\",\r\n     \"txId\": \"{{txId}}\",\r\n     \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null,\r\n     \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"smsotp\"    \r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
@@ -867,11 +730,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "b4b55ea6-5cc8-42b8-a855-5fc946c6fccd",
-=======
-										"id": "edc42a08-2d4a-4876-80fa-4fbb4cd7e426",
->>>>>>> master
+										"id": "ed2fa98e-6ced-4871-b6fc-f6d5e0ca823b",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -890,42 +749,17 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n     \"endtoendId\": \"{{endtoendId}}\",\r\n     \"txId\": \"{{txId}}\",\r\n     \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"{{I-CODE}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"requestMachineId\": null,\r\n    \"cancelPaymentIdentification\": {\r\n     \"instrId\": \"{{instrId}}\",\r\n     \"endtoendId\": \"{{endtoendId}}\",\r\n     \"txId\": \"{{txId}}\",\r\n     \"clrSysRef\": \"{{clrSysRef}}\"\r\n    },\r\n    \"paymentRequest\": null,\r\n    \"machineId\": null,\r\n     \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"   \r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/cancelPayment",
@@ -948,11 +782,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "0fba0975-e4d7-4216-8289-92d47f54a57c",
-=======
-										"id": "2ef0f7b1-4818-4431-9878-e289595f478f",
->>>>>>> master
+										"id": "565cf9fd-4e0f-46d7-9dc4-611828a69c89",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -971,32 +801,13 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
-										"value": "{{client-id}}"
+										"value": "{{client-id}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -1031,11 +842,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "30b67f48-0549-49e9-bbed-6e752c8e9dac",
-=======
-										"id": "a34bce44-70cd-4045-bce4-f5b9d29748c7",
->>>>>>> master
+										"id": "18359381-6c82-4d9c-8043-40e32ec22315",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1052,26 +859,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1107,11 +894,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "6aec9ca6-189a-4364-9c9f-d55570234ada",
-=======
-										"id": "2b3b9c2d-bbd3-44c4-94d9-3939fe44fe62",
->>>>>>> master
+										"id": "0959f53b-7c9f-44d8-bab7-fa30b5c4e4ac",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1132,26 +915,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1187,11 +950,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "d15330a2-1db6-4cd7-aa0b-ba96aeeba6b0",
-=======
-										"id": "c9fc109f-cea8-4191-a737-4a06a1e8a294",
->>>>>>> master
+										"id": "834828c3-5f7e-446d-80e7-60417e6b5449",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1213,26 +972,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1268,11 +1007,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "4eb5cfbf-1bec-4643-adb4-e2c04c9a1a8f",
-=======
-										"id": "c6c67f5a-62f2-4448-b651-877ee795d896",
->>>>>>> master
+										"id": "78b2a07c-6ec1-49d1-b90f-1e6cf9c9a3fa",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1291,36 +1026,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -1343,23 +1054,17 @@
 							"response": []
 						},
 						{
-							"name": "Pay Eparavolo Step 1 ( With smsotp )",
+							"name": "Pay Eparavolo Step Step 1 ( With smsotp )",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "0f5fb432-7145-4ecb-87dd-a5e5f0df5093",
-=======
-										"id": "6b2b009f-25b6-4ff8-9934-00636898af5d",
->>>>>>> master
+										"id": "1408ab22-31d8-48cb-a615-fadae7b0775e",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
 											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;",
-											"",
-											""
+											"tests[\"exception is empty\"] = jsonData.exception !== null;"
 										],
 										"type": "text/javascript"
 									}
@@ -1373,36 +1078,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -1425,16 +1106,12 @@
 							"response": []
 						},
 						{
-							"name": "Pay Eparavolo Step 2 ( With I-CODE )",
+							"name": "Pay Eparavolo Step Step 2 ( With I-CODE )",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "bf2ccbf9-ceaa-4508-9e2f-cfd604ed4e92",
-=======
-										"id": "fea3a2bf-e434-41ae-a3be-706cc31e431c",
->>>>>>> master
+										"id": "74b62f57-a9fd-43af-a383-affbecb48b3d",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1458,36 +1135,13 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
-										"value": "{{content-type}}"
+										"value": "{{content-type}}",
+										"type": "text"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -1515,11 +1169,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "92283544-71b8-4f5b-bb9f-c8f151f193b5",
-=======
-										"id": "a50e8d88-c2d7-40f2-b12f-8838b4967e8d",
->>>>>>> master
+										"id": "d49f6cc3-d69e-472d-9a87-8b0400da15d0",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1536,26 +1186,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1598,7 +1228,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
+										"id": "2331a33f-90b6-400e-84f4-c0d2f346e93a",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1607,12 +1237,8 @@
 											"",
 											"postman.setEnvironmentVariable(\"paymentCodeDei\", jsonData.payload.paymentIdentification.paymentCode);",
 											"postman.setEnvironmentVariable(\"AmountDei\", jsonData.payload.paymentIdentification.amount);"
-<<<<<<< HEAD
 										],
-										"id": "05ebf8a8-10b7-46cc-95b5-58565a144c6d"
-=======
-										]
->>>>>>> master
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -1622,26 +1248,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1677,11 +1283,7 @@
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "59efe11e-7a77-41f1-aa3d-d138fb3e9e7c",
-=======
-										"id": "d8007f62-4f90-4351-9062-c1689bf13365",
->>>>>>> master
+										"id": "eeb6db8e-0241-4f6b-889f-688554cfbe6d",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1699,26 +1301,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1749,16 +1331,12 @@
 							"response": []
 						},
 						{
-							"name": "Pay DEH Step 1 ( With smsotp )",
+							"name": "Pay DEH Step 1 ( With smsotp ) Copy",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "caf94f52-75cc-4b26-9358-6ff845a2fa55",
-=======
-										"id": "6d044fba-4e0c-4a2b-ace8-2d4524a0ffc2",
->>>>>>> master
+										"id": "64325282-ff48-4b1e-afa0-053b680c30d7",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1781,38 +1359,17 @@
 										"value": "{{application_id}}"
 									},
 									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"smsotp\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n     \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"smsotp\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/pay",
@@ -1830,16 +1387,12 @@
 							"response": []
 						},
 						{
-							"name": "Pay DEH Step 2 ( With I-CODE)",
+							"name": "Pay DEH Step 2 ( With I-CODE ) Copy",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "ea50b410-9ec3-4246-b361-04d215c85f71",
-=======
-										"id": "90b26e98-e3c8-400a-aeba-1dd25f2fc45b",
->>>>>>> master
+										"id": "eb897988-a512-4af0-a441-f40c4fe67382",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1867,38 +1420,17 @@
 										"value": "{{application_id}}"
 									},
 									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"isSmsOtp\": true,\r\n    \"tanNumber\": \"{{I-CODE}}\",\r\n    \"machineId\": null\r\n  }\r\n}"
+									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n    \"paymentIdentification\": {\r\n      \"instrId\": \"{{instrid}}\",\r\n      \"endtoendId\": null,\r\n      \"txId\": \"{{instrid}}\",\r\n      \"clrSysRef\": null\r\n    },\r\n    \"paymentOrgIdentification\": {\r\n      \"id\": \"{{paymentOrgIdentificationIdDei}}\",\r\n      \"barcode\": null,\r\n      \"fields\": {\r\n      \t\"PAYMENT_CODE\" : \"{{paymentCodeDei}}\"\r\n      },\r\n      \"extraData\": {}\r\n    },\r\n    \"chargesInfo\": null,\r\n    \"settlementInfo\": {\r\n      \"ccy\": \"EUR\",\r\n      \"amount\": 21.21,\r\n      \"method\": \"ACCT\"\r\n    },\r\n    \"debtor\": {\r\n      \"name\": \"{{User1Fullname}}\",\r\n      \"ibUserId\": \"{{user_id}}\",\r\n      \"debtorAccount\": {\r\n        \"iban\": \"{{User1AccountIBAN}}\",\r\n        \"pan\": null\r\n      },\r\n      \"telephone\": \"{{User1Telephone}}\"\r\n    },\r\n    \"ultimateDebtor\":  null,\r\n    \"remittanceInfo\": null,\r\n    \"requestMachineId\": null,\r\n    \"acceptDuplicate\": true,\r\n    \"machineId\": null,\r\n    \"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/Payments/pay",
@@ -1921,18 +1453,14 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
+										"id": "34cd4090-7760-4dda-97e1-c2e2cbe513c4",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
 											"tests[\"payload not empty\"] = jsonData.payload !== null;",
 											"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 										],
-										"id": "1f62d9e7-db8c-4ecb-8715-47bbf4cb0bec"
-=======
-										]
->>>>>>> master
+										"type": "text/javascript"
 									}
 								}
 							],
@@ -1942,26 +1470,6 @@
 									{
 										"key": "sandbox_id",
 										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
 									},
 									{
 										"key": "Content-Type",
@@ -1990,102 +1498,6 @@
 								}
 							},
 							"response": []
-<<<<<<< HEAD
-						},
-						{
-							"name": "Request Individual Payments Status (Payments)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "3ddee651-58f7-4d47-84dc-1fe6087add8e",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-											"tests[\"exception is empty\"] = jsonData.exception === null;"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "aaf708b0-3321-484a-ad05-1d6e2cd5c6ea",
-										"exec": [
-											"var uuid = require('uuid');\r",
-											"var myUUID = uuid.v4();\r",
-											"pm.environment.set(\"batchID\", myUUID);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "sandbox_id",
-										"value": "{{sandbox_id}}"
-									},
-									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "{{content-type}}"
-									},
-									{
-										"key": "Client-Id",
-										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"batchID\":\"{{batchID}}\",\r\n\t\"instrIds\":[\r\n\t   \"{{instrid1}}\",\"{{instrid2}}\"\r\n\t]\r\n  }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://{{base_url}}/{{portal}}/MassPayments/requestIndividualPaymentsStatus",
-									"protocol": "https",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"{{portal}}",
-										"MassPayments",
-										"requestIndividualPaymentsStatus"
-									]
-								}
-							},
-							"response": []
-=======
->>>>>>> master
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -2095,13 +1507,12 @@
 					"name": "ExecuteMassPayments",
 					"item": [
 						{
-<<<<<<< HEAD
 							"name": "Request Mass Pay",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "e95cc8d9-84c7-4b93-9189-523c9d1f77fc",
+										"id": "0b69fd2d-a57a-4837-97fe-0107a879995c",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2114,7 +1525,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6856591b-34b9-43de-bc11-8a4801a4ac23",
+										"id": "b8bda3ad-ddb5-4907-a30d-bda5e00d2319",
 										"exec": [
 											"var uuid = require('uuid');\r",
 											"var myUUID = uuid.v4();\r",
@@ -2132,36 +1543,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -2190,18 +1577,11 @@
 						},
 						{
 							"name": "Retrieve Mass Pay Outcome",
-=======
-							"name": "Get Mass Commissions",
->>>>>>> master
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "4b111b88-68b5-48f1-ac4e-5b07556921a9",
-=======
-										"id": "8122701c-d8fc-4a04-908f-ff43e6ec6607",
->>>>>>> master
+										"id": "92eeecc2-9752-4159-b16d-e314c447a2b2",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2221,26 +1601,6 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
@@ -2251,7 +1611,6 @@
 								],
 								"body": {
 									"mode": "raw",
-<<<<<<< HEAD
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"batchID\": \"{{batchID}}\"\r\n  }\r\n}",
 									"options": {
 										"raw": {
@@ -2261,12 +1620,6 @@
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/MassPayments/retrieveMassPay",
-=======
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{$guid}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{$guid}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t]\r\n  }\r\n}"
-								},
-								"url": {
-									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massCommission",
->>>>>>> master
 									"protocol": "https",
 									"host": [
 										"{{base_url}}"
@@ -2274,28 +1627,19 @@
 									"path": [
 										"{{portal}}",
 										"MassPayments",
-<<<<<<< HEAD
 										"retrieveMassPay"
-=======
-										"massCommission"
->>>>>>> master
 									]
 								}
 							},
 							"response": []
 						},
 						{
-<<<<<<< HEAD
 							"name": "Request Mass Pay With File",
-=======
-							"name": "Mass Pay With OTP Step 1 ( With smsotp )",
->>>>>>> master
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "bf4a321a-32f2-48a7-a2f6-806c26b079ae",
+										"id": "f708d304-7388-4d38-a0fd-718930ad2486",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2308,19 +1652,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5d76b176-fa6a-4701-bafc-876855a5d3e9",
+										"id": "38416baf-c2ee-4024-9af3-0fae624187e5",
 										"exec": [
 											"var uuid = require('uuid');\r",
 											"var myUUID = uuid.v4();\r",
 											"pm.environment.set(\"fileID\", myUUID);"
-=======
-										"id": "dbe3b05c-bd94-4c7a-a4e1-c5b26d2271d3",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"",
-											"tests[\"payload not empty\"] = jsonData.payload === null;",
-											"tests[\"exception is empty\"] = jsonData.exception !== null;"
->>>>>>> master
 										],
 										"type": "text/javascript"
 									}
@@ -2334,44 +1670,16 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-<<<<<<< HEAD
-=======
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
->>>>>>> master
 									}
 								],
 								"body": {
 									"mode": "raw",
-<<<<<<< HEAD
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"fileID\": \"{{fileID}}\"\r\n  }\r\n}",
 									"options": {
 										"raw": {
@@ -2381,12 +1689,6 @@
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massPayWithFile",
-=======
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{instrid1}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{instrid2}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t],\r\n\t\"isSmsOtp\": true,\r\n\t\"tanNumber\": \"smsotp\"\r\n  }\r\n}"
-								},
-								"url": {
-									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massPayWithOtp",
->>>>>>> master
 									"protocol": "https",
 									"host": [
 										"{{base_url}}"
@@ -2394,42 +1696,24 @@
 									"path": [
 										"{{portal}}",
 										"MassPayments",
-<<<<<<< HEAD
 										"massPayWithFile"
-=======
-										"massPayWithOtp"
->>>>>>> master
 									]
 								}
 							},
 							"response": []
 						},
 						{
-<<<<<<< HEAD
 							"name": "Retrieve Mass Pay Outcome With File",
-=======
-							"name": "Mass Pay With OTP Step 2 ( With I-CODE )",
->>>>>>> master
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "6e43cbab-6a4d-4108-ad7f-53f23c702059",
+										"id": "603a4b37-281e-41af-bbdf-94b48e65a09b",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
 											"tests[\"payload not empty\"] = jsonData.payload !== null;",
 											"tests[\"exception is empty\"] = jsonData.exception === null;",
-=======
-										"id": "b8e30401-ac4a-4051-a7b3-5e09506ee506",
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"\r",
-											"tests[\"payload not empty\"] = jsonData.payload !== null;\r",
-											"tests[\"exception is empty\"] = jsonData.exception === null;\r",
-											"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;\r",
->>>>>>> master
 											""
 										],
 										"type": "text/javascript"
@@ -2444,44 +1728,16 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-<<<<<<< HEAD
-=======
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
->>>>>>> master
 									}
 								],
 								"body": {
 									"mode": "raw",
-<<<<<<< HEAD
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"fileID\": \"{{fileID}}\"\r\n  }\r\n}",
 									"options": {
 										"raw": {
@@ -2491,12 +1747,6 @@
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/MassPayments/retrieveMassPayWithFile",
-=======
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{instrid1}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{instrid2}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t],\r\n\t\"isSmsOtp\": true,\r\n\t\"tanNumber\": \"{{I-CODE}}\"\r\n  }\r\n}"
-								},
-								"url": {
-									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massPayWithOtp",
->>>>>>> master
 									"protocol": "https",
 									"host": [
 										"{{base_url}}"
@@ -2504,36 +1754,23 @@
 									"path": [
 										"{{portal}}",
 										"MassPayments",
-<<<<<<< HEAD
 										"retrieveMassPayWithFile"
-=======
-										"massPayWithOtp"
->>>>>>> master
 									]
 								}
 							},
 							"response": []
 						},
 						{
-<<<<<<< HEAD
 							"name": "Request Mass Commission",
-=======
-							"name": "Mass Pay Without OTP",
->>>>>>> master
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-<<<<<<< HEAD
-										"id": "a7c0fa28-15f8-48b5-85db-d8bec226caa7",
-=======
-										"id": "756425de-d29d-43bf-b626-ebf7b0147b9d",
->>>>>>> master
+										"id": "7913bdb7-83a7-437f-9675-e7e3dbb07734",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
 											"tests[\"payload not empty\"] = jsonData.payload !== null;",
-<<<<<<< HEAD
 											"tests[\"exception is empty\"] = jsonData.exception === null;"
 										],
 										"type": "text/javascript"
@@ -2542,16 +1779,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f46827cf-b3dd-4d38-b6c7-151184a606bd",
+										"id": "aa0f19e2-c7ad-453b-b365-b8d8d216a0c4",
 										"exec": [
 											"var uuid = require('uuid');\r",
 											"var myUUID = uuid.v4();\r",
 											"pm.environment.set(\"batchID\", myUUID);"
-=======
-											"tests[\"exception is empty\"] = jsonData.exception === null;",
-											"tests[\"are all successful\"] = jsonData.payload.areAllSuccessful === true;",
-											""
->>>>>>> master
 										],
 										"type": "text/javascript"
 									}
@@ -2565,44 +1797,16 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-<<<<<<< HEAD
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
-=======
->>>>>>> master
 									}
 								],
 								"body": {
 									"mode": "raw",
-<<<<<<< HEAD
 									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"ccy\": \"EUR\",\r\n\t\"batchID\":\"{{batchID}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{instrid1}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{instrid2}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t]\r\n  }\r\n}",
 									"options": {
 										"raw": {
@@ -2612,12 +1816,6 @@
 								},
 								"url": {
 									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massCommission",
-=======
-									"raw": "{\r\n  \"header\": {\r\n    \"ID\": \"{{$guid}}\",\r\n    \"application\": \"{{application_id}}\",\r\n    \"bank\": \"{{bank}}\",\r\n    \"hostSession\": null,\r\n    \"channel\": \"{{channel}}\",\r\n    \"customer\": 0,\r\n    \"logitude\": 0,\r\n    \"latitude\": 0,\r\n    \"go4moreMember\": {{go4moreMember}},\r\n    \"TAN\": null\r\n  },\r\n  \"payload\": {\r\n    \"userId\": \"{{user_id}}\",\r\n\t\"debtorName\":\"{{User1Fullname}}\",\r\n\t\"debtorTelephone\":\"{{phone_number}}\",\r\n\t\"debtorIBAN\":\"{{User1AccountIBAN}}\",\r\n\t\"massPayments\":[\r\n\t{ \r\n\t   \"id\":\"{{paymentOrgIdentificationIdEydap}}\",\r\n\t   \"instrId\":\"{{$guid}}\",\r\n\t   \"fields\":{ \r\n\t      \"PAYMENT_CODE\": {{paymentCodeEydap}},\r\n\t      \"EXPIRATION_DATE\":\"18.04.2017\",\r\n\t      \"CUSTOMER_NAME\":\"CUSTOMER\"\r\n\t   },\r\n\t   \"amount\": {{AmountEydap}}\r\n\t},\r\n\t{ \r\n\t   \"id\":\"{{paymentOrganizationIdCosmote}}\",\r\n\t   \"instrId\":\"{{$guid}}\",\r\n\t   \"fields\":{ \r\n\t     \"PAYMENT_CODE\":\"{{paymentCodeCosmote}}\"\t\t\r\n\t   },\r\n\t   \"amount\": {{AmountCosmote}}\r\n\t}\r\n\t]\r\n  }\r\n}"
-								},
-								"url": {
-									"raw": "https://{{base_url}}/{{portal}}/MassPayments/massPay",
->>>>>>> master
 									"protocol": "https",
 									"host": [
 										"{{base_url}}"
@@ -2625,16 +1823,11 @@
 									"path": [
 										"{{portal}}",
 										"MassPayments",
-<<<<<<< HEAD
 										"massCommission"
-=======
-										"massPay"
->>>>>>> master
 									]
 								}
 							},
 							"response": []
-<<<<<<< HEAD
 						},
 						{
 							"name": "Retrieve Mass Commissions",
@@ -2642,7 +1835,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "66e085e2-10bc-42b8-9f89-19b0fe3db97d",
+										"id": "a209dfd9-cdef-4195-b1df-321b02057b1d",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2655,7 +1848,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5735c26d-4707-47a8-9a6d-80b9d36dc115",
+										"id": "9f651f8c-0b43-4007-b857-4a2a3dda7112",
 										"exec": [
 											""
 										],
@@ -2671,36 +1864,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -2733,7 +1902,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "926e8671-ef35-4fb4-bdc5-e6006fa05fb0",
+										"id": "aadeafe0-f0a3-4f85-9c96-f73eb4dbf8c0",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2746,7 +1915,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ae608a95-706a-4efe-98fc-d54fb2d64950",
+										"id": "4a6b9865-4111-4e9d-8b00-d7de5e027a73",
 										"exec": [
 											"var uuid = require('uuid');\r",
 											"var myUUID = uuid.v4();\r",
@@ -2764,36 +1933,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -2826,7 +1971,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6c679507-751d-40fb-bd2a-2787d38d5779",
+										"id": "10795e57-e704-4be7-9b44-9853d28785bb",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2839,7 +1984,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3ac025d4-31fa-4308-892c-364694eae535",
+										"id": "f369f702-208f-49be-99e3-bfc0242063f6",
 										"exec": [
 											""
 										],
@@ -2855,36 +2000,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -2917,7 +2038,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "31de7936-9de6-4f63-abad-22f28ee2b3ff",
+										"id": "4c559a5c-aa47-4fb7-a10e-37003f61f69a",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -2930,7 +2051,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "980b20ad-91a3-4283-b2a7-3d9e212c254a",
+										"id": "f13672de-e9f0-4b91-a85f-d54e50f01391",
 										"exec": [
 											"var uuid = require('uuid');\r",
 											"var myUUID = uuid.v4();\r",
@@ -2948,36 +2069,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -3010,7 +2107,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6afd7730-a412-437a-ba8f-df05dc6d2d5d",
+										"id": "f2d3d2c8-0673-4cc2-9702-2c93cc3ea27f",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -3023,7 +2120,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cbdda472-3a9c-40f8-a5f0-796cb1fba21f",
+										"id": "69283509-b4e8-4ec9-ba6d-db534bdef659",
 										"exec": [
 											""
 										],
@@ -3039,36 +2136,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -3101,7 +2174,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "28cd326e-e039-4fa3-a37f-ce2a47b1b2e6",
+										"id": "f2a7c21b-a171-462c-8781-79f23dcb0c49",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -3114,7 +2187,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "88187ba0-9980-4f83-b18c-42d585fd00ed",
+										"id": "1b0a3b95-74b8-465a-bd05-02aca423997f",
 										"exec": [
 											""
 										],
@@ -3130,36 +2203,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -3192,7 +2241,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c6ac015c-e87a-4bbc-9837-b5c62359a1b5",
+										"id": "d5e3942d-016f-43b6-a29e-7627104c87d1",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -3205,7 +2254,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b75661b1-5e32-445b-8d60-b999da843ea2",
+										"id": "7e3b9820-9403-426f-9a24-11f4e73fd695",
 										"exec": [
 											""
 										],
@@ -3221,36 +2270,12 @@
 										"value": "{{sandbox_id}}"
 									},
 									{
-										"key": "application_id",
-										"value": "{{application_id}}"
-									},
-									{
-										"key": "user_id",
-										"value": "{{user_id}}"
-									},
-									{
-										"key": "username",
-										"value": "{{username}}"
-									},
-									{
-										"key": "provider_id",
-										"value": "{{provider_id}}"
-									},
-									{
-										"key": "provider",
-										"value": "{{provider}}"
-									},
-									{
 										"key": "Content-Type",
 										"value": "{{content-type}}"
 									},
 									{
 										"key": "Client-Id",
 										"value": "{{client-id}}"
-									},
-									{
-										"key": "phone_number",
-										"value": "{{phone_number}}"
 									}
 								],
 								"body": {
@@ -3284,31 +2309,17 @@
 				{
 					"name": "Get List of Supported Payments",
 					"event": [
-=======
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Get List of Supported Payments",
-					"event": [
->>>>>>> master
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "cd93a2ff-af71-4404-a79f-f04f614d45f7",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "ae24f4ae-1785-406b-8a1d-0ed1e5b64179"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3320,28 +2331,9 @@
 								"value": "{{sandbox_id}}"
 							},
 							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
-							},
-							{
 								"key": "Content-Type",
-								"value": "{{content-type}}"
+								"value": "{{content-type}}",
+								"type": "text"
 							},
 							{
 								"key": "Client-Id",
@@ -3373,11 +2365,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "0a981c4a-83e6-4251-b472-b32a7fe338ad",
-=======
-								"id": "0b38be3d-00db-45f6-8747-6d7a6d2547f1",
->>>>>>> master
+								"id": "94ab7bab-508a-48e0-869a-de89159a9b23",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -3394,26 +2382,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3449,11 +2417,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "9ad9807b-ea6d-4ce1-b5d1-db6874477a6c",
-=======
-								"id": "b29b5efc-9e73-4fa2-9026-e8f998735ebf",
->>>>>>> master
+								"id": "6f4242ad-87c0-443f-a946-9f3de3b49098",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -3470,26 +2434,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3525,34 +2469,26 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "4b4c8c84-c453-4c86-8795-5a742fe82c76",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "871f4e76-4d98-4bf5-8ca9-2f061d49d0ae"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"type": "text/javascript",
+								"id": "6b5979ed-3137-4eb1-81d5-45768a427f52",
 								"exec": [
 									"var date = (new Date()).toISOString();",
 									"",
 									"postman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));"
-<<<<<<< HEAD
 								],
-								"id": "8210f392-f9eb-4fe8-be28-c4e16b2840d5"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3562,26 +2498,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3617,18 +2533,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "02eb3dbc-00d6-4056-ac45-0f633a8498d0",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "b6701d21-ff3f-48a0-b746-8c6ebdb5596f"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3638,26 +2550,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3693,34 +2585,26 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "821b1281-a07e-4d37-97ac-f2bec773e681",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "f6c43e9c-107d-4755-8ea9-d246cae8a86a"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"type": "text/javascript",
+								"id": "ce1bbbb2-de3e-4ba2-98c7-99c75c52c296",
 								"exec": [
 									"var date = (new Date()).toISOString();",
 									"",
 									"postman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));"
-<<<<<<< HEAD
 								],
-								"id": "2b3ab95b-fa00-436f-a5b1-3ae36b8fa0cd"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3730,26 +2614,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3785,34 +2649,26 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "33abe5c1-8c72-4f9b-a91f-3fed8d714669",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "be951311-7f2f-4f48-905e-aadccf731be0"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"type": "text/javascript",
+								"id": "e4426a24-3c28-45be-802f-3079bc77da51",
 								"exec": [
 									"var date = (new Date()).toISOString();",
 									"",
 									"postman.setEnvironmentVariable('CURRENT_DATE', date.substring(0, 10));"
-<<<<<<< HEAD
 								],
-								"id": "ace06638-e1fc-48ee-bf6a-018a9f003449"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3822,26 +2678,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3877,18 +2713,14 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "397a44a5-8012-4c47-92df-4644ca7ebbba",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
 									"tests[\"payload not empty\"] = jsonData.payload !== null;",
 									"tests[\"exception is empty\"] = jsonData.exception === null;"
-<<<<<<< HEAD
 								],
-								"id": "2af76e8c-3d9d-46d8-b4ca-27b8a2e6e984"
-=======
-								]
->>>>>>> master
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3898,26 +2730,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -3953,11 +2765,7 @@
 						{
 							"listen": "test",
 							"script": {
-<<<<<<< HEAD
-								"id": "3f7d84a1-5106-4ddc-a1f9-0b0ee18986c4",
-=======
-								"id": "69216054-b4c6-4496-9310-8cb6b6311c22",
->>>>>>> master
+								"id": "a02ed16f-b33d-4c1d-b4d5-a588068b4859",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"",
@@ -3974,26 +2782,6 @@
 							{
 								"key": "sandbox_id",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "application_id",
-								"value": "{{application_id}}"
-							},
-							{
-								"key": "user_id",
-								"value": "{{user_id}}"
-							},
-							{
-								"key": "username",
-								"value": "{{username}}"
-							},
-							{
-								"key": "provider_id",
-								"value": "{{provider_id}}"
-							},
-							{
-								"key": "provider",
-								"value": "{{provider}}"
 							},
 							{
 								"key": "Content-Type",
@@ -4027,9 +2815,47 @@
 			"protocolProfileBehavior": {}
 		}
 	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "5bc3a48eb5100b0fcd70ff42f9d8918171a2d611aaa80711a4376e9a79b295f1",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8885cfd4-0859-47bc-8fae-d88ce48fc9e0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6eeaf83f-4d5f-425d-a3ce-5064ac88b152",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"protocolProfileBehavior": {}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
