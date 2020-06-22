@@ -1,0 +1,675 @@
+{
+	"info": {
+		"_postman_id": "42c85fae-c391-4959-8f69-e7abac8eb59f",
+		"name": "Iban Beneficiary Validation - v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox-id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/Sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sandbox",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sandbox",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"applications\": null,\r\n  \"SandboxId\": \"{{sandbox-id}}\",\r\n  \"Version\": 1,\r\n  \"Users\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox/",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							],
+							"query": [
+								{
+									"key": "Application",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "validateNbgIban",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Sandbox-Id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"iban\": \"GR1601100400000004012345600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/ibanvalidation/validateNBGiban",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ibanvalidation",
+						"validateNBGiban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateNbgIban - Failed - Malformed IBAN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Sandbox-Id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"iban\": \"GG1601100400000004012345600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/ibanvalidation/validateNBGiban",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ibanvalidation",
+						"validateNBGiban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateOtherIban",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Sandbox-Id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"iban\": \"GR9101097155386567765933961\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ibanvalidation",
+						"validateOtherIban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateOtherIban - Failed - NBG IBAN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Sandbox-Id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"iban\": \"GR1601100400000004012345600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ibanvalidation",
+						"validateOtherIban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateOtherIban - Failed - Malformed IBAN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Sandbox-Id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"iban\": \"1X1601100400000004012345600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ibanvalidation",
+						"validateOtherIban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateNbgIbanConfidence - Case 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "sandbox-id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"value": "{{client-id}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"IBAN\": \"GR1601100400000004012345600\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"IbanValidation",
+						"validateNbgIbanConfidence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateNbgIbanConfidence - Case 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "sandbox-id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"IBAN\": \"GR1601100400000004012345600\",\r\n\t\"companyName\" : \"Tasty\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"IbanValidation",
+						"validateNbgIbanConfidence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateNbgIbanConfidence - Case 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "sandbox-id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"IBAN\": \"GR1601100400000004012345600\",\r\n\t\"likelyBeneficiaryName\": \"Κωσταντίνος\",\r\n\t\"likelyBeneficiaryMidName\": \"\",\r\n\t\"likeliyBeneficiarySurName\" : \"Παπαδόπουλος\",\r\n\t\"dateOfBirth\" : \"1980-12-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"IbanValidation",
+						"validateNbgIbanConfidence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateNbgIbanConfidence - Failed",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "sandbox-id",
+						"type": "text",
+						"value": "{{sandbox-id}}"
+					},
+					{
+						"key": "Client-Id",
+						"type": "text",
+						"value": "{{client-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"IBAN\": \"GG1601100400000004012345600\",\r\n\t\"likelyBeneficiaryName\": \"Κωσταντίνος\",\r\n\t\"likelyBeneficiaryMidName\": \"\",\r\n\t\"likeliyBeneficiarySurName\" : \"Παπαδόπουλος\",\r\n\t\"dateOfBirth\" : \"1980-12-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"IbanValidation",
+						"validateNbgIbanConfidence"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "99e0b7bb2d478030ad8c0ad4cd43be6009ffcb4f16b61d6790112388b833d6e7",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9ef1a314-c1c3-4f82-b945-52e37757689d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "46e87399-07d8-44ef-b951-56a3a2ddeede",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
