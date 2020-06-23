@@ -1,4 +1,4 @@
-## **Bill Payments v2.6 Sandbox API** 
+## **Bill Payments v2.7 Sandbox API** 
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
@@ -12,7 +12,7 @@ What can you do about it?  The answer is simple, you can use this api to create 
 Your first job is to create a sandbox and save your **sandbox_id** in order to be able to **"play"** with the api.
 
 We will create our sandbox by making an **HTTP POST** request to the following URL:
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/sandbox
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/sandbox
 
 Request Body:
 ```json
@@ -25,12 +25,28 @@ Request Body:
 in each api call. Also remember to use the *Client-Id* provided when you create your application in the portal.**
 
 When you create the sandbox application it has some default data, for our use case example we will use **User1**.
+## **Request Headers**
+They are the same in each call so we mention them first, in postman they are stored in each environment variables.
 
+**Request Headers**:
+```
+   'accept: text/json'
+   'application_id: {{$guid}}'
+   'content-type: text/json'
+   'phone_number: null'
+   'provider: NBG'
+   'provider_id: NBG.gr'
+   'sandbox_id: your_sandbox_id'  !!!payforme is the one that we used to create the use case sandbox, you can also use it to see the results!!!
+   'user_id: e6da8f9c-ee8b-488c-9179-0a566e9d8aed'
+   'username: User1'
+   'Client-Id: your_Client-Id' !!!c33f6acf-5ef1-4d00-b801-058eaa4ad0ed is the one that we got from creating a test app at the portal, you can also use it to see the results!!!
+
+``` 
 ## **Scenario Requests**
 
 **Step1**: You send **POST /Payments/paymentsList** request to see if you support the payment that the customer wants to make.
 So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/paymentsList
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/paymentsList
 
 **Request**:
 ```json
@@ -326,7 +342,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 
 **Step2**: Now that you know you support the requested payment, you send the **POST /Payments/commission** request in order to provide your customer with the information about the charging fees for this transaction with **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/commission
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/commission
 
 **Request**:
 ```json
@@ -382,7 +398,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 **Step3**: After accomplishing the first two steps, you can execute the payment by using **POST /Payments/pay** request (Requires OTP verification).
 
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/pay
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/pay
 
 **Request**:
 ```json
@@ -435,7 +451,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
     "acceptDuplicate": true,
     "machineId": null,
 	"isSmsOtp": true,
-	"tanNumber": "111111"
+	"tanNumber": "111111"	
   }
 }
 ``` 
@@ -503,7 +519,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **Note: Remember to use the same payment identification data that pay request gave you as a response.**
 
 **Check Payment Status**
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/status
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/status
 
 **Request**:
 ```json
@@ -559,7 +575,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Cancel Payment (Requires OTP verification)**
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/cancelPayment
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/cancelPayment
 
 **Request**:
 ```json
@@ -629,7 +645,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **POST /Payments/dailyTransactions** or **POST /Payments/lastPaymentTransactionDetails** respectivelly.
 
 **Check Daily Transactions**
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/dailyTransactions
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/dailyTransactions
 
 **Request**:
 ```json
@@ -853,7 +869,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 
 **Check Last Payment Transaction Details**
 
-> https://apis.nbg.gr/sandbox/billpayments/oauth2/v2.6/Payments/lastPaymentTransactionDetails
+> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/lastPaymentTransactionDetails
 
 **Request**:
 ```json

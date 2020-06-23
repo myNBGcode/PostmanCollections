@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-## **Bill Payments v2.7 Sandbox API** 
-=======
 ## **Bill Payments v2.6 Sandbox API** 
->>>>>>> master
 ****
 ### **Introduction to the API**
 This API helps you to pay bills such as car taxes, taxes, electricity, water, and payback fees, it provides you full control of your bill payment lifecycle.
@@ -16,11 +12,7 @@ What can you do about it?  The answer is simple, you can use this api to create 
 Your first job is to create a sandbox and save your **sandbox_id** in order to be able to **"play"** with the api.
 
 We will create our sandbox by making an **HTTP POST** request to the following URL:
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/sandbox
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/sandbox
->>>>>>> master
 
 Request Body:
 ```json
@@ -54,11 +46,7 @@ They are the same in each call so we mention them first, in postman they are sto
 
 **Step1**: You send **POST /Payments/paymentsList** request to see if you support the payment that the customer wants to make.
 So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/paymentsList
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/paymentsList
->>>>>>> master
 
 **Request**:
 ```json
@@ -354,11 +342,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **It supports much more organizations but for now we use only ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
 
 **Step2**: Now that you know you support the requested payment, you send the **POST /Payments/commission** request in order to provide your customer with the information about the charging fees for this transaction with **ΔΗΜΟΣ ΜΑΚΡΑΚΩΜΗΣ**.
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/commission
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/commission
->>>>>>> master
 
 **Request**:
 ```json
@@ -414,11 +398,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 ``` 
 **Step3**: After accomplishing the first two steps, you can execute the payment by using **POST /Payments/pay** request (Requires OTP verification).
 
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/pay
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/pay
->>>>>>> master
 
 **Request**:
 ```json
@@ -539,11 +519,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **Note: Remember to use the same payment identification data that pay request gave you as a response.**
 
 **Check Payment Status**
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/status
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/status
->>>>>>> master
 
 **Request**:
 ```json
@@ -599,11 +575,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 }
 ``` 
 **Cancel Payment (Requires OTP verification)**
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/cancelPayment
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/cancelPayment
->>>>>>> master
 
 **Request**:
 ```json
@@ -673,11 +645,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 **POST /Payments/dailyTransactions** or **POST /Payments/lastPaymentTransactionDetails** respectivelly.
 
 **Check Daily Transactions**
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/dailyTransactions
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/dailyTransactions
->>>>>>> master
 
 **Request**:
 ```json
@@ -901,11 +869,7 @@ So now you found that you support payments of water bills to **ΔΗΜΟΣ ΜΑΚ
 
 **Check Last Payment Transaction Details**
 
-<<<<<<< HEAD
-> https://apis.nbg.gr/sandbox/billpayments/headers/v2.7/Payments/lastPaymentTransactionDetails
-=======
 > https://apis.nbg.gr/sandbox/billpayments/headers/v2.6/Payments/lastPaymentTransactionDetails
->>>>>>> master
 
 **Request**:
 ```json
