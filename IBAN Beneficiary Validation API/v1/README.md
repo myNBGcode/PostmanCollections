@@ -39,7 +39,7 @@ The following headers are required for every call. In postman they are in the ap
 ``` 
 ## **Scenario Request**
 You send **POST ibanvalidation/validateNBGiban** request to get a list of all available white list actions.
->  https://apis.nbg.gr/sandbox/iban.beneficiary.validation/oauth2/v1s/ibanvalidation/validateNBGiban
+>  https://apis.nbg.gr/sandbox/iban.beneficiary.validation/oauth2/v1s/beneficiaryValidation/nbgIban
 
 **Request**
 ```json
