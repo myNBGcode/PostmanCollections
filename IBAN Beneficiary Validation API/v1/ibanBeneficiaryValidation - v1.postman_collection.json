@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "42c85fae-c391-4959-8f69-e7abac8eb59f",
-		"name": "Iban Beneficiary Validation - v1",
+		"name": "IbanValidation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -188,7 +188,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "validateNbgIban",
+			"name": "NbgIban",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -223,21 +223,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/ibanvalidation/validateNBGiban",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIban",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"ibanvalidation",
-						"validateNBGiban"
+						"beneficiaryValidation",
+						"nbgIban"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateNbgIban - Failed - Malformed IBAN",
+			"name": "NbgIban- Failed - Malformed IBAN",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -272,21 +272,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/ibanvalidation/validateNBGiban",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIban",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"ibanvalidation",
-						"validateNBGiban"
+						"beneficiaryValidation",
+						"nbgIban"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateOtherIban",
+			"name": "otherBanksIban",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -321,21 +321,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"ibanvalidation",
-						"validateOtherIban"
+						"beneficiaryValidation",
+						"otherBanksIban"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateOtherIban - Failed - NBG IBAN",
+			"name": "otherBanksIban- Failed - NBG IBAN",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -370,21 +370,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"ibanvalidation",
-						"validateOtherIban"
+						"beneficiaryValidation",
+						"otherBanksIban"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateOtherIban - Failed - Malformed IBAN",
+			"name": "otherBanksIban- Failed - Malformed IBAN",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -419,21 +419,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/ibanvalidation/validateOtherIban",
+					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"ibanvalidation",
-						"validateOtherIban"
+						"beneficiaryValidation",
+						"otherBanksIban"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateNbgIbanConfidence - Case 1",
+			"name": "nbgIbanDetailsMatch - Case 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -454,8 +454,8 @@
 					},
 					{
 						"key": "Client-Id",
-						"value": "{{client-id}}",
-						"type": "text"
+						"type": "text",
+						"value": "{{client-id}}"
 					}
 				],
 				"body": {
@@ -468,21 +468,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"IbanValidation",
-						"validateNbgIbanConfidence"
+						"beneficiaryValidation",
+						"nbgIbanDetailsMatch"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateNbgIbanConfidence - Case 2",
+			"name": "nbgIbanDetailsMatch - Case 2",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -517,21 +517,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"IbanValidation",
-						"validateNbgIbanConfidence"
+						"beneficiaryValidation",
+						"nbgIbanDetailsMatch"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateNbgIbanConfidence - Case 3",
+			"name": "nbgIbanDetailsMatch - Case 3",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -566,21 +566,21 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"IbanValidation",
-						"validateNbgIbanConfidence"
+						"beneficiaryValidation",
+						"nbgIbanDetailsMatch"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "validateNbgIbanConfidence - Failed",
+			"name": "nbgIbanDetailsMatch - Failed",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -615,14 +615,14 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/IbanValidation/validateNbgIbanConfidence",
+					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"IbanValidation",
-						"validateNbgIbanConfidence"
+						"beneficiaryValidation",
+						"nbgIbanDetailsMatch"
 					]
 				}
 			},
@@ -634,7 +634,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "99e0b7bb2d478030ad8c0ad4cd43be6009ffcb4f16b61d6790112388b833d6e7",
+				"value": "5446768de170aa20ce5f0253028f8588397a4b9b39ed04ec17fd29a00be1ca9c",
 				"type": "string"
 			},
 			{
