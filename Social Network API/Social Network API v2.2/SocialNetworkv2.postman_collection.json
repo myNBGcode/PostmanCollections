@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "SocialNetwork",
+		"name": "SocialNetwork - v2",
 		"_postman_id": "a5737267-3a8a-9562-b603-7bef3e3c46c3",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -38,7 +38,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -70,7 +70,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -105,7 +105,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -144,7 +144,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -183,7 +183,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -234,7 +234,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -308,7 +308,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -382,7 +382,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -451,7 +451,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -520,7 +520,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -589,7 +589,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -658,7 +658,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -727,7 +727,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -802,7 +802,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -871,7 +871,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -940,7 +940,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -1009,7 +1009,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -1078,7 +1078,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -1147,7 +1147,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -1222,7 +1222,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
@@ -1291,7 +1291,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"description": ""
 							}
 						],
