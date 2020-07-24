@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "42c85fae-c391-4959-8f69-e7abac8eb59f",
-		"name": "IbanValidation",
+		"name": "IbanValidation - v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -25,13 +25,13 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"sandboxId\": \"{{sandbox-id}}\"\r\n}",
+							"raw": "{\r\n  \"sandboxId\": \"{{sandbox_id}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -39,10 +39,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/Sandbox",
+							"raw": "https://{{root_url}}/Sandbox",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"Sandbox"
@@ -71,7 +71,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -85,14 +85,14 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							]
 						}
 					},
@@ -115,13 +115,13 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"applications\": null,\r\n  \"SandboxId\": \"{{sandbox-id}}\",\r\n  \"Version\": 1,\r\n  \"Users\": null\r\n}",
+							"raw": "{\r\n  \"applications\": null,\r\n  \"SandboxId\": \"{{sandbox_id}}\",\r\n  \"Version\": 1,\r\n  \"Users\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -129,10 +129,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/sandbox/",
+							"raw": "https://{{root_url}}/sandbox/",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -159,19 +159,19 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							],
 							"query": [
 								{
@@ -205,12 +205,12 @@
 					{
 						"key": "Sandbox-Id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -223,10 +223,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIban",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIban",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -254,12 +254,12 @@
 					{
 						"key": "Sandbox-Id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -272,10 +272,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIban",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIban",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -303,12 +303,12 @@
 					{
 						"key": "Sandbox-Id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -321,10 +321,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
+					"raw": "https://{{root_url}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -352,12 +352,12 @@
 					{
 						"key": "Sandbox-Id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -370,10 +370,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
+					"raw": "https://{{root_url}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -401,12 +401,12 @@
 					{
 						"key": "Sandbox-Id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -419,10 +419,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/otherBanksIban",
+					"raw": "https://{{root_url}}/beneficiaryValidation/otherBanksIban",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -450,12 +450,12 @@
 					{
 						"key": "sandbox-id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -468,10 +468,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -499,12 +499,12 @@
 					{
 						"key": "sandbox-id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -517,10 +517,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -548,12 +548,12 @@
 					{
 						"key": "sandbox-id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -566,10 +566,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
@@ -597,12 +597,12 @@
 					{
 						"key": "sandbox-id",
 						"type": "text",
-						"value": "{{sandbox-id}}"
+						"value": "{{sandbox_id}}"
 					},
 					{
 						"key": "Client-Id",
 						"type": "text",
-						"value": "{{client-id}}"
+						"value": "{{client_id}}"
 					}
 				],
 				"body": {
@@ -615,10 +615,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{host}}/beneficiaryValidation/nbgIbanDetailsMatch",
+					"raw": "https://{{root_url}}/beneficiaryValidation/nbgIbanDetailsMatch",
 					"protocol": "https",
 					"host": [
-						"{{host}}"
+						"{{root_url}}"
 					],
 					"path": [
 						"beneficiaryValidation",
