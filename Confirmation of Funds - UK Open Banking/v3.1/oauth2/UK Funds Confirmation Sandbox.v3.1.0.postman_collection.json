@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b53f18b1-d637-4158-884a-e6f459ecb149",
-		"name": "UK Funds Confirmations Sandbox",
+		"name": "UK Funds Confirmations Sandbox - v3.1.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -26,13 +26,13 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}",
+							"raw": "{\n\t\"sandboxId\":\"{{sandbox_id}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -40,10 +40,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/sandbox",
+							"raw": "https://{{root_url}}/sandbox",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox"
@@ -64,19 +64,19 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							]
 						}
 					},
@@ -89,7 +89,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -98,14 +98,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							]
 						}
 					},
@@ -148,12 +148,12 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							},
 							{
@@ -172,10 +172,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/funds-confirmation-consents",
+							"raw": "https://{{root_url}}/funds-confirmation-consents",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"funds-confirmation-consents"
@@ -196,7 +196,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -206,19 +206,19 @@
 							},
 							{
 								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/funds-confirmation-consents/{{consent-id}}",
+							"raw": "https://{{root_url}}/funds-confirmation-consents/{{consent_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"funds-confirmation-consents",
-								"{{consent-id}}"
+								"{{consent_id}}"
 							]
 						}
 					},
@@ -236,12 +236,12 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							},
 							{
@@ -251,14 +251,14 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/funds-confirmation-consents/{{consent-id}}",
+							"raw": "https://{{root_url}}/funds-confirmation-consents/{{consent_id}}",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"funds-confirmation-consents",
-								"{{consent-id}}"
+								"{{consent_id}}"
 							]
 						}
 					},
@@ -287,12 +287,12 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{clientId}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
 								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							},
 							{
@@ -303,7 +303,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Data\": {\n\t\t\"ConsentId\": \"{{consent-id}}\",\n\t\t\"Reference\": \"TEST REFERENCE\",\n\t\t\"InstructedAmount\": {\n\t\t\t\"Amount\": 10.0,\n\t\t\t\"Currency\": \"EUR\"\n\t\t}\n\t}\n}",
+							"raw": "{\n\t\"Data\": {\n\t\t\"ConsentId\": \"{{consent_id}}\",\n\t\t\"Reference\": \"TEST REFERENCE\",\n\t\t\"InstructedAmount\": {\n\t\t\t\"Amount\": 10.0,\n\t\t\t\"Currency\": \"EUR\"\n\t\t}\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -311,10 +311,10 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{host}}/funds-confirmations",
+							"raw": "https://{{root_url}}/funds-confirmations",
 							"protocol": "https",
 							"host": [
-								"{{host}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"funds-confirmations"
