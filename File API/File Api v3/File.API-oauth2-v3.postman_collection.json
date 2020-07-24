@@ -50,9 +50,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/sandbox",
+							"raw": "{{root_url}}/sandbox",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox"
@@ -84,9 +84,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -126,9 +126,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -159,9 +159,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -212,9 +212,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -255,9 +255,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -301,9 +301,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -345,9 +345,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -389,9 +389,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canAdd\": false,\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -436,9 +436,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -489,9 +489,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderId\": {{folder_id}},\r\n  \"fileName\": \"{{file_name}}\",\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileSize\": {{file_size}},\r\n  \"metadata\": \"{{metadata}}\",\r\n  \"fileIcon\": {{file_icon}}\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/upload-initiation",
+							"raw": "{{root_url}}/files/upload-initiation",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -532,9 +532,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/upload",
+							"raw": "{{root_url}}/files/{{file_id}}/upload",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -577,9 +577,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/{{chunk_part}}",
+							"raw": "{{root_url}}/files/{{file_id}}/{{chunk_part}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -634,9 +634,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -681,9 +681,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -725,9 +725,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"FileStatus\": \"Immutable\"\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/status/{{file_id}}",
+							"raw": "{{root_url}}/files/status/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -770,9 +770,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -852,9 +852,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files",
+							"raw": "{{root_url}}/files",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files"
@@ -895,9 +895,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -949,9 +949,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -1007,9 +1007,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/populatefiletypes",
+							"raw": "{{root_url}}/ethnofiles/populatefiletypes",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1056,9 +1056,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/sendfiletoethnofiles",
+							"raw": "{{root_url}}/ethnofiles/sendfiletoethnofiles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1094,9 +1094,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/validation/file",
+							"raw": "{{root_url}}/validation/file",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"validation",
@@ -1132,9 +1132,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/validation/filename",
+							"raw": "{{root_url}}/validation/filename",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"validation",
@@ -1181,9 +1181,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/generatemasspaymentssample",
+							"raw": "{{root_url}}/tpp/generatemasspaymentssample",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1224,9 +1224,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/masspayments",
+							"raw": "{{root_url}}/tpp/masspayments",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1267,9 +1267,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/retrievemasspaymentsoutcome",
+							"raw": "{{root_url}}/tpp/retrievemasspaymentsoutcome",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1310,9 +1310,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/requestindividualpaymentsstatus",
+							"raw": "{{root_url}}/tpp/requestindividualpaymentsstatus",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1353,9 +1353,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/retrieveindividualpaymentsstatus",
+							"raw": "{{root_url}}/tpp/retrieveindividualpaymentsstatus",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1396,9 +1396,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/validatemasspaymentsfile",
+							"raw": "{{root_url}}/tpp/validatemasspaymentsfile",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
