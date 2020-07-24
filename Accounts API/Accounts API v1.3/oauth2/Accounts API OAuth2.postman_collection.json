@@ -59,7 +59,7 @@
 				"bank_id": "{{bank_id}}",
 				"account_id": "{{account_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
+			"url": "https://{{root_url}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -111,7 +111,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}",
-			"url": "https://{{env}}/{{account_api}}/sandbox",
+			"url": "https://{{root_url}}/sandbox",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -158,7 +158,7 @@
 				"bank_id": "{{bank_id}}",
 				"account_id": "{{account_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/account",
+			"url": "https://{{root_url}}/obp/my/banks/:bank_id/accounts/:account_id/account",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -213,7 +213,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/private",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/private",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -266,7 +266,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_ id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -325,7 +325,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -372,7 +372,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "https://{{env}}/{{account_api}}/obp/my/accounts",
+			"url": "https://{{root_url}}/obp/my/accounts",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -415,7 +415,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "https://{{env}}/{{account_api}}/obp/accounts/public",
+			"url": "https://{{root_url}}/obp/accounts/public",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -461,7 +461,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -504,7 +504,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -550,7 +550,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -600,7 +600,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/public",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/public",
 			"responses": [],
 			"pathVariableData": [
 				{
