@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "aa330aaf-a787-485e-a3ba-5972e9e0f39b",
 		"name": "Confirmation Funds API",
-		"description": "Confirmation Funds API",
+		"description": "Confirmation Funds API - v2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
