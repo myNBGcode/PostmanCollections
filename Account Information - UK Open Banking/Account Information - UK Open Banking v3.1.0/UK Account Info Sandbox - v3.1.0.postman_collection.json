@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "01d971c8-54ea-42ea-b7f0-bbb10dff6b71",
-		"name": "UK Account Info Sandbox",
+		"name": "UK Account Info Sandbox v3.1.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -25,19 +25,19 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}"
+							"raw": "{\n\t\"sandboxId\":\"{{sandbox_id}}\"\n}"
 						},
 						"url": {
-							"raw": "https://{{host}}/sandbox",
+							"raw": "https://{{root_url}}/sandbox",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox"
@@ -58,19 +58,19 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							]
 						}
 					},
@@ -83,19 +83,19 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"raw": "https://{{root_url}}/sandbox/{{sandbox_id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
-								"{{sandbox-id}}"
+								"{{sandbox_id}}"
 							]
 						}
 					},
@@ -137,7 +137,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -151,8 +151,8 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
@@ -161,10 +161,10 @@
 							"raw": "{\r\n\t\"Data\": {\r\n\t\t\"Permissions\": [\r\n\t\t\t\"ReadAccountsDetail\",\r\n\t    \t\"ReadBalances\",\r\n\t    \t\"ReadBeneficiariesDetail\",\r\n\t    \t\"ReadTransactionsCredits\",\r\n\t    \t\"ReadTransactionsDebits\",\r\n\t    \t\"ReadTransactionsDetail\",\r\n\t    \t\"ReadParty\",\r\n\t    \t\"ReadStandingOrdersDetail\",\r\n\t    \t\"ReadScheduledPaymentsDetail\",\r\n\t    \t\"ReadStatementsDetail\"\r\n\t\t],\r\n\t\t\"ExpirationDateTime\": \"2019-12-31T00:00:00\",\r\n\t\t\"TransactionFromDateTime\": \"2019-01-01T00:00:00\",\r\n\t\t\"TransactionToDateTime\": \"2019-12-31T00:00:00\"\r\n\t},\r\n\t\"Risk\": {}\r\n}"
 						},
 						"url": {
-							"raw": "https://{{host}}/account-access-consents",
+							"raw": "https://{{root_url}}/account-access-consents",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"account-access-consents"
@@ -185,7 +185,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -199,16 +199,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/account-access-consents/{{consent-id}}",
+							"raw": "https://{{root_url}}/account-access-consents/{{consent-id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"account-access-consents",
@@ -230,7 +230,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -244,8 +244,8 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
@@ -254,10 +254,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{host}}/account-access-consents/{{consent-id}}",
+							"raw": "https://{{root_url}}/account-access-consents/{{consent-id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"account-access-consents",
@@ -301,7 +301,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -315,8 +315,8 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
@@ -325,10 +325,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{host}}/accounts",
+							"raw": "https://{{root_url}}/accounts",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts"
@@ -349,7 +349,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -363,16 +363,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -399,7 +399,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -413,16 +413,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/balances",
+							"raw": "https://{{root_url}}/balances",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"balances"
@@ -443,7 +443,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -457,16 +457,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/balances",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/balances",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -494,7 +494,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -508,16 +508,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/beneficiaries",
+							"raw": "https://{{root_url}}/beneficiaries",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"beneficiaries"
@@ -538,7 +538,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -552,16 +552,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/beneficiaries",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/beneficiaries",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -589,7 +589,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -603,16 +603,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/direct-debits",
+							"raw": "https://{{root_url}}/direct-debits",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"direct-debits"
@@ -633,7 +633,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -647,16 +647,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/direct-debits",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/direct-debits",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -684,7 +684,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -698,16 +698,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/offers",
+							"raw": "https://{{root_url}}/offers",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"offers"
@@ -728,7 +728,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -742,16 +742,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/offers",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/offers",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -779,7 +779,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -793,16 +793,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/party",
+							"raw": "https://{{root_url}}/party",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"party"
@@ -823,7 +823,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -837,16 +837,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/party",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/party",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -874,7 +874,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -888,16 +888,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/products",
+							"raw": "https://{{root_url}}/products",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"products"
@@ -918,7 +918,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -932,16 +932,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/product",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/product",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -969,7 +969,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -983,16 +983,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/scheduled-payments",
+							"raw": "https://{{root_url}}/scheduled-payments",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"scheduled-payments"
@@ -1013,7 +1013,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1027,16 +1027,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/scheduled-payments",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/scheduled-payments",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1064,7 +1064,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1078,16 +1078,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/standing-orders",
+							"raw": "https://{{root_url}}/standing-orders",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"standing-orders"
@@ -1108,7 +1108,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1122,16 +1122,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/standing-orders",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/standing-orders",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1159,7 +1159,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1173,16 +1173,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/statements",
+							"raw": "https://{{root_url}}/statements",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"statements"
@@ -1203,7 +1203,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1217,16 +1217,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}/transactions",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements/{{statement-id}}/transactions",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1251,7 +1251,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1265,16 +1265,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements/{{statement-id}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1298,7 +1298,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1312,16 +1312,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}/file",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements/{{statement-id}}/file",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1361,7 +1361,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1375,16 +1375,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1421,7 +1421,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1435,16 +1435,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements?fromStatementDateTime={{fromStatementDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements?fromStatementDateTime={{fromStatementDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1487,7 +1487,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1501,16 +1501,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements?toStatementDateTime={{toStatementDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements?toStatementDateTime={{toStatementDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1553,7 +1553,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1567,16 +1567,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/statements?fromStatementDateTime={{fromStatementDateTime}}&toStatementDateTime={{toStatementDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/statements?fromStatementDateTime={{fromStatementDateTime}}&toStatementDateTime={{toStatementDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1614,7 +1614,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1628,16 +1628,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/transactions",
+							"raw": "https://{{root_url}}/transactions",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"transactions"
@@ -1658,7 +1658,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1672,16 +1672,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/transactions",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/transactions",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1704,7 +1704,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1718,16 +1718,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1756,7 +1756,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1770,16 +1770,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/transactions?toBookingDateTime={{toTransactionBookingDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/transactions?toBookingDateTime={{toTransactionBookingDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
@@ -1808,7 +1808,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{client-id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1822,16 +1822,16 @@
 								"type": "text"
 							},
 							{
-								"key": "sandbox-id",
-								"value": "{{sandbox-id}}",
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "https://{{host}}/accounts/{{account-id}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}&toBookingDateTime={{toTransactionBookingDateTime}}",
+							"raw": "https://{{root_url}}/accounts/{{account-id}}/transactions?fromBookingDateTime={{fromTransactionBookingDateTime}}&toBookingDateTime={{toTransactionBookingDateTime}}",
 							"protocol": "https",
-							"host": [
-								"{{host}}"
+							"root_url": [
+								"{{root_url}}"
 							],
 							"path": [
 								"accounts",
