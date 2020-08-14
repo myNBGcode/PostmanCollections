@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "ad11cde7-1cb0-43c4-bcef-e2ede06a13ba",
-		"name": "IBAN Validation API",
+		"name": "IBAN Validation API v1.2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -18,7 +18,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -44,7 +44,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -75,7 +75,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -102,7 +102,7 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -134,7 +134,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"type": "text"
 							},
@@ -194,7 +194,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"type": "text"
 							},
