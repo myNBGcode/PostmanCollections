@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "04c8d852-1d26-4be9-ac11-06cc0c81a4d5",
-		"name": "Biometrics API Sandbox",
+		"name": "Biometrics API Sandbox - v1.3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,7 +19,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -46,7 +46,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -74,7 +74,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -106,7 +106,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -152,7 +152,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -193,7 +193,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -234,7 +234,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -280,7 +280,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -321,7 +321,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -367,7 +367,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
