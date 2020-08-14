@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "a3877275-798f-4d01-908c-23427f25de18",
-		"name": "Fx Rates API",
+		"name": "Fx Rates API - v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -18,7 +18,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -44,7 +44,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -75,7 +75,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -102,7 +102,7 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -134,7 +134,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}",
 								"type": "text"
 							},
@@ -193,7 +193,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							},
 							{
@@ -273,7 +273,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							},
 							{
