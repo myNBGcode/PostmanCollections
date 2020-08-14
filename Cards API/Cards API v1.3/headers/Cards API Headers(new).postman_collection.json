@@ -1,6 +1,6 @@
 {
 	"id": "2c081f03-52a8-e118-3562-b54c61b2fa01",
-	"name": "Cards API Headers",
+	"name": "Cards API Headers - v1.3",
 	"description": "## **Introduction**\n\nWelcome to the NBG Cards sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-cards-api-v1**\n\n The Cards API allows you to access the list of user cards and card information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Cards API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of cards for a logged in user \n - The list of cards for a logged in user at a specific bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Cards sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
 	"order": [],
 	"folders_order": [
@@ -53,7 +53,7 @@
 				"bank_id": "{{bank_id}}",
 				"card_type": "{{card_type}}"
 			},
-			"url": "https://{{env}}/{{card_api}}/obp/banks/:bank_id/cards/:card_type",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/cards/:card_type",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -121,7 +121,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -181,7 +181,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -220,7 +220,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "https://{{env}}/{{card_api}}/obp/cards",
+			"url": "https://{{root_url}}/obp/cards",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -279,7 +279,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{card_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -340,7 +340,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\n\t\"sandbox_id\":\"{{sandbox_id}}\"\n}",
-			"url": "https://{{env}}/{{card_api}}/sandbox",
+			"url": "https://{{root_url}}/sandbox",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
