@@ -1,6 +1,6 @@
 {
 	"id": "ce7627d8-880a-aa8a-59d7-01dc5de5541b",
-	"name": "Accounts API Headers",
+	"name": "Accounts API Headers v1.3",
 	"description": "## **Introduction**\n\nWelcome to the NBG Accounts sandbox API.\n\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-accounts-api-v1**\n\n The Accounts API allows you to access the list of user accounts and account information. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Accounts API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n -  The list of the private or public accounts at all banks or at a specific bank \n - The account information by accountID (response optionally moderated by the viewID) \n2.\tUpdate the label of an account \n3.\tCreate an account at a bank \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Account sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
 	"order": [],
 	"folders_order": [
@@ -59,7 +59,7 @@
 				"bank_id": "{{bank_id}}",
 				"account_id": "{{account_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
+			"url": "https://{{root_url}}/obp/my/banks/:bank_id/accounts/:account_id/beneficiaries",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -130,7 +130,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/account",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -203,7 +203,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/private",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/private",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -265,7 +265,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}",
-			"url": "https://{{env}}/{{account_api}}/sandbox",
+			"url": "https://{{root_url}}/sandbox",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -322,7 +322,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "https://{{env}}/{{account_api}}/obp/my/accounts",
+			"url": "https://{{root_url}}/obp/my/accounts",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -383,7 +383,7 @@
 				"bank_id": "{{bank_id}}",
 				"account_id": "{{account_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/my/banks/:bank_id/accounts/:account_id/account",
+			"url": "https://{{root_url}}/obp/my/banks/:bank_id/accounts/:account_id/account",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -452,7 +452,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -513,7 +513,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -583,7 +583,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/obp/banks/:bank_id/accounts/public",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/public",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -649,7 +649,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "",
-			"url": "https://{{env}}/{{account_api}}/obp/accounts/public",
+			"url": "https://{{root_url}}/obp/accounts/public",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -708,7 +708,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -778,7 +778,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{account_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
