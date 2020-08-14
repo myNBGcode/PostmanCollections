@@ -1,6 +1,6 @@
 {
 	"info": {
-		"name": "OCR Document API",
+		"name": "OCR Document API - v1.3",
 		"_postman_id": "b7e56ed7-6188-ea1c-72d2-1c7e453813ab",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -36,7 +36,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -85,7 +85,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -149,7 +149,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -180,7 +180,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -216,7 +216,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -244,7 +244,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client_Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
