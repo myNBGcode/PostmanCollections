@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "61d0a510-a95d-4d26-ba28-56abc5a6d09f",
-		"name": "IBank Pay Ecommerce Sandbox - Microsites",
+		"name": "IBank Pay Ecommerce Sandbox - Microsites - v1.2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -27,7 +27,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -64,7 +64,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -104,7 +104,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -133,7 +133,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -175,7 +175,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "sandbox_id",
@@ -213,7 +213,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "sandbox_id",
@@ -268,7 +268,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "sandbox_id",
@@ -315,7 +315,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -360,7 +360,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{client-id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
