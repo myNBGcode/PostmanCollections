@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "efd5cb5c-9420-4d62-9465-c59e6b1909b1",
-		"name": "iBankPay UseCase1 - Wallet Member Registration",
+		"name": "iBankPay UseCase1 - Wallet Member Registration - v1.7",
 		"description": "iBankPay UseCase1 - Register a wallet member",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -118,13 +118,13 @@
 							"raw": "{\r\n   \"product\": {\r\n\t\t\"id\": \"{{unregistered_barcode}}\",\r\n\t\t\"type\": \"{{type}}\"\r\n\t}\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}login/askProductCode/{{Client-Id}}",
+							"raw": "{{root_url}}login/askProductCode/{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"askProductCode",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -165,13 +165,13 @@
 							"raw": "{\r\n   \"product\": {\r\n\t\t\"id\": \"{{unregistered_barcode}}\",\r\n\t\t\"type\": \"{{type}}\"\r\n\t},\r\n\t\"verificationCode\": \"156325\",\r\n\t\"verificationCodeId\": \"224cb9df-4844-42f1-8bd3-c297ae080309\"\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}login/productlogin/{{Client-Id}}",
+							"raw": "{{root_url}}login/productlogin/{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"productlogin",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -209,7 +209,7 @@
 								},
 								{
 									"key": "Client-Id",
-									"value": "{{Client-Id}}",
+									"value": "{{client_id}}",
 									"type": "text"
 								}
 							]
@@ -708,14 +708,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{root_url}}login/fastLogin//{{Client-Id}}",
+							"raw": "{{root_url}}login/fastLogin//{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"fastLogin",
 								"",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -753,7 +753,7 @@
 								},
 								{
 									"key": "Client-Id",
-									"value": "{{Client-Id}}",
+									"value": "{{client_id}}",
 									"type": "text"
 								}
 							]
@@ -1057,13 +1057,13 @@
 							"raw": "{\r\n   \"product\": {\r\n\t\t\"id\": \"{{registered_barcode}}\",\r\n\t\t\"type\": \"{{type}}\"\r\n\t}\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}login/askProductCode/{{Client-Id}}",
+							"raw": "{{root_url}}login/askProductCode/{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"askProductCode",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -1104,13 +1104,13 @@
 							"raw": "{\r\n   \"product\": {\r\n\t\t\"id\": \"{{registered_barcode}}\",\r\n\t\t\"type\": \"{{type}}\"\r\n\t},\r\n\t\"verificationCode\": \"156325\",\r\n\t\"verificationCodeId\": \"224cb9df-4844-42f1-8bd3-c297ae080309\"\r\n}"
 						},
 						"url": {
-							"raw": "{{root_url}}login/productlogin/{{Client-Id}}",
+							"raw": "{{root_url}}login/productlogin/{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"productlogin",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -1148,7 +1148,7 @@
 								},
 								{
 									"key": "Client-Id",
-									"value": "{{Client-Id}}",
+									"value": "{{client_id}}",
 									"type": "text"
 								}
 							]
@@ -1650,14 +1650,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{root_url}}login/fastLogin//{{Client-Id}}",
+							"raw": "{{root_url}}login/fastLogin//{{client_id}}",
 							"host": [
 								"{{root_url}}login"
 							],
 							"path": [
 								"fastLogin",
 								"",
-								"{{Client-Id}}"
+								"{{client_id}}"
 							]
 						}
 					},
@@ -1695,7 +1695,7 @@
 								},
 								{
 									"key": "Client-Id",
-									"value": "{{Client-Id}}",
+									"value": "{{client_id}}",
 									"type": "text"
 								}
 							]
