@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "57812cd6-e9f2-4459-a23c-7b15580cb4bc",
-		"name": "EQueueing API",
+		"name": "EQueueing API v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -18,7 +18,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -44,7 +44,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -75,7 +75,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -102,7 +102,7 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -133,7 +133,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"value": "{{client_id}}"
 							}
 						],
@@ -172,7 +172,7 @@
 								"type": "text"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -263,7 +263,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -327,7 +327,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -391,7 +391,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -455,7 +455,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -519,7 +519,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -583,7 +583,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -647,7 +647,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -712,7 +712,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -781,7 +781,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -845,7 +845,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -909,7 +909,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -973,7 +973,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1042,7 +1042,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1107,7 +1107,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1172,7 +1172,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1237,7 +1237,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1302,7 +1302,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
@@ -1367,7 +1367,7 @@
 								"value": "application/json"
 							},
 							{
-								"key": "{{client_header_key}}",
+								"key": "Client-Id",
 								"type": "text",
 								"value": "{{client_id}}"
 							},
