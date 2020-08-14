@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "4adb1b74-0c1f-4ee3-8f6f-c6e8ce0a61ce",
-		"name": "IBAN TaxId Validation",
+		"name": "IBAN TaxId Validation - v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -42,7 +42,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -96,7 +96,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"url": {
@@ -152,7 +152,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -201,7 +201,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -260,7 +260,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
