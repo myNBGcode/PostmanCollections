@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "1b247376-0d21-49d8-8d02-3cd238ca6aa8",
-		"name": "iBankPay UseCase1 OAuth2 - Wallet Member Registration",
+		"name": "iBankPay UseCase1 OAuth2 - Wallet Member Registration - v1.7",
 		"description": "iBankPay UseCase1 - Register a wallet member",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -20,7 +20,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -44,7 +44,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -71,7 +71,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -98,7 +98,7 @@
 						"header": [
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -149,7 +149,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -219,7 +219,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -285,7 +285,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -347,7 +347,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -413,7 +413,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -475,7 +475,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -541,7 +541,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -618,7 +618,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -681,7 +681,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							},
 							{
 								"key": "sandbox_id",
@@ -746,7 +746,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -808,7 +808,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -885,7 +885,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							},
 							{
@@ -1000,7 +1000,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1093,7 +1093,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1184,7 +1184,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1271,7 +1271,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1362,7 +1362,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1449,7 +1449,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1540,7 +1540,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1642,7 +1642,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1730,7 +1730,7 @@
 							{
 								"key": "Client-Id",
 								"type": "text",
-								"value": "{{Client-Id}}"
+								"value": "{{client_id}}"
 							}
 						],
 						"body": {
@@ -1820,7 +1820,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -1907,7 +1907,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
@@ -2009,7 +2009,7 @@
 							},
 							{
 								"key": "Client-Id",
-								"value": "{{Client-Id}}",
+								"value": "{{client_id}}",
 								"type": "text"
 							}
 						],
