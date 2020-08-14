@@ -1,6 +1,6 @@
 {
 	"id": "abbeed26-4673-b753-c1f4-ab3a8a30de33",
-	"name": "Payments API Headers",
+	"name": "Payments API Headers - v1.3",
 	"description": "## **Introduction**\n\nWelcome to the NBG Payments sandbox API.\n This API version uses the OAuth 2.0 protocol for authentication and authorization. Please use the following scopes : **sandbox-obp-payments-api-v1**\n\n The Payments API allows you to make payments (transaction requests) and access the list of a user's account transaction requests. This sandbox API provides a standard RESTful interface to developers to facilitate their development of customer related applications. It is a flexible toolbox of data and services to test your ideas on a simulated dataset. \n\nHere you'll find details about our API and the complete list of the available endpoints. The Payments API is based on the Open Bank Project v3.0. This sandbox API provides a standard RESTful interface that enables applications to: \n1.\tRetrieve data about: \n - The list of the Transaction Request Types supported by a bank \n -  The list of a user's account transaction requests at a specific bank \n2.\tInitiate a Payment via creating a Transaction Request \n3.\tAnswer a Transaction Request Challenge \n\n**Getting Started with the Sandbox** \n\nSandboxes provide a simple way of testing APIs without any real impact, meaning that no personal or financial data is used. \n\n**Step One: Create your sandbox ** \n\nCreate a new Sandbox application by invoking the POST /sandbox. This call will generate a new Sandbox with a unique sandbox_id. \n\n**Important!** Before proceeding save the sandbox id you just created. \n\nWhen you create a sandbox, users and sandbox specific data are generated as sample data. \n\nEach sandbox created through NBG Payments sandbox API is compatible with other NBG Open Bank sandbox APIs. \n\nThe following HTTP **header parameters** are required for every call: \n1.\tsandbox_id \n2.\t request_id\n3.\t authorization \n\n**Sandbox Operations:** \n1.\tCreate a sandbox: POST /sandbox \n2.\tExport a sandbox: GET /sandbox/{sandbox_id}\n3.\tImport a sandbox: PUT /sandbox/{sandbox_id}\n4.\tDelete a sandbox: DELETE /sandbox/{sandbox_id}\n\n\n[Sandbox Postman Collection](https://github.com/i-bank/PostmanCollections/)  \n\nCreated by **NBG** \n\nSee more at https://www.nbg.gr/",
 	"order": [],
 	"folders_order": [
@@ -62,7 +62,7 @@
 			},
 			"tests": "",
 			"preRequestScript": "",
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -138,7 +138,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -209,7 +209,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests/expenses",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/sepa/transaction-requests/expenses",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -289,7 +289,7 @@
 				"view_id": "{{view_id}}",
 				"transaction_request_id": "{{transaction_request_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests/:transaction_request_id/details",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests/:transaction_request_id/details",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -373,7 +373,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/{{transaction_request_type}}/transaction-requests/{{transaction_request_id}}/challenge",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/{{transaction_request_type}}/transaction-requests/{{transaction_request_id}}/challenge",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -447,7 +447,7 @@
 			"dataMode": "raw",
 			"data": [],
 			"rawModeData": "{\r\n    \"sandbox_id\": \"{{sandbox_id}}\"\r\n}",
-			"url": "https://{{env}}/{{payment_api}}/sandbox",
+			"url": "https://{{root_url}}/sandbox",
 			"responses": [],
 			"pathVariableData": [],
 			"queryParams": [],
@@ -514,7 +514,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -593,7 +593,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-requests",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -666,7 +666,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -727,7 +727,7 @@
 			"pathVariables": {
 				"bank_id": "{{bank_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/transaction-request-types",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/transaction-request-types",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -794,7 +794,7 @@
 				"account_id": "{{account_id}}",
 				"view_id": "{{view_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests/expenses",
+			"url": "https://{{root_url}}/obp/banks/:bank_id/accounts/:account_id/:view_id/transaction-request-types/card/transaction-requests/expenses",
 			"responses": [],
 			"pathVariableData": [
 				{
@@ -871,7 +871,7 @@
 			"pathVariables": {
 				"sandbox_id": "{{sandbox_id}}"
 			},
-			"url": "https://{{env}}/{{payment_api}}/sandbox/:sandbox_id",
+			"url": "https://{{root_url}}/sandbox/:sandbox_id",
 			"responses": [],
 			"pathVariableData": [
 				{
