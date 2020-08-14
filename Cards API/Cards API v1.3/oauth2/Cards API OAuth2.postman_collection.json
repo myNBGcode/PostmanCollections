@@ -63,7 +63,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{env}}/{{card_api}}/obp/cards",
+							"raw": "https://{{root_url}}/obp/cards",
 							"protocol": "https",
 							"host": [
 								"{{env}}"
@@ -208,7 +208,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{env}}/{{card_api}}/obp/banks/:bank_id/cards/:card_type?={{client_id}}",
+							"raw": "https://{{root_url}}/obp/banks/:bank_id/cards/:card_type?={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"{{env}}"
@@ -374,7 +374,7 @@
 							"raw": "Sandbox name"
 						},
 						"url": {
-							"raw": "https://https:/{{env}}/{{card_api}}/sandbox",
+							"raw": "https://https:/{{root_url}}/sandbox",
 							"protocol": "https",
 							"host": [
 								"https:"
@@ -413,7 +413,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://https:/{{env}}/{{card_api}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
+							"raw": "https://https:/{{root_url}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"https:"
@@ -469,7 +469,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://https:/{{env}}/{{card_api}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
+							"raw": "https://https:/{{root_url}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"https:"
@@ -517,7 +517,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://https:/{{env}}/{{card_api}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
+							"raw": "https://https:/{{root_url}}/sandbox/:sandbox_id?Client-Id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"https:"
